@@ -19,9 +19,9 @@
 @property BOOL ssThirdLoginFlag;  //第三方登录flag
 @property (nonatomic, copy) NSString *ssCity;       //配送的城市
 @property (nonatomic, copy) NSString *ssLocAddress; //定位的详细地址
-@property (nonatomic, strong) SSAddressInfo *ssAddressInfo; //longitude latitude addressId
-
-@property (nonatomic, strong) SSSearchConditionInfo *ssSearchInfo;      //搜索配置条件
+//@property (nonatomic, strong) SSAddressInfo *ssAddressInfo; //longitude latitude addressId
+//
+//@property (nonatomic, strong) SSSearchConditionInfo *ssSearchInfo;      //搜索配置条件
 
 @property (nonatomic) NSDateFormatter *sharedDateFormatter;  //单例日期格式类型实例
 
