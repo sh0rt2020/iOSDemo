@@ -251,23 +251,6 @@ inline static NSString* B_baseForInterFace(NSString* interface, NSString* sign) 
     NSString *baseUrl = baseForInterFace(@"getActivityAndADInfo", sign);
     return baseUrl;
 }
-#pragma mark - 身边书报亭（附近）
-+ (NSString *)getStoreListWith:(NSDictionary *)filter page:(int)page {
-    NSString *longtitude = [SSToolsClass sharedTool].ssAddressInfo.ssLongitude;
-    NSString *latitude = [SSToolsClass sharedTool].ssAddressInfo.ssLatitude;
-    NSString *city = [SSToolsClass sharedTool].ssAddressInfo.ssCity;
-    NSString *filters = [self getFilterString:filter];
-    NSDictionary *pararmeter = @{@"longtitude":[self filter:longtitude], @"latitude":[self filter:latitude], @"city":[self filter:city], @"filter":filters, @"count":@"10", @"page":[NSString stringWithFormat:@"%d", page]};
-    
-    NSString *sign = [self getParameterSign:pararmeter];
-    NSString *baseUrl = baseForInterFace(@"getStoreList", sign);
-    NSMutableDictionary *urlPararmeter= [pararmeter mutableCopy];
-    urlPararmeter[@"city"] = [self encodeString:city num:2];
-    urlPararmeter[@"filter"] = [self encodeString:filters num:2];
-    NSString *url = [self getUrlWith:baseUrl parameters:urlPararmeter];
-    NSLog(@"身边书报亭：%@", url);
-    return url;
-}
 
 #pragma mark - 店铺刊物(搜索)列表
 /**
@@ -330,17 +313,7 @@ inline static NSString* B_baseForInterFace(NSString* interface, NSString* sign) 
     return url;
 }
 
-#pragma mark - 杂志榜单
 
-+ (NSString *)getMagazineList:(NSString *)catalogId page:(int)page distamce:(NSString *)distamce sortType:(NSString *)sortType {
-    NSMutableDictionary *paraDic = [NSMutableDictionary dictionaryWithObjectsAndKeys: @"20", @"count", [NSString stringWithFormat:@"%d", page], @"page", [self filter:sortType], @"sortType", [self filter:catalogId], @"categoryId", [self filter:distamce], @"distamce", [self filter:[SSToolsClass sharedTool].ssAddressInfo.ssLatitude], @"latitude", [self filter:[SSToolsClass sharedTool].ssAddressInfo.ssLongitude], @"longtitude", nil];
-    
-    NSString *sign = [self getParameterSign:paraDic];
-    NSString *baseUrl = baseForInterFace(@"getMagazineList", sign);
-    NSString *url = [self getUrlWith:baseUrl parameters:paraDic];
-    NSLog(@"刊物(搜索)列表：%@", url);
-    return url;
-}
 
 #pragma mark - 搜索配置（商品和店铺的筛选条件）
 + (NSString *)getSearchConfiguration {
@@ -702,86 +675,7 @@ inline static NSString* B_baseForInterFace(NSString* interface, NSString* sign) 
     return urlString;
 }
 
-#pragma mark - 生成订单信息
-+ (NSString *)getGenerateOrderInfoWith:(NSString *)userId
-                                 cartItems:(NSArray *)cartItems
-                                  city:(NSString *)city
-                                region:(NSString *)region
-                            street:(NSString *)street
-                              adressId:(NSString *)addressId {
-    
-    NSMutableArray *storeArr = [NSMutableArray array];
-    for (SSSubStoreInfo *subStoreInfo in cartItems) {
-        NSDictionary *storeDict = [NSDictionary dictionaryWithObjectsAndKeys:[self filter:subStoreInfo.ssStoreId], @"shopId", [self  filter:subStoreInfo.ssCartItems], @"cartItem", nil];
-        [storeArr addObject:storeDict];
-    }
-    
 
-    NSString *storeStr = [self getJSONStringWith:storeArr];
-    NSMutableDictionary *paraDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:[self filter:userId], @"userId", [self filter:storeStr], @"cartItems",  [self filter:city], @"city", [self filter:region], @"region", [self filter:addressId], @"addressId", [self filter:street], @"street",  nil];
-    NSString *sign = [self getParameterSign:paraDict];
-    NSString *baseString = baseForInterFace(@"generateOrderInfo", sign);
-    
-    [paraDict setObject:[self filter:[self encodeString:storeStr num:1]] forKey:@"cartItems"];
-    [paraDict setObject:[self filter:[self encodeString:city num:2]] forKey:@"city"];
-    [paraDict setObject:[self filter:[self encodeString:[[region componentsSeparatedByString:@" "] componentsJoinedByString:@""] num:2]] forKey:@"region"];
-    [paraDict setObject:[self filter:[self encodeString:[[street componentsSeparatedByString:@" "] componentsJoinedByString:@""] num:2]] forKey:@"street"];
-    
-//    NSString *urlString = [self encodeString:[self getUrlWith:baseString parameters:paraDict] num:1];
-    NSString *urlString = [self getUrlWith:baseString parameters:paraDict];
-    
-    NSLog(@"生成订单信息接口：%@", urlString);
-    return urlString;
-}
-
-#pragma mark - 提交订单
-+ (NSString *)getCreateOrderWith:(NSString *)userId
-                      cartsItems:(NSArray *)carts
-                       addressId:(NSString *)addressId
-                        cityName:(NSString *)cityName
-                    payAddressId:(NSString *)payAddressId   channel:(NSString*)channel
- {
-    
-    NSMutableArray *storeArr = [NSMutableArray array];
-    NSMutableArray *storeArrSec = [NSMutableArray array];
-    for (SSSubStoreInfo *subStoreInfo in carts) {
-        
-        NSMutableDictionary *storeDict = [NSMutableDictionary dictionary];
-        //发票抬头和发票id必须同时有  或者  同时没有
-        if (subStoreInfo.ssInvoice.ssInvoiceTitle&&subStoreInfo.ssInvoice.ssInvoiceTitle.length > 0&&subStoreInfo.ssInvoice.ssInvoicePTypeId&&subStoreInfo.ssInvoice.ssInvoicePTypeId.length > 0) {
-            storeDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:[self filter:subStoreInfo.ssStoreId], @"shopId", [self filter:subStoreInfo.ssCartItems], @"cartItem", [NSString stringWithFormat:@"%@|%@", [self filter:subStoreInfo.ssInvoice.ssInvoiceTitle], [self filter:subStoreInfo.ssInvoice.ssInvoicePTypeId]], @"invoice", [self filter:subStoreInfo.ssRemark], @"remark", nil];
-        } else {
-            storeDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:[self filter:subStoreInfo.ssStoreId], @"shopId", [self filter:subStoreInfo.ssCartItems], @"cartItem", [self filter:@""], @"invoice", [self filter:subStoreInfo.ssRemark], @"remark", nil];
-        }
-    
-        [storeArr addObject:storeDict];
-        
-//        [storeDict setObject:[self filter:[self encodeString:subStoreInfo.ssRemark num:1]] forKey:@"remark"];
-        if (subStoreInfo.ssInvoice.ssInvoiceTitle&&subStoreInfo.ssInvoice.ssInvoiceTitle.length > 0&&subStoreInfo.ssInvoice.ssInvoicePTypeId&&subStoreInfo.ssInvoice.ssInvoicePTypeId.length > 0) {
-            [storeDict setObject:[NSString stringWithFormat:@"%@|%@", [self filter:subStoreInfo.ssInvoice.ssInvoiceTitle], [self filter:subStoreInfo.ssInvoice.ssInvoicePTypeId]] forKey:@"invoice"];
-        } else {
-            [storeDict setObject:[self filter:@""] forKey:@"invoice"];
-        }
-        
-        [storeArrSec addObject:storeDict];
-    }
-    NSString *storeStr = [self getJSONStringWith:storeArr];
-    NSString *storeStrSec = [self getJSONStringWith:storeArrSec];
-    
-    NSMutableDictionary *paraDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:[self filter:userId], @"userId", [self filter:storeStr], @"cartItems", [self filter:addressId], @"addressId", [self filter:cityName], @"cityName", [self filter:payAddressId], @"payAddressId",[self filter:channel] , @"channel", nil];
-    NSString *sign = [self getParameterSign:paraDict];
-    NSString *baseString = baseForInterFace(@"createOrder", sign);
-    
-    [paraDict setObject:[self filter:[self encodeString:cityName num:1]] forKey:@"cityName"];
-    [paraDict setObject:[self filter:storeStrSec] forKey:@"cartItems"];
-    
-    
-    NSString *urlString = [self encodeString:[self getUrlWith:baseString parameters:paraDict] num:1];
-    
-    //    [BfdAgent order:[[SSUrlAPI alloc] init] lst:[NSArray arrayWithObject:carts] orderId:nil options:nil];
-    NSLog(@"提交订单接口：%@", urlString);
-    return urlString;
-}
 
 #pragma mark - 杂志零售列表
 + (NSString *)getRetailListWithcategoryId:(NSString *)categoryId

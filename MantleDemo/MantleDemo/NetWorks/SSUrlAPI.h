@@ -33,14 +33,6 @@
  */
 + (NSString *)getHomeActivityAndADInfo;
 
-#pragma mark - 身边书报亭（附近）
-/**
- *  身边书报亭（附近）
- *
- *  @return 接口
- */
-+ (NSString *)getStoreListWith:(NSDictionary *)filter page:(int)page;
-
 #pragma mark - 店铺基本信息
 /**
  *  店铺基本信息
