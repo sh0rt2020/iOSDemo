@@ -2,6 +2,7 @@
 a set of iOS demo
 
 1、Mantle
+
 	功能：
 	MTLModel作为基类，提供对象的encode和decode操作，通过RunTime特性来获取对象属性的相关信息；
 	MTLJSONAdapter作为适配器，主要负责Model和Json数据的互相转换；

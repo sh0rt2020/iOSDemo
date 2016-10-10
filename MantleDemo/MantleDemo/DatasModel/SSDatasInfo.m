@@ -48,51 +48,6 @@
 
 @end
 
-
-//活动
-@implementation SSActADInfo
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-    
-    return @{};
-}
-@end
-
-//
-@implementation SSStoreDeliveryInfo
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-    return @{};
-}
-
-@end
-
-//
-@implementation SSDeliveryStoreInfo
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-    return @{};
-}
-
-@end
-
-//杂志
-@implementation SSGiftPaperInfo
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-    return @{};
-}
-@end
-
-
-//订阅送礼品
-@implementation SSGiftInfo
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-    return @{};
-}
-@end
-
 #pragma mark - MantleDemo
 @implementation SSCategoryInfo
 
@@ -103,4 +58,34 @@
              @"ssType":@"Type"};
 }
 
+@end
+
+//杂志
+@implementation SSGiftPaperInfo
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+    return @{@"ssPaperId":@"paperId",
+             @"ssPicture":@"pictue",
+             @"ssTitle":@"title",
+             @"ssPrice":@"price",
+             @"ssSpiderPrice":@"spiderPrice",
+             @"ssPeriod":@"period",
+             @"ssPricePeriod":@"pricePeriod",
+             @"":@""};
+}
+
+//对ssGiftFlag进行类型转换
++ (NSValueTransformer *)ssGiftFlagJSONTransformerForKey:(NSString *)key {
+    
+    return nil;
+}
+@end
+
+
+//订阅送礼品
+@implementation SSGiftInfo
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+    return @{};
+}
 @end
