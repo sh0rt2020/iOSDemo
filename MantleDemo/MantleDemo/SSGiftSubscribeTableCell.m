@@ -40,7 +40,7 @@
     [self.ssGiftSubView addSubview:self.ssGiftV];
 }
 
-- (void)configCellWithData:(SSPublicationInfo *)info {
+- (void)configCellWithData:(SSGiftPaperInfo *)info {
     
     self.ssImgView.layer.shadowOffset = CGSizeMake(0, 0);
     self.ssImgView.layer.shadowColor = [SSToolsClass hexColor:@"bbbbbb"].CGColor;

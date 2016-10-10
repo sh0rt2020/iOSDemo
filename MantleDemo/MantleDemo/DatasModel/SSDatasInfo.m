@@ -71,14 +71,20 @@
              @"ssSpiderPrice":@"spiderPrice",
              @"ssPeriod":@"period",
              @"ssPricePeriod":@"pricePeriod",
-             @"":@""};
+             @"ssGiftFlag":@"giftflag",
+             @"ssGifts":@"gifts"};
 }
 
 //对ssGiftFlag进行类型转换
-+ (NSValueTransformer *)ssGiftFlagJSONTransformerForKey:(NSString *)key {
-    
-    return nil;
++ (NSValueTransformer *)ssGiftFlagJSONTransformer {
+    return [NSValueTransformer valueTransformerForName:MTLBooleanValueTransformerName];
 }
+
+//+ (NSValueTransformer *)ssGiftsJSONTransformer {
+//    return [MTLValueTransformer transformerUsingForwardBlock:^id(NSArray *gifts, BOOL *success, NSError *__autoreleasing *error) {
+//        return <#expression#>
+//    }];
+//}
 @end
 
 
@@ -86,6 +92,27 @@
 @implementation SSGiftInfo
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
-    return @{};
+    return @{@"ssGiftTitle":@"gifttitle",
+             @"ssGiftPicture":@"giftpicture",
+             @"ssGiftType":@"gifttype"};
+}
+
+
++ (NSValueTransformer *)ssGiftTitleJSONTransformer {
+    return [MTLValueTransformer transformerUsingForwardBlock:^id(NSArray *gifts, BOOL *success, NSError *__autoreleasing *error) {
+        return [gifts.firstObject valueForKey:@"gifttitle"];
+    }];
+}
+
++ (NSValueTransformer *)ssGiftPictureJSONTransformer {
+    return [MTLValueTransformer transformerUsingForwardBlock:^id(NSArray *gifts, BOOL *success, NSError *__autoreleasing *error) {
+        return [gifts.firstObject valueForKey:@"giftpicture"];
+    }];
+}
+
++ (NSValueTransformer *)ssGiftTypeJSONTransformer {
+    return [MTLValueTransformer transformerUsingForwardBlock:^id(NSArray *gifts, BOOL *success, NSError *__autoreleasing *error) {
+        return [gifts.firstObject valueForKey:@"gifttype"];
+    }];
 }
 @end

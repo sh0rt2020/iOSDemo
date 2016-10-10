@@ -13,5 +13,5 @@
 @interface SSGiftSubscribeTableCell : UITableViewCell
 
 @property (strong, nonatomic) SSGiftScrollView *ssGiftV;
-- (void)configCellWithData:(SSPublicationInfo *)info;
+- (void)configCellWithData:(SSGiftPaperInfo *)info;
 @end

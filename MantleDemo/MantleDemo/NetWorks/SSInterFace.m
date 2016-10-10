@@ -39,9 +39,9 @@ static SSInterFace *requestInterFace;
                                    success:(SSDataPackageSuccess)success
                                    failure:(SSDataPackageFailure)failure {
     [self requestURLWithGET:urlStr cacheStrategy:NETWORK_CACHE_TYPE_SYSTEM success:^(id responseData) {
-//        NSArray *result = [SSDataParse parseSubscribeGiftListWithData:responseData];
-        
-        NSArray *result = nil;
+
+        NSError *err = nil;
+        NSArray *result = [MTLJSONAdapter modelsOfClass:SSGiftPaperInfo.class fromJSONArray:responseData[@"papers"] error:&err];
         if (result) {
             success(result);
         }

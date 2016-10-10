@@ -38,11 +38,11 @@
 }
 
 - (void)setSsGiftInfo:(SSGiftInfo *)ssGiftInfo {
-    [giftImage sd_setImageWithURL:[NSURL URLWithString:ssGiftInfo.ssPicture] placeholderImage:[UIImage imageNamed:@"default"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+    [giftImage sd_setImageWithURL:[NSURL URLWithString:ssGiftInfo.ssGiftPicture] placeholderImage:[UIImage imageNamed:@"default"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         if (image) {
             giftImage.contentMode = UIViewContentModeScaleToFill;
         }
     }];
-    giftTitle.text = ssGiftInfo.ssName;
+    giftTitle.text = ssGiftInfo.ssGiftTitle;
 }
 @end
