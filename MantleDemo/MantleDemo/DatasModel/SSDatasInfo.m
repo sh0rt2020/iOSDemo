@@ -77,7 +77,7 @@
 @end
 
 //杂志
-@implementation SSPublicationInfo
+@implementation SSGiftPaperInfo
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     return @{};
@@ -85,6 +85,13 @@
 @end
 
 
+//订阅送礼品
+@implementation SSGiftInfo
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+    return @{};
+}
+@end
 
 #pragma mark - MantleDemo
 @implementation SSCategoryInfo
@@ -96,13 +103,4 @@
              @"ssType":@"Type"};
 }
 
-@end
-
-
-//订阅送礼品
-@implementation SSGiftInfo
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-    return @{};
-}
 @end
