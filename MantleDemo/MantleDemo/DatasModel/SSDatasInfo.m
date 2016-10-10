@@ -48,7 +48,7 @@
 
 @end
 
-#pragma mark - MantleDemo
+#pragma mark - 礼品分类信息
 @implementation SSCategoryInfo
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -57,10 +57,9 @@
              @"ssName":@"name",
              @"ssType":@"Type"};
 }
-
 @end
 
-//杂志
+#pragma mark - 送礼的杂志信息
 @implementation SSGiftPaperInfo
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -80,39 +79,22 @@
     return [NSValueTransformer valueTransformerForName:MTLBooleanValueTransformerName];
 }
 
-//+ (NSValueTransformer *)ssGiftsJSONTransformer {
-//    return [MTLValueTransformer transformerUsingForwardBlock:^id(NSArray *gifts, BOOL *success, NSError *__autoreleasing *error) {
-//        return <#expression#>
-//    }];
-//}
+//嵌套数组
++ (NSValueTransformer *)ssGiftsJSONTransformer {
+    return [MTLValueTransformer transformerUsingForwardBlock:^id(NSArray *gifts, BOOL *success, NSError *__autoreleasing *error) {
+        NSError *err = nil;
+        return [MTLJSONAdapter modelsOfClass:SSGiftInfo.class fromJSONArray:gifts error:&err];
+    }];
+}
 @end
 
 
-//订阅送礼品
+#pragma mark - 礼品信息
 @implementation SSGiftInfo
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     return @{@"ssGiftTitle":@"gifttitle",
              @"ssGiftPicture":@"giftpicture",
              @"ssGiftType":@"gifttype"};
-}
-
-
-+ (NSValueTransformer *)ssGiftTitleJSONTransformer {
-    return [MTLValueTransformer transformerUsingForwardBlock:^id(NSArray *gifts, BOOL *success, NSError *__autoreleasing *error) {
-        return [gifts.firstObject valueForKey:@"gifttitle"];
-    }];
-}
-
-+ (NSValueTransformer *)ssGiftPictureJSONTransformer {
-    return [MTLValueTransformer transformerUsingForwardBlock:^id(NSArray *gifts, BOOL *success, NSError *__autoreleasing *error) {
-        return [gifts.firstObject valueForKey:@"giftpicture"];
-    }];
-}
-
-+ (NSValueTransformer *)ssGiftTypeJSONTransformer {
-    return [MTLValueTransformer transformerUsingForwardBlock:^id(NSArray *gifts, BOOL *success, NSError *__autoreleasing *error) {
-        return [gifts.firstObject valueForKey:@"gifttype"];
-    }];
 }
 @end
