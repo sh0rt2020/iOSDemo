@@ -58,7 +58,7 @@
 /*
  获取缓存大小
  */
-- (float)checkTmpSize:(NSString*)key;
+//- (float)checkTmpSize:(NSString*)key;
 /*
  获取缓存URLString
  常常在网络连接中使用

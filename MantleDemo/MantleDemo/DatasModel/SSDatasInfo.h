@@ -47,7 +47,7 @@
 @property (nonatomic, copy) NSString *ssSpiderPrice;  //蜘蛛价
 @property (nonatomic, copy) NSString *ssPeriod;  //期数
 @property (nonatomic, copy) NSString *ssPricePeriod;  //定期对应的价格
-@property (nonatomic) BOOL ssGiftFlag;  //是否有礼品
+@property (nonatomic, copy) NSString *ssGiftFlag;  //是否有礼品
 @property (nonatomic) NSArray *ssGifts;  //礼品数组
 @end
 

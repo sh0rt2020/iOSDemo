@@ -6,6 +6,8 @@
 //  Copyright (c) 2015年 spider. All rights reserved.
 //
 
+#define IMG_SERVER_ADDRESS @"http://pic.spider.com.cn/pic/"
+
 #import "SSGiftView.h"
 #import "SSToolsClass.h"
 #import "UIImageView+WebCache.h"
@@ -38,7 +40,7 @@
 }
 
 - (void)setSsGiftInfo:(SSGiftInfo *)ssGiftInfo {
-    [giftImage sd_setImageWithURL:[NSURL URLWithString:ssGiftInfo.ssGiftPicture] placeholderImage:[UIImage imageNamed:@"default"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+    [giftImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", IMG_SERVER_ADDRESS, ssGiftInfo.ssGiftPicture]] placeholderImage:[UIImage imageNamed:@"default"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         if (image) {
             giftImage.contentMode = UIViewContentModeScaleToFill;
         }

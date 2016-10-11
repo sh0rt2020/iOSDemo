@@ -64,20 +64,20 @@
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     return @{@"ssPaperId":@"paperId",
-             @"ssPicture":@"pictue",
+             @"ssPicture":@"picture",
              @"ssTitle":@"title",
              @"ssPrice":@"price",
              @"ssSpiderPrice":@"spiderPrice",
-             @"ssPeriod":@"period",
+             @"ssPeriod":@"peroid",
              @"ssPricePeriod":@"pricePeriod",
              @"ssGiftFlag":@"giftflag",
              @"ssGifts":@"gifts"};
 }
 
 //对ssGiftFlag进行类型转换
-+ (NSValueTransformer *)ssGiftFlagJSONTransformer {
-    return [NSValueTransformer valueTransformerForName:MTLBooleanValueTransformerName];
-}
+//+ (NSValueTransformer *)ssGiftFlagJSONTransformer {
+//    return [NSValueTransformer valueTransformerForName:MTLBooleanValueTransformerName];
+//}
 
 //嵌套数组
 + (NSValueTransformer *)ssGiftsJSONTransformer {

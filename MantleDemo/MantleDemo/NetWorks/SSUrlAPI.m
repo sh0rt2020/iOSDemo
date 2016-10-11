@@ -54,29 +54,7 @@ inline static NSString* baseForInterFace(NSString* interface, NSString* sign) {
     return keyString;
 }
 
-//老接口拼接不带app20
-inline static NSString* baseForInterFaceIII(NSString* interface, NSString* sign) {
-    
-    NSString *keyString;
-    keyString = [NSString stringWithFormat:@"%@/%@.action?key=%@&sign=%@&fileType=json&platformId=1", SERVER_ADDRESS,interface,SSAPI_KEY,sign];
-    return keyString;
-}
 
-//B端用户注册环信账号
-inline static NSString* baseForInterFaceII(NSString* interface, NSString* sign) {
-    
-    NSString *keyString;
-    keyString = [NSString stringWithFormat:@"%@/%@.action?key=%@&sign=%@&fileType=json&platform=1", IM_ADDRESS,interface,SSTHIRD_KEY,sign];
-    return keyString;
-}
-
-//B端的
-inline static NSString* B_baseForInterFace(NSString* interface, NSString* sign) {
-    
-    NSString *keyString;
-    keyString = [NSString stringWithFormat:@"%@/appmerch20/%@.action?key=%@&sign=%@&fileType=json&platformId=1", SERVER_ADDRESS,interface,SSAPI_KEY,sign];
-    return keyString;
-}
 
 
 

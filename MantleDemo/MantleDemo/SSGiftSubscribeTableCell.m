@@ -53,7 +53,7 @@
     
     NSArray *tmpArr = [NSArray arrayWithObjects: [NSDictionary dictionaryWithObjectsAndKeys:@"全", @"name", @"f", @"period", @"ff7d7d", @"color", nil], [NSDictionary dictionaryWithObjectsAndKeys:@"半", @"name", @"h", @"period", @"efcb22", @"color", nil], [NSDictionary dictionaryWithObjectsAndKeys:@"季", @"name", @"j", @"period", @"59d03e", @"color", nil], [NSDictionary dictionaryWithObjectsAndKeys:@"月", @"name", @"s", @"period", @"42cafc", @"color", nil], nil];
     self.ssImgView.contentMode = UIViewContentModeCenter;
-    [self.ssImgView sd_setImageWithURL:[NSURL URLWithString:info.ssPicture] placeholderImage:ImageNamed(@"default") completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+    [self.ssImgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", IMG_SERVER_ADDRESS, info.ssPicture]] placeholderImage:ImageNamed(@"default") completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         if (image) {
             self.ssImgView.contentMode = UIViewContentModeScaleToFill;
         }
