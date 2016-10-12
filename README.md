@@ -14,3 +14,10 @@ a set of iOS demo
 	Mantle对Json数据的容错性支持相对比较好；
 	使用Mantle的过程中需要将MTLModel作为基类，解耦性做得稍差；
 	和MJExtensions、YYModel相比，Mantle的解析性能最差，YYModel的性能最好；
+
+2、精简ViewController中的代码
+	
+	精简VC中的代码，分离出交互逻辑和业务逻辑，方便后期项目的扩展和维护；
+	主要分离UITableView的代理和数据源方法；
+	涉及到UITableView的页码管理代码；
+	VC中的代码更简洁；
