@@ -1,0 +1,519 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3BEA31061DADEA04004402B3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEA31051DADEA04004402B3 /* main.m */; };
+		3BEA31091DADEA04004402B3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEA31081DADEA04004402B3 /* AppDelegate.m */; };
+		3BEA310C1DADEA04004402B3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEA310B1DADEA04004402B3 /* ViewController.m */; };
+		3BEA310F1DADEA04004402B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BEA310D1DADEA04004402B3 /* Main.storyboard */; };
+		3BEA31111DADEA04004402B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BEA31101DADEA04004402B3 /* Assets.xcassets */; };
+		3BEA31141DADEA04004402B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BEA31121DADEA04004402B3 /* LaunchScreen.storyboard */; };
+		3BEA311F1DADEA04004402B3 /* SimplifyVCDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEA311E1DADEA04004402B3 /* SimplifyVCDemoTests.m */; };
+		3BEA312A1DADEA04004402B3 /* SimplifyVCDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEA31291DADEA04004402B3 /* SimplifyVCDemoUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3BEA311B1DADEA04004402B3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3BEA30F91DADEA04004402B3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3BEA31001DADEA04004402B3;
+			remoteInfo = SimplifyVCDemo;
+		};
+		3BEA31261DADEA04004402B3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3BEA30F91DADEA04004402B3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3BEA31001DADEA04004402B3;
+			remoteInfo = SimplifyVCDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3BEA31011DADEA04004402B3 /* SimplifyVCDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimplifyVCDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BEA31051DADEA04004402B3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3BEA31071DADEA04004402B3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		3BEA31081DADEA04004402B3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		3BEA310A1DADEA04004402B3 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		3BEA310B1DADEA04004402B3 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		3BEA310E1DADEA04004402B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3BEA31101DADEA04004402B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3BEA31131DADEA04004402B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3BEA31151DADEA04004402B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3BEA311A1DADEA04004402B3 /* SimplifyVCDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimplifyVCDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BEA311E1DADEA04004402B3 /* SimplifyVCDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SimplifyVCDemoTests.m; sourceTree = "<group>"; };
+		3BEA31201DADEA04004402B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3BEA31251DADEA04004402B3 /* SimplifyVCDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimplifyVCDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BEA31291DADEA04004402B3 /* SimplifyVCDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SimplifyVCDemoUITests.m; sourceTree = "<group>"; };
+		3BEA312B1DADEA04004402B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3BEA30FE1DADEA04004402B3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BEA31171DADEA04004402B3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BEA31221DADEA04004402B3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3BEA30F81DADEA04004402B3 = {
+			isa = PBXGroup;
+			children = (
+				3BEA31031DADEA04004402B3 /* SimplifyVCDemo */,
+				3BEA311D1DADEA04004402B3 /* SimplifyVCDemoTests */,
+				3BEA31281DADEA04004402B3 /* SimplifyVCDemoUITests */,
+				3BEA31021DADEA04004402B3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3BEA31021DADEA04004402B3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3BEA31011DADEA04004402B3 /* SimplifyVCDemo.app */,
+				3BEA311A1DADEA04004402B3 /* SimplifyVCDemoTests.xctest */,
+				3BEA31251DADEA04004402B3 /* SimplifyVCDemoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3BEA31031DADEA04004402B3 /* SimplifyVCDemo */ = {
+			isa = PBXGroup;
+			children = (
+				3BEA31071DADEA04004402B3 /* AppDelegate.h */,
+				3BEA31081DADEA04004402B3 /* AppDelegate.m */,
+				3BEA310A1DADEA04004402B3 /* ViewController.h */,
+				3BEA310B1DADEA04004402B3 /* ViewController.m */,
+				3BEA310D1DADEA04004402B3 /* Main.storyboard */,
+				3BEA31101DADEA04004402B3 /* Assets.xcassets */,
+				3BEA31121DADEA04004402B3 /* LaunchScreen.storyboard */,
+				3BEA31151DADEA04004402B3 /* Info.plist */,
+				3BEA31041DADEA04004402B3 /* Supporting Files */,
+			);
+			path = SimplifyVCDemo;
+			sourceTree = "<group>";
+		};
+		3BEA31041DADEA04004402B3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3BEA31051DADEA04004402B3 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3BEA311D1DADEA04004402B3 /* SimplifyVCDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				3BEA311E1DADEA04004402B3 /* SimplifyVCDemoTests.m */,
+				3BEA31201DADEA04004402B3 /* Info.plist */,
+			);
+			path = SimplifyVCDemoTests;
+			sourceTree = "<group>";
+		};
+		3BEA31281DADEA04004402B3 /* SimplifyVCDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3BEA31291DADEA04004402B3 /* SimplifyVCDemoUITests.m */,
+				3BEA312B1DADEA04004402B3 /* Info.plist */,
+			);
+			path = SimplifyVCDemoUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3BEA31001DADEA04004402B3 /* SimplifyVCDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3BEA312E1DADEA04004402B3 /* Build configuration list for PBXNativeTarget "SimplifyVCDemo" */;
+			buildPhases = (
+				3BEA30FD1DADEA04004402B3 /* Sources */,
+				3BEA30FE1DADEA04004402B3 /* Frameworks */,
+				3BEA30FF1DADEA04004402B3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SimplifyVCDemo;
+			productName = SimplifyVCDemo;
+			productReference = 3BEA31011DADEA04004402B3 /* SimplifyVCDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3BEA31191DADEA04004402B3 /* SimplifyVCDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3BEA31311DADEA04004402B3 /* Build configuration list for PBXNativeTarget "SimplifyVCDemoTests" */;
+			buildPhases = (
+				3BEA31161DADEA04004402B3 /* Sources */,
+				3BEA31171DADEA04004402B3 /* Frameworks */,
+				3BEA31181DADEA04004402B3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3BEA311C1DADEA04004402B3 /* PBXTargetDependency */,
+			);
+			name = SimplifyVCDemoTests;
+			productName = SimplifyVCDemoTests;
+			productReference = 3BEA311A1DADEA04004402B3 /* SimplifyVCDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3BEA31241DADEA04004402B3 /* SimplifyVCDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3BEA31341DADEA04004402B3 /* Build configuration list for PBXNativeTarget "SimplifyVCDemoUITests" */;
+			buildPhases = (
+				3BEA31211DADEA04004402B3 /* Sources */,
+				3BEA31221DADEA04004402B3 /* Frameworks */,
+				3BEA31231DADEA04004402B3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3BEA31271DADEA04004402B3 /* PBXTargetDependency */,
+			);
+			name = SimplifyVCDemoUITests;
+			productName = SimplifyVCDemoUITests;
+			productReference = 3BEA31251DADEA04004402B3 /* SimplifyVCDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3BEA30F91DADEA04004402B3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = com.sun.mantledemo;
+				TargetAttributes = {
+					3BEA31001DADEA04004402B3 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					3BEA31191DADEA04004402B3 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 3BEA31001DADEA04004402B3;
+					};
+					3BEA31241DADEA04004402B3 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 3BEA31001DADEA04004402B3;
+					};
+				};
+			};
+			buildConfigurationList = 3BEA30FC1DADEA04004402B3 /* Build configuration list for PBXProject "SimplifyVCDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3BEA30F81DADEA04004402B3;
+			productRefGroup = 3BEA31021DADEA04004402B3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3BEA31001DADEA04004402B3 /* SimplifyVCDemo */,
+				3BEA31191DADEA04004402B3 /* SimplifyVCDemoTests */,
+				3BEA31241DADEA04004402B3 /* SimplifyVCDemoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3BEA30FF1DADEA04004402B3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BEA31141DADEA04004402B3 /* LaunchScreen.storyboard in Resources */,
+				3BEA31111DADEA04004402B3 /* Assets.xcassets in Resources */,
+				3BEA310F1DADEA04004402B3 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BEA31181DADEA04004402B3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BEA31231DADEA04004402B3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3BEA30FD1DADEA04004402B3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BEA310C1DADEA04004402B3 /* ViewController.m in Sources */,
+				3BEA31091DADEA04004402B3 /* AppDelegate.m in Sources */,
+				3BEA31061DADEA04004402B3 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BEA31161DADEA04004402B3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BEA311F1DADEA04004402B3 /* SimplifyVCDemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BEA31211DADEA04004402B3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BEA312A1DADEA04004402B3 /* SimplifyVCDemoUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3BEA311C1DADEA04004402B3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3BEA31001DADEA04004402B3 /* SimplifyVCDemo */;
+			targetProxy = 3BEA311B1DADEA04004402B3 /* PBXContainerItemProxy */;
+		};
+		3BEA31271DADEA04004402B3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3BEA31001DADEA04004402B3 /* SimplifyVCDemo */;
+			targetProxy = 3BEA31261DADEA04004402B3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3BEA310D1DADEA04004402B3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3BEA310E1DADEA04004402B3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3BEA31121DADEA04004402B3 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3BEA31131DADEA04004402B3 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3BEA312C1DADEA04004402B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		3BEA312D1DADEA04004402B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3BEA312F1DADEA04004402B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SimplifyVCDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sun.SimplifyVCDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3BEA31301DADEA04004402B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SimplifyVCDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sun.SimplifyVCDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		3BEA31321DADEA04004402B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SimplifyVCDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sun.SimplifyVCDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SimplifyVCDemo.app/SimplifyVCDemo";
+			};
+			name = Debug;
+		};
+		3BEA31331DADEA04004402B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SimplifyVCDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sun.SimplifyVCDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SimplifyVCDemo.app/SimplifyVCDemo";
+			};
+			name = Release;
+		};
+		3BEA31351DADEA04004402B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SimplifyVCDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sun.SimplifyVCDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = SimplifyVCDemo;
+			};
+			name = Debug;
+		};
+		3BEA31361DADEA04004402B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SimplifyVCDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sun.SimplifyVCDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = SimplifyVCDemo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3BEA30FC1DADEA04004402B3 /* Build configuration list for PBXProject "SimplifyVCDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BEA312C1DADEA04004402B3 /* Debug */,
+				3BEA312D1DADEA04004402B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3BEA312E1DADEA04004402B3 /* Build configuration list for PBXNativeTarget "SimplifyVCDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BEA312F1DADEA04004402B3 /* Debug */,
+				3BEA31301DADEA04004402B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		3BEA31311DADEA04004402B3 /* Build configuration list for PBXNativeTarget "SimplifyVCDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BEA31321DADEA04004402B3 /* Debug */,
+				3BEA31331DADEA04004402B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		3BEA31341DADEA04004402B3 /* Build configuration list for PBXNativeTarget "SimplifyVCDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BEA31351DADEA04004402B3 /* Debug */,
+				3BEA31361DADEA04004402B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3BEA30F91DADEA04004402B3 /* Project object */;
+}
