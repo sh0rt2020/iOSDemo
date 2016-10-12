@@ -60,32 +60,54 @@ static NSString const *jsonError = @"蜘蛛君偷懒了，稍后试试吧";
             return;
         }
     }
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     //设置超时时间
     [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
     manager.requestSerializer.timeoutInterval = 10.f;
     [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
-    
-    [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager GET:url parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         
-         NSLog(@"get request success");
-         [self dataSuccess:cacheStrategy key:key request:operation success:success failure:failure];
-     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-             //请求失败后，判断请求类型，是否从缓存中提取数据
-         SSErrorInfo *errorInfo = [[SSErrorInfo alloc] init];
-         errorInfo.message = NER_ERROR;
-             NSLog(@"%@", NER_ERROR);
-             if (cacheStrategy == NETWORK_CACHE_TYPE_SYSTEM) {
-                 if ([self connectWithNetWorkType:cacheStrategy key:key success:success]) {
-                     return;
-                 }
-                 failure(errorInfo);
-             } else {
-                 failure(errorInfo);
-             }
-             NSLog(@"下载错误 is %@",error);
-         }];
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"get request success");
+        [self dataSuccess:cacheStrategy key:key response:responseObject request:task success:success failure:failure];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        //请求失败后，判断请求类型，是否从缓存中提取数据
+        SSErrorInfo *errorInfo = [[SSErrorInfo alloc] init];
+        errorInfo.message = NER_ERROR;
+        NSLog(@"%@", NER_ERROR);
+        if (cacheStrategy == NETWORK_CACHE_TYPE_SYSTEM) {
+            if ([self connectWithNetWorkType:cacheStrategy key:key success:success]) {
+                return;
+            }
+            failure(errorInfo);
+        } else {
+            failure(errorInfo);
+        }
+        NSLog(@"下载错误 is %@",error);
+    }];
+    
+    
+//    [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        
+//         NSLog(@"get request success");
+//         [self dataSuccess:cacheStrategy key:key request:operation success:success failure:failure];
+//     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//             //请求失败后，判断请求类型，是否从缓存中提取数据
+//         SSErrorInfo *errorInfo = [[SSErrorInfo alloc] init];
+//         errorInfo.message = NER_ERROR;
+//             NSLog(@"%@", NER_ERROR);
+//             if (cacheStrategy == NETWORK_CACHE_TYPE_SYSTEM) {
+//                 if ([self connectWithNetWorkType:cacheStrategy key:key success:success]) {
+//                     return;
+//                 }
+//                 failure(errorInfo);
+//             } else {
+//                 failure(errorInfo);
+//             }
+//             NSLog(@"下载错误 is %@",error);
+//         }];
 }
 
 // 网络请求 get 请求
@@ -116,7 +138,8 @@ static NSString const *jsonError = @"蜘蛛君偷懒了，稍后试试吧";
             return;
         }
     }
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     //    NSDictionary *params = @{@"page" : @"2"};//表示第几页
     //设置超时时间
@@ -124,12 +147,21 @@ static NSString const *jsonError = @"蜘蛛君偷懒了，稍后试试吧";
     manager.requestSerializer.timeoutInterval = 10.f;
     [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
     [manager.operationQueue cancelAllOperations];
-    [manager POST:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager POST:url parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"ADFASDFAsdf111111111");
-        [self dataSuccess:cacheStrategy key:url request:operation success:success failure:failure];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self dataSuccess:cacheStrategy key:url response:responseObject request:task success:success failure:failure];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         failure(NER_ERROR);
     }];
+    
+    
+//    [manager POST:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        NSLog(@"ADFASDFAsdf111111111");
+//        [self dataSuccess:cacheStrategy key:url request:operation success:success failure:failure];
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        failure(NER_ERROR);
+//    }];
 }
 
 // 上传图片 post 请求
@@ -138,7 +170,7 @@ static NSString const *jsonError = @"蜘蛛君偷懒了，稍后试试吧";
              cacheStrategy:(NETWORK_CACHE_TYPE)cacheStrategy
                    success:(SSDataPackageSuccess)success
                    failure:(SSDataPackageFailure)failure{
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     NSMutableDictionary *userDic = [NSMutableDictionary dictionary];
@@ -152,17 +184,31 @@ static NSString const *jsonError = @"蜘蛛君偷懒了，稍后试试吧";
             [userDic setObject:params[key] forKey:key];
         }
     }
-    [manager POST:url parameters:userDic constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    
+    [manager POST:url parameters:userDic constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         formatter.dateFormat = @"yyyyMMddHHmmss";
         NSString *str = [formatter stringFromDate:[NSDate date]];
         NSString *fileName = [NSString stringWithFormat:@"%@.jpg", str];
         [formData appendPartWithFileData:dataDic[@"header"] name:@"myfiles" fileName:fileName mimeType:@"image/jpeg"];
-    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [self dataSuccess:cacheStrategy key:url request:operation success:success failure:failure];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } progress:^(NSProgress * _Nonnull uploadProgress) {
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        [self dataSuccess:cacheStrategy key:url response:responseObject request:task success:success failure:failure];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         failure(NER_ERROR);
     }];
+    
+//    [manager POST:url parameters:userDic constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+//        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+//        formatter.dateFormat = @"yyyyMMddHHmmss";
+//        NSString *str = [formatter stringFromDate:[NSDate date]];
+//        NSString *fileName = [NSString stringWithFormat:@"%@.jpg", str];
+//        [formData appendPartWithFileData:dataDic[@"header"] name:@"myfiles" fileName:fileName mimeType:@"image/jpeg"];
+//    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        [self dataSuccess:cacheStrategy key:url request:operation success:success failure:failure];
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        failure(NER_ERROR);
+//    }];
 }
 
 //获取缓存 的 key
@@ -213,17 +259,18 @@ static NSString const *jsonError = @"蜘蛛君偷懒了，稍后试试吧";
 //网络请求成功返回的数据处理（包括解析、缓存）
 - (void)dataSuccess:(NETWORK_CACHE_TYPE)cacheType
                 key:(NSString *)key
-            request:(AFHTTPRequestOperation *)request
+           response:(id)response
+            request:(NSURLSessionDataTask *)task
             success:(SSDataPackageSuccess)success
             failure:(SSDataPackageFailure)failure{
     
-    NSString *queueName = [NSString stringWithFormat:@"request_MyQueue%@",request.response.URL];
+    NSString *queueName = [NSString stringWithFormat:@"request_MyQueue%@",task.response.URL];
     dispatch_queue_t workQueue = dispatch_queue_create([queueName UTF8String], NULL);
     dispatch_async(workQueue,^{
 //        NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
         NSError *error = nil;
         id results = nil;
-        NSString *jsonString = request.responseString;
+        NSString *jsonString = response;
         //解析数据
         if ([key hasPrefix:@"https://graph.qq.com/oauth2.0/me"]) {
             NSString *string = [[jsonString stringByReplacingOccurrencesOfString:@");" withString:@""] stringByReplacingOccurrencesOfString:@"callback(" withString:@""];
@@ -231,7 +278,7 @@ static NSString const *jsonError = @"蜘蛛君偷懒了，稍后试试吧";
             results = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
         }else{
 
-            results = [NSJSONSerialization JSONObjectWithData:request.responseData options:NSJSONReadingAllowFragments error:&error];
+            results = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingAllowFragments error:&error];
         }
         //是否缓存数据
         if (cacheType != NETWORK_CACHE_TYPE_NONE && results != nil && [results isKindOfClass:[NSDictionary class]]) {
@@ -264,7 +311,7 @@ static NSString const *jsonError = @"蜘蛛君偷懒了，稍后试试吧";
                 
                 //过滤第三方登录
                 BOOL isThirdLogin = NO;
-                NSString *urlStr = [request.response.URL absoluteString];
+                NSString *urlStr = [task.response.URL absoluteString];
                 if ([urlStr hasPrefix:@"https://api.weixin.qq.com"]) {
                     //微信
                     isThirdLogin = YES;
@@ -298,7 +345,7 @@ static NSString const *jsonError = @"蜘蛛君偷懒了，稍后试试吧";
 //停止请求
 - (void)cancelHttpRequest{
     
-    [[AFHTTPRequestOperationManager manager].operationQueue cancelAllOperations];
+    [[AFHTTPSessionManager manager].operationQueue cancelAllOperations];
 }
 
 

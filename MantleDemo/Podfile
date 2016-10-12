@@ -3,4 +3,6 @@
 
 target 'MantleDemo' do
   pod "Mantle"
+  pod "SDWebImage"
+  pod "AFNetworking"
 end
