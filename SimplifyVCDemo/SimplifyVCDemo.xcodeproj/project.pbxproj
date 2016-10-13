@@ -15,6 +15,7 @@
 		3BEA31141DADEA04004402B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BEA31121DADEA04004402B3 /* LaunchScreen.storyboard */; };
 		3BEA311F1DADEA04004402B3 /* SimplifyVCDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEA311E1DADEA04004402B3 /* SimplifyVCDemoTests.m */; };
 		3BEA312A1DADEA04004402B3 /* SimplifyVCDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEA31291DADEA04004402B3 /* SimplifyVCDemoUITests.m */; };
+		BFD4E3333744CE91DBD42A84 /* libPods-SimplifyVCDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F8F842B9E35E25C79427A4CE /* libPods-SimplifyVCDemo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		38598AA75A371860CC81F680 /* Pods-SimplifyVCDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimplifyVCDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SimplifyVCDemo/Pods-SimplifyVCDemo.release.xcconfig"; sourceTree = "<group>"; };
 		3BEA31011DADEA04004402B3 /* SimplifyVCDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimplifyVCDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BEA31051DADEA04004402B3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3BEA31071DADEA04004402B3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -51,6 +53,8 @@
 		3BEA31251DADEA04004402B3 /* SimplifyVCDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimplifyVCDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BEA31291DADEA04004402B3 /* SimplifyVCDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SimplifyVCDemoUITests.m; sourceTree = "<group>"; };
 		3BEA312B1DADEA04004402B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		80E54457B7588B4873127EB4 /* Pods-SimplifyVCDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimplifyVCDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SimplifyVCDemo/Pods-SimplifyVCDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		F8F842B9E35E25C79427A4CE /* libPods-SimplifyVCDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SimplifyVCDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFD4E3333744CE91DBD42A84 /* libPods-SimplifyVCDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +90,8 @@
 				3BEA311D1DADEA04004402B3 /* SimplifyVCDemoTests */,
 				3BEA31281DADEA04004402B3 /* SimplifyVCDemoUITests */,
 				3BEA31021DADEA04004402B3 /* Products */,
+				80E673D7C89FD4680A87FA3F /* Pods */,
+				E245B0DEE8AC2388D7F556F7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -140,6 +147,23 @@
 			path = SimplifyVCDemoUITests;
 			sourceTree = "<group>";
 		};
+		80E673D7C89FD4680A87FA3F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				80E54457B7588B4873127EB4 /* Pods-SimplifyVCDemo.debug.xcconfig */,
+				38598AA75A371860CC81F680 /* Pods-SimplifyVCDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E245B0DEE8AC2388D7F556F7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F8F842B9E35E25C79427A4CE /* libPods-SimplifyVCDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,9 +171,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3BEA312E1DADEA04004402B3 /* Build configuration list for PBXNativeTarget "SimplifyVCDemo" */;
 			buildPhases = (
+				2690F197506FAEFB52F59166 /* [CP] Check Pods Manifest.lock */,
 				3BEA30FD1DADEA04004402B3 /* Sources */,
 				3BEA30FE1DADEA04004402B3 /* Frameworks */,
 				3BEA30FF1DADEA04004402B3 /* Resources */,
+				080D074F6D402C4FD70DD987 /* [CP] Embed Pods Frameworks */,
+				E0F495F8C6379A217FAC20EA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -264,6 +291,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		080D074F6D402C4FD70DD987 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SimplifyVCDemo/Pods-SimplifyVCDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2690F197506FAEFB52F59166 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E0F495F8C6379A217FAC20EA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SimplifyVCDemo/Pods-SimplifyVCDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3BEA30FD1DADEA04004402B3 /* Sources */ = {
@@ -411,6 +486,7 @@
 		};
 		3BEA312F1DADEA04004402B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 80E54457B7588B4873127EB4 /* Pods-SimplifyVCDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SimplifyVCDemo/Info.plist;
@@ -422,6 +498,7 @@
 		};
 		3BEA31301DADEA04004402B3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 38598AA75A371860CC81F680 /* Pods-SimplifyVCDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SimplifyVCDemo/Info.plist;
@@ -496,6 +573,7 @@
 				3BEA31301DADEA04004402B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3BEA31311DADEA04004402B3 /* Build configuration list for PBXNativeTarget "SimplifyVCDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +582,7 @@
 				3BEA31331DADEA04004402B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3BEA31341DADEA04004402B3 /* Build configuration list for PBXNativeTarget "SimplifyVCDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +591,7 @@
 				3BEA31361DADEA04004402B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
