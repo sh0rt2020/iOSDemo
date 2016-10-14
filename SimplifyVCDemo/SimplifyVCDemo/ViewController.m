@@ -11,14 +11,16 @@
 #import "SSConstant.h"
 #import "SSScrollView.h"
 #import "SSToolsClass.h"
+#import "ArrayDataSource.h"
 
-
-@interface ViewController () <SSScrollViewDelegate, UITableViewDelegate, UITableViewDataSource> {
+@interface ViewController () <SSScrollViewDelegate, UITableViewDelegate> {
     NSMutableArray *ssPubInfoArr; //存储服务器端请求回来的数据
     //    int page;
     //    SSNoInternetView *noView;
     SSScrollView *titleScrollView;
 }
+
+@property (nonatomic) ArrayDataSource *dataSource;  //
 
 @property (weak, nonatomic) IBOutlet UITableView *ssTableView;
 @property (nonatomic) NSArray *ssGiftCateArr; //礼品分类数据
@@ -32,8 +34,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.ssTableView registerNib:[UINib nibWithNibName:ST_GIFT_GiftSubscribeTableCellIdentifier bundle:nil] forCellReuseIdentifier:ST_GIFT_GiftSubscribeTableCellIdentifier];
-    self.ssTableView.rowHeight = 290;
+    [self configTableViewWithArrar:ssPubInfoArr];
     
     titleScrollView = [[SSScrollView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 44)];
     titleScrollView.ssDelegate = self;
@@ -54,26 +55,7 @@
 }
 
 
-#pragma mark - delegate method
-#pragma mark  UITableViewDataSource
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return ssPubInfoArr.count;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    SSGiftSubscribeTableCell *cell = [tableView dequeueReusableCellWithIdentifier:ST_GIFT_GiftSubscribeTableCellIdentifier];
-    cell.ssGiftV.userInteractionEnabled = YES;
-    [cell configCellWithData:ssPubInfoArr[indexPath.row]];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
-    return cell;
-}
-
 #pragma mark  UITableViewDelegate
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    return 0;
-//}
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 }
 
@@ -99,7 +81,8 @@
             [ssPubInfoArr addObjectsFromArray:responseData];
         }
         
-        [self.ssTableView reloadData];
+        [self configTableViewWithArrar:ssPubInfoArr];
+//        [self.ssTableView reloadData];
     } failure:^(id errorData) {
     }];
 }
@@ -124,6 +107,21 @@
         [self requestData];
     } failure:^(id errorData) {
     }];
+}
+
+- (void)configTableViewWithArrar:(NSArray *)array {
+    TableViewCellConfigureBlock configureBlock = ^(SSGiftSubscribeTableCell *cell, SSGiftPaperInfo *info) {
+        [cell configCellWithData:info];
+    };
+    
+    self.dataSource = [[ArrayDataSource alloc] initWithItems:array
+                                              cellIdentifier:ST_GIFT_GiftSubscribeTableCellIdentifier
+                                              configureBlock:configureBlock];
+    self.ssTableView.dataSource = self.dataSource;
+    [self.ssTableView registerNib:[UINib nibWithNibName:ST_GIFT_GiftSubscribeTableCellIdentifier
+                                                 bundle:nil]
+           forCellReuseIdentifier:ST_GIFT_GiftSubscribeTableCellIdentifier];
+    self.ssTableView.rowHeight = 290;
 }
 
 @end

@@ -28,6 +28,7 @@
 		3BDA1F811DB0B5B8002EFEDB /* SSLineation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA1F6E1DB0B5B8002EFEDB /* SSLineation.m */; };
 		3BDA1F821DB0B5B8002EFEDB /* SSToolsClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA1F701DB0B5B8002EFEDB /* SSToolsClass.m */; };
 		3BDA1F831DB0B5B8002EFEDB /* WSProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA1F731DB0B5B8002EFEDB /* WSProgressHUD.m */; };
+		3BDA1F861DB0B86D002EFEDB /* ArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA1F851DB0B86D002EFEDB /* ArrayDataSource.m */; };
 		3BEA31061DADEA04004402B3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEA31051DADEA04004402B3 /* main.m */; };
 		3BEA31091DADEA04004402B3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEA31081DADEA04004402B3 /* AppDelegate.m */; };
 		3BEA310C1DADEA04004402B3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEA310B1DADEA04004402B3 /* ViewController.m */; };
@@ -100,6 +101,8 @@
 		3BDA1F711DB0B5B8002EFEDB /* SSToolsMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSToolsMacros.h; sourceTree = "<group>"; };
 		3BDA1F721DB0B5B8002EFEDB /* WSProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSProgressHUD.h; sourceTree = "<group>"; };
 		3BDA1F731DB0B5B8002EFEDB /* WSProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSProgressHUD.m; sourceTree = "<group>"; };
+		3BDA1F841DB0B86D002EFEDB /* ArrayDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrayDataSource.h; sourceTree = "<group>"; };
+		3BDA1F851DB0B86D002EFEDB /* ArrayDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrayDataSource.m; sourceTree = "<group>"; };
 		3BEA31011DADEA04004402B3 /* SimplifyVCDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimplifyVCDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BEA31051DADEA04004402B3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3BEA31071DADEA04004402B3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -241,6 +244,8 @@
 				3BEA31081DADEA04004402B3 /* AppDelegate.m */,
 				3BEA310A1DADEA04004402B3 /* ViewController.h */,
 				3BEA310B1DADEA04004402B3 /* ViewController.m */,
+				3BDA1F841DB0B86D002EFEDB /* ArrayDataSource.h */,
+				3BDA1F851DB0B86D002EFEDB /* ArrayDataSource.m */,
 				3BEA310D1DADEA04004402B3 /* Main.storyboard */,
 				3BEA31101DADEA04004402B3 /* Assets.xcassets */,
 				3BEA31121DADEA04004402B3 /* LaunchScreen.storyboard */,
@@ -479,6 +484,7 @@
 				3BDA1F751DB0B5B8002EFEDB /* CityModel.m in Sources */,
 				3BDA1F7F1DB0B5B8002EFEDB /* NSDateFormatter+Category.m in Sources */,
 				3BDA1F771DB0B5B8002EFEDB /* SSConstant.m in Sources */,
+				3BDA1F861DB0B86D002EFEDB /* ArrayDataSource.m in Sources */,
 				3BDA1F821DB0B5B8002EFEDB /* SSToolsClass.m in Sources */,
 				3BDA1F7B1DB0B5B8002EFEDB /* SSDataPackage.m in Sources */,
 				3BDA1F7E1DB0B5B8002EFEDB /* NSDate+Category.m in Sources */,
