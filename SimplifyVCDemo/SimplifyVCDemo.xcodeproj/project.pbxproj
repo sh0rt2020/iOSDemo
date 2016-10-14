@@ -7,6 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3BDA1F4B1DB0B5A5002EFEDB /* SSGiftScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA1F431DB0B5A5002EFEDB /* SSGiftScrollView.m */; };
+		3BDA1F4C1DB0B5A5002EFEDB /* SSGiftSubscribeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA1F451DB0B5A5002EFEDB /* SSGiftSubscribeTableCell.m */; };
+		3BDA1F4D1DB0B5A5002EFEDB /* SSGiftSubscribeTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BDA1F461DB0B5A5002EFEDB /* SSGiftSubscribeTableCell.xib */; };
+		3BDA1F4E1DB0B5A5002EFEDB /* SSGiftView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA1F481DB0B5A5002EFEDB /* SSGiftView.m */; };
+		3BDA1F4F1DB0B5A5002EFEDB /* SSScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA1F4A1DB0B5A5002EFEDB /* SSScrollView.m */; };
+		3BDA1F741DB0B5B8002EFEDB /* citydict.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3BDA1F511DB0B5B8002EFEDB /* citydict.plist */; };
+		3BDA1F751DB0B5B8002EFEDB /* CityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA1F531DB0B5B8002EFEDB /* CityModel.m */; };
+		3BDA1F761DB0B5B8002EFEDB /* KTTimeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA1F551DB0B5B8002EFEDB /* KTTimeModel.m */; };
+		3BDA1F771DB0B5B8002EFEDB /* SSConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA1F571DB0B5B8002EFEDB /* SSConstant.m */; };
+		3BDA1F781DB0B5B8002EFEDB /* SSDatasInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA1F591DB0B5B8002EFEDB /* SSDatasInfo.m */; };
+		3BDA1F791DB0B5B8002EFEDB /* SSUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA1F5C1DB0B5B8002EFEDB /* SSUserInfo.m */; };
+		3BDA1F7A1DB0B5B8002EFEDB /* SSCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA1F5F1DB0B5B8002EFEDB /* SSCache.m */; };
+		3BDA1F7B1DB0B5B8002EFEDB /* SSDataPackage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA1F611DB0B5B8002EFEDB /* SSDataPackage.m */; };
+		3BDA1F7C1DB0B5B8002EFEDB /* SSInterFace.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA1F631DB0B5B8002EFEDB /* SSInterFace.m */; };
+		3BDA1F7D1DB0B5B8002EFEDB /* SSUrlAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA1F651DB0B5B8002EFEDB /* SSUrlAPI.m */; };
+		3BDA1F7E1DB0B5B8002EFEDB /* NSDate+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA1F681DB0B5B8002EFEDB /* NSDate+Category.m */; };
+		3BDA1F7F1DB0B5B8002EFEDB /* NSDateFormatter+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA1F6A1DB0B5B8002EFEDB /* NSDateFormatter+Category.m */; };
+		3BDA1F801DB0B5B8002EFEDB /* SpiderLoading.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA1F6C1DB0B5B8002EFEDB /* SpiderLoading.m */; };
+		3BDA1F811DB0B5B8002EFEDB /* SSLineation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA1F6E1DB0B5B8002EFEDB /* SSLineation.m */; };
+		3BDA1F821DB0B5B8002EFEDB /* SSToolsClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA1F701DB0B5B8002EFEDB /* SSToolsClass.m */; };
+		3BDA1F831DB0B5B8002EFEDB /* WSProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA1F731DB0B5B8002EFEDB /* WSProgressHUD.m */; };
 		3BEA31061DADEA04004402B3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEA31051DADEA04004402B3 /* main.m */; };
 		3BEA31091DADEA04004402B3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEA31081DADEA04004402B3 /* AppDelegate.m */; };
 		3BEA310C1DADEA04004402B3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEA310B1DADEA04004402B3 /* ViewController.m */; };
@@ -37,6 +58,48 @@
 
 /* Begin PBXFileReference section */
 		38598AA75A371860CC81F680 /* Pods-SimplifyVCDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimplifyVCDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SimplifyVCDemo/Pods-SimplifyVCDemo.release.xcconfig"; sourceTree = "<group>"; };
+		3BDA1F421DB0B5A5002EFEDB /* SSGiftScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSGiftScrollView.h; sourceTree = "<group>"; };
+		3BDA1F431DB0B5A5002EFEDB /* SSGiftScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSGiftScrollView.m; sourceTree = "<group>"; };
+		3BDA1F441DB0B5A5002EFEDB /* SSGiftSubscribeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSGiftSubscribeTableCell.h; sourceTree = "<group>"; };
+		3BDA1F451DB0B5A5002EFEDB /* SSGiftSubscribeTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSGiftSubscribeTableCell.m; sourceTree = "<group>"; };
+		3BDA1F461DB0B5A5002EFEDB /* SSGiftSubscribeTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SSGiftSubscribeTableCell.xib; sourceTree = "<group>"; };
+		3BDA1F471DB0B5A5002EFEDB /* SSGiftView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSGiftView.h; sourceTree = "<group>"; };
+		3BDA1F481DB0B5A5002EFEDB /* SSGiftView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSGiftView.m; sourceTree = "<group>"; };
+		3BDA1F491DB0B5A5002EFEDB /* SSScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSScrollView.h; sourceTree = "<group>"; };
+		3BDA1F4A1DB0B5A5002EFEDB /* SSScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSScrollView.m; sourceTree = "<group>"; };
+		3BDA1F511DB0B5B8002EFEDB /* citydict.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = citydict.plist; sourceTree = "<group>"; };
+		3BDA1F521DB0B5B8002EFEDB /* CityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityModel.h; sourceTree = "<group>"; };
+		3BDA1F531DB0B5B8002EFEDB /* CityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityModel.m; sourceTree = "<group>"; };
+		3BDA1F541DB0B5B8002EFEDB /* KTTimeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTTimeModel.h; sourceTree = "<group>"; };
+		3BDA1F551DB0B5B8002EFEDB /* KTTimeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTTimeModel.m; sourceTree = "<group>"; };
+		3BDA1F561DB0B5B8002EFEDB /* SSConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSConstant.h; sourceTree = "<group>"; };
+		3BDA1F571DB0B5B8002EFEDB /* SSConstant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSConstant.m; sourceTree = "<group>"; };
+		3BDA1F581DB0B5B8002EFEDB /* SSDatasInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSDatasInfo.h; sourceTree = "<group>"; };
+		3BDA1F591DB0B5B8002EFEDB /* SSDatasInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSDatasInfo.m; sourceTree = "<group>"; };
+		3BDA1F5A1DB0B5B8002EFEDB /* SSImageMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSImageMacros.h; sourceTree = "<group>"; };
+		3BDA1F5B1DB0B5B8002EFEDB /* SSUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUserInfo.h; sourceTree = "<group>"; };
+		3BDA1F5C1DB0B5B8002EFEDB /* SSUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUserInfo.m; sourceTree = "<group>"; };
+		3BDA1F5E1DB0B5B8002EFEDB /* SSCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSCache.h; sourceTree = "<group>"; };
+		3BDA1F5F1DB0B5B8002EFEDB /* SSCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSCache.m; sourceTree = "<group>"; };
+		3BDA1F601DB0B5B8002EFEDB /* SSDataPackage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSDataPackage.h; sourceTree = "<group>"; };
+		3BDA1F611DB0B5B8002EFEDB /* SSDataPackage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSDataPackage.m; sourceTree = "<group>"; };
+		3BDA1F621DB0B5B8002EFEDB /* SSInterFace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSInterFace.h; sourceTree = "<group>"; };
+		3BDA1F631DB0B5B8002EFEDB /* SSInterFace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSInterFace.m; sourceTree = "<group>"; };
+		3BDA1F641DB0B5B8002EFEDB /* SSUrlAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSUrlAPI.h; sourceTree = "<group>"; };
+		3BDA1F651DB0B5B8002EFEDB /* SSUrlAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSUrlAPI.m; sourceTree = "<group>"; };
+		3BDA1F671DB0B5B8002EFEDB /* NSDate+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Category.h"; sourceTree = "<group>"; };
+		3BDA1F681DB0B5B8002EFEDB /* NSDate+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Category.m"; sourceTree = "<group>"; };
+		3BDA1F691DB0B5B8002EFEDB /* NSDateFormatter+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+Category.h"; sourceTree = "<group>"; };
+		3BDA1F6A1DB0B5B8002EFEDB /* NSDateFormatter+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+Category.m"; sourceTree = "<group>"; };
+		3BDA1F6B1DB0B5B8002EFEDB /* SpiderLoading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpiderLoading.h; sourceTree = "<group>"; };
+		3BDA1F6C1DB0B5B8002EFEDB /* SpiderLoading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpiderLoading.m; sourceTree = "<group>"; };
+		3BDA1F6D1DB0B5B8002EFEDB /* SSLineation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSLineation.h; sourceTree = "<group>"; };
+		3BDA1F6E1DB0B5B8002EFEDB /* SSLineation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSLineation.m; sourceTree = "<group>"; };
+		3BDA1F6F1DB0B5B8002EFEDB /* SSToolsClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSToolsClass.h; sourceTree = "<group>"; };
+		3BDA1F701DB0B5B8002EFEDB /* SSToolsClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSToolsClass.m; sourceTree = "<group>"; };
+		3BDA1F711DB0B5B8002EFEDB /* SSToolsMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSToolsMacros.h; sourceTree = "<group>"; };
+		3BDA1F721DB0B5B8002EFEDB /* WSProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSProgressHUD.h; sourceTree = "<group>"; };
+		3BDA1F731DB0B5B8002EFEDB /* WSProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSProgressHUD.m; sourceTree = "<group>"; };
 		3BEA31011DADEA04004402B3 /* SimplifyVCDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimplifyVCDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BEA31051DADEA04004402B3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3BEA31071DADEA04004402B3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -83,6 +146,60 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3BDA1F501DB0B5B8002EFEDB /* DatasModel */ = {
+			isa = PBXGroup;
+			children = (
+				3BDA1F511DB0B5B8002EFEDB /* citydict.plist */,
+				3BDA1F521DB0B5B8002EFEDB /* CityModel.h */,
+				3BDA1F531DB0B5B8002EFEDB /* CityModel.m */,
+				3BDA1F541DB0B5B8002EFEDB /* KTTimeModel.h */,
+				3BDA1F551DB0B5B8002EFEDB /* KTTimeModel.m */,
+				3BDA1F561DB0B5B8002EFEDB /* SSConstant.h */,
+				3BDA1F571DB0B5B8002EFEDB /* SSConstant.m */,
+				3BDA1F581DB0B5B8002EFEDB /* SSDatasInfo.h */,
+				3BDA1F591DB0B5B8002EFEDB /* SSDatasInfo.m */,
+				3BDA1F5A1DB0B5B8002EFEDB /* SSImageMacros.h */,
+				3BDA1F5B1DB0B5B8002EFEDB /* SSUserInfo.h */,
+				3BDA1F5C1DB0B5B8002EFEDB /* SSUserInfo.m */,
+			);
+			path = DatasModel;
+			sourceTree = "<group>";
+		};
+		3BDA1F5D1DB0B5B8002EFEDB /* NetWorks */ = {
+			isa = PBXGroup;
+			children = (
+				3BDA1F5E1DB0B5B8002EFEDB /* SSCache.h */,
+				3BDA1F5F1DB0B5B8002EFEDB /* SSCache.m */,
+				3BDA1F601DB0B5B8002EFEDB /* SSDataPackage.h */,
+				3BDA1F611DB0B5B8002EFEDB /* SSDataPackage.m */,
+				3BDA1F621DB0B5B8002EFEDB /* SSInterFace.h */,
+				3BDA1F631DB0B5B8002EFEDB /* SSInterFace.m */,
+				3BDA1F641DB0B5B8002EFEDB /* SSUrlAPI.h */,
+				3BDA1F651DB0B5B8002EFEDB /* SSUrlAPI.m */,
+			);
+			path = NetWorks;
+			sourceTree = "<group>";
+		};
+		3BDA1F661DB0B5B8002EFEDB /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				3BDA1F671DB0B5B8002EFEDB /* NSDate+Category.h */,
+				3BDA1F681DB0B5B8002EFEDB /* NSDate+Category.m */,
+				3BDA1F691DB0B5B8002EFEDB /* NSDateFormatter+Category.h */,
+				3BDA1F6A1DB0B5B8002EFEDB /* NSDateFormatter+Category.m */,
+				3BDA1F6B1DB0B5B8002EFEDB /* SpiderLoading.h */,
+				3BDA1F6C1DB0B5B8002EFEDB /* SpiderLoading.m */,
+				3BDA1F6D1DB0B5B8002EFEDB /* SSLineation.h */,
+				3BDA1F6E1DB0B5B8002EFEDB /* SSLineation.m */,
+				3BDA1F6F1DB0B5B8002EFEDB /* SSToolsClass.h */,
+				3BDA1F701DB0B5B8002EFEDB /* SSToolsClass.m */,
+				3BDA1F711DB0B5B8002EFEDB /* SSToolsMacros.h */,
+				3BDA1F721DB0B5B8002EFEDB /* WSProgressHUD.h */,
+				3BDA1F731DB0B5B8002EFEDB /* WSProgressHUD.m */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
 		3BEA30F81DADEA04004402B3 = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +225,18 @@
 		3BEA31031DADEA04004402B3 /* SimplifyVCDemo */ = {
 			isa = PBXGroup;
 			children = (
+				3BDA1F501DB0B5B8002EFEDB /* DatasModel */,
+				3BDA1F5D1DB0B5B8002EFEDB /* NetWorks */,
+				3BDA1F661DB0B5B8002EFEDB /* Tools */,
+				3BDA1F421DB0B5A5002EFEDB /* SSGiftScrollView.h */,
+				3BDA1F431DB0B5A5002EFEDB /* SSGiftScrollView.m */,
+				3BDA1F441DB0B5A5002EFEDB /* SSGiftSubscribeTableCell.h */,
+				3BDA1F451DB0B5A5002EFEDB /* SSGiftSubscribeTableCell.m */,
+				3BDA1F461DB0B5A5002EFEDB /* SSGiftSubscribeTableCell.xib */,
+				3BDA1F471DB0B5A5002EFEDB /* SSGiftView.h */,
+				3BDA1F481DB0B5A5002EFEDB /* SSGiftView.m */,
+				3BDA1F491DB0B5A5002EFEDB /* SSScrollView.h */,
+				3BDA1F4A1DB0B5A5002EFEDB /* SSScrollView.m */,
 				3BEA31071DADEA04004402B3 /* AppDelegate.h */,
 				3BEA31081DADEA04004402B3 /* AppDelegate.m */,
 				3BEA310A1DADEA04004402B3 /* ViewController.h */,
@@ -270,9 +399,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BDA1F741DB0B5B8002EFEDB /* citydict.plist in Resources */,
 				3BEA31141DADEA04004402B3 /* LaunchScreen.storyboard in Resources */,
 				3BEA31111DADEA04004402B3 /* Assets.xcassets in Resources */,
 				3BEA310F1DADEA04004402B3 /* Main.storyboard in Resources */,
+				3BDA1F4D1DB0B5A5002EFEDB /* SSGiftSubscribeTableCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,9 +476,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BDA1F751DB0B5B8002EFEDB /* CityModel.m in Sources */,
+				3BDA1F7F1DB0B5B8002EFEDB /* NSDateFormatter+Category.m in Sources */,
+				3BDA1F771DB0B5B8002EFEDB /* SSConstant.m in Sources */,
+				3BDA1F821DB0B5B8002EFEDB /* SSToolsClass.m in Sources */,
+				3BDA1F7B1DB0B5B8002EFEDB /* SSDataPackage.m in Sources */,
+				3BDA1F7E1DB0B5B8002EFEDB /* NSDate+Category.m in Sources */,
+				3BDA1F811DB0B5B8002EFEDB /* SSLineation.m in Sources */,
+				3BDA1F4C1DB0B5A5002EFEDB /* SSGiftSubscribeTableCell.m in Sources */,
 				3BEA310C1DADEA04004402B3 /* ViewController.m in Sources */,
+				3BDA1F791DB0B5B8002EFEDB /* SSUserInfo.m in Sources */,
 				3BEA31091DADEA04004402B3 /* AppDelegate.m in Sources */,
+				3BDA1F781DB0B5B8002EFEDB /* SSDatasInfo.m in Sources */,
+				3BDA1F7D1DB0B5B8002EFEDB /* SSUrlAPI.m in Sources */,
+				3BDA1F4F1DB0B5A5002EFEDB /* SSScrollView.m in Sources */,
+				3BDA1F831DB0B5B8002EFEDB /* WSProgressHUD.m in Sources */,
+				3BDA1F761DB0B5B8002EFEDB /* KTTimeModel.m in Sources */,
 				3BEA31061DADEA04004402B3 /* main.m in Sources */,
+				3BDA1F4E1DB0B5A5002EFEDB /* SSGiftView.m in Sources */,
+				3BDA1F801DB0B5B8002EFEDB /* SpiderLoading.m in Sources */,
+				3BDA1F4B1DB0B5A5002EFEDB /* SSGiftScrollView.m in Sources */,
+				3BDA1F7C1DB0B5B8002EFEDB /* SSInterFace.m in Sources */,
+				3BDA1F7A1DB0B5B8002EFEDB /* SSCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
