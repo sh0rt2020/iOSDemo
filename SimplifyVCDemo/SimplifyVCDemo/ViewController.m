@@ -12,10 +12,11 @@
 #import "SSScrollView.h"
 #import "SSToolsClass.h"
 #import "ArrayDataSource.h"
+#import "MJRefresh.h"
 
 @interface ViewController () <SSScrollViewDelegate, UITableViewDelegate> {
     NSMutableArray *ssPubInfoArr; //存储服务器端请求回来的数据
-    //    int page;
+    int page;
     //    SSNoInternetView *noView;
     SSScrollView *titleScrollView;
 }
@@ -36,11 +37,24 @@
     
     [self configTableViewWithArrar:ssPubInfoArr];
     
-    titleScrollView = [[SSScrollView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 44)];
+    titleScrollView = [[SSScrollView alloc] initWithFrame:CGRectMake(0, 20, ScreenWidth, 44)];
     titleScrollView.ssDelegate = self;
     titleScrollView.titleColor = @"66ccb6";
     titleScrollView.isTipViewShow = NO;
     [self.view addSubview:titleScrollView];
+    
+    __weak typeof(self) weakSelf = self;
+    self.ssTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        __strong typeof(self) strongSelf = weakSelf;
+        [strongSelf refreshData];
+    }];
+    
+    self.ssTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        __strong typeof(self) strongSelf = weakSelf;
+        [strongSelf uploadData];
+    }];
+    
+    page = 1;
     [self requestCateData];
 }
 
@@ -70,20 +84,39 @@
 
 
 #pragma mark - private method
+- (void)refreshData {
+    page = 1;
+    [self requestData];
+}
+
+- (void)uploadData {
+    page++;
+    [self requestData];
+}
+
 - (void)requestData {
-    NSString *url = [SSUrlAPI getGiftListURLWithItemId:self.ssItemId page:1 count:@"10"];
+    NSString *url = [SSUrlAPI getGiftListURLWithItemId:self.ssItemId page:page count:@"10"];
     [[SSInterFace shareInterFace] getSubscribeGiftListInfo_interface:url success:^(id responseData) {
         
-        if (ssPubInfoArr) {
-            [ssPubInfoArr addObjectsFromArray:responseData];
+        if (page == 1) {
+            if (ssPubInfoArr) {
+                [ssPubInfoArr removeAllObjects];
+                [ssPubInfoArr addObjectsFromArray:responseData];
+            } else {
+                ssPubInfoArr = [NSMutableArray array];
+                [ssPubInfoArr addObjectsFromArray:responseData];
+            }
         } else {
-            ssPubInfoArr = [NSMutableArray array];
             [ssPubInfoArr addObjectsFromArray:responseData];
         }
         
+        [self.ssTableView.mj_header endRefreshing];
+        [self.ssTableView.mj_footer endRefreshing];
         [self configTableViewWithArrar:ssPubInfoArr];
-//        [self.ssTableView reloadData];
     } failure:^(id errorData) {
+        [self.ssTableView.mj_footer endRefreshing];
+        [self.ssTableView.mj_header endRefreshing];
+        page--;
     }];
 }
 

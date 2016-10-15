@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eCj-Bd-TjS">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="APH-5P-LVh"/>
@@ -27,10 +27,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="eCj-Bd-TjS" secondAttribute="trailing" id="9LT-Xi-xLU"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="eCj-Bd-TjS" secondAttribute="bottom" id="Eg4-Zt-nAV"/>
-                            <constraint firstItem="eCj-Bd-TjS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="m5b-DW-Mkg"/>
-                            <constraint firstItem="eCj-Bd-TjS" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="xV4-7b-mqX"/>
+                            <constraint firstAttribute="trailing" secondItem="eCj-Bd-TjS" secondAttribute="trailing" id="B2E-7Z-R63"/>
+                            <constraint firstItem="eCj-Bd-TjS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="CRG-xX-bXO"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="eCj-Bd-TjS" secondAttribute="bottom" id="N5I-bk-AOp"/>
+                            <constraint firstItem="eCj-Bd-TjS" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="44" id="Vnm-Zf-xo1"/>
                         </constraints>
                     </view>
                     <connections>

@@ -49,6 +49,7 @@
                                                             forIndexPath:indexPath];
     id item = self.items[indexPath.row];
     self.configureBlock(cell, item);
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
