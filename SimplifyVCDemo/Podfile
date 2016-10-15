@@ -5,4 +5,5 @@ target 'SimplifyVCDemo' do
   pod "Mantle"
   pod "SDWebImage"
   pod "AFNetworking"
+  pod "MJRefresh"
 end

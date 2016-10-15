@@ -17,6 +17,7 @@ PODS:
   - Mantle (2.0.7):
     - Mantle/extobjc (= 2.0.7)
   - Mantle/extobjc (2.0.7)
+  - MJRefresh (3.1.12)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
@@ -24,13 +25,15 @@ PODS:
 DEPENDENCIES:
   - AFNetworking
   - Mantle
+  - MJRefresh
   - SDWebImage
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   Mantle: bc40bb061d8c2c6fb48d5083e04d928c3b7f73d9
+  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
 
-PODFILE CHECKSUM: 31e598889906434539302c5d5e3eae863b160fad
+PODFILE CHECKSUM: 9d78653023f2530e5a3e27b5f5337cb432424022
 
 COCOAPODS: 1.1.0.beta.2
