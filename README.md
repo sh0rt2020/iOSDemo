@@ -25,5 +25,5 @@ a set of iOS demo
 3、自定义iOS SDK中UITableView (NBTableView)
 	
 	功能：
-	主要结合业务场景，优化原有的UITableView，初步计划，带分页&刷新功能、delegate、datasource做分离、
-	[百度](www.baidu.com)
+	主要结合业务场景，优化原有的UITableView，初步计划，带分页&刷新功能、delegate、datasource做分离、在后台线程中绘制简单的cell；
+	功能初步定下来，写好后开源；
