@@ -13,9 +13,11 @@
 		3B127E211DB51F4C0013AA1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B127E1F1DB51F4C0013AA1D /* Main.storyboard */; };
 		3B127E231DB51F4C0013AA1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B127E221DB51F4C0013AA1D /* Assets.xcassets */; };
 		3B127E261DB51F4C0013AA1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B127E241DB51F4C0013AA1D /* LaunchScreen.storyboard */; };
+		DAB397BB7A5C32BCFD53534A /* libPods-NBTableView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49892FA61D8ABFCC99C9AA2A /* libPods-NBTableView.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		25428E07A59E64153D673FE8 /* Pods-NBTableView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NBTableView.release.xcconfig"; path = "Pods/Target Support Files/Pods-NBTableView/Pods-NBTableView.release.xcconfig"; sourceTree = "<group>"; };
 		3B127E131DB51F4C0013AA1D /* NBTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NBTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B127E171DB51F4C0013AA1D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3B127E191DB51F4C0013AA1D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -26,6 +28,8 @@
 		3B127E221DB51F4C0013AA1D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B127E251DB51F4C0013AA1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B127E271DB51F4C0013AA1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		497DF03735001EB985237C8D /* Pods-NBTableView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NBTableView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NBTableView/Pods-NBTableView.debug.xcconfig"; sourceTree = "<group>"; };
+		49892FA61D8ABFCC99C9AA2A /* libPods-NBTableView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NBTableView.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAB397BB7A5C32BCFD53534A /* libPods-NBTableView.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +49,8 @@
 			children = (
 				3B127E151DB51F4C0013AA1D /* NBTableView */,
 				3B127E141DB51F4C0013AA1D /* Products */,
+				6B7C820570C64741DD9C7DD3 /* Pods */,
+				74B1C120C4DAC6FA789F7584 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,6 +86,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		6B7C820570C64741DD9C7DD3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				497DF03735001EB985237C8D /* Pods-NBTableView.debug.xcconfig */,
+				25428E07A59E64153D673FE8 /* Pods-NBTableView.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		74B1C120C4DAC6FA789F7584 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				49892FA61D8ABFCC99C9AA2A /* libPods-NBTableView.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -86,9 +110,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3B127E2A1DB51F4C0013AA1D /* Build configuration list for PBXNativeTarget "NBTableView" */;
 			buildPhases = (
+				BF1542A448EB1863FB1E9333 /* [CP] Check Pods Manifest.lock */,
 				3B127E0F1DB51F4C0013AA1D /* Sources */,
 				3B127E101DB51F4C0013AA1D /* Frameworks */,
 				3B127E111DB51F4C0013AA1D /* Resources */,
+				B097C2D70A529B3E6E1B74F9 /* [CP] Embed Pods Frameworks */,
+				F7B9CE81FD74EE2F89BCC34E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -144,6 +171,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B097C2D70A529B3E6E1B74F9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NBTableView/Pods-NBTableView-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BF1542A448EB1863FB1E9333 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F7B9CE81FD74EE2F89BCC34E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NBTableView/Pods-NBTableView-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3B127E0F1DB51F4C0013AA1D /* Sources */ = {
@@ -268,6 +343,7 @@
 		};
 		3B127E2B1DB51F4C0013AA1D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 497DF03735001EB985237C8D /* Pods-NBTableView.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = NBTableView/Info.plist;
@@ -279,6 +355,7 @@
 		};
 		3B127E2C1DB51F4C0013AA1D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25428E07A59E64153D673FE8 /* Pods-NBTableView.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = NBTableView/Info.plist;
@@ -307,6 +384,7 @@
 				3B127E2C1DB51F4C0013AA1D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
