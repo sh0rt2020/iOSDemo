@@ -1,5 +1,5 @@
 # iosDemo
-a set of iOS demo
+a set of iOS demo, all third-party libraries are managed by CocoaPods.
 
 1、Mantle
 
@@ -27,3 +27,7 @@ a set of iOS demo
 	功能：
 	主要结合业务场景，优化原有的UITableView，初步计划，带分页&刷新功能、delegate、datasource做分离、在后台线程中绘制简单的cell；
 	功能初步定下来，写好后开源；
+
+4、Masonry
+	
+	这个项目主要在于体验纯手工编写页面布局，包括纯手工计算布局、使用iOS提供的VFL约束页面布局、使用Masonry第三方类库来约束页面布局
