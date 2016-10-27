@@ -11,6 +11,13 @@
 		3B87A8691DC21E9000605840 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B87A8671DC21E9000605840 /* Main.storyboard */; };
 		3B87A86B1DC21E9000605840 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B87A86A1DC21E9000605840 /* Assets.xcassets */; };
 		3B87A86E1DC21E9000605840 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B87A86C1DC21E9000605840 /* LaunchScreen.storyboard */; };
+		3B87A8831DC236F300605840 /* MASNoAccessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B87A8771DC236F300605840 /* MASNoAccessView.m */; };
+		3B87A8841DC236F300605840 /* NewNoAccessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B87A8791DC236F300605840 /* NewNoAccessView.m */; };
+		3B87A8851DC236F300605840 /* VFLNoAccessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B87A87B1DC236F300605840 /* VFLNoAccessView.m */; };
+		3B87A8861DC236F300605840 /* NoAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B87A87E1DC236F300605840 /* NoAccess.m */; };
+		3B87A8871DC236F300605840 /* NoAccessContent.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B87A87F1DC236F300605840 /* NoAccessContent.xib */; };
+		3B87A8881DC236F300605840 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B87A8821DC236F300605840 /* ViewController.m */; };
+		3B87A88B1DC2372300605840 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B87A88A1DC2372300605840 /* AppDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +27,19 @@
 		3B87A86A1DC21E9000605840 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B87A86D1DC21E9000605840 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B87A86F1DC21E9000605840 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B87A8761DC236F300605840 /* MASNoAccessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASNoAccessView.h; sourceTree = "<group>"; };
+		3B87A8771DC236F300605840 /* MASNoAccessView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASNoAccessView.m; sourceTree = "<group>"; };
+		3B87A8781DC236F300605840 /* NewNoAccessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewNoAccessView.h; sourceTree = "<group>"; };
+		3B87A8791DC236F300605840 /* NewNoAccessView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewNoAccessView.m; sourceTree = "<group>"; };
+		3B87A87A1DC236F300605840 /* VFLNoAccessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VFLNoAccessView.h; sourceTree = "<group>"; };
+		3B87A87B1DC236F300605840 /* VFLNoAccessView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VFLNoAccessView.m; sourceTree = "<group>"; };
+		3B87A87D1DC236F300605840 /* NoAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoAccess.h; sourceTree = "<group>"; };
+		3B87A87E1DC236F300605840 /* NoAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoAccess.m; sourceTree = "<group>"; };
+		3B87A87F1DC236F300605840 /* NoAccessContent.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoAccessContent.xib; sourceTree = "<group>"; };
+		3B87A8811DC236F300605840 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		3B87A8821DC236F300605840 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		3B87A8891DC2372300605840 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		3B87A88A1DC2372300605840 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +72,13 @@
 		3B87A85D1DC21E9000605840 /* MasonryDemo */ = {
 			isa = PBXGroup;
 			children = (
+				3B87A8751DC236F300605840 /* NewTipView */,
+				3B87A87C1DC236F300605840 /* TipView */,
+				3B87A8801DC236F300605840 /* Util */,
+				3B87A8811DC236F300605840 /* ViewController.h */,
+				3B87A8821DC236F300605840 /* ViewController.m */,
+				3B87A8891DC2372300605840 /* AppDelegate.h */,
+				3B87A88A1DC2372300605840 /* AppDelegate.m */,
 				3B87A8671DC21E9000605840 /* Main.storyboard */,
 				3B87A86A1DC21E9000605840 /* Assets.xcassets */,
 				3B87A86C1DC21E9000605840 /* LaunchScreen.storyboard */,
@@ -67,6 +94,36 @@
 				3B87A85F1DC21E9000605840 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3B87A8751DC236F300605840 /* NewTipView */ = {
+			isa = PBXGroup;
+			children = (
+				3B87A8761DC236F300605840 /* MASNoAccessView.h */,
+				3B87A8771DC236F300605840 /* MASNoAccessView.m */,
+				3B87A8781DC236F300605840 /* NewNoAccessView.h */,
+				3B87A8791DC236F300605840 /* NewNoAccessView.m */,
+				3B87A87A1DC236F300605840 /* VFLNoAccessView.h */,
+				3B87A87B1DC236F300605840 /* VFLNoAccessView.m */,
+			);
+			path = NewTipView;
+			sourceTree = "<group>";
+		};
+		3B87A87C1DC236F300605840 /* TipView */ = {
+			isa = PBXGroup;
+			children = (
+				3B87A87D1DC236F300605840 /* NoAccess.h */,
+				3B87A87E1DC236F300605840 /* NoAccess.m */,
+				3B87A87F1DC236F300605840 /* NoAccessContent.xib */,
+			);
+			path = TipView;
+			sourceTree = "<group>";
+		};
+		3B87A8801DC236F300605840 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -129,6 +186,7 @@
 			files = (
 				3B87A86E1DC21E9000605840 /* LaunchScreen.storyboard in Resources */,
 				3B87A86B1DC21E9000605840 /* Assets.xcassets in Resources */,
+				3B87A8871DC236F300605840 /* NoAccessContent.xib in Resources */,
 				3B87A8691DC21E9000605840 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -140,7 +198,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B87A8881DC236F300605840 /* ViewController.m in Sources */,
+				3B87A8841DC236F300605840 /* NewNoAccessView.m in Sources */,
 				3B87A8601DC21E9000605840 /* main.m in Sources */,
+				3B87A8851DC236F300605840 /* VFLNoAccessView.m in Sources */,
+				3B87A8861DC236F300605840 /* NoAccess.m in Sources */,
+				3B87A8831DC236F300605840 /* MASNoAccessView.m in Sources */,
+				3B87A88B1DC2372300605840 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
