@@ -71,25 +71,37 @@ static NSString * const OK_BTN_TITLE = @"知道了";
 #pragma mark - event response
 - (void)showInView:(UIView *)view animated:(BOOL)animated {
     if (self) {
-        UIView *maskView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
-        maskView.backgroundColor = [UIColor lightGrayColor];
+        UIView *maskView = [UIView new];
+        maskView.backgroundColor = [UIColor blackColor];
+        maskView.alpha = 0.5;
+        maskView.tag = 10000;
         [self addTapGesInView:maskView];
-        [[UIApplication sharedApplication].keyWindow addSubview:maskView];
-        [[UIApplication sharedApplication].keyWindow addSubview:self];
+        [view addSubview:maskView];
+        NSDictionary *viewsDict = NSDictionaryOfVariableBindings(maskView, view);
+        [view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[maskView]-0-|" options:0 metrics:nil views:viewsDict]];
+        [view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[maskView]-0-|" options:0 metrics:nil views:viewsDict]];
+        view.translatesAutoresizingMaskIntoConstraints = YES;
+        [view addSubview:self];
     }
 }
 
-- (void)hiddenAnimated:(BOOL)animated {
+- (void)hiddenFromView:(UIView *)view animated:(BOOL)animated {
     if (self) {
         [self removeFromSuperview];
-        [[[[UIApplication sharedApplication].keyWindow subviews] lastObject] removeFromSuperview];
+        [[view viewWithTag:10000] removeFromSuperview];
+    }
+}
+
+- (void)didClickOkBtn:(UIButton *)sender {
+    if (self.delegate&&[self.delegate respondsToSelector:@selector(newNoAccessViewWillDisappear)]) {
+        [self.delegate newNoAccessViewWillDisappear];
     }
 }
 
 #pragma mark - private method
 - (void)addTapGesInView:(UIView *)view {
     view.userInteractionEnabled = YES;
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hiddenAnimated:)];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didClickOkBtn:)];
     tap.numberOfTouchesRequired = 1;
     tap.numberOfTapsRequired = 1;
     [view addGestureRecognizer:tap];
@@ -134,7 +146,7 @@ static NSString * const OK_BTN_TITLE = @"知道了";
     [_okBtn setTitle:OK_BTN_TITLE forState:UIControlStateNormal];
     [_okBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     _okBtn.titleLabel.font = [UIFont systemFontOfSize:13];
-    [_okBtn addTarget:self action:@selector(hiddenAnimated:) forControlEvents:UIControlEventTouchUpInside];
+    [_okBtn addTarget:self action:@selector(didClickOkBtn:) forControlEvents:UIControlEventTouchUpInside];
     return _okBtn;
 }
 

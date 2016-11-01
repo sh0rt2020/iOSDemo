@@ -81,8 +81,9 @@ static NSString * const OK_BTN_TITLE = @"知道了";
 - (void)showInView:(UIView *)view animated:(BOOL)animated {
     if (self) {
         UIView *maskView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
-        maskView.backgroundColor = [UIColor lightGrayColor];
+        maskView.backgroundColor = [UIColor blackColor];
         maskView.tag = 10000;
+        maskView.alpha = 0.5;
         [self addTapGesInView:maskView];
         [view addSubview:maskView];
         [view addSubview:self];

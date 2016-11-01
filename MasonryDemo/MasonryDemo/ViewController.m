@@ -9,11 +9,13 @@
 #import "ViewController.h"
 //#import "NoAccess.h"
 #import "NewNoAccessView.h"
+#import "VFLNoAccessView.h"
 
-@interface ViewController () <NewNoAccessViewDelegate>
+@interface ViewController ()<VFLNoAccessViewDelagate, NewNoAccessViewDelegate>
 
 //@property (nonatomic) NoAccess *tipView;
-@property (nonatomic) NewNoAccessView *subTipView;
+//@property (nonatomic) NewNoAccessView *subTipView;
+@property (nonatomic) VFLNoAccessView *subTipView;
 @end
 
 @implementation ViewController
@@ -43,8 +45,8 @@
 
 
 #pragma mark - setter&getter
-- (NewNoAccessView *)newTipNew {
-    _subTipView = [[NewNoAccessView alloc] initWithSubTitleOne:@"1、第一副标题" subTitleTwo:@"2、第二副标题"];
+- (VFLNoAccessView *)newTipNew {
+    _subTipView = [[VFLNoAccessView alloc] initWithSubTitleOne:@"1、第一副标题" subTitleTwo:@"2、第二副标题"];
     _subTipView.delegate = self;
     return _subTipView;
 }
