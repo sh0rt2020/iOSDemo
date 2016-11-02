@@ -36,12 +36,20 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    appImageView.hidden = true
-    welcomeLabel.hidden = true
-    summaryLabel.hidden = true
-    pageControl.hidden = true
+//    appImageView.hidden = true
+//    welcomeLabel.hidden = true
+//    summaryLabel.hidden = true
+//    pageControl.hidden = true
     
-    let views = ["iconImageView":iconImageView, "appNameLabel":appNameLabel, "skipButton":skipButton]
+
+    let views = ["iconImageView": iconImageView,
+                 "appNameLabel": appNameLabel,
+                 "skipButton": skipButton,
+                 "appImageView": appImageView,
+                 "welcomeLabel": welcomeLabel,
+                 "summaryLabel": summaryLabel,
+                 "pageControl": pageControl]
+    
     iconImageView.backgroundColor = UIColor.redColor()
     appNameLabel.backgroundColor = UIColor.redColor()
     skipButton.backgroundColor = UIColor.redColor()
@@ -59,6 +67,44 @@ class ViewController: UIViewController {
     
     let topRowHorizontalConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|-15-[iconImageView(30)]-[appNameLabel]-[skipButton]-15-|", options:[], metrics:nil, views:views)
     allConstraints += topRowHorizontalConstraints
+    
+    let summaryLabelHorizontalConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|-15-[summaryLabel]-15-|", options: [], metrics: nil, views: views)
+    allConstraints += summaryLabelHorizontalConstraints
+    
+    let welcomeHorizontalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
+      "H:|-15-[welcomeLabel]-15-|",
+      options: [],
+      metrics: nil,
+      views: views)
+    allConstraints += welcomeHorizontalConstraints
+    
+    let iconToImageVerticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
+      "V:[iconImageView]-10-[appImageView]",
+      options: [],
+      metrics: nil,
+      views: views)
+    allConstraints += iconToImageVerticalConstraints
+    
+    let imageToWelcomeVerticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
+      "V:[appImageView]-10-[welcomeLabel]",
+      options: [],
+      metrics: nil,
+      views: views)
+    allConstraints += imageToWelcomeVerticalConstraints
+    
+    let summaryLabelVerticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
+      "V:[welcomeLabel]-4-[summaryLabel]",
+      options: [],
+      metrics: nil,
+      views: views)
+    allConstraints += summaryLabelVerticalConstraints
+    
+    let summaryToPageVerticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat(
+      "V:[summaryLabel]-15-[pageControl(9)]-15-|",
+      options: [],
+      metrics: nil,
+      views: views)
+    allConstraints += summaryToPageVerticalConstraints
     
     NSLayoutConstraint.activateConstraints(allConstraints)
   }
