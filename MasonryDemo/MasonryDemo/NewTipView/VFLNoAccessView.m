@@ -65,6 +65,9 @@ static NSString * const OK_BTN_TITLE = @"知道了";
     [self addSubview:self.subTitleTwoLab];
     [self addSubview:self.titleLab];
     [self addSubview:self.okBtn];
+    
+//    NSDictionary *viewsDict = NSDictionaryOfVariableBindings(self.imgView, self.subTitleOneLab, self.subTitleTwoLab, self.titleLab, self.okBtn);
+//    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-9-imgView-4-titleLab-(-4)-subTitleOneLab-(-2)-subTitleTwoLab-(-1)-okBtn-|" options:0 metrics:nil views:viewsDict]];
 }
 
 
@@ -77,10 +80,9 @@ static NSString * const OK_BTN_TITLE = @"知道了";
         maskView.tag = 10000;
         [self addTapGesInView:maskView];
         [view addSubview:maskView];
-        NSDictionary *viewsDict = NSDictionaryOfVariableBindings(maskView, view);
+        NSDictionary *viewsDict = NSDictionaryOfVariableBindings(maskView);
         [view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[maskView]-0-|" options:0 metrics:nil views:viewsDict]];
         [view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[maskView]-0-|" options:0 metrics:nil views:viewsDict]];
-        view.translatesAutoresizingMaskIntoConstraints = YES;
         [view addSubview:self];
     }
 }
@@ -109,13 +111,14 @@ static NSString * const OK_BTN_TITLE = @"知道了";
 
 #pragma mark - setter&getter
 - (UIImageView *)imgView {
-    _imgView = [[UIImageView alloc] initWithFrame:IMG_FRAME];
+    _imgView = [UIImageView new];
     _imgView.image = [UIImage imageNamed:@"global_no_permission"];
     return _imgView;
 }
 
 - (UILabel *)titleLab {
-    _titleLab = [[UILabel alloc] initWithFrame:TITLE_FRAME];
+//    _titleLab = [[UILabel alloc] initWithFrame:TITLE_FRAME];
+    _titleLab = [UILabel new];
     _titleLab.text = TITLE;
     _titleLab.font = [UIFont systemFontOfSize:13];
     _titleLab.textColor = [UIColor blackColor];
@@ -124,7 +127,8 @@ static NSString * const OK_BTN_TITLE = @"知道了";
 }
 
 - (UILabel *)subTitleOneLab {
-    _subTitleOneLab = [[UILabel alloc] initWithFrame:SUB_TITLE_ONE_LAB_FRAME];
+//    _subTitleOneLab = [[UILabel alloc] initWithFrame:SUB_TITLE_ONE_LAB_FRAME];
+    _subTitleOneLab = [UILabel new];
     _subTitleOneLab.textColor = [UIColor lightGrayColor];
     _subTitleOneLab.text = self.subTitleOne;
     _subTitleOneLab.textAlignment = NSTextAlignmentCenter;
@@ -133,7 +137,8 @@ static NSString * const OK_BTN_TITLE = @"知道了";
 }
 
 - (UILabel *)subTitleTwoLab {
-    _subTitleTwoLab = [[UILabel alloc] initWithFrame:SUB_TITLE_TWO_LAB_FRAME];
+//    _subTitleTwoLab = [[UILabel alloc] initWithFrame:SUB_TITLE_TWO_LAB_FRAME];
+    _subTitleTwoLab = [UILabel new];
     _subTitleTwoLab.textAlignment = NSTextAlignmentCenter;
     _subTitleTwoLab.textColor = [UIColor lightGrayColor];
     _subTitleTwoLab.text = self.subTitleTwo;
@@ -142,7 +147,8 @@ static NSString * const OK_BTN_TITLE = @"知道了";
 }
 
 - (UIButton *)okBtn {
-    _okBtn = [[UIButton alloc] initWithFrame:OK_BTN_FRAME];
+//    _okBtn = [[UIButton alloc] initWithFrame:OK_BTN_FRAME];
+    _okBtn = [UIButton new];
     [_okBtn setTitle:OK_BTN_TITLE forState:UIControlStateNormal];
     [_okBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     _okBtn.titleLabel.font = [UIFont systemFontOfSize:13];
