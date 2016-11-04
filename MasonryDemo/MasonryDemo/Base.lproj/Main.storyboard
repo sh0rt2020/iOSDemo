@@ -21,8 +21,8 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bgk-hb-PkA">
                                 <color key="backgroundColor" red="0.20568623893300886" green="1" blue="0.86397484003464409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="105" id="Oe8-kM-Xgv"/>
-                                    <constraint firstAttribute="height" constant="30" id="ZLF-m9-iVC"/>
+                                    <constraint firstAttribute="height" constant="30" id="AN2-nd-j9T"/>
+                                    <constraint firstAttribute="width" constant="160" id="RPX-YQ-YHc"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="15"/>
                                 <state key="normal" title="Showing Tip"/>
@@ -33,9 +33,8 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="bgk-hb-PkA" secondAttribute="trailing" constant="107" id="1Wd-DN-NQU"/>
-                            <constraint firstItem="bgk-hb-PkA" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="249" id="dwF-85-FtK"/>
-                            <constraint firstItem="bgk-hb-PkA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="108" id="fzm-bh-Ljq"/>
+                            <constraint firstItem="bgk-hb-PkA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="atz-hL-Kqc"/>
+                            <constraint firstItem="bgk-hb-PkA" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-49.5" id="nDK-z8-66M"/>
                         </constraints>
                     </view>
                 </viewController>

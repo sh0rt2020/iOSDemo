@@ -24,11 +24,6 @@ static NSString * const OK_BTN_TITLE = @"知道了";
 
 @interface VFLNoAccessView ()
 
-@property (nonatomic) UIImageView *imgView;
-@property (nonatomic) UILabel *titleLab;
-@property (nonatomic) UILabel *subTitleOneLab;
-@property (nonatomic) UILabel *subTitleTwoLab;
-@property (nonatomic) UIButton *okBtn;
 
 @end
 
@@ -39,7 +34,7 @@ static NSString * const OK_BTN_TITLE = @"知道了";
     self = [super initWithFrame:frame];
     if (self) {
         self.center = [UIApplication sharedApplication].keyWindow.center;
-        self.backgroundColor = [UIColor whiteColor];
+        self.backgroundColor = [UIColor redColor];
         self.layer.masksToBounds = YES;
         self.layer.cornerRadius = 4.0;
         return self;
@@ -65,43 +60,43 @@ static NSString * const OK_BTN_TITLE = @"知道了";
     [self addSubview:self.subTitleTwoLab];
     [self addSubview:self.titleLab];
     [self addSubview:self.okBtn];
-<<<<<<< HEAD
     
-    NSDictionary *views = NSDictionaryOfVariableBindings(_imgView, _titleLab, _subTitleOneLab, _subTitleTwoLab, _okBtn);
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[_imgView(80)]-4-[_titleLab(20)]-0-[_subTitleOneLab(16)]-0-[_subTitleTwoLab(16)]-0-[_okBtn(20)]-|" options:0 metrics:nil views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-65-[_imgView(95)]" options:0 metrics:nil views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_titleLab]-0-|" options:0 metrics:nil views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_subTitleOneLab]-0-|" options:0 metrics:nil views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_subTitleTwoLab]-0-|" options:0 metrics:nil views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_okBtn]-0-|" options:0 metrics:nil views:views]];
-=======
->>>>>>> 774e88aff9899922f4fe0031503cd98aae4b49ab
+    self.imgView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.titleLab.translatesAutoresizingMaskIntoConstraints = NO;
+    self.subTitleOneLab.translatesAutoresizingMaskIntoConstraints = NO;
+    self.subTitleTwoLab.translatesAutoresizingMaskIntoConstraints = NO;
+    self.okBtn.translatesAutoresizingMaskIntoConstraints = NO;
+    self.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    //    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-65-[_imgView(95)]" options:0 metrics:nil views:views]];
+//    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_titleLab]-0-|" options:0 metrics:nil views:views]];
+//    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_subTitleOneLab]-0-|" options:0 metrics:nil views:views]];
+//    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_subTitleTwoLab]-0-|" options:0 metrics:nil views:views]];
+//    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_okBtn]-0-|" options:0 metrics:nil views:views]];
 }
 
 - (void)layoutSubviews {
-    
-    NSDictionary *views = NSDictionaryOfVariableBindings(_imgView, _titleLab, _subTitleOneLab, _subTitleTwoLab, _okBtn);
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[_imgView(80)]-2-[_titleLab(20)]-2-[_subTitleOneLab(20)]-2-[_subTitleTwoLab(20)]-2-[_okBtn(20)]" options:0 metrics:nil views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-65-[_imgView(95)]" options:0 metrics:nil views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_titleLab]-0-|" options:0 metrics:nil views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_subTitleOneLab]-0-|" options:0 metrics:nil views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_subTitleTwoLab]-0-|" options:0 metrics:nil views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_okBtn]-0-|" options:0 metrics:nil views:views]];
 }
 
 #pragma mark - event response
 - (void)showInView:(UIView *)view animated:(BOOL)animated {
     if (self) {
-        UIView *maskView = [UIView new];
-        maskView.backgroundColor = [UIColor blackColor];
-        maskView.alpha = 0.5;
-        maskView.tag = 10000;
-        [self addTapGesInView:maskView];
-        [view addSubview:maskView];
-        NSDictionary *viewsDict = NSDictionaryOfVariableBindings(maskView);
-        [view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[maskView]-0-|" options:0 metrics:nil views:viewsDict]];
-        [view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[maskView]-0-|" options:0 metrics:nil views:viewsDict]];
+//        UIView *maskView = [UIView new];
+//        maskView.backgroundColor = [UIColor blackColor];
+//        maskView.alpha = 0.5;
+//        maskView.tag = 10000;
+//        [self addTapGesInView:maskView];
+//        [view addSubview:maskView];
+        
+        
+//        NSDictionary *viewsDict = NSDictionaryOfVariableBindings(maskView);
+//        [view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[maskView]-0-|" options:0 metrics:nil views:viewsDict]];
+//        [view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[maskView]-0-|" options:0 metrics:nil views:viewsDict]];
         [view addSubview:self];
+        
+        NSDictionary *views = NSDictionaryOfVariableBindings(_imgView, _titleLab, _subTitleOneLab, _subTitleTwoLab, _okBtn);
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_imgView(80)]" options:NSLayoutFormatAlignAllCenterX|NSLayoutFormatAlignAllCenterY metrics:nil views:views]];
+
     }
 }
 

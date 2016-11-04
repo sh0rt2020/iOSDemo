@@ -11,10 +11,18 @@
 #import <UIKit/UIKit.h>
 
 @protocol VFLNoAccessViewDelagate <NSObject>
+
 - (void)newNoAccessViewWillDisappear;
 @end
 
 @interface VFLNoAccessView : UIView
+
+
+@property (nonatomic) UIImageView *imgView;
+@property (nonatomic) UILabel *titleLab;
+@property (nonatomic) UILabel *subTitleOneLab;
+@property (nonatomic) UILabel *subTitleTwoLab;
+@property (nonatomic) UIButton *okBtn;
 
 //two subtitles
 @property (nonatomic, copy) NSString *subTitleOne;
