@@ -65,6 +65,7 @@ static NSString * const OK_BTN_TITLE = @"知道了";
     [self addSubview:self.subTitleTwoLab];
     [self addSubview:self.titleLab];
     [self addSubview:self.okBtn];
+<<<<<<< HEAD
     
     NSDictionary *views = NSDictionaryOfVariableBindings(_imgView, _titleLab, _subTitleOneLab, _subTitleTwoLab, _okBtn);
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[_imgView(80)]-4-[_titleLab(20)]-0-[_subTitleOneLab(16)]-0-[_subTitleTwoLab(16)]-0-[_okBtn(20)]-|" options:0 metrics:nil views:views]];
@@ -73,8 +74,20 @@ static NSString * const OK_BTN_TITLE = @"知道了";
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_subTitleOneLab]-0-|" options:0 metrics:nil views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_subTitleTwoLab]-0-|" options:0 metrics:nil views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_okBtn]-0-|" options:0 metrics:nil views:views]];
+=======
+>>>>>>> 774e88aff9899922f4fe0031503cd98aae4b49ab
 }
 
+- (void)layoutSubviews {
+    
+    NSDictionary *views = NSDictionaryOfVariableBindings(_imgView, _titleLab, _subTitleOneLab, _subTitleTwoLab, _okBtn);
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[_imgView(80)]-2-[_titleLab(20)]-2-[_subTitleOneLab(20)]-2-[_subTitleTwoLab(20)]-2-[_okBtn(20)]" options:0 metrics:nil views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-65-[_imgView(95)]" options:0 metrics:nil views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_titleLab]-0-|" options:0 metrics:nil views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_subTitleOneLab]-0-|" options:0 metrics:nil views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_subTitleTwoLab]-0-|" options:0 metrics:nil views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_okBtn]-0-|" options:0 metrics:nil views:views]];
+}
 
 #pragma mark - event response
 - (void)showInView:(UIView *)view animated:(BOOL)animated {
