@@ -66,8 +66,13 @@ static NSString * const OK_BTN_TITLE = @"知道了";
     [self addSubview:self.titleLab];
     [self addSubview:self.okBtn];
     
-//    NSDictionary *viewsDict = NSDictionaryOfVariableBindings(self.imgView, self.subTitleOneLab, self.subTitleTwoLab, self.titleLab, self.okBtn);
-//    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-9-imgView-4-titleLab-(-4)-subTitleOneLab-(-2)-subTitleTwoLab-(-1)-okBtn-|" options:0 metrics:nil views:viewsDict]];
+    NSDictionary *views = NSDictionaryOfVariableBindings(_imgView, _titleLab, _subTitleOneLab, _subTitleTwoLab, _okBtn);
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[_imgView(80)]-4-[_titleLab(20)]-0-[_subTitleOneLab(16)]-0-[_subTitleTwoLab(16)]-0-[_okBtn(20)]-|" options:0 metrics:nil views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-65-[_imgView(95)]" options:0 metrics:nil views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_titleLab]-0-|" options:0 metrics:nil views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_subTitleOneLab]-0-|" options:0 metrics:nil views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_subTitleTwoLab]-0-|" options:0 metrics:nil views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_okBtn]-0-|" options:0 metrics:nil views:views]];
 }
 
 
