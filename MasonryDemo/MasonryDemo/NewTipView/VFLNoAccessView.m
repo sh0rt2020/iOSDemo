@@ -7,17 +7,11 @@
 //
 
 #define SELF_FRAME CGRectMake(0, 0, WIDTH, HEIGHT)
-#define IMG_FRAME CGRectMake(65, 9, 95, 80)
-#define TITLE_FRAME CGRectMake(0, 93, WIDTH, LAB_HEIGHT)
-#define SUB_TITLE_ONE_LAB_FRAME CGRectMake(0, 110, WIDTH, LAB_HEIGHT)
-#define SUB_TITLE_TWO_LAB_FRAME CGRectMake(0, 129, WIDTH, LAB_HEIGHT)
-#define OK_BTN_FRAME CGRectMake(0, 149, WIDTH, LAB_HEIGHT)
 
 #import "VFLNoAccessView.h"
 
 static CGFloat const WIDTH = 226.0;
 static CGFloat const HEIGHT = 180.0;
-static CGFloat const LAB_HEIGHT = 21.0;
 
 static NSString * const TITLE = @"天呐,竟然看不了!叶师傅说:";
 static NSString * const OK_BTN_TITLE = @"知道了";
@@ -82,12 +76,18 @@ static NSString * const OK_BTN_TITLE = @"知道了";
 - (void)showInView:(UIView *)view animated:(BOOL)animated {
     if (self) {
         UIView *maskView = [[UIView alloc] initWithFrame:view.bounds];
+//        UIView *maskView = [UIView new];
         maskView.backgroundColor = [UIColor blackColor];
         maskView.alpha = 0.5;
         maskView.tag = 10000;
         [self addTapGesInView:maskView];
         [view addSubview:maskView];
         [view addSubview:self];
+        
+//        NSDictionary *views = NSDictionaryOfVariableBindings(maskView);
+//        NSDictionary *metrics = @{@"ScreenWidth":@([UIScreen mainScreen].bounds.size.width), @"ScreenHeight":@([UIScreen mainScreen].bounds.size.height)};
+//        [maskView.superview addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[maskView(ScreenWidth)]-0-|" options:NSLayoutFormatAlignAllCenterX|NSLayoutFormatAlignAllCenterY metrics:metrics views:views]];
+//        [maskView.superview addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[maskView(ScreenHeight)]-0-|" options:0 metrics:metrics views:views]];
     }
 }
 
