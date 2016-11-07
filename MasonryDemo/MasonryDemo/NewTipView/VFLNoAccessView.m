@@ -17,14 +17,18 @@
 
 static CGFloat const WIDTH = 226.0;
 static CGFloat const HEIGHT = 180.0;
-static CGFloat const LAB_HEIGHT = 21.0;
+static CGFloat const LAB_HEIGHT = 20.0;
 
 static NSString * const TITLE = @"天呐,竟然看不了!叶师傅说:";
 static NSString * const OK_BTN_TITLE = @"知道了";
 
 @interface VFLNoAccessView ()
 
-
+@property (nonatomic) UIImageView *imgView;
+@property (nonatomic) UILabel *titleLab;
+@property (nonatomic) UILabel *subTitleOneLab;
+@property (nonatomic) UILabel *subTitleTwoLab;
+@property (nonatomic) UIButton *okBtn;
 @end
 
 @implementation VFLNoAccessView
@@ -55,27 +59,28 @@ static NSString * const OK_BTN_TITLE = @"知道了";
 }
 
 - (void)initUI {
+//    _imgView = [UIImageView new];
+//    _imgView.backgroundColor = [UIColor greenColor];
+//    _imgView.image = [UIImage imageNamed:@"global_no_permission"];
     [self addSubview:self.imgView];
     [self addSubview:self.subTitleOneLab];
     [self addSubview:self.subTitleTwoLab];
     [self addSubview:self.titleLab];
     [self addSubview:self.okBtn];
-    
-    self.imgView.translatesAutoresizingMaskIntoConstraints = NO;
-    self.titleLab.translatesAutoresizingMaskIntoConstraints = NO;
-    self.subTitleOneLab.translatesAutoresizingMaskIntoConstraints = NO;
-    self.subTitleTwoLab.translatesAutoresizingMaskIntoConstraints = NO;
-    self.okBtn.translatesAutoresizingMaskIntoConstraints = NO;
-    self.translatesAutoresizingMaskIntoConstraints = NO;
-    
-    //    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-65-[_imgView(95)]" options:0 metrics:nil views:views]];
-//    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_titleLab]-0-|" options:0 metrics:nil views:views]];
-//    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_subTitleOneLab]-0-|" options:0 metrics:nil views:views]];
-//    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_subTitleTwoLab]-0-|" options:0 metrics:nil views:views]];
-//    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_okBtn]-0-|" options:0 metrics:nil views:views]];
 }
 
 - (void)layoutSubviews {
+    
+    NSDictionary *views = NSDictionaryOfVariableBindings(_imgView, _titleLab, _subTitleOneLab, _subTitleTwoLab, _okBtn);
+//    NSDictionary *metrics = @{@"LabHeight": @(20.0f), @"Zero":@(0.0f)};
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-8-[_imgView(80)]-2-[_titleLab(20)]-2-[_subTitleLab(20)]-2-[_subTitleLab(20)]-2-[_okBtn(20)]" options:NSLayoutFormatAlignAllCenterY|NSLayoutFormatAlignAllLeading metrics:nil views:views]];
+//    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:<#(nonnull NSString *)#> options:<#(NSLayoutFormatOptions)#> metrics:<#(nullable NSDictionary<NSString *,id> *)#> views:<#(nonnull NSDictionary<NSString *,id> *)#>]]
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(65)-[_imgView(95)]" options:0 metrics:nil views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_titleLab]-0-|" options:0 metrics:nil views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_subTitleOneLab]-0-|" options:0 metrics:nil views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_subTitleTwoLab]-0-|" options:0 metrics:nil views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_okBtn]-0-|" options:0 metrics:nil views:views]];
+
 }
 
 #pragma mark - event response
@@ -88,15 +93,7 @@ static NSString * const OK_BTN_TITLE = @"知道了";
 //        [self addTapGesInView:maskView];
 //        [view addSubview:maskView];
         
-        
-//        NSDictionary *viewsDict = NSDictionaryOfVariableBindings(maskView);
-//        [view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[maskView]-0-|" options:0 metrics:nil views:viewsDict]];
-//        [view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[maskView]-0-|" options:0 metrics:nil views:viewsDict]];
         [view addSubview:self];
-        
-        NSDictionary *views = NSDictionaryOfVariableBindings(_imgView, _titleLab, _subTitleOneLab, _subTitleTwoLab, _okBtn);
-        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_imgView(80)]" options:NSLayoutFormatAlignAllCenterX|NSLayoutFormatAlignAllCenterY metrics:nil views:views]];
-
     }
 }
 
@@ -124,48 +121,64 @@ static NSString * const OK_BTN_TITLE = @"知道了";
 
 #pragma mark - setter&getter
 - (UIImageView *)imgView {
-    _imgView = [UIImageView new];
-    _imgView.image = [UIImage imageNamed:@"global_no_permission"];
+    if (!_imgView) {
+        _imgView = [UIImageView new];
+        _imgView.backgroundColor = [UIColor greenColor];
+        _imgView.image = [UIImage imageNamed:@"global_no_permission"];
+        _imgView.translatesAutoresizingMaskIntoConstraints = NO;
+    }
     return _imgView;
 }
 
 - (UILabel *)titleLab {
-//    _titleLab = [[UILabel alloc] initWithFrame:TITLE_FRAME];
-    _titleLab = [UILabel new];
-    _titleLab.text = TITLE;
-    _titleLab.font = [UIFont systemFontOfSize:13];
-    _titleLab.textColor = [UIColor blackColor];
-    _titleLab.textAlignment = NSTextAlignmentCenter;
+
+    if (!_titleLab) {
+        _titleLab = [UILabel new];
+        _titleLab.text = TITLE;
+        _titleLab.font = [UIFont systemFontOfSize:13];
+        _titleLab.textColor = [UIColor blackColor];
+        _titleLab.textAlignment = NSTextAlignmentCenter;
+        _titleLab.translatesAutoresizingMaskIntoConstraints = NO;
+    }
     return _titleLab;
 }
 
 - (UILabel *)subTitleOneLab {
-//    _subTitleOneLab = [[UILabel alloc] initWithFrame:SUB_TITLE_ONE_LAB_FRAME];
-    _subTitleOneLab = [UILabel new];
-    _subTitleOneLab.textColor = [UIColor lightGrayColor];
-    _subTitleOneLab.text = self.subTitleOne;
-    _subTitleOneLab.textAlignment = NSTextAlignmentCenter;
-    _subTitleOneLab.font = [UIFont systemFontOfSize:12];
+
+    if (!_subTitleOneLab) {
+        _subTitleOneLab = [UILabel new];
+        _subTitleOneLab.textColor = [UIColor lightGrayColor];
+        _subTitleOneLab.text = self.subTitleOne;
+        _subTitleOneLab.textAlignment = NSTextAlignmentCenter;
+        _subTitleOneLab.font = [UIFont systemFontOfSize:12];
+        _subTitleOneLab.translatesAutoresizingMaskIntoConstraints = NO;
+    }
     return _subTitleOneLab;
 }
 
 - (UILabel *)subTitleTwoLab {
-//    _subTitleTwoLab = [[UILabel alloc] initWithFrame:SUB_TITLE_TWO_LAB_FRAME];
-    _subTitleTwoLab = [UILabel new];
-    _subTitleTwoLab.textAlignment = NSTextAlignmentCenter;
-    _subTitleTwoLab.textColor = [UIColor lightGrayColor];
-    _subTitleTwoLab.text = self.subTitleTwo;
-    _subTitleTwoLab.font = [UIFont systemFontOfSize:12];
+
+    if (!_subTitleTwoLab) {
+        _subTitleTwoLab = [UILabel new];
+        _subTitleTwoLab.textAlignment = NSTextAlignmentCenter;
+        _subTitleTwoLab.textColor = [UIColor lightGrayColor];
+        _subTitleTwoLab.text = self.subTitleTwo;
+        _subTitleTwoLab.font = [UIFont systemFontOfSize:12];
+        _subTitleTwoLab.translatesAutoresizingMaskIntoConstraints = NO;
+    }
     return _subTitleTwoLab;
 }
 
 - (UIButton *)okBtn {
-//    _okBtn = [[UIButton alloc] initWithFrame:OK_BTN_FRAME];
-    _okBtn = [UIButton new];
-    [_okBtn setTitle:OK_BTN_TITLE forState:UIControlStateNormal];
-    [_okBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    _okBtn.titleLabel.font = [UIFont systemFontOfSize:13];
-    [_okBtn addTarget:self action:@selector(didClickOkBtn:) forControlEvents:UIControlEventTouchUpInside];
+
+    if (!_okBtn) {
+        _okBtn = [UIButton new];
+        [_okBtn setTitle:OK_BTN_TITLE forState:UIControlStateNormal];
+        [_okBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+        _okBtn.titleLabel.font = [UIFont systemFontOfSize:13];
+        [_okBtn addTarget:self action:@selector(didClickOkBtn:) forControlEvents:UIControlEventTouchUpInside];
+        _okBtn.translatesAutoresizingMaskIntoConstraints = NO;
+    }
     return _okBtn;
 }
 
