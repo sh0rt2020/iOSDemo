@@ -7,17 +7,15 @@
 //
 
 #define SELF_FRAME CGRectMake(0, 0, WIDTH, HEIGHT)
-#define IMG_FRAME CGRectMake(65, 9, 95, 80)
-#define TITLE_FRAME CGRectMake(0, 93, WIDTH, LAB_HEIGHT)
-#define SUB_TITLE_ONE_LAB_FRAME CGRectMake(0, 110, WIDTH, LAB_HEIGHT)
-#define SUB_TITLE_TWO_LAB_FRAME CGRectMake(0, 129, WIDTH, LAB_HEIGHT)
-#define OK_BTN_FRAME CGRectMake(0, 149, WIDTH, LAB_HEIGHT)
 
 #import "VFLNoAccessView.h"
 
 static CGFloat const WIDTH = 226.0;
 static CGFloat const HEIGHT = 180.0;
+<<<<<<< HEAD
 static CGFloat const LAB_HEIGHT = 20.0;
+=======
+>>>>>>> 14f283e576caa219485f5f908301df56b9f1182e
 
 static NSString * const TITLE = @"天呐,竟然看不了!叶师傅说:";
 static NSString * const OK_BTN_TITLE = @"知道了";
@@ -38,7 +36,7 @@ static NSString * const OK_BTN_TITLE = @"知道了";
     self = [super initWithFrame:frame];
     if (self) {
         self.center = [UIApplication sharedApplication].keyWindow.center;
-        self.backgroundColor = [UIColor redColor];
+        self.backgroundColor = [UIColor whiteColor];
         self.layer.masksToBounds = YES;
         self.layer.cornerRadius = 4.0;
         return self;
@@ -67,6 +65,18 @@ static NSString * const OK_BTN_TITLE = @"知道了";
     [self addSubview:self.subTitleTwoLab];
     [self addSubview:self.titleLab];
     [self addSubview:self.okBtn];
+<<<<<<< HEAD
+=======
+    
+    NSDictionary *metrics = @{@"VerticalGap":@2.0, @"Height":@20.0, @"LeadingGap":@0};
+    NSDictionary *views = NSDictionaryOfVariableBindings(_imgView, _titleLab, _subTitleOneLab, _subTitleTwoLab, _okBtn);
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-8-[_imgView(80)]-VerticalGap-[_titleLab(Height)]-VerticalGap-[_subTitleOneLab(Height)]-VerticalGap-[_subTitleTwoLab(Height)]-VerticalGap-[_okBtn(Height)]" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-65-[_imgView(95)]" options:NSLayoutFormatAlignAllCenterX|NSLayoutFormatAlignAllCenterY metrics:nil views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-LeadingGap-[_titleLab]-LeadingGap-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-LeadingGap-[_subTitleOneLab]-LeadingGap-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-LeadingGap-[_subTitleTwoLab]-LeadingGap-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-LeadingGap-[_okBtn]-LeadingGap-|" options:0 metrics:metrics views:views]];
+>>>>>>> 14f283e576caa219485f5f908301df56b9f1182e
 }
 
 - (void)layoutSubviews {
@@ -86,7 +96,9 @@ static NSString * const OK_BTN_TITLE = @"知道了";
 #pragma mark - event response
 - (void)showInView:(UIView *)view animated:(BOOL)animated {
     if (self) {
+        UIView *maskView = [[UIView alloc] initWithFrame:view.bounds];
 //        UIView *maskView = [UIView new];
+<<<<<<< HEAD
 //        maskView.backgroundColor = [UIColor blackColor];
 //        maskView.alpha = 0.5;
 //        maskView.tag = 10000;
@@ -94,12 +106,25 @@ static NSString * const OK_BTN_TITLE = @"知道了";
 //        [view addSubview:maskView];
         
         [view addSubview:self];
+=======
+        maskView.backgroundColor = [UIColor blackColor];
+        maskView.alpha = 0.5;
+        maskView.tag = 10000;
+        [self addTapGesInView:maskView];
+        [view addSubview:maskView];
+        [view addSubview:self];
+        
+//        NSDictionary *views = NSDictionaryOfVariableBindings(maskView);
+//        NSDictionary *metrics = @{@"ScreenWidth":@([UIScreen mainScreen].bounds.size.width), @"ScreenHeight":@([UIScreen mainScreen].bounds.size.height)};
+//        [maskView.superview addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[maskView(ScreenWidth)]-0-|" options:NSLayoutFormatAlignAllCenterX|NSLayoutFormatAlignAllCenterY metrics:metrics views:views]];
+//        [maskView.superview addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[maskView(ScreenHeight)]-0-|" options:0 metrics:metrics views:views]];
+>>>>>>> 14f283e576caa219485f5f908301df56b9f1182e
     }
 }
 
 - (void)hiddenFromView:(UIView *)view animated:(BOOL)animated {
     if (self) {
-        [self removeFromSuperview];
+        [[[view subviews] lastObject] removeFromSuperview];
         [[view viewWithTag:10000] removeFromSuperview];
     }
 }
@@ -111,6 +136,7 @@ static NSString * const OK_BTN_TITLE = @"知道了";
 }
 
 #pragma mark - private method
+//添加手势
 - (void)addTapGesInView:(UIView *)view {
     view.userInteractionEnabled = YES;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didClickOkBtn:)];
@@ -123,7 +149,10 @@ static NSString * const OK_BTN_TITLE = @"知道了";
 - (UIImageView *)imgView {
     if (!_imgView) {
         _imgView = [UIImageView new];
+<<<<<<< HEAD
         _imgView.backgroundColor = [UIColor greenColor];
+=======
+>>>>>>> 14f283e576caa219485f5f908301df56b9f1182e
         _imgView.image = [UIImage imageNamed:@"global_no_permission"];
         _imgView.translatesAutoresizingMaskIntoConstraints = NO;
     }
@@ -131,7 +160,10 @@ static NSString * const OK_BTN_TITLE = @"知道了";
 }
 
 - (UILabel *)titleLab {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 14f283e576caa219485f5f908301df56b9f1182e
     if (!_titleLab) {
         _titleLab = [UILabel new];
         _titleLab.text = TITLE;
@@ -144,7 +176,10 @@ static NSString * const OK_BTN_TITLE = @"知道了";
 }
 
 - (UILabel *)subTitleOneLab {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 14f283e576caa219485f5f908301df56b9f1182e
     if (!_subTitleOneLab) {
         _subTitleOneLab = [UILabel new];
         _subTitleOneLab.textColor = [UIColor lightGrayColor];
@@ -157,7 +192,10 @@ static NSString * const OK_BTN_TITLE = @"知道了";
 }
 
 - (UILabel *)subTitleTwoLab {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 14f283e576caa219485f5f908301df56b9f1182e
     if (!_subTitleTwoLab) {
         _subTitleTwoLab = [UILabel new];
         _subTitleTwoLab.textAlignment = NSTextAlignmentCenter;
@@ -170,7 +208,10 @@ static NSString * const OK_BTN_TITLE = @"知道了";
 }
 
 - (UIButton *)okBtn {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 14f283e576caa219485f5f908301df56b9f1182e
     if (!_okBtn) {
         _okBtn = [UIButton new];
         [_okBtn setTitle:OK_BTN_TITLE forState:UIControlStateNormal];
