@@ -18,7 +18,14 @@
 		3B2030031DC24480007F6611 /* NBTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2030021DC24480007F6611 /* NBTableViewCell.m */; };
 		3B4A8CE71DD6FD17003AE494 /* NBGeometryTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4A8CE61DD6FD17003AE494 /* NBGeometryTools.m */; };
 		3B4A8CEA1DD706F2003AE494 /* NBTypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4A8CE91DD706F2003AE494 /* NBTypeCell.m */; };
-		3B4A8CED1DD71583003AE494 /* NBTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4A8CEC1DD71583003AE494 /* NBTableView.m */; };
+		3B4A8CED1DD71583003AE494 /* NBTableView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3B4A8CEC1DD71583003AE494 /* NBTableView.mm */; };
+		3B4A8CF01DD74E8F003AE494 /* NBTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4A8CEF1DD74E8F003AE494 /* NBTableViewDelegate.m */; };
+		3B4A8CF31DD74EA6003AE494 /* NBTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4A8CF21DD74EA6003AE494 /* NBTableViewDataSource.m */; };
+		3B4A8CF51DD75BC9003AE494 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B4A8CF41DD75BC9003AE494 /* CoreGraphics.framework */; };
+		3B4A8CF71DD75BD7003AE494 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B4A8CF61DD75BD7003AE494 /* Foundation.framework */; };
+		3B4A8CF91DD75BDE003AE494 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B4A8CF81DD75BDE003AE494 /* UIKit.framework */; };
+		3B4A8CFF1DD7635B003AE494 /* NSString+NBAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4A8CFE1DD7635B003AE494 /* NSString+NBAdd.m */; };
+		3B4A8D021DD7636E003AE494 /* UIColor+NBAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4A8D011DD7636E003AE494 /* UIColor+NBAdd.m */; };
 		DAB397BB7A5C32BCFD53534A /* libPods-NBTableView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49892FA61D8ABFCC99C9AA2A /* libPods-NBTableView.a */; };
 /* End PBXBuildFile section */
 
@@ -45,7 +52,18 @@
 		3B4A8CE81DD706F2003AE494 /* NBTypeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBTypeCell.h; sourceTree = "<group>"; };
 		3B4A8CE91DD706F2003AE494 /* NBTypeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBTypeCell.m; sourceTree = "<group>"; };
 		3B4A8CEB1DD71583003AE494 /* NBTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBTableView.h; sourceTree = "<group>"; };
-		3B4A8CEC1DD71583003AE494 /* NBTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBTableView.m; sourceTree = "<group>"; };
+		3B4A8CEC1DD71583003AE494 /* NBTableView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NBTableView.mm; sourceTree = "<group>"; };
+		3B4A8CEE1DD74E8F003AE494 /* NBTableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBTableViewDelegate.h; sourceTree = "<group>"; };
+		3B4A8CEF1DD74E8F003AE494 /* NBTableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBTableViewDelegate.m; sourceTree = "<group>"; };
+		3B4A8CF11DD74EA6003AE494 /* NBTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBTableViewDataSource.h; sourceTree = "<group>"; };
+		3B4A8CF21DD74EA6003AE494 /* NBTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBTableViewDataSource.m; sourceTree = "<group>"; };
+		3B4A8CF41DD75BC9003AE494 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		3B4A8CF61DD75BD7003AE494 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		3B4A8CF81DD75BDE003AE494 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		3B4A8CFD1DD7635B003AE494 /* NSString+NBAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+NBAdd.h"; sourceTree = "<group>"; };
+		3B4A8CFE1DD7635B003AE494 /* NSString+NBAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NBAdd.m"; sourceTree = "<group>"; };
+		3B4A8D001DD7636E003AE494 /* UIColor+NBAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+NBAdd.h"; sourceTree = "<group>"; };
+		3B4A8D011DD7636E003AE494 /* UIColor+NBAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+NBAdd.m"; sourceTree = "<group>"; };
 		3BF690BF1DD370B100998AB5 /* NBGlobalDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NBGlobalDefines.h; sourceTree = "<group>"; };
 		497DF03735001EB985237C8D /* Pods-NBTableView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NBTableView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NBTableView/Pods-NBTableView.debug.xcconfig"; sourceTree = "<group>"; };
 		49892FA61D8ABFCC99C9AA2A /* libPods-NBTableView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NBTableView.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,6 +74,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B4A8CF91DD75BDE003AE494 /* UIKit.framework in Frameworks */,
+				3B4A8CF71DD75BD7003AE494 /* Foundation.framework in Frameworks */,
+				3B4A8CF51DD75BC9003AE494 /* CoreGraphics.framework in Frameworks */,
 				DAB397BB7A5C32BCFD53534A /* libPods-NBTableView.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -113,7 +134,11 @@
 			isa = PBXGroup;
 			children = (
 				3B4A8CEB1DD71583003AE494 /* NBTableView.h */,
-				3B4A8CEC1DD71583003AE494 /* NBTableView.m */,
+				3B4A8CEC1DD71583003AE494 /* NBTableView.mm */,
+				3B4A8CEE1DD74E8F003AE494 /* NBTableViewDelegate.h */,
+				3B4A8CEF1DD74E8F003AE494 /* NBTableViewDelegate.m */,
+				3B4A8CF11DD74EA6003AE494 /* NBTableViewDataSource.h */,
+				3B4A8CF21DD74EA6003AE494 /* NBTableViewDataSource.m */,
 			);
 			path = NBTableView;
 			sourceTree = "<group>";
@@ -146,6 +171,10 @@
 			children = (
 				3B4A8CE51DD6FD17003AE494 /* NBGeometryTools.h */,
 				3B4A8CE61DD6FD17003AE494 /* NBGeometryTools.m */,
+				3B4A8CFD1DD7635B003AE494 /* NSString+NBAdd.h */,
+				3B4A8CFE1DD7635B003AE494 /* NSString+NBAdd.m */,
+				3B4A8D001DD7636E003AE494 /* UIColor+NBAdd.h */,
+				3B4A8D011DD7636E003AE494 /* UIColor+NBAdd.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -162,6 +191,9 @@
 		74B1C120C4DAC6FA789F7584 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3B4A8CF81DD75BDE003AE494 /* UIKit.framework */,
+				3B4A8CF61DD75BD7003AE494 /* Foundation.framework */,
+				3B4A8CF41DD75BC9003AE494 /* CoreGraphics.framework */,
 				49892FA61D8ABFCC99C9AA2A /* libPods-NBTableView.a */,
 			);
 			name = Frameworks;
@@ -289,13 +321,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B4A8CFF1DD7635B003AE494 /* NSString+NBAdd.m in Sources */,
 				0327E3AD1DD41FB7007D1DD9 /* NBCellActionsView.m in Sources */,
 				3B4A8CEA1DD706F2003AE494 /* NBTypeCell.m in Sources */,
 				3B127E1E1DB51F4C0013AA1D /* ViewController.m in Sources */,
 				3B127E1B1DB51F4C0013AA1D /* AppDelegate.m in Sources */,
 				3B4A8CE71DD6FD17003AE494 /* NBGeometryTools.m in Sources */,
-				3B4A8CED1DD71583003AE494 /* NBTableView.m in Sources */,
+				3B4A8CED1DD71583003AE494 /* NBTableView.mm in Sources */,
+				3B4A8CF01DD74E8F003AE494 /* NBTableViewDelegate.m in Sources */,
+				3B4A8CF31DD74EA6003AE494 /* NBTableViewDataSource.m in Sources */,
 				3B127E181DB51F4C0013AA1D /* main.m in Sources */,
+				3B4A8D021DD7636E003AE494 /* UIColor+NBAdd.m in Sources */,
 				0327E3AA1DD4109E007D1DD9 /* NBCellActionItem.m in Sources */,
 				3B2030031DC24480007F6611 /* NBTableViewCell.m in Sources */,
 			);

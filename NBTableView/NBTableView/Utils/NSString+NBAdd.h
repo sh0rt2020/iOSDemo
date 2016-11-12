@@ -1,14 +1,14 @@
 //
-//  NBTableView.m
+//  NSString+NBAdd.h
 //  NBTableView
 //
 //  Created by sunwell on 2016/11/12.
 //  Copyright © 2016年 sunwell. All rights reserved.
 //
 
-#import "NBTableView.h"
+#import <Foundation/Foundation.h>
 
-@implementation NBTableView
+@interface NSString (NBAdd)
 
-
+- (NSString *)stringByTrim;
 @end
