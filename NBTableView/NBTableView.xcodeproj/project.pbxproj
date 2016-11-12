@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0327E3AA1DD4109E007D1DD9 /* NBCellActionItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0327E3A91DD4109E007D1DD9 /* NBCellActionItem.m */; };
+		0327E3AD1DD41FB7007D1DD9 /* NBCellActionsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0327E3AC1DD41FB7007D1DD9 /* NBCellActionsView.m */; };
 		3B127E181DB51F4C0013AA1D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B127E171DB51F4C0013AA1D /* main.m */; };
 		3B127E1B1DB51F4C0013AA1D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B127E1A1DB51F4C0013AA1D /* AppDelegate.m */; };
 		3B127E1E1DB51F4C0013AA1D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B127E1D1DB51F4C0013AA1D /* ViewController.m */; };
@@ -18,6 +20,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0327E3A81DD4109E007D1DD9 /* NBCellActionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBCellActionItem.h; sourceTree = "<group>"; };
+		0327E3A91DD4109E007D1DD9 /* NBCellActionItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBCellActionItem.m; sourceTree = "<group>"; };
+		0327E3AB1DD41FB7007D1DD9 /* NBCellActionsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBCellActionsView.h; sourceTree = "<group>"; };
+		0327E3AC1DD41FB7007D1DD9 /* NBCellActionsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBCellActionsView.m; sourceTree = "<group>"; };
 		25428E07A59E64153D673FE8 /* Pods-NBTableView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NBTableView.release.xcconfig"; path = "Pods/Target Support Files/Pods-NBTableView/Pods-NBTableView.release.xcconfig"; sourceTree = "<group>"; };
 		3B127E131DB51F4C0013AA1D /* NBTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NBTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B127E171DB51F4C0013AA1D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -106,6 +112,10 @@
 			children = (
 				3B2030011DC24480007F6611 /* NBTableViewCell.h */,
 				3B2030021DC24480007F6611 /* NBTableViewCell.m */,
+				0327E3A81DD4109E007D1DD9 /* NBCellActionItem.h */,
+				0327E3A91DD4109E007D1DD9 /* NBCellActionItem.m */,
+				0327E3AB1DD41FB7007D1DD9 /* NBCellActionsView.h */,
+				0327E3AC1DD41FB7007D1DD9 /* NBCellActionsView.m */,
 			);
 			path = NBTableViewCell;
 			sourceTree = "<group>";
@@ -264,9 +274,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0327E3AD1DD41FB7007D1DD9 /* NBCellActionsView.m in Sources */,
 				3B127E1E1DB51F4C0013AA1D /* ViewController.m in Sources */,
 				3B127E1B1DB51F4C0013AA1D /* AppDelegate.m in Sources */,
 				3B127E181DB51F4C0013AA1D /* main.m in Sources */,
+				0327E3AA1DD4109E007D1DD9 /* NBCellActionItem.m in Sources */,
 				3B2030031DC24480007F6611 /* NBTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
