@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NBGlobalDefines.h"
 
 @interface NBTableViewCell : UIView
 
+DEFINE_PROPERTY_ASSIGN(BOOL, isSelected);
+
+- (void) showGradientStart:(UIColor *)startColor endColor:(UIColor *)end;
 @end

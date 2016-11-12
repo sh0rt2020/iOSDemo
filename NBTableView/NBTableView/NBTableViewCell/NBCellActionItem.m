@@ -10,6 +10,12 @@
 
 @implementation NBCellActionItem
 
-
+- (id)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        _edgeInsets = UIEdgeInsetsZero;
+    }
+    return self;
+}
 
 @end

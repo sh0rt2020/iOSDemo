@@ -16,6 +16,8 @@
 		3B127E231DB51F4C0013AA1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B127E221DB51F4C0013AA1D /* Assets.xcassets */; };
 		3B127E261DB51F4C0013AA1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B127E241DB51F4C0013AA1D /* LaunchScreen.storyboard */; };
 		3B2030031DC24480007F6611 /* NBTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2030021DC24480007F6611 /* NBTableViewCell.m */; };
+		3B4A8CE71DD6FD17003AE494 /* NBGeometryTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4A8CE61DD6FD17003AE494 /* NBGeometryTools.m */; };
+		3B4A8CEA1DD706F2003AE494 /* NBTypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4A8CE91DD706F2003AE494 /* NBTypeCell.m */; };
 		DAB397BB7A5C32BCFD53534A /* libPods-NBTableView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49892FA61D8ABFCC99C9AA2A /* libPods-NBTableView.a */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +39,10 @@
 		3B127E271DB51F4C0013AA1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B2030011DC24480007F6611 /* NBTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBTableViewCell.h; sourceTree = "<group>"; };
 		3B2030021DC24480007F6611 /* NBTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBTableViewCell.m; sourceTree = "<group>"; };
+		3B4A8CE51DD6FD17003AE494 /* NBGeometryTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBGeometryTools.h; sourceTree = "<group>"; };
+		3B4A8CE61DD6FD17003AE494 /* NBGeometryTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBGeometryTools.m; sourceTree = "<group>"; };
+		3B4A8CE81DD706F2003AE494 /* NBTypeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBTypeCell.h; sourceTree = "<group>"; };
+		3B4A8CE91DD706F2003AE494 /* NBTypeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBTypeCell.m; sourceTree = "<group>"; };
 		3BF690BF1DD370B100998AB5 /* NBGlobalDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NBGlobalDefines.h; sourceTree = "<group>"; };
 		497DF03735001EB985237C8D /* Pods-NBTableView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NBTableView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NBTableView/Pods-NBTableView.debug.xcconfig"; sourceTree = "<group>"; };
 		49892FA61D8ABFCC99C9AA2A /* libPods-NBTableView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NBTableView.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,6 +122,8 @@
 				0327E3A91DD4109E007D1DD9 /* NBCellActionItem.m */,
 				0327E3AB1DD41FB7007D1DD9 /* NBCellActionsView.h */,
 				0327E3AC1DD41FB7007D1DD9 /* NBCellActionsView.m */,
+				3B4A8CE81DD706F2003AE494 /* NBTypeCell.h */,
+				3B4A8CE91DD706F2003AE494 /* NBTypeCell.m */,
 			);
 			path = NBTableViewCell;
 			sourceTree = "<group>";
@@ -131,6 +139,8 @@
 		3BF690BE1DD3709000998AB5 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				3B4A8CE51DD6FD17003AE494 /* NBGeometryTools.h */,
+				3B4A8CE61DD6FD17003AE494 /* NBGeometryTools.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -275,8 +285,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0327E3AD1DD41FB7007D1DD9 /* NBCellActionsView.m in Sources */,
+				3B4A8CEA1DD706F2003AE494 /* NBTypeCell.m in Sources */,
 				3B127E1E1DB51F4C0013AA1D /* ViewController.m in Sources */,
 				3B127E1B1DB51F4C0013AA1D /* AppDelegate.m in Sources */,
+				3B4A8CE71DD6FD17003AE494 /* NBGeometryTools.m in Sources */,
 				3B127E181DB51F4C0013AA1D /* main.m in Sources */,
 				0327E3AA1DD4109E007D1DD9 /* NBCellActionItem.m in Sources */,
 				3B2030031DC24480007F6611 /* NBTableViewCell.m in Sources */,

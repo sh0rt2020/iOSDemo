@@ -6,6 +6,8 @@
 //  Copyright © 2016年 sunwell. All rights reserved.
 //
 
+//cell中负责组装actionItem的一层
+
 #import <UIKit/UIKit.h>
 #import "NBCellActionItem.h"
 #import "NBGlobalDefines.h"
