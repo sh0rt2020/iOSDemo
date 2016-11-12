@@ -18,6 +18,7 @@
 		3B2030031DC24480007F6611 /* NBTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2030021DC24480007F6611 /* NBTableViewCell.m */; };
 		3B4A8CE71DD6FD17003AE494 /* NBGeometryTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4A8CE61DD6FD17003AE494 /* NBGeometryTools.m */; };
 		3B4A8CEA1DD706F2003AE494 /* NBTypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4A8CE91DD706F2003AE494 /* NBTypeCell.m */; };
+		3B4A8CED1DD71583003AE494 /* NBTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4A8CEC1DD71583003AE494 /* NBTableView.m */; };
 		DAB397BB7A5C32BCFD53534A /* libPods-NBTableView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49892FA61D8ABFCC99C9AA2A /* libPods-NBTableView.a */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,8 @@
 		3B4A8CE61DD6FD17003AE494 /* NBGeometryTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBGeometryTools.m; sourceTree = "<group>"; };
 		3B4A8CE81DD706F2003AE494 /* NBTypeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBTypeCell.h; sourceTree = "<group>"; };
 		3B4A8CE91DD706F2003AE494 /* NBTypeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBTypeCell.m; sourceTree = "<group>"; };
+		3B4A8CEB1DD71583003AE494 /* NBTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBTableView.h; sourceTree = "<group>"; };
+		3B4A8CEC1DD71583003AE494 /* NBTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBTableView.m; sourceTree = "<group>"; };
 		3BF690BF1DD370B100998AB5 /* NBGlobalDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NBGlobalDefines.h; sourceTree = "<group>"; };
 		497DF03735001EB985237C8D /* Pods-NBTableView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NBTableView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NBTableView/Pods-NBTableView.debug.xcconfig"; sourceTree = "<group>"; };
 		49892FA61D8ABFCC99C9AA2A /* libPods-NBTableView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NBTableView.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,6 +112,8 @@
 		3B202FFF1DC24480007F6611 /* NBTableView */ = {
 			isa = PBXGroup;
 			children = (
+				3B4A8CEB1DD71583003AE494 /* NBTableView.h */,
+				3B4A8CEC1DD71583003AE494 /* NBTableView.m */,
 			);
 			path = NBTableView;
 			sourceTree = "<group>";
@@ -289,6 +294,7 @@
 				3B127E1E1DB51F4C0013AA1D /* ViewController.m in Sources */,
 				3B127E1B1DB51F4C0013AA1D /* AppDelegate.m in Sources */,
 				3B4A8CE71DD6FD17003AE494 /* NBGeometryTools.m in Sources */,
+				3B4A8CED1DD71583003AE494 /* NBTableView.m in Sources */,
 				3B127E181DB51F4C0013AA1D /* main.m in Sources */,
 				0327E3AA1DD4109E007D1DD9 /* NBCellActionItem.m in Sources */,
 				3B2030031DC24480007F6611 /* NBTableViewCell.m in Sources */,

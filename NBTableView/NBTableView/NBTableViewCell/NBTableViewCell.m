@@ -142,8 +142,9 @@ DEFINE_PROPERTY_STRONG(NSString *, identifiy);
 - (void)showGradientStart:(UIColor *)startColor endColor:(UIColor *)end {
     CGFloat white;
     CGFloat alpha;
+    //white、alpha初始化为0  传内存地址检测是否已经分配好这两个值
     if ([startColor getWhite:&white alpha:&alpha]) {
-        NSLog(@"");
+        NSLog(@"white=%f  alpha=%f", white, alpha);
     }
     
     self.gradientLayer.colors = @[(id)startColor.CGColor, (id)end.CGColor];

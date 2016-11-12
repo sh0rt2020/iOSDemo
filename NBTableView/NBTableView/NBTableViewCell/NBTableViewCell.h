@@ -13,5 +13,6 @@
 
 DEFINE_PROPERTY_ASSIGN(BOOL, isSelected);
 
+- (instancetype)initWithIdentifiy:(NSString *)identifiy;
 - (void) showGradientStart:(UIColor *)startColor endColor:(UIColor *)end;
 @end
