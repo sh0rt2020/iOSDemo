@@ -43,7 +43,8 @@ DEFINE_PROPERTY_STRONG(UIView *, selectedBackgroundView);
         NBCellActionsView *actionView = [[NBCellActionsView alloc] init];
         [self setActionsView:actionView];
         
-//        INIT_SUBVIEW_SELF(<#class#>, <#name#>)
+        INIT_SUBVIEW_SELF(NBSeparationLine, self.topSeparationLine);
+        INIT_SUBVIEW_SELF(NBSeparationLine, self.bottomSeparationLine);
     }
     return self;
 }
@@ -70,7 +71,11 @@ DEFINE_PROPERTY_STRONG(UIView *, selectedBackgroundView);
         self.selectedBackgroundView.hidden = YES;
     }
     
-//    self
+    [self bringSubviewToFront:self.topSeparationLine];
+    [self bringSubviewToFront:self.bottomSeparationLine];
+    
+    LAYOUT_SUBVIEW_TOP_FILL_WIDTH(_topSeparationLine, 0, 0, 3);
+    LAYOUT_SUBVIEW_BOTTOM_FILL_WIDTH(_bottomSeparationLine, 0, 0, 3);
     self.gradientLayer.frame = self.contentView.bounds;
     [self.contentView.layer insertSublayer:self.gradientLayer atIndex:0];
 }
@@ -137,12 +142,14 @@ DEFINE_PROPERTY_STRONG(UIView *, selectedBackgroundView);
 - (void)showGradientStart:(UIColor *)startColor endColor:(UIColor *)end {
     CGFloat white;
     CGFloat alpha;
-    //white、alpha初始化为0  传内存地址检测是否已经分配好这两个值
+    //获取到startColor中的white 和 alpha的值
     if ([startColor getWhite:&white alpha:&alpha]) {
         NSLog(@"white=%f  alpha=%f", white, alpha);
     }
     
     self.gradientLayer.colors = @[(id)startColor.CGColor, (id)end.CGColor];
+    self.topSeparationLine.lineColor = startColor;
+    self.bottomSeparationLine.lineColor = end;
 }
 
 #pragma mark - private method

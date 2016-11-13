@@ -27,6 +27,7 @@
 		3B4A8CFF1DD7635B003AE494 /* NSString+NBAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4A8CFE1DD7635B003AE494 /* NSString+NBAdd.m */; };
 		3B4A8D021DD7636E003AE494 /* UIColor+NBAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4A8D011DD7636E003AE494 /* UIColor+NBAdd.m */; };
 		3B4A8D0B1DD85D06003AE494 /* UIView+NBAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4A8D0A1DD85D06003AE494 /* UIView+NBAdd.m */; };
+		3B4A8D0E1DD88377003AE494 /* NBSeparationLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4A8D0D1DD88377003AE494 /* NBSeparationLine.m */; };
 		DAB397BB7A5C32BCFD53534A /* libPods-NBTableView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49892FA61D8ABFCC99C9AA2A /* libPods-NBTableView.a */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +70,8 @@
 		3B4A8D061DD84E36003AE494 /* NBTableViewActionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBTableViewActionDelegate.h; sourceTree = "<group>"; };
 		3B4A8D091DD85D06003AE494 /* UIView+NBAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+NBAdd.h"; sourceTree = "<group>"; };
 		3B4A8D0A1DD85D06003AE494 /* UIView+NBAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+NBAdd.m"; sourceTree = "<group>"; };
+		3B4A8D0C1DD88377003AE494 /* NBSeparationLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBSeparationLine.h; sourceTree = "<group>"; };
+		3B4A8D0D1DD88377003AE494 /* NBSeparationLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBSeparationLine.m; sourceTree = "<group>"; };
 		3BF690BF1DD370B100998AB5 /* NBGlobalDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NBGlobalDefines.h; sourceTree = "<group>"; };
 		497DF03735001EB985237C8D /* Pods-NBTableView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NBTableView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NBTableView/Pods-NBTableView.debug.xcconfig"; sourceTree = "<group>"; };
 		49892FA61D8ABFCC99C9AA2A /* libPods-NBTableView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NBTableView.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,6 +164,8 @@
 				0327E3AC1DD41FB7007D1DD9 /* NBCellActionsView.m */,
 				3B4A8CE81DD706F2003AE494 /* NBTypeCell.h */,
 				3B4A8CE91DD706F2003AE494 /* NBTypeCell.m */,
+				3B4A8D0C1DD88377003AE494 /* NBSeparationLine.h */,
+				3B4A8D0D1DD88377003AE494 /* NBSeparationLine.m */,
 			);
 			path = NBTableViewCell;
 			sourceTree = "<group>";
@@ -330,6 +335,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B4A8D0E1DD88377003AE494 /* NBSeparationLine.m in Sources */,
 				3B4A8CFF1DD7635B003AE494 /* NSString+NBAdd.m in Sources */,
 				0327E3AD1DD41FB7007D1DD9 /* NBCellActionsView.m in Sources */,
 				3B4A8CEA1DD706F2003AE494 /* NBTypeCell.m in Sources */,

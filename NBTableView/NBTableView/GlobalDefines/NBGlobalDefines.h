@@ -45,4 +45,27 @@ name.numberOfTouchesRequired = 1;\
 
 #define INIT_GESTURE_TAP_IN_SELF(name)          INIT_GESTURE_TAP_IN_VIEW(name, self)
 
+
+//顶部固定高度，铺满width的布局
+#define LAYOUT_VIEW_TOP_FILL_WIDTH(view, sView__, xMargin, yMargin, refHeight__)  CGRect rect##view = CGRectZero;\
+rect##view.origin.x = xMargin;\
+rect##view.origin.y = yMargin;\
+rect##view.size.width = CGRectGetWidth(sView__.bounds) - xMargin*2;\
+rect##view.size.height = refHeight__ - yMargin;\
+view.frame = rect##view;
+
+#define LAYOUT_SUBVIEW_TOP_FILL_WIDTH(view, xMargin, yMargin, refHeight__)  LAYOUT_VIEW_TOP_FILL_WIDTH(view, self, xMargin, yMargin, refHeight__)
+
+
+
+//顶部固定高度，铺满width的布局
+#define LAYOUT_VIEW_BOTTOM_FILL_WIDTH(view, sView__, xMargin, yMargin, refHeight__)  CGRect rect##view = CGRectZero;\
+rect##view.origin.x = xMargin;\
+rect##view.origin.y = CGRectGetHeight(sView__.bounds) - refHeight__;\
+rect##view.size.width = CGRectGetWidth(sView__.bounds) - xMargin*2;\
+rect##view.size.height = refHeight__ - yMargin;\
+view.frame = rect##view;
+
+#define LAYOUT_SUBVIEW_BOTTOM_FILL_WIDTH(view, xMargin, yMargin, refHeight__)  LAYOUT_VIEW_BOTTOM_FILL_WIDTH(view, self, xMargin, yMargin, refHeight__)
+
 #endif /* NBGlobalDefines_h */
