@@ -7,7 +7,6 @@
 //
 
 #import "NBTableViewCell.h"
-#import "NBCellActionsView.h"
 
 @interface NBTableViewCell () <UIGestureRecognizerDelegate> {
     UIPanGestureRecognizer *panGestureRecognizer;
@@ -15,11 +14,7 @@
 }
 
 DEFINE_PROPERTY_STRONG(CAGradientLayer *, gradientLayer);
-DEFINE_PROPERTY_STRONG(UIView *, contentView);
 DEFINE_PROPERTY_STRONG(UIView *, selectedBackgroundView);
-DEFINE_PROPERTY_STRONG(NBCellActionsView *, actionsView);
-DEFINE_PROPERTY_ASSIGN(NSInteger, index);
-DEFINE_PROPERTY_STRONG(NSString *, identifiy);
 
 @end
 
