@@ -9,6 +9,8 @@
 #define nbTableViewDefaultHeight 44.0f
 #define CGRectViewWidth (CGRectGetWidth(self.bounds))
 
+static float const NBAnimationDefualtDuration = 0.25;
+
 #import "NBTableView.h"
 #import <map>
 #import <vector>
@@ -190,6 +192,7 @@ typedef struct {
     float height = 0;
     for (int i = 0; i < numberOfCells; i++) {
         float cellHeight = dataSourceReponse.funcHeightRow?[self.dataSource nbTableView:self cellHeightForRow:i]:nbTableViewDefaultHeight;
+        cellHeights.push_back(cellHeight);
         height += cellHeight;
         cellYOffsets .insert(std::pair<int, float>(i, height));
     }
@@ -200,7 +203,7 @@ typedef struct {
     height += 10;
     CGSize size = CGSizeMake(CGRectGetWidth(self.frame), height);
     [self setContentSize:size];
-    [self reloadPiceGradientColor];
+//    [self reloadPiceGradientColor];
 }
 
 //计算屏幕上展示的cell的索引范围
@@ -307,6 +310,60 @@ typedef struct {
 
 //移除
 - (void)removeRowAt:(NSInteger)row withAnimate:(BOOL)animate {
+    NSRange displayRange = [self displayRange];
+    [self reduceContentSize];
+    NSRange newDisplayRange = [self displayRange];
+    
+    if (NSLocationInRange(row, displayRange)) {
+        [self beginLayoutCells];
+        
+        NBTableViewCell *cell = visibleCellsMap[@(row)];
+        [visibleCellsMap removeObjectForKey:@(row)];
+        
+        //将被标记为移除的cell删除  后面的在屏幕上的cell往前移动
+        NSArray *afterCells = [self cellsBetween:row+1 end:row+(displayRange.location-((row+1)-displayRange.location))];
+        for (NBTableViewCell *eachCell in afterCells) {
+            [visibleCellsMap removeObjectForKey:@(eachCell.index)];
+            eachCell.index -= 1;
+            visibleCellsMap[@(eachCell.index)] = eachCell;
+        }
+        
+        //
+        NBTableViewCell *newCell = nil;
+        if (displayRange.location+displayRange.length == newDisplayRange.location+newDisplayRange.length) {
+            NSInteger row = newDisplayRange.location+newDisplayRange.length-1;
+            newCell = [self cellForRow:row];
+            [self addCell:newCell atRow:row];
+            newCell.frame = CGRectOffset([self rectForCellAtRow:(int)row], 0, cellHeights.at(row));
+        }
+        
+        void(^animationBlock)(void) = ^(void) {
+            for (NBTableViewCell *eachCell in afterCells) {
+                CGRect rect = [self rectForCellAtRow:(int)eachCell.index];
+                eachCell.frame = rect;
+            }
+            if (newCell) {
+                newCell.frame = [self rectForCellAtRow:(int)newCell.index];
+            }
+            
+            CGRect cellFrame = [self rectForCellAtRow:(int)row];
+            cell.frame = CGRectOffset(cellFrame, CGRectGetWidth(cellFrame), 0);
+        };
+        
+        void(^completeBlock)(void) = ^(void) {
+            [self enqueueTableViewCel:cell];
+            [self endLayoutCells];
+        };
+        
+        if (animate) {
+            [UIView animateWithDuration:NBAnimationDefualtDuration animations:animationBlock completion:^(BOOL finished) {
+                completeBlock();
+            }];
+        } else {
+            animationBlock();
+            completeBlock();
+        }
+    }
     
 }
 
@@ -353,8 +410,8 @@ typedef struct {
     [self scrollRectToVisible:rect animated:YES];
 }
 
-- (void) reloadPiceGradientColor
-{
+- (void) reloadPiceGradientColor {
+    
     //    Float32 cellsCount = (Float32)_numberOfCells + 1;
     //    CColorModel offset = CColorModelGetOffSet(_beginGradientColor, _endGradientColor);
     //    _preGradientPiceColor.red = offset.red / cellsCount;
