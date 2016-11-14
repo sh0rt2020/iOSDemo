@@ -13,6 +13,8 @@
 		03244E421DD946BF0015D5BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03244E401DD946BF0015D5BD /* Main.storyboard */; };
 		03244E441DD946BF0015D5BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03244E431DD946BF0015D5BD /* Assets.xcassets */; };
 		03244E471DD946BF0015D5BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03244E451DD946BF0015D5BD /* LaunchScreen.storyboard */; };
+		03244E501DD948FF0015D5BD /* UCRedPocketView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03244E4F1DD948FF0015D5BD /* UCRedPocketView.m */; };
+		03244E531DD94EFD0015D5BD /* RPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03244E521DD94EFD0015D5BD /* RPViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,10 @@
 		03244E431DD946BF0015D5BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		03244E461DD946BF0015D5BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		03244E481DD946BF0015D5BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03244E4E1DD948FF0015D5BD /* UCRedPocketView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UCRedPocketView.h; sourceTree = "<group>"; };
+		03244E4F1DD948FF0015D5BD /* UCRedPocketView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UCRedPocketView.m; sourceTree = "<group>"; };
+		03244E511DD94EFD0015D5BD /* RPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RPViewController.h; sourceTree = "<group>"; };
+		03244E521DD94EFD0015D5BD /* RPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,8 @@
 		03244E361DD946BF0015D5BD /* AnimateDemo */ = {
 			isa = PBXGroup;
 			children = (
+				03244E4E1DD948FF0015D5BD /* UCRedPocketView.h */,
+				03244E4F1DD948FF0015D5BD /* UCRedPocketView.m */,
 				03244E3A1DD946BF0015D5BD /* AppDelegate.h */,
 				03244E3B1DD946BF0015D5BD /* AppDelegate.m */,
 				03244E3D1DD946BF0015D5BD /* ViewController.h */,
@@ -67,6 +75,8 @@
 				03244E451DD946BF0015D5BD /* LaunchScreen.storyboard */,
 				03244E481DD946BF0015D5BD /* Info.plist */,
 				03244E371DD946BF0015D5BD /* Supporting Files */,
+				03244E511DD94EFD0015D5BD /* RPViewController.h */,
+				03244E521DD94EFD0015D5BD /* RPViewController.m */,
 			);
 			path = AnimateDemo;
 			sourceTree = "<group>";
@@ -151,6 +161,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03244E531DD94EFD0015D5BD /* RPViewController.m in Sources */,
+				03244E501DD948FF0015D5BD /* UCRedPocketView.m in Sources */,
 				03244E3F1DD946BF0015D5BD /* ViewController.m in Sources */,
 				03244E3C1DD946BF0015D5BD /* AppDelegate.m in Sources */,
 				03244E391DD946BF0015D5BD /* main.m in Sources */,
@@ -310,6 +322,7 @@
 				03244E4D1DD946BF0015D5BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
