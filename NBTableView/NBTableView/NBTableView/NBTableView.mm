@@ -370,6 +370,47 @@ typedef struct {
 //插入
 - (void)insertRowAt:(NSSet *)rowsSet withAnimate:(BOOL)animate {
     
+    NSNumber *row = [rowsSet anyObject];
+    int rowIndex = [row intValue];
+    NSRange displayRange = [self displayRange];
+    
+    [self reduceContentSize];
+    NSRange addDisplayRange = [self displayRange]; //?????
+    if (NSLocationInRange(rowIndex, addDisplayRange)) {
+        [self beginLayoutCells];
+        NSArray *afterCells = [self cellsBetween:rowIndex end:displayRange.location + displayRange.length - rowIndex];
+        for (NBTableViewCell *eachCell in afterCells) {
+            eachCell.index += 1;
+            visibleCellsMap[@(eachCell.index)] = eachCell;
+        }
+        [visibleCellsMap removeObjectForKey:@(rowIndex)];
+        
+        NBTableViewCell *anotherCell = [self cellForRow:rowIndex];
+        [self addCell:anotherCell atRow:rowIndex];
+        CGRect anotherCellFrame = [self rectForCellAtRow:rowIndex];
+        anotherCell.frame = CGRectOffset(anotherCellFrame, -CGRectGetWidth(anotherCellFrame), 0);
+        void(^animationBlock)(void) = ^(void) {
+            for (NBTableViewCell *eachCell in afterCells) {
+                CGRect rect = [self rectForCellAtRow:(int)eachCell.index];
+                eachCell.frame = rect;
+            }
+            anotherCell.frame = anotherCellFrame;
+        };
+        
+        void(^finishBlock)(void) = ^(void) {
+            [self endLayoutCells];
+            [self menuSelectRowAt:[[rowsSet anyObject] intValue]];
+        };
+        
+        if (animate) {
+            [UIView animateWithDuration:NBAnimationDefualtDuration animations:animationBlock completion:^(BOOL finished) {
+                finishBlock();
+            }];
+        } else {
+            animationBlock();
+            finishBlock();
+        }
+    }
 }
 
 - (void) beginLayoutCells {
