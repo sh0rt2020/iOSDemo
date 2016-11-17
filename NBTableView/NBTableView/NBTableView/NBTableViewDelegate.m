@@ -18,32 +18,17 @@ DEFINE_PROPERTY_ASSIGN_FLOAT(height);
 @implementation NBTableViewDelegate
 
 
-#pragma mark - UITableViewDelegate
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return self.height;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 0;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return 0;
-}
-
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+#pragma mark - NBTableViewActionDelegate
+- (void)nbTableView:(NBTableView *)tableView didTapAtRow:(NSInteger)row {
     
 }
 
-- (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)nbTableView:(NBTableView *)tableView deleteCellAtRow:(NSInteger)row {
     
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    return nil;
+- (void)nbTableView:(NBTableView *)tableView editCellDataAtRow:(NSInteger)row {
+    
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    return nil;
-}
 @end

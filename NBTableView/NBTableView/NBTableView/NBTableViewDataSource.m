@@ -43,33 +43,19 @@ DEFINE_PROPERTY_STRONG_NSSTRING(identifier);
     return self;
 }
 
-#pragma mark - UITableViewDataSource
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+#pragma mark - NBTableViewSourceDelegate
+- (NSInteger)numberOfRowsInNBTableView:(NBTableView *)tableView {
     return self.items.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:self.identifier forIndexPath:indexPath];
-//    if (!cell) {
-//        
-//    }
-    id item = self.items[indexPath.row];
+- (CGFloat)nbTableView:(NBTableView *)tableView cellHeightForRow:(NSInteger)row {
+    return self.height;
+}
+
+- (NBTableViewCell *)nbTableView:(NBTableView *)tableView cellForRow:(NSInteger)row {
+    NBTableViewCell *cell = [tableView dequeNBTableViewCellForIdentifier:self.identifier];
+    id item = self.items[row];
     self.block(cell, item);
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
-}
-
-
-- (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return @"";
-}
-
-
-- (nullable NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
-    return @"";
 }
 @end
