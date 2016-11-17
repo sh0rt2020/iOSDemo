@@ -37,4 +37,6 @@ a set of iOS demo, all third-party libraries are managed by CocoaPods.
 	
 	这个项目主要在于体验纯手工编写页面布局，包括纯手工计算布局、使用iOS提供的VFL约束页面布局、使用Masonry第三方类库来约束页面布局。
 	相对于手动计算页面布局来说，特别是针对横屏、竖屏、iPad等场景，Masonry和VFL更有优势，可以实现少量代码实现布局。
-	> 但是VFL使用时不好调试，不过Apple对VFL的封装很到位，通过metrics和options的使用，> 基本上可以避免在代码中硬编码的情况，这一点Masonry做的较差。而Masonry则通过类似自然语言的链式语法，非常易用，> 但是Masonry封装的接口依然没有避免硬编码的情况，特殊情况下可能需要大量宏定义。> 另外，针对Masonry添加的约束添加动画效果有点问题。
+	但是VFL使用时不好调试，不过Apple对VFL的封装很到位，通过metrics和options的使用，基本上可以避免在代码中硬编码的情况，这一点Masonry做的较差。
+	而Masonry则通过类似自然语言的链式语法，非常易用，但是Masonry封装的接口依然没有避免硬编码的情况，特殊情况下可能需要大量宏定义。
+	另外，针对Masonry添加的约束添加动画效果有点问题。
