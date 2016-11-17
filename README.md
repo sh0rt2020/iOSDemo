@@ -27,6 +27,11 @@ a set of iOS demo, all third-party libraries are managed by CocoaPods.
 	功能：
 	主要结合业务场景，优化原有的UITableView，初步计划，带分页&刷新功能、delegate、datasource做分离、在后台线程中绘制简单的cell；
 	功能初步定下来，写好后开源；
+	很明显，这个重量级的控件不是像我想象的那么容易！！！
+	需要制定一个计划，来做长期的准备：
+		1、利用RunTime技术调试系统提供的UITableView，弄明白UITableView的执行过程；
+		2、NBTableView现有的代码中，包括查询缓存、删除、增加等算法或者数据结构应该有优化的空间；
+		3、暂时就这样吧，bitch！！！！
 
 4、Masonry
 	
