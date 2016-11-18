@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "NBTableView.h"
 
-@interface NBTableViewDelegate : NSObject <UITableViewDelegate>
+@interface NBTableViewDelegate : NSObject <NBTableViewActionDelegate>
 
 
 @end

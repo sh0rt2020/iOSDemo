@@ -68,4 +68,7 @@ view.frame = rect##view;
 
 #define LAYOUT_SUBVIEW_BOTTOM_FILL_WIDTH(view, xMargin, yMargin, refHeight__)  LAYOUT_VIEW_BOTTOM_FILL_WIDTH(view, self, xMargin, yMargin, refHeight__)
 
+#define SCREENWIDTH   [[UIScreen mainScreen] bounds].size.width
+#define SCREENHEIGHT  [[UIScreen mainScreen] bounds].size.height
+
 #endif /* NBGlobalDefines_h */
