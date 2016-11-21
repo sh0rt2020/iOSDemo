@@ -40,3 +40,17 @@ a set of iOS demo, all third-party libraries are managed by CocoaPods.
 	但是VFL使用时不好调试，不过Apple对VFL的封装很到位，通过metrics和options的使用，基本上可以避免在代码中硬编码的情况，这一点Masonry做的较差。
 	而Masonry则通过类似自然语言的链式语法，非常易用，但是Masonry封装的接口依然没有避免硬编码的情况，特殊情况下可能需要大量宏定义。
 	另外，针对Masonry添加的约束添加动画效果有点问题。
+
+5、关于UIWebView调整字体大小、页面高度自适应、加载网页速度优化
+
+	主要通过对本地html代码进行注入（注入主要通过stringByEvaluatingJavaScriptFromString实现），结合WebViewJavascriptBridge这个类库进行本地代码和HTML代码交互，实现图片大小自适应、字体缩放、页面高度适配；
+	加载速度优化参考[STMURLCache](https://github.com/ming1016/STMURLCache)这个第三方类库的优化思路；
+
+6、关于animation
+
+	关于animation有很多可以说，关键是研究动画的本质，也就是动画背后的数学；
+	这部分可以参考[时间胶囊](http://kittenyang.com/)！！！
+	基础点：
+		小交互动画，这部分主要基于iOS SDK提供的基础动画就能实现不错的效果；
+		转场动画，需要结合基础动画、转场协议来实现，关键是要针对业务场景实现转场动画的封装、抽离；
+	
