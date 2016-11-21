@@ -15,6 +15,8 @@
 
 @interface ViewController ()
 @property (nonatomic) NBLabel *lab;
+
+@property (nonatomic) UILabel *labbb;
 @end
 
 @implementation ViewController
@@ -24,13 +26,20 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     self.lab = [[NBLabel alloc] initWithFrame:CGRectMake(10, 100, Screen_Width-20, 80)];
-    self.lab.maxNum = 20;
+    self.lab.maxNum = 30;
     self.lab.lines = 2;
-    self.lab.title = @"阿哈哈\n爱五耳边风";
+    self.lab.title = @"的部位被分什么大家你是\n爱五耳边风啊是的宏伟俺怕死的h这是什么鬼i欧微分爱是极好的";
     self.lab.backgroundColor = [UIColor redColor];
     [self.view addSubview:self.lab];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -13,4 +13,6 @@
 @property (nonatomic) NSString *title;
 @property (nonatomic) NSInteger lines;
 @property (nonatomic) NSInteger maxNum;
+
+@property (nonatomic) UILabel *labOne;  //第一行标题
 @end

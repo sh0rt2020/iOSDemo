@@ -9,7 +9,7 @@
 #import "NBLabel.h"
 
 @interface NBLabel ()
-@property (nonatomic) UILabel *labOne;  //第一行标题
+
 @end
 
 @implementation NBLabel
@@ -52,28 +52,56 @@
             lineTwo = titleArr[1];
         }
         
-        UIFont *firFont = nil;
+        int length = (int)(lineOne.length-lineTwo.length);
+        length = abs(length);
+        NSString *space = @"我";
+        if (lineOne.length > lineTwo.length) {
+            if (lineOne.length > 15 && lineOne.length <= 17) {
+                space = @"    ";
+            } else if (lineOne.length == 19) {
+                space = @"你";
+            }
+        }
+        
+        
         if (lineOne.length <= self.maxNum) {
             for (int i = 0; i < self.lines; i++) {
                 newFrame.size.height = height;
                 newFrame.origin.y = height*i;
                 
                 if (i == 0) {
-                    self.labOne = [[UILabel alloc] initWithFrame:newFrame];
-                    self.labOne.numberOfLines = 2;
-                    self.labOne.lineBreakMode = NSLineBreakByWordWrapping;
-                    self.labOne.text = titleArr[i];
+                    CGFloat wordWidth = 0;
+                    CGRect lineFrame;
+                    if (lineTwo.length > lineOne.length) {
+                        wordWidth = self.bounds.size.width/lineTwo.length;
+                        lineFrame = CGRectMake(self.bounds.size.width/2-lineOne.length*wordWidth/2, newFrame.origin.y, lineOne.length*wordWidth, newFrame.size.height);
+                    } else {
+                        lineFrame = newFrame;
+                    }
+
+                    self.labOne = [[UILabel alloc] initWithFrame:lineFrame];
                     self.labOne.backgroundColor = [UIColor colorWithRed:arc4random()%255/255.0 green:arc4random()%255/255.0 blue:arc4random()%255/255.0 alpha:1.0];
                     self.labOne.adjustsFontSizeToFitWidth = YES;
+                    self.labOne.font = [UIFont systemFontOfSize:22];
                     self.labOne.textAlignment = NSTextAlignmentCenter;
-                    self.translatesAutoresizingMaskIntoConstraints = NO;
+                    self.labOne.text = titleArr[i];
                     [self addSubview:self.labOne];
                 } else {
-                    UILabel *lab = [[UILabel alloc] initWithFrame:newFrame];
-                    lab.numberOfLines = 1;
-                    lab.text = titleArr[i];
+                    CGFloat wordWidth = 0;
+                    CGRect lineFrame;
+                    if (lineTwo.length < lineOne.length) {
+                        wordWidth = self.bounds.size.width/lineOne.length;
+                        lineFrame = CGRectMake(self.bounds.size.width/2-lineTwo.length*wordWidth/2, newFrame.origin.y, lineTwo.length*wordWidth, newFrame.size.height);
+                    } else {
+                        lineFrame = newFrame;
+                    }
+                    
+                    UILabel *lab = [[UILabel alloc] initWithFrame:lineFrame];
                     lab.backgroundColor = [UIColor colorWithRed:arc4random()%255/255.0 green:arc4random()%255/255.0 blue:arc4random()%255/255.0 alpha:1.0];
+                    lab.font = [UIFont systemFontOfSize:22];
+                    lab.adjustsFontSizeToFitWidth = YES;
                     lab.textAlignment = NSTextAlignmentCenter;
+                    lab.text = titleArr[i];
                     [self addSubview:lab];
                 }
             }
@@ -94,6 +122,12 @@
     if (_title != title) {
         _title = title;
         [self dealWithTitle:_title];
+    }
+}
+
+- (void)setLabOne:(UILabel *)labOne {
+    if (_labOne != labOne) {
+        _labOne = labOne;
     }
 }
 
