@@ -13,6 +13,8 @@
 		033CE7C61DDE97C900744A39 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 033CE7C41DDE97C900744A39 /* Main.storyboard */; };
 		033CE7C81DDE97C900744A39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 033CE7C71DDE97C900744A39 /* Assets.xcassets */; };
 		033CE7CB1DDE97C900744A39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 033CE7C91DDE97C900744A39 /* LaunchScreen.storyboard */; };
+		039A21941DE6BBCD00947B10 /* WebViewDemo.html in Resources */ = {isa = PBXBuildFile; fileRef = 039A21931DE6BBCD00947B10 /* WebViewDemo.html */; };
+		039A21961DE6C5C300947B10 /* WebViewDemo.js in Resources */ = {isa = PBXBuildFile; fileRef = 039A21951DE6C5C300947B10 /* WebViewDemo.js */; };
 		DE1B40F0E8C942DB58E2CB4A /* libPods-WebViewDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 363F8433ABCA4906FABCE9BF /* libPods-WebViewDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +29,8 @@
 		033CE7C71DDE97C900744A39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		033CE7CA1DDE97C900744A39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		033CE7CC1DDE97C900744A39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		039A21931DE6BBCD00947B10 /* WebViewDemo.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = WebViewDemo.html; sourceTree = "<group>"; };
+		039A21951DE6C5C300947B10 /* WebViewDemo.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = WebViewDemo.js; sourceTree = "<group>"; };
 		363F8433ABCA4906FABCE9BF /* libPods-WebViewDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WebViewDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54982983F80E44C46CD87805 /* Pods-WebViewDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebViewDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-WebViewDemo/Pods-WebViewDemo.release.xcconfig"; sourceTree = "<group>"; };
 		8C1D774F69EEC18A50A5D5F0 /* Pods-WebViewDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebViewDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WebViewDemo/Pods-WebViewDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -65,6 +69,8 @@
 		033CE7BA1DDE97C800744A39 /* WebViewDemo */ = {
 			isa = PBXGroup;
 			children = (
+				039A21931DE6BBCD00947B10 /* WebViewDemo.html */,
+				039A21951DE6C5C300947B10 /* WebViewDemo.js */,
 				033CE7BE1DDE97C800744A39 /* AppDelegate.h */,
 				033CE7BF1DDE97C900744A39 /* AppDelegate.m */,
 				033CE7C11DDE97C900744A39 /* ViewController.h */,
@@ -168,6 +174,8 @@
 				033CE7CB1DDE97C900744A39 /* LaunchScreen.storyboard in Resources */,
 				033CE7C81DDE97C900744A39 /* Assets.xcassets in Resources */,
 				033CE7C61DDE97C900744A39 /* Main.storyboard in Resources */,
+				039A21961DE6C5C300947B10 /* WebViewDemo.js in Resources */,
+				039A21941DE6BBCD00947B10 /* WebViewDemo.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,7 +224,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run \'pod install\' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
