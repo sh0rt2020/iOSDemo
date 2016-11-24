@@ -23,7 +23,7 @@ a set of iOS demo, all third-party libraries are managed by CocoaPods.
 	VC中的代码更简洁；
 
 3、自定义iOS SDK中UITableView (NBTableView)
-	
+
 	功能：
 	主要结合业务场景，优化原有的UITableView，初步计划，带分页&刷新功能、delegate、datasource做分离、在后台线程中绘制简单的cell；
 	功能初步定下来，写好后开源；
@@ -43,7 +43,12 @@ a set of iOS demo, all third-party libraries are managed by CocoaPods.
 
 5、关于UIWebView调整字体大小、页面高度自适应、加载网页速度优化
 
-	主要通过对本地html代码进行注入（注入主要通过stringByEvaluatingJavaScriptFromString实现），结合WebViewJavascriptBridge这个类库进行本地代码和HTML代码交互，实现图片大小自适应、字体缩放、页面高度适配；
+	主要通过对本地html代码进行注入（注入主要通过stringByEvaluatingJavaScriptFromString实现）；
+	结合WebViewJavascriptBridge这个类库进行本地代码和HTML代码交互，实现图片大小自适应、字体缩放、页面高度适配；
+	 特别注意一点：对网页中已有的Js功能的拦截，需要使用下面的方法
+	      	JsContext context=[webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
+    		context[@"js func name"] = ^() {}
+
 	加载速度优化参考[STMURLCache](https://github.com/ming1016/STMURLCache)这个第三方类库的优化思路；
 
 6、关于animation
