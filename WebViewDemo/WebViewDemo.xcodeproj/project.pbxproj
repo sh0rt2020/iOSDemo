@@ -13,6 +13,7 @@
 		033CE7C61DDE97C900744A39 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 033CE7C41DDE97C900744A39 /* Main.storyboard */; };
 		033CE7C81DDE97C900744A39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 033CE7C71DDE97C900744A39 /* Assets.xcassets */; };
 		033CE7CB1DDE97C900744A39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 033CE7C91DDE97C900744A39 /* LaunchScreen.storyboard */; };
+		DE1B40F0E8C942DB58E2CB4A /* libPods-WebViewDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 363F8433ABCA4906FABCE9BF /* libPods-WebViewDemo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,9 @@
 		033CE7C71DDE97C900744A39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		033CE7CA1DDE97C900744A39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		033CE7CC1DDE97C900744A39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		363F8433ABCA4906FABCE9BF /* libPods-WebViewDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WebViewDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		54982983F80E44C46CD87805 /* Pods-WebViewDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebViewDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-WebViewDemo/Pods-WebViewDemo.release.xcconfig"; sourceTree = "<group>"; };
+		8C1D774F69EEC18A50A5D5F0 /* Pods-WebViewDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebViewDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WebViewDemo/Pods-WebViewDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE1B40F0E8C942DB58E2CB4A /* libPods-WebViewDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +49,8 @@
 			children = (
 				033CE7BA1DDE97C800744A39 /* WebViewDemo */,
 				033CE7B91DDE97C800744A39 /* Products */,
+				2ABF2163FC08D497446648C7 /* Pods */,
+				D8C6D192A5500A9973C8269D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,6 +86,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		2ABF2163FC08D497446648C7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8C1D774F69EEC18A50A5D5F0 /* Pods-WebViewDemo.debug.xcconfig */,
+				54982983F80E44C46CD87805 /* Pods-WebViewDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D8C6D192A5500A9973C8269D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				363F8433ABCA4906FABCE9BF /* libPods-WebViewDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -86,9 +110,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 033CE7CF1DDE97C900744A39 /* Build configuration list for PBXNativeTarget "WebViewDemo" */;
 			buildPhases = (
+				E47146CFBDE33BE3F43AB9AE /* [CP] Check Pods Manifest.lock */,
 				033CE7B41DDE97C800744A39 /* Sources */,
 				033CE7B51DDE97C800744A39 /* Frameworks */,
 				033CE7B61DDE97C800744A39 /* Resources */,
+				3FE91DC5C40E6D0A5E271774 /* [CP] Embed Pods Frameworks */,
+				1345C85849DAC318DD689C3B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -145,6 +172,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1345C85849DAC318DD689C3B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WebViewDemo/Pods-WebViewDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3FE91DC5C40E6D0A5E271774 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WebViewDemo/Pods-WebViewDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E47146CFBDE33BE3F43AB9AE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run \'pod install\' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		033CE7B41DDE97C800744A39 /* Sources */ = {
@@ -269,6 +344,7 @@
 		};
 		033CE7D01DDE97C900744A39 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C1D774F69EEC18A50A5D5F0 /* Pods-WebViewDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = KGVT6QT22A;
@@ -282,6 +358,7 @@
 		};
 		033CE7D11DDE97C900744A39 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 54982983F80E44C46CD87805 /* Pods-WebViewDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = KGVT6QT22A;
