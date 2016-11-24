@@ -10,10 +10,12 @@
 #define SCREENTHEIGHT   [[UIScreen mainScreen] bounds].size.height
 
 #import "ViewController.h"
+#import <WebKit/WebKit.h>
 
-@interface ViewController () <UIWebViewDelegate>
+@interface ViewController () <UIWebViewDelegate, WKUIDelegate>
 
 @property (nonatomic, nonnull) UIWebView *webView;
+//@property (nonatomic, nonnull) WKWebView *webView;
 @property (nonatomic, nonnull) UIButton *sizeBtn;  //改变大小的按钮
 @end
 
@@ -24,7 +26,8 @@
     // Do any additional setup after loading the view, typically from a nib.
     self.webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 100, SCREENWIDTH, SCREENTHEIGHT-100)];
     self.webView.delegate =self;
-    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.github.com"]]];
+//    self.webView.UIDelegate = self;
+    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.github.com"]]];
     [self.view addSubview:self.webView];
     
     self.sizeBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, 100)];
@@ -60,15 +63,17 @@
 }
 
 #pragma mark - event response
+/**
+ *  <#Description#>
+ *
+ *  @param sender <#sender description#>
+ */
 - (void)changeFont:(UIButton *)sender {
     CGFloat scale = 1.5;
     
-    [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '%f%@'", scale*100, @"%"]];
+//    [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '%f%@'", scale*100, @"%"]];
     
-    CGFloat scrollheight = [[self.webView stringByEvaluatingJavaScriptFromString:@"document.body.scrollHeight"] floatValue];
-    self.webView.scrollView.contentSize = CGSizeMake(SCREENWIDTH, scrollheight);
-//    CGRect newFrame = self.webView.frame;
-//    newFrame.size.height = scrollheight;
-//    self.webView.frame = newFrame;
+//    CGFloat scrollheight = [[self.webView stringByEvaluatingJavaScriptFromString:@"document.body.scrollHeight"] floatValue];
+//    self.webView.scrollView.contentSize = CGSizeMake(SCREENWIDTH, scrollheight);
 }
 @end
