@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03468E531DE815BC00AD2B1D /* UCRedPocketView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03468E521DE815BC00AD2B1D /* UCRedPocketView.m */; };
+		03468E561DE82A0200AD2B1D /* RedPocketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03468E551DE82A0200AD2B1D /* RedPocketViewController.m */; };
 		183D164E1DCDF50F340A0760 /* libPods-MasonryDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F9F5B36B1573ECCDF80CB77E /* libPods-MasonryDemo.a */; };
 		3B87A8601DC21E9000605840 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B87A85F1DC21E9000605840 /* main.m */; };
 		3B87A8691DC21E9000605840 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B87A8671DC21E9000605840 /* Main.storyboard */; };
@@ -22,6 +24,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		03468E511DE815BC00AD2B1D /* UCRedPocketView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UCRedPocketView.h; sourceTree = "<group>"; };
+		03468E521DE815BC00AD2B1D /* UCRedPocketView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UCRedPocketView.m; sourceTree = "<group>"; };
+		03468E541DE82A0200AD2B1D /* RedPocketViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedPocketViewController.h; sourceTree = "<group>"; };
+		03468E551DE82A0200AD2B1D /* RedPocketViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedPocketViewController.m; sourceTree = "<group>"; };
 		2C4A10C6E35B6DFF89F2038E /* Pods-MasonryDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MasonryDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-MasonryDemo/Pods-MasonryDemo.release.xcconfig"; sourceTree = "<group>"; };
 		3B87A85B1DC21E9000605840 /* MasonryDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MasonryDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B87A85F1DC21E9000605840 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -58,6 +64,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03468E501DE8158200AD2B1D /* RedPocketTest */ = {
+			isa = PBXGroup;
+			children = (
+				03468E511DE815BC00AD2B1D /* UCRedPocketView.h */,
+				03468E521DE815BC00AD2B1D /* UCRedPocketView.m */,
+			);
+			name = RedPocketTest;
+			sourceTree = "<group>";
+		};
 		2C3BDB8FCFB8FEFB1B1F10E6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -87,11 +102,14 @@
 		3B87A85D1DC21E9000605840 /* MasonryDemo */ = {
 			isa = PBXGroup;
 			children = (
+				03468E501DE8158200AD2B1D /* RedPocketTest */,
 				3B87A8751DC236F300605840 /* NewTipView */,
 				3B87A87C1DC236F300605840 /* TipView */,
 				3B87A8801DC236F300605840 /* Util */,
 				3B87A8811DC236F300605840 /* ViewController.h */,
 				3B87A8821DC236F300605840 /* ViewController.m */,
+				03468E541DE82A0200AD2B1D /* RedPocketViewController.h */,
+				03468E551DE82A0200AD2B1D /* RedPocketViewController.m */,
 				3B87A8891DC2372300605840 /* AppDelegate.h */,
 				3B87A88A1DC2372300605840 /* AppDelegate.m */,
 				3B87A8671DC21E9000605840 /* Main.storyboard */,
@@ -274,12 +292,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03468E531DE815BC00AD2B1D /* UCRedPocketView.m in Sources */,
 				3B87A8881DC236F300605840 /* ViewController.m in Sources */,
 				3B87A8841DC236F300605840 /* NewNoAccessView.m in Sources */,
 				3B87A8601DC21E9000605840 /* main.m in Sources */,
 				3B87A8851DC236F300605840 /* VFLNoAccessView.m in Sources */,
 				3B87A8861DC236F300605840 /* NoAccess.m in Sources */,
 				3B87A8831DC236F300605840 /* MASNoAccessView.m in Sources */,
+				03468E561DE82A0200AD2B1D /* RedPocketViewController.m in Sources */,
 				3B87A88B1DC2372300605840 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

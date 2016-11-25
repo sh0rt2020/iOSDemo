@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="QFa-TB-zzj">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -27,7 +27,7 @@
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="15"/>
                                 <state key="normal" title="Showing Tip"/>
                                 <connections>
-                                    <action selector="showTip:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ra7-AF-ap4"/>
+                                    <segue destination="Ga5-Hb-hou" kind="push" identifier="RedPocketViewController" id="MYh-Vl-tjy"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -37,10 +37,46 @@
                             <constraint firstItem="bgk-hb-PkA" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-49.5" id="nDK-z8-66M"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="00h-8u-VKj"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="135" y="136.26760563380282"/>
+        </scene>
+        <!--Red Pocket View Controller-->
+        <scene sceneID="1yU-3f-dKG">
+            <objects>
+                <viewController id="Ga5-Hb-hou" customClass="RedPocketViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kGG-19-pml"/>
+                        <viewControllerLayoutGuide type="bottom" id="Hwp-qp-tW6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lHF-7L-hkl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="QIa-69-tA8"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ABG-TN-cKY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="918" y="135"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="KDb-cL-e5t">
+            <objects>
+                <navigationController id="QFa-TB-zzj" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Xwc-LM-t1n">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Z6R-GS-tb8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Wt-TN-BYv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-583" y="134"/>
         </scene>
     </scenes>
 </document>
