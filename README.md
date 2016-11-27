@@ -45,11 +45,12 @@ a set of iOS demo, all third-party libraries are managed by CocoaPods.
 
 	主要通过对本地html代码进行注入（注入主要通过stringByEvaluatingJavaScriptFromString实现）；
 	结合WebViewJavascriptBridge这个类库进行本地代码和HTML代码交互，实现图片大小自适应、字体缩放、页面高度适配；
-	 特别注意一点：对网页中已有的Js功能的拦截，需要使用下面的方法
+	特别注意一点：对网页中已有的Js功能的拦截，需要使用下面的方法
 	      	JsContext context=[webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
     		context[@"js func name"] = ^() {}
-
 	加载速度优化参考[STMURLCache](https://github.com/ming1016/STMURLCache)这个第三方类库的优化思路；
+	在调试的过程中发现UIWebView对于内存的占用爆炸式增长，而且在iOS8.0之后官方推出WKWebView代替UIWebView，优化了内存爆炸的问题;
+	关于WKWebView的使用可以参考[这篇文章](http://ios.jobbole.com/90729/)
 
 6、关于animation
 
