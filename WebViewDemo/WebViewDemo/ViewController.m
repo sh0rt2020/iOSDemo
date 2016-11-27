@@ -12,14 +12,16 @@
 #import "ViewController.h"
 #import <WebKit/WebKit.h>
 #import <WebViewJavascriptBridge.h>
+#import <WKWebViewJavascriptBridge.h>
 #import <JavaScriptCore/JavaScriptCore.h>
 
-@interface ViewController () <UIWebViewDelegate, WKUIDelegate>
+@interface ViewController () <WKUIDelegate, WKNavigationDelegate, WKScriptMessageHandler>
 
 //@property (nonatomic, nonnull) UIWebView *webView;
 @property (nonatomic, nonnull) WKWebView *webView;
 @property (nonatomic, nonnull) UIButton *sizeBtn;  //改变大小的按钮
-@property (nonatomic)   WebViewJavascriptBridge *bridge;  //原生代码和js代码交互的桥接
+//@property (nonatomic)   WebViewJavascriptBridge *bridge;  //原生代码和js代码交互的桥接
+@property (nonatomic)   WKWebViewJavascriptBridge *bridge;  //针对wkwebview
 @end
 
 @implementation ViewController
@@ -28,9 +30,10 @@
     [super viewDidLoad];
     
     // Do any additional setup after loading the view, typically from a nib.
-    self.webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 100, SCREENWIDTH, SCREENTHEIGHT-100)];
-    self.webView.delegate =self;
-//    self.webView.UIDelegate = self;
+    self.webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 100, SCREENWIDTH, SCREENTHEIGHT-100)];
+    self.webView.UIDelegate = self;
+    self.webView.navigationDelegate = self;
+//    self.webView.delegate =self;
 //    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.github.com"]]];
     NSString *htmlPath = [[NSBundle mainBundle] pathForResource:@"WebViewDemo" ofType:@"html"];
     NSString *html = [NSString stringWithContentsOfFile:htmlPath encoding:NSUTF8StringEncoding error:nil];
@@ -43,12 +46,14 @@
     [self.sizeBtn setTitle:@"change font size" forState:UIControlStateNormal];
     [self.view addSubview:self.sizeBtn];
     
-    [WebViewJavascriptBridge enableLogging];  //调试
-    self.bridge = [WebViewJavascriptBridge bridgeForWebView:self.webView];
+//    [WebViewJavascriptBridge enableLogging];  //调试
+//    self.bridge = [WebViewJavascriptBridge bridgeForWebView:self.webView];
+//    [self.bridge setWebViewDelegate:self];
+    
+    
+    [WKWebViewJavascriptBridge enableLogging];
+    self.bridge = [WKWebViewJavascriptBridge bridgeForWebView:self.webView];
     [self.bridge setWebViewDelegate:self];
-    
-    
-    
     
     id data = @{};
     [self.bridge callHandler:@"showYwDomainLogin" data:data responseCallback:^(id responseData) {
@@ -67,24 +72,68 @@
 }
 
 #pragma mark - UIWebViewDelegate
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
-    
-    NSLog(@"%s", __func__);
+//- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+//    
+//    NSLog(@"%s", __func__);
+//    return YES;
+//}
+//
+//- (void)webViewDidStartLoad:(UIWebView *)webView {
+//    NSLog(@"%s", __func__);
+//}
+//
+//- (void)webViewDidFinishLoad:(UIWebView *)webView {
+//    NSLog(@"%s", __func__);
+////    [self injectJs];  //注入js
+////    [self interceptJs];
+//}
+//
+//- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+//    NSLog(@"%s", __func__);
+//}
+
+#pragma mark - WKUIDelegate
+- (BOOL)webView:(WKWebView *)webView shouldPreviewElement:(WKPreviewElementInfo *)elementInfo {
     return YES;
 }
 
-- (void)webViewDidStartLoad:(UIWebView *)webView {
+- (void)webViewDidClose:(WKWebView *)webView {
     NSLog(@"%s", __func__);
 }
 
-- (void)webViewDidFinishLoad:(UIWebView *)webView {
+
+#pragma mark - WKNavigationDelegate
+- (void)webView:(WKWebView *)webView didCommitNavigation:(WKNavigation *)navigation {
     NSLog(@"%s", __func__);
-//    [self injectJs];  //注入js
-//    [self interceptJs];
 }
 
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
     NSLog(@"%s", __func__);
+}
+
+- (void)webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error {
+    NSLog(@"%s", __func__);
+}
+
+- (void)webView:(WKWebView *)webView didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))completionHandler {
+    
+    //针对https支持  ios8.0不支持 apple的bug
+    if ([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust]) {
+        if ([challenge previousFailureCount] == 0) {
+            NSURLCredential *credential = [NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust];
+            completionHandler(NSURLSessionAuthChallengeUseCredential, credential);
+        } else {
+            completionHandler(NSURLSessionAuthChallengeCancelAuthenticationChallenge, nil);
+        }
+    } else {
+        completionHandler(NSURLSessionAuthChallengeCancelAuthenticationChallenge, nil);
+    }
+}
+
+
+#pragma mark - WKScriptMessageHandler
+- (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message {
+    //实现js交互
 }
 
 #pragma mark - event response
@@ -112,13 +161,20 @@
 #pragma mark - private method
 //js注入
 - (void)injectJs {
+    //UIWebView
+//    NSString* path = [[NSBundle mainBundle] pathForResource:@"WebViewDemo" ofType:@"js"];
+//    [self.webView stringByEvaluatingJavaScriptFromString:
+//     [NSString stringWithFormat:@"var script = document.createElement('script');"
+//      "script.type = 'text/javascript';"
+//      "script.src = '%@';"
+//      "document.getElementsByTagName('head')[0].appendChild(script);",path]];
     
-    NSString* path = [[NSBundle mainBundle] pathForResource:@"WebViewDemo" ofType:@"js"];
-    [self.webView stringByEvaluatingJavaScriptFromString:
-     [NSString stringWithFormat:@"var script = document.createElement('script');"
-      "script.type = 'text/javascript';"
-      "script.src = '%@';"
-      "document.getElementsByTagName('head')[0].appendChild(script);",path]];
+    //WKWebView
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"WebViewDemo" ofType:@"js"];
+    NSString *js = [NSString stringWithFormat:@"var script = document.createElement('script');""script.type = 'text/javascript';""script.src = '%@';""document.getElementsByTagName('head')[0].appendChild(script);", path];
+    [self.webView evaluateJavaScript:js completionHandler:^(id _Nullable result, NSError * _Nullable error) {
+        
+    }];
 }
 
 //拦截js
