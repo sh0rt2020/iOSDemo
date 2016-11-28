@@ -54,6 +54,13 @@ DEFINE_PROPERTY_STRONG_NSSTRING(identifier);
 
 - (NBTableViewCell *)nbTableView:(NBTableView *)tableView cellForRow:(NSInteger)row {
     NBTableViewCell *cell = [tableView dequeNBTableViewCellForIdentifier:self.identifier];
+    if (!cell) {
+        cell = [[NBTableViewCell alloc] initWithIdentifiy:self.identifier];
+//        UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 20, cell.frame.size.height)];
+//        [cell.contentView addSubview:lab];
+//        id item = self.items[row];
+//        self.block(cell, item)
+    }
     id item = self.items[row];
     self.block(cell, item);
     return cell;
