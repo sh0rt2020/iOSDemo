@@ -35,7 +35,7 @@
     self.webView.navigationDelegate = self;
 //    self.webView.delegate =self;
 //    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.github.com"]]];
-    NSString *htmlPath = [[NSBundle mainBundle] pathForResource:@"WebViewDemo" ofType:@"html"];
+    NSString *htmlPath = [[NSBundle mainBundle] pathForResource:@"test3" ofType:@"html"];
     NSString *html = [NSString stringWithContentsOfFile:htmlPath encoding:NSUTF8StringEncoding error:nil];
     [self.webView loadHTMLString:html baseURL:nil];
     [self.view addSubview:self.webView];
