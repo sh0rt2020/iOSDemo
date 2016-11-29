@@ -142,6 +142,7 @@ typedef struct {
 //从缓存里面拿cell
 - (NBTableViewCell *)dequeNBTableViewCellForIdentifier:(NSString *)identifier {
     
+    //第一次进入的时候  缓存为空 应该创建cell
     NBTableViewCell *cell = nil;
     for (NBTableViewCell *eachCell in cacheCells) {
         if ([eachCell.identifiy isEqualToString:identifier]) {
@@ -413,15 +414,15 @@ typedef struct {
     }
 }
 
-- (void) beginLayoutCells {
+- (void)beginLayoutCells {
     isLayoutCells = YES;
 }
 
-- (void) endLayoutCells {
+- (void)endLayoutCells {
     isLayoutCells = NO;
 }
 
-- (BOOL) canBeginLayoutCells {
+- (BOOL)canBeginLayoutCells {
     return isLayoutCells;
 }
 
