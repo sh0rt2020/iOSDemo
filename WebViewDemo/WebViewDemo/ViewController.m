@@ -15,13 +15,16 @@
 #import <WKWebViewJavascriptBridge.h>
 #import <JavaScriptCore/JavaScriptCore.h>
 
-@interface ViewController () <WKUIDelegate, WKNavigationDelegate, WKScriptMessageHandler>
+@interface ViewController () <WKUIDelegate, WKNavigationDelegate, WKScriptMessageHandler, UIWebViewDelegate>
 
-//@property (nonatomic, nonnull) UIWebView *webView;
-@property (nonatomic, nonnull) WKWebView *webView;
+@property (nonatomic, nonnull) UIWebView *webView;
+//@property (nonatomic, nonnull) WKWebView *webView;
 @property (nonatomic, nonnull) UIButton *sizeBtn;  //改变大小的按钮
 //@property (nonatomic)   WebViewJavascriptBridge *bridge;  //原生代码和js代码交互的桥接
-@property (nonatomic)   WKWebViewJavascriptBridge *bridge;  //针对wkwebview
+//@property (nonatomic)   WKWebViewJavascriptBridge *bridge;  //针对wkwebview
+
+@property (nonatomic) NSArray *scaleArr;
+@property (nonatomic) NSInteger index;
 @end
 
 @implementation ViewController
@@ -29,11 +32,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
+    self.scaleArr = @[@1.2, @1.6, @0.7, @0.4, @2.0];
+    
+    
     // Do any additional setup after loading the view, typically from a nib.
-    self.webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 100, SCREENWIDTH, SCREENTHEIGHT-100)];
-    self.webView.UIDelegate = self;
-    self.webView.navigationDelegate = self;
-//    self.webView.delegate =self;
+    self.webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 100, SCREENWIDTH, SCREENTHEIGHT-100)];
+//    self.webView.UIDelegate = self;
+//    self.webView.navigationDelegate = self;
+    self.webView.delegate =self;
 //    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.github.com"]]];
     NSString *htmlPath = [[NSBundle mainBundle] pathForResource:@"test3" ofType:@"html"];
     NSString *html = [NSString stringWithContentsOfFile:htmlPath encoding:NSUTF8StringEncoding error:nil];
@@ -51,18 +58,18 @@
 //    [self.bridge setWebViewDelegate:self];
     
     
-    [WKWebViewJavascriptBridge enableLogging];
-    self.bridge = [WKWebViewJavascriptBridge bridgeForWebView:self.webView];
-    [self.bridge setWebViewDelegate:self];
+//    [WKWebViewJavascriptBridge enableLogging];
+//    self.bridge = [WKWebViewJavascriptBridge bridgeForWebView:self.webView];
+//    [self.bridge setWebViewDelegate:self];
     
-    id data = @{};
-    [self.bridge callHandler:@"showYwDomainLogin" data:data responseCallback:^(id responseData) {
-        NSLog(@"OC invoke Js succeed!");
-    }];
-    
-    [self.bridge registerHandler:@"stopLocalMedia()" handler:^(id data, WVJBResponseCallback responseCallback) {
-        NSLog(@"Js invoke OC succeed!");
-    }];
+//    id data = @{};
+//    [self.bridge callHandler:@"showYwDomainLogin" data:data responseCallback:^(id responseData) {
+//        NSLog(@"OC invoke Js succeed!");
+//    }];
+//    
+//    [self.bridge registerHandler:@"stopLocalMedia()" handler:^(id data, WVJBResponseCallback responseCallback) {
+//        NSLog(@"Js invoke OC succeed!");
+//    }];
 }
 
 
@@ -138,13 +145,17 @@
 
 #pragma mark - event response
 - (void)changeFont:(UIButton *)sender {
-    CGFloat scale = 1.5;
+    self.index ++;
+    CGFloat scale = [self.scaleArr[self.index] floatValue];
     
-//    [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '%f%@'", scale*100, @"%"]];
-//    CGFloat scrollheight = [[self.webView stringByEvaluatingJavaScriptFromString:@"document.body.scrollHeight"] floatValue];
-//    self.webView.scrollView.contentSize = CGSizeMake(SCREENWIDTH, scrollheight);
-//    
-//    CGFloat scrollheight = [[self.webView stringByEvaluatingJavaScriptFromString:@"document.body.scrollHeight"] floatValue];
+    
+    CGFloat scrollheight0 = [[self.webView stringByEvaluatingJavaScriptFromString:@"document.body.scrollHeight"] floatValue];
+    NSLog(@"%@=======%f", NSStringFromCGSize(self.webView.scrollView.contentSize), scrollheight0);
+    [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '%f%@'", scale*100, @"%"]];
+
+    CGFloat scrollheight = [[self.webView stringByEvaluatingJavaScriptFromString:@"document.body.scrollHeight"] floatValue];
+//    CGFloat scrollheight = 0;
+    NSLog(@"%@========%f", NSStringFromCGSize(self.webView.scrollView.contentSize), scrollheight);
 //    self.webView.scrollView.contentSize = CGSizeMake(SCREENWIDTH, scrollheight);
 //    CGRect newFrame = self.webView.frame;
 //    newFrame.size.height = scrollheight;
@@ -170,11 +181,11 @@
 //      "document.getElementsByTagName('head')[0].appendChild(script);",path]];
     
     //WKWebView
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"WebViewDemo" ofType:@"js"];
-    NSString *js = [NSString stringWithFormat:@"var script = document.createElement('script');""script.type = 'text/javascript';""script.src = '%@';""document.getElementsByTagName('head')[0].appendChild(script);", path];
-    [self.webView evaluateJavaScript:js completionHandler:^(id _Nullable result, NSError * _Nullable error) {
-        
-    }];
+//    NSString *path = [[NSBundle mainBundle] pathForResource:@"WebViewDemo" ofType:@"js"];
+//    NSString *js = [NSString stringWithFormat:@"var script = document.createElement('script');""script.type = 'text/javascript';""script.src = '%@';""document.getElementsByTagName('head')[0].appendChild(script);", path];
+//    [self.webView evaluateJavaScript:js completionHandler:^(id _Nullable result, NSError * _Nullable error) {
+//        
+//    }];
 }
 
 //拦截js
