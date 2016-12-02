@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0304926F1DF144EA009601B1 /* imageClick.js in Resources */ = {isa = PBXBuildFile; fileRef = 0304926E1DF144EA009601B1 /* imageClick.js */; };
+		030492711DF14512009601B1 /* bindImages.js in Resources */ = {isa = PBXBuildFile; fileRef = 030492701DF14512009601B1 /* bindImages.js */; };
+		030492751DF14539009601B1 /* lazyLoad.js in Resources */ = {isa = PBXBuildFile; fileRef = 030492741DF14539009601B1 /* lazyLoad.js */; };
 		033CE7BD1DDE97C800744A39 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 033CE7BC1DDE97C800744A39 /* main.m */; };
 		033CE7C01DDE97C900744A39 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 033CE7BF1DDE97C900744A39 /* AppDelegate.m */; };
 		033CE7C31DDE97C900744A39 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 033CE7C21DDE97C900744A39 /* ViewController.m */; };
@@ -20,6 +23,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0304926E1DF144EA009601B1 /* imageClick.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = imageClick.js; sourceTree = "<group>"; };
+		030492701DF14512009601B1 /* bindImages.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = bindImages.js; sourceTree = "<group>"; };
+		030492741DF14539009601B1 /* lazyLoad.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = lazyLoad.js; sourceTree = "<group>"; };
 		033CE7B81DDE97C800744A39 /* WebViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		033CE7BC1DDE97C800744A39 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		033CE7BE1DDE97C800744A39 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -83,6 +89,9 @@
 				033CE7C91DDE97C900744A39 /* LaunchScreen.storyboard */,
 				033CE7CC1DDE97C900744A39 /* Info.plist */,
 				033CE7BB1DDE97C800744A39 /* Supporting Files */,
+				0304926E1DF144EA009601B1 /* imageClick.js */,
+				030492701DF14512009601B1 /* bindImages.js */,
+				030492741DF14539009601B1 /* lazyLoad.js */,
 			);
 			path = WebViewDemo;
 			sourceTree = "<group>";
@@ -177,8 +186,11 @@
 				033CE7CB1DDE97C900744A39 /* LaunchScreen.storyboard in Resources */,
 				033CE7C81DDE97C900744A39 /* Assets.xcassets in Resources */,
 				033CE7C61DDE97C900744A39 /* Main.storyboard in Resources */,
+				030492711DF14512009601B1 /* bindImages.js in Resources */,
 				039A21961DE6C5C300947B10 /* WebViewDemo.js in Resources */,
+				030492751DF14539009601B1 /* lazyLoad.js in Resources */,
 				0399DB2E1DED902E0097D86E /* test3.html in Resources */,
+				0304926F1DF144EA009601B1 /* imageClick.js in Resources */,
 				039A21941DE6BBCD00947B10 /* WebViewDemo.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
