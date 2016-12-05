@@ -19,6 +19,8 @@
 		0399DB2E1DED902E0097D86E /* test3.html in Resources */ = {isa = PBXBuildFile; fileRef = 0399DB2D1DED902E0097D86E /* test3.html */; };
 		039A21941DE6BBCD00947B10 /* WebViewDemo.html in Resources */ = {isa = PBXBuildFile; fileRef = 039A21931DE6BBCD00947B10 /* WebViewDemo.html */; };
 		039A21961DE6C5C300947B10 /* WebViewDemo.js in Resources */ = {isa = PBXBuildFile; fileRef = 039A21951DE6C5C300947B10 /* WebViewDemo.js */; };
+		3BCA31821DEDD7E500385988 /* imageClick.js in Resources */ = {isa = PBXBuildFile; fileRef = 3BCA31811DEDD7E500385988 /* imageClick.js */; };
+		3BCA31841DEDD80400385988 /* lazyLoad.js in Resources */ = {isa = PBXBuildFile; fileRef = 3BCA31831DEDD80400385988 /* lazyLoad.js */; };
 		DE1B40F0E8C942DB58E2CB4A /* libPods-WebViewDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 363F8433ABCA4906FABCE9BF /* libPods-WebViewDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +42,8 @@
 		039A21931DE6BBCD00947B10 /* WebViewDemo.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = WebViewDemo.html; sourceTree = "<group>"; };
 		039A21951DE6C5C300947B10 /* WebViewDemo.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = WebViewDemo.js; sourceTree = "<group>"; };
 		363F8433ABCA4906FABCE9BF /* libPods-WebViewDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WebViewDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BCA31811DEDD7E500385988 /* imageClick.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = imageClick.js; sourceTree = "<group>"; };
+		3BCA31831DEDD80400385988 /* lazyLoad.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = lazyLoad.js; sourceTree = "<group>"; };
 		54982983F80E44C46CD87805 /* Pods-WebViewDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebViewDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-WebViewDemo/Pods-WebViewDemo.release.xcconfig"; sourceTree = "<group>"; };
 		8C1D774F69EEC18A50A5D5F0 /* Pods-WebViewDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebViewDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WebViewDemo/Pods-WebViewDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -80,6 +84,8 @@
 				039A21931DE6BBCD00947B10 /* WebViewDemo.html */,
 				0399DB2D1DED902E0097D86E /* test3.html */,
 				039A21951DE6C5C300947B10 /* WebViewDemo.js */,
+				3BCA31811DEDD7E500385988 /* imageClick.js */,
+				3BCA31831DEDD80400385988 /* lazyLoad.js */,
 				033CE7BE1DDE97C800744A39 /* AppDelegate.h */,
 				033CE7BF1DDE97C900744A39 /* AppDelegate.m */,
 				033CE7C11DDE97C900744A39 /* ViewController.h */,
@@ -184,6 +190,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				033CE7CB1DDE97C900744A39 /* LaunchScreen.storyboard in Resources */,
+				3BCA31821DEDD7E500385988 /* imageClick.js in Resources */,
 				033CE7C81DDE97C900744A39 /* Assets.xcassets in Resources */,
 				033CE7C61DDE97C900744A39 /* Main.storyboard in Resources */,
 				030492711DF14512009601B1 /* bindImages.js in Resources */,
@@ -192,6 +199,7 @@
 				0399DB2E1DED902E0097D86E /* test3.html in Resources */,
 				0304926F1DF144EA009601B1 /* imageClick.js in Resources */,
 				039A21941DE6BBCD00947B10 /* WebViewDemo.html in Resources */,
+				3BCA31841DEDD80400385988 /* lazyLoad.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
