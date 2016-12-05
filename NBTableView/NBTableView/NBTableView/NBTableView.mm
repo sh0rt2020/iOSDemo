@@ -179,14 +179,12 @@ typedef struct {
         cell.topSeparationLine.hidden = YES;
         cell.bottomSeparationLine.hidden = NO;
     }
-    
-    cell.contentView.backgroundColor = [UIColor whiteColor];
 }
 
 //更新内容视图大小
 - (void)reduceContentSize {
     numberOfCells = [self.dataSource numberOfRowsInNBTableView:self];
-    cellYOffsets = NBCellYoffsetMap();  //？？？？
+    cellYOffsets = NBCellYoffsetMap();
     cellHeights = NBCellHeightVector();
     float height = 0;
     for (int i = 0; i < numberOfCells; i++) {
@@ -197,7 +195,7 @@ typedef struct {
     }
     
     if (height < CGRectGetHeight(self.frame)) {
-        height = CGRectGetHeight(self.frame) + 2;  //为什么要加2
+        height = CGRectGetHeight(self.frame) + 2;  //此处加2是因为在列表中需要显示一个cell的分割线
     }
     height += 10;
     CGSize size = CGSizeMake(CGRectGetWidth(self.frame), height);

@@ -23,10 +23,9 @@ DEFINE_PROPERTY_STRONG(CAGradientLayer *, gradientLayer);
     
     self = [super initWithFrame:frame];
     if (self) {
-        [self addSubview:self.selectedBackgroundView];
         [self addSubview:self.actionsView];
-        
         [self addSubview:self.contentView];
+        [self.contentView addSubview:self.selectedBackgroundView];
         [self.contentView addSubview:self.textLabel];
         
         panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGestureRecognizer:)];
@@ -52,23 +51,20 @@ DEFINE_PROPERTY_STRONG(CAGradientLayer *, gradientLayer);
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    
-    self.contentView.frame = self.bounds;
     self.actionsView.frame = self.bounds;
+    self.contentView.frame = self.bounds;
     
     self.textLabel.frame = CGRectMake(0, 0, 50, self.bounds.size.height);
     
     if (self.isSelected) {
         self.selectedBackgroundView.frame = self.contentView.bounds;
         self.selectedBackgroundView.hidden = NO;
-//        [self.contentView insertSubview:self.selectedBackgroundView atIndex:0];
     } else {
         self.selectedBackgroundView.hidden = YES;
     }
     
     [self bringSubviewToFront:self.topSeparationLine];
     [self bringSubviewToFront:self.bottomSeparationLine];
-//    [self bringSubviewToFront:self.textLabel];
     
     LAYOUT_SUBVIEW_TOP_FILL_WIDTH(_topSeparationLine, 0, 0, 1);
     LAYOUT_SUBVIEW_BOTTOM_FILL_WIDTH(_bottomSeparationLine, 0, 0, 1);
@@ -155,7 +151,7 @@ DEFINE_PROPERTY_STRONG(CAGradientLayer *, gradientLayer);
 - (UIView *)contentView {
     if (!_contentView) {
         _contentView = [UIView new];
-        _contentView.backgroundColor = [UIColor orangeColor];
+        [self setNeedsLayout];
     }
     return _contentView;
 }
@@ -163,7 +159,7 @@ DEFINE_PROPERTY_STRONG(CAGradientLayer *, gradientLayer);
 - (UIView *)selectedBackgroundView {
     if (!_selectedBackgroundView) {
         _selectedBackgroundView = [UIView new];
-        _selectedBackgroundView.backgroundColor = [UIColor greenColor];
+        _selectedBackgroundView.backgroundColor = [UIColor lightGrayColor];
     }
     return _selectedBackgroundView;
 }
@@ -171,7 +167,6 @@ DEFINE_PROPERTY_STRONG(CAGradientLayer *, gradientLayer);
 - (NBCellActionsView *)actionsView {
     if (!_actionsView) {
         _actionsView = [NBCellActionsView new];
-        _actionsView.backgroundColor = [UIColor blueColor];
     }
     return _actionsView;
 }
@@ -180,7 +175,7 @@ DEFINE_PROPERTY_STRONG(CAGradientLayer *, gradientLayer);
 - (void)setIsSelected:(BOOL)isSelected {
     if (_isSelected != isSelected) {
         _isSelected = isSelected;
-//        [self setNeedsLayout];
+        [self setNeedsLayout];
     }
 }
 

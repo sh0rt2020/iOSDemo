@@ -29,13 +29,22 @@ DEFINE_PROPERTY_STRONG(NBTableViewDataSource *, dataSource);
     
     self.data = @[@"a", @"b", @"c", @"d", @"e", @"f", @"g"];
     self.dataSource = [[NBTableViewDataSource alloc] initWithItems:self.data cellIdentifier:@"nbcell" configureBlock:^(id cell, id item) {
-        NSLog(@"%@---------%@", cell, item);
+//        NSLog(@"%@---------%@", cell, item);
         
         ((NBTableViewCell *)cell).textLabel.text = item;
+        ((NBTableViewCell *)cell).textLabel.textColor = [UIColor blueColor];
+        ((NBTableViewCell *)cell).textLabel.textAlignment = NSTextAlignmentCenter;
+        ((NBTableViewCell *)cell).textLabel.font = [UIFont systemFontOfSize:16];
     }];
     self.dataSource.height = 44;
     self.tableView.dataSource = self.dataSource;
     [self.tableView reloadData];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    self.navigationItem.title = @"NBTableViewDemo";
 }
 
 
