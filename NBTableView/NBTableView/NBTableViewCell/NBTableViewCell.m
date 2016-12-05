@@ -14,34 +14,26 @@
 }
 
 DEFINE_PROPERTY_STRONG(CAGradientLayer *, gradientLayer);
-DEFINE_PROPERTY_STRONG(UIView *, selectedBackgroundView);
 
 @end
 
 @implementation NBTableViewCell
 #pragma mark - life cycle
 - (id)initWithFrame:(CGRect)frame {
+    
     self = [super initWithFrame:frame];
     if (self) {
-        self.gradientLayer = [CAGradientLayer layer];
-        [self.layer addSublayer:self.gradientLayer];
+        [self addSubview:self.selectedBackgroundView];
+        [self addSubview:self.actionsView];
         
-        UIView *contentV = [UIView new];
-        contentV.backgroundColor = [UIColor clearColor];
-        [self setContentView:contentV];
-        
-        UIView *bgView = [UIView new];
-        bgView.backgroundColor = [UIColor lightGrayColor];
-        [self setSelectedBackgroundView:bgView];
+        [self addSubview:self.contentView];
+        [self.contentView addSubview:self.textLabel];
         
         panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGestureRecognizer:)];
         panGestureRecognizer.maximumNumberOfTouches = 1;
         panGestureRecognizer.minimumNumberOfTouches = 1;
         panGestureRecognizer.delegate = self;
         [self addGestureRecognizer:panGestureRecognizer];
-        
-        NBCellActionsView *actionView = [[NBCellActionsView alloc] init];
-        [self setActionsView:actionView];
         
         INIT_SUBVIEW_SELF(NBSeparationLine, self.topSeparationLine);
         INIT_SUBVIEW_SELF(NBSeparationLine, self.bottomSeparationLine);
@@ -63,21 +55,23 @@ DEFINE_PROPERTY_STRONG(UIView *, selectedBackgroundView);
     
     self.contentView.frame = self.bounds;
     self.actionsView.frame = self.bounds;
+    
+    self.textLabel.frame = CGRectMake(0, 0, 50, self.bounds.size.height);
+    
     if (self.isSelected) {
         self.selectedBackgroundView.frame = self.contentView.bounds;
         self.selectedBackgroundView.hidden = NO;
-        [self.contentView insertSubview:self.selectedBackgroundView atIndex:0];
+//        [self.contentView insertSubview:self.selectedBackgroundView atIndex:0];
     } else {
         self.selectedBackgroundView.hidden = YES;
     }
     
     [self bringSubviewToFront:self.topSeparationLine];
     [self bringSubviewToFront:self.bottomSeparationLine];
+//    [self bringSubviewToFront:self.textLabel];
     
-    LAYOUT_SUBVIEW_TOP_FILL_WIDTH(_topSeparationLine, 0, 0, 3);
-    LAYOUT_SUBVIEW_BOTTOM_FILL_WIDTH(_bottomSeparationLine, 0, 0, 3);
-    self.gradientLayer.frame = self.contentView.bounds;
-    [self.contentView.layer insertSublayer:self.gradientLayer atIndex:0];
+    LAYOUT_SUBVIEW_TOP_FILL_WIDTH(_topSeparationLine, 0, 0, 1);
+    LAYOUT_SUBVIEW_BOTTOM_FILL_WIDTH(_bottomSeparationLine, 0, 0, 1);
 }
 
 #pragma mark - UIGestureRecognizerDelegate
@@ -100,7 +94,6 @@ DEFINE_PROPERTY_STRONG(UIView *, selectedBackgroundView);
 
 - (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [super touchesMoved:touches withEvent:event];
-//    [self ]
 }
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -159,37 +152,42 @@ DEFINE_PROPERTY_STRONG(UIView *, selectedBackgroundView);
 }
 
 #pragma mark - getter&setter
-- (void)setContentView:(UIView *)contentView {
-    if (_contentView != contentView) {
-        [_contentView removeFromSuperview];
-        _contentView = contentView;
-        INIT_SUBVIEW_SELF(UIView, contentView);
-        [self setNeedsLayout];
+- (UIView *)contentView {
+    if (!_contentView) {
+        _contentView = [UIView new];
+        _contentView.backgroundColor = [UIColor orangeColor];
     }
+    return _contentView;
 }
 
-- (void)setSelectedBackgroundView:(UIView *)selectedBackgroundView {
-    if (_selectedBackgroundView != selectedBackgroundView) {
-        [_selectedBackgroundView removeFromSuperview];
-        _selectedBackgroundView = selectedBackgroundView;
-        INIT_SUBVIEW_SELF(UIView, selectedBackgroundView);
-        [self setNeedsLayout];
+- (UIView *)selectedBackgroundView {
+    if (!_selectedBackgroundView) {
+        _selectedBackgroundView = [UIView new];
+        _selectedBackgroundView.backgroundColor = [UIColor greenColor];
     }
+    return _selectedBackgroundView;
 }
 
-- (void)setActionsView:(NBCellActionsView *)actionsView {
-    if (_actionsView != actionsView) {
-        [_actionsView removeFromSuperview];
-        _actionsView = actionsView;
-        [self insertSubview:actionsView atIndex:0];
-        [self setNeedsLayout];
+- (NBCellActionsView *)actionsView {
+    if (!_actionsView) {
+        _actionsView = [NBCellActionsView new];
+        _actionsView.backgroundColor = [UIColor blueColor];
     }
+    return _actionsView;
 }
+
 
 - (void)setIsSelected:(BOOL)isSelected {
     if (_isSelected != isSelected) {
         _isSelected = isSelected;
-        [self setNeedsLayout];
+//        [self setNeedsLayout];
     }
+}
+
+- (UILabel *)textLabel {
+    if (!_textLabel) {
+        _textLabel = [UILabel new];
+    }
+    return _textLabel;
 }
 @end

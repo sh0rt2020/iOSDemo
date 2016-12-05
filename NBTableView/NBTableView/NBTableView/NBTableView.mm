@@ -15,8 +15,6 @@ static float const NBAnimationDefualtDuration = 0.25;
 #import <map>
 #import <vector>
 #import "UIColor+NBAdd.h"
-//#import "NBTableViewDelegate.h"
-//#import "NBTableViewDataSource.h"
 #import "NBCellActionItem.h"
 #import "UIView+NBAdd.h"
 
@@ -178,7 +176,7 @@ typedef struct {
         cell.topSeparationLine.hidden = YES;
         cell.bottomSeparationLine.hidden = YES;
     } else {
-        cell.topSeparationLine.hidden = NO;
+        cell.topSeparationLine.hidden = YES;
         cell.bottomSeparationLine.hidden = NO;
     }
     

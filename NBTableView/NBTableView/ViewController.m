@@ -30,11 +30,8 @@ DEFINE_PROPERTY_STRONG(NBTableViewDataSource *, dataSource);
     self.data = @[@"a", @"b", @"c", @"d", @"e", @"f", @"g"];
     self.dataSource = [[NBTableViewDataSource alloc] initWithItems:self.data cellIdentifier:@"nbcell" configureBlock:^(id cell, id item) {
         NSLog(@"%@---------%@", cell, item);
-        UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 30, 24)];
-        lab.text = item;
-        lab.textAlignment = NSTextAlignmentCenter;
-        lab.textColor = [UIColor greenColor];   
-        [((NBTableViewCell *)cell).contentView addSubview:lab];
+        
+        ((NBTableViewCell *)cell).textLabel.text = item;
     }];
     self.dataSource.height = 44;
     self.tableView.dataSource = self.dataSource;

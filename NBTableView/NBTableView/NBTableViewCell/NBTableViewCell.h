@@ -16,8 +16,10 @@
 DEFINE_PROPERTY_ASSIGN(BOOL, isSelected);
 DEFINE_PROPERTY_ASSIGN(NSInteger, index);
 DEFINE_PROPERTY_STRONG(NSString *, identifiy);
+DEFINE_PROPERTY_STRONG(UIView *, selectedBackgroundView);
 DEFINE_PROPERTY_STRONG(NBCellActionsView *, actionsView);
 DEFINE_PROPERTY_STRONG(UIView *, contentView);
+DEFINE_PROPERTY_STRONG(UILabel *, textLabel);
 
 DEFINE_PROPERTY_STRONG(NBSeparationLine *, topSeparationLine);
 DEFINE_PROPERTY_STRONG(NBSeparationLine *, bottomSeparationLine);
