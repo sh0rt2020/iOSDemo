@@ -3,4 +3,5 @@
 
 target 'WebViewDemo' do
   pod "WebViewJavascriptBridge"
+  pod "SDWebImage"
 end

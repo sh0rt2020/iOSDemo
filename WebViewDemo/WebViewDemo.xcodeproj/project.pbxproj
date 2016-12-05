@@ -7,27 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0304926F1DF144EA009601B1 /* imageClick.js in Resources */ = {isa = PBXBuildFile; fileRef = 0304926E1DF144EA009601B1 /* imageClick.js */; };
-		030492711DF14512009601B1 /* bindImages.js in Resources */ = {isa = PBXBuildFile; fileRef = 030492701DF14512009601B1 /* bindImages.js */; };
-		030492751DF14539009601B1 /* lazyLoad.js in Resources */ = {isa = PBXBuildFile; fileRef = 030492741DF14539009601B1 /* lazyLoad.js */; };
 		033CE7BD1DDE97C800744A39 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 033CE7BC1DDE97C800744A39 /* main.m */; };
 		033CE7C01DDE97C900744A39 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 033CE7BF1DDE97C900744A39 /* AppDelegate.m */; };
 		033CE7C31DDE97C900744A39 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 033CE7C21DDE97C900744A39 /* ViewController.m */; };
 		033CE7C61DDE97C900744A39 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 033CE7C41DDE97C900744A39 /* Main.storyboard */; };
 		033CE7C81DDE97C900744A39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 033CE7C71DDE97C900744A39 /* Assets.xcassets */; };
 		033CE7CB1DDE97C900744A39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 033CE7C91DDE97C900744A39 /* LaunchScreen.storyboard */; };
-		0399DB2E1DED902E0097D86E /* test3.html in Resources */ = {isa = PBXBuildFile; fileRef = 0399DB2D1DED902E0097D86E /* test3.html */; };
-		039A21941DE6BBCD00947B10 /* WebViewDemo.html in Resources */ = {isa = PBXBuildFile; fileRef = 039A21931DE6BBCD00947B10 /* WebViewDemo.html */; };
-		039A21961DE6C5C300947B10 /* WebViewDemo.js in Resources */ = {isa = PBXBuildFile; fileRef = 039A21951DE6C5C300947B10 /* WebViewDemo.js */; };
-		3BCA31821DEDD7E500385988 /* imageClick.js in Resources */ = {isa = PBXBuildFile; fileRef = 3BCA31811DEDD7E500385988 /* imageClick.js */; };
-		3BCA31841DEDD80400385988 /* lazyLoad.js in Resources */ = {isa = PBXBuildFile; fileRef = 3BCA31831DEDD80400385988 /* lazyLoad.js */; };
+		3BCA318C1DF5A26F00385988 /* bindImages.js in Resources */ = {isa = PBXBuildFile; fileRef = 3BCA31861DF5A26F00385988 /* bindImages.js */; };
+		3BCA318D1DF5A26F00385988 /* imageClick.js in Resources */ = {isa = PBXBuildFile; fileRef = 3BCA31871DF5A26F00385988 /* imageClick.js */; };
+		3BCA318E1DF5A26F00385988 /* lazyLoad.js in Resources */ = {isa = PBXBuildFile; fileRef = 3BCA31881DF5A26F00385988 /* lazyLoad.js */; };
+		3BCA318F1DF5A26F00385988 /* test3.html in Resources */ = {isa = PBXBuildFile; fileRef = 3BCA31891DF5A26F00385988 /* test3.html */; };
+		3BCA31901DF5A26F00385988 /* WebViewDemo.html in Resources */ = {isa = PBXBuildFile; fileRef = 3BCA318A1DF5A26F00385988 /* WebViewDemo.html */; };
+		3BCA31911DF5A26F00385988 /* WebViewDemo.js in Resources */ = {isa = PBXBuildFile; fileRef = 3BCA318B1DF5A26F00385988 /* WebViewDemo.js */; };
+		3BCA31931DF5A4A700385988 /* imageClick2.js in Resources */ = {isa = PBXBuildFile; fileRef = 3BCA31921DF5A4A700385988 /* imageClick2.js */; };
 		DE1B40F0E8C942DB58E2CB4A /* libPods-WebViewDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 363F8433ABCA4906FABCE9BF /* libPods-WebViewDemo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0304926E1DF144EA009601B1 /* imageClick.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = imageClick.js; sourceTree = "<group>"; };
-		030492701DF14512009601B1 /* bindImages.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = bindImages.js; sourceTree = "<group>"; };
-		030492741DF14539009601B1 /* lazyLoad.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = lazyLoad.js; sourceTree = "<group>"; };
 		033CE7B81DDE97C800744A39 /* WebViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		033CE7BC1DDE97C800744A39 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		033CE7BE1DDE97C800744A39 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -38,12 +34,14 @@
 		033CE7C71DDE97C900744A39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		033CE7CA1DDE97C900744A39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		033CE7CC1DDE97C900744A39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0399DB2D1DED902E0097D86E /* test3.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = test3.html; sourceTree = "<group>"; };
-		039A21931DE6BBCD00947B10 /* WebViewDemo.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = WebViewDemo.html; sourceTree = "<group>"; };
-		039A21951DE6C5C300947B10 /* WebViewDemo.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = WebViewDemo.js; sourceTree = "<group>"; };
 		363F8433ABCA4906FABCE9BF /* libPods-WebViewDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WebViewDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3BCA31811DEDD7E500385988 /* imageClick.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = imageClick.js; sourceTree = "<group>"; };
-		3BCA31831DEDD80400385988 /* lazyLoad.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = lazyLoad.js; sourceTree = "<group>"; };
+		3BCA31861DF5A26F00385988 /* bindImages.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = bindImages.js; sourceTree = "<group>"; };
+		3BCA31871DF5A26F00385988 /* imageClick.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = imageClick.js; sourceTree = "<group>"; };
+		3BCA31881DF5A26F00385988 /* lazyLoad.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = lazyLoad.js; sourceTree = "<group>"; };
+		3BCA31891DF5A26F00385988 /* test3.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = test3.html; sourceTree = "<group>"; };
+		3BCA318A1DF5A26F00385988 /* WebViewDemo.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = WebViewDemo.html; sourceTree = "<group>"; };
+		3BCA318B1DF5A26F00385988 /* WebViewDemo.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = WebViewDemo.js; sourceTree = "<group>"; };
+		3BCA31921DF5A4A700385988 /* imageClick2.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = imageClick2.js; sourceTree = "<group>"; };
 		54982983F80E44C46CD87805 /* Pods-WebViewDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebViewDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-WebViewDemo/Pods-WebViewDemo.release.xcconfig"; sourceTree = "<group>"; };
 		8C1D774F69EEC18A50A5D5F0 /* Pods-WebViewDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebViewDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WebViewDemo/Pods-WebViewDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,11 +79,7 @@
 		033CE7BA1DDE97C800744A39 /* WebViewDemo */ = {
 			isa = PBXGroup;
 			children = (
-				039A21931DE6BBCD00947B10 /* WebViewDemo.html */,
-				0399DB2D1DED902E0097D86E /* test3.html */,
-				039A21951DE6C5C300947B10 /* WebViewDemo.js */,
-				3BCA31811DEDD7E500385988 /* imageClick.js */,
-				3BCA31831DEDD80400385988 /* lazyLoad.js */,
+				3BCA31851DF5A23100385988 /* js */,
 				033CE7BE1DDE97C800744A39 /* AppDelegate.h */,
 				033CE7BF1DDE97C900744A39 /* AppDelegate.m */,
 				033CE7C11DDE97C900744A39 /* ViewController.h */,
@@ -95,9 +89,6 @@
 				033CE7C91DDE97C900744A39 /* LaunchScreen.storyboard */,
 				033CE7CC1DDE97C900744A39 /* Info.plist */,
 				033CE7BB1DDE97C800744A39 /* Supporting Files */,
-				0304926E1DF144EA009601B1 /* imageClick.js */,
-				030492701DF14512009601B1 /* bindImages.js */,
-				030492741DF14539009601B1 /* lazyLoad.js */,
 			);
 			path = WebViewDemo;
 			sourceTree = "<group>";
@@ -117,6 +108,20 @@
 				54982983F80E44C46CD87805 /* Pods-WebViewDemo.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		3BCA31851DF5A23100385988 /* js */ = {
+			isa = PBXGroup;
+			children = (
+				3BCA31861DF5A26F00385988 /* bindImages.js */,
+				3BCA31871DF5A26F00385988 /* imageClick.js */,
+				3BCA31921DF5A4A700385988 /* imageClick2.js */,
+				3BCA31881DF5A26F00385988 /* lazyLoad.js */,
+				3BCA31891DF5A26F00385988 /* test3.html */,
+				3BCA318A1DF5A26F00385988 /* WebViewDemo.html */,
+				3BCA318B1DF5A26F00385988 /* WebViewDemo.js */,
+			);
+			path = js;
 			sourceTree = "<group>";
 		};
 		D8C6D192A5500A9973C8269D /* Frameworks */ = {
@@ -189,17 +194,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BCA31911DF5A26F00385988 /* WebViewDemo.js in Resources */,
+				3BCA318F1DF5A26F00385988 /* test3.html in Resources */,
+				3BCA31901DF5A26F00385988 /* WebViewDemo.html in Resources */,
+				3BCA318D1DF5A26F00385988 /* imageClick.js in Resources */,
 				033CE7CB1DDE97C900744A39 /* LaunchScreen.storyboard in Resources */,
-				3BCA31821DEDD7E500385988 /* imageClick.js in Resources */,
+				3BCA318E1DF5A26F00385988 /* lazyLoad.js in Resources */,
+				3BCA31931DF5A4A700385988 /* imageClick2.js in Resources */,
 				033CE7C81DDE97C900744A39 /* Assets.xcassets in Resources */,
 				033CE7C61DDE97C900744A39 /* Main.storyboard in Resources */,
-				030492711DF14512009601B1 /* bindImages.js in Resources */,
-				039A21961DE6C5C300947B10 /* WebViewDemo.js in Resources */,
-				030492751DF14539009601B1 /* lazyLoad.js in Resources */,
-				0399DB2E1DED902E0097D86E /* test3.html in Resources */,
-				0304926F1DF144EA009601B1 /* imageClick.js in Resources */,
-				039A21941DE6BBCD00947B10 /* WebViewDemo.html in Resources */,
-				3BCA31841DEDD80400385988 /* lazyLoad.js in Resources */,
+				3BCA318C1DF5A26F00385988 /* bindImages.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

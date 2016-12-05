@@ -6,23 +6,33 @@
 	<dict>
 		<key>Pods-WebViewDemo.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>WebViewJavascriptBridge.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>C95198AB2643697C273A6AA16405A7B2</key>
+		<key>0F09AE0E31E8AA4B1B0C12D763A5DE47</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DD9988EB337B448526F8ABB8DC6B79FF</key>
+		<key>5379DD6969062EA53A273557D36A219A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B1107C0B4E9AD779AFD0C1BEFAFF34BB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
