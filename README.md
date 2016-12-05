@@ -32,7 +32,10 @@ a set of iOS demo, all third-party libraries are managed by CocoaPods.
 		1、利用RunTime技术调试系统提供的UITableView，弄明白UITableView的执行过程；
 		2、NBTableView现有的代码中，包括查询缓存、删除、增加等算法或者数据结构应该有优化的空间；
 		3、暂时就这样吧，bitch！！！！
-
+	2016/12/5
+		完成NBTableView的基本功能，已经可以在简单的业务场景使用；
+		有待完善更高级的功能；
+		有待性能优化；
 4、Masonry
 	
 	这个项目主要在于体验纯手工编写页面布局，包括纯手工计算布局、使用iOS提供的VFL约束页面布局、使用Masonry第三方类库来约束页面布局。
