@@ -20,7 +20,7 @@
 @property (nonatomic, nonnull) UIWebView *webView;
 //@property (nonatomic, nonnull) WKWebView *webView;
 @property (nonatomic, nonnull) UIButton *sizeBtn;  //改变大小的按钮
-//@property (nonatomic)   WebViewJavascriptBridge *bridge;  //原生代码和js代码交互的桥接
+@property (nonatomic)   WebViewJavascriptBridge *bridge;  //原生代码和js代码交互的桥接
 //@property (nonatomic)   WKWebViewJavascriptBridge *bridge;  //针对wkwebview
 
 @property (nonatomic) NSArray *scaleArr;
@@ -53,9 +53,9 @@
     [self.sizeBtn setTitle:@"change font size" forState:UIControlStateNormal];
     [self.view addSubview:self.sizeBtn];
     
-//    [WebViewJavascriptBridge enableLogging];  //调试
-//    self.bridge = [WebViewJavascriptBridge bridgeForWebView:self.webView];
-//    [self.bridge setWebViewDelegate:self];
+    [WebViewJavascriptBridge enableLogging];  //调试
+    self.bridge = [WebViewJavascriptBridge bridgeForWebView:self.webView];
+    [self.bridge setWebViewDelegate:self];
     
     
 //    [WKWebViewJavascriptBridge enableLogging];
