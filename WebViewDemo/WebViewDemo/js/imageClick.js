@@ -23,7 +23,7 @@ setupWebViewJavascriptBridge(function(bridge) {
 			}
 		}
 
-		var images=document.querySelectorAll("p.media img");
+		var images=document.querySelectorAll(".media img");
 		var imgLen=images.length;
 		for(var i=0;i<imgLen;i++){
 			images[i].setAttribute("data-index",i)

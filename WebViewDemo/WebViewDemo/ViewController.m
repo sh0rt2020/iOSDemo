@@ -20,7 +20,7 @@
 @property (nonatomic, nonnull) UIWebView *webView;
 //@property (nonatomic, nonnull) WKWebView *webView;
 @property (nonatomic, nonnull) UIButton *sizeBtn;  //改变大小的按钮
-//@property (nonatomic)   WebViewJavascriptBridge *bridge;  //原生代码和js代码交互的桥接
+@property (nonatomic)   WebViewJavascriptBridge *bridge;  //原生代码和js代码交互的桥接
 //@property (nonatomic)   WKWebViewJavascriptBridge *bridge;  //针对wkwebview
 
 @property (nonatomic) NSArray *scaleArr;
@@ -32,44 +32,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+//    self.scaleArr = @[@1.2, @1.6, @0.7, @0.4, @2.0];
     
-    self.scaleArr = @[@1.2, @1.6, @0.7, @0.4, @2.0];
-    
-    
-    // Do any additional setup after loading the view, typically from a nib.
-    self.webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 100, SCREENWIDTH, SCREENTHEIGHT-100)];
-//    self.webView.UIDelegate = self;
-//    self.webView.navigationDelegate = self;
-    self.webView.delegate =self;
-//    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.github.com"]]];
-    NSString *htmlPath = [[NSBundle mainBundle] pathForResource:@"test3" ofType:@"html"];
-    NSString *html = [NSString stringWithContentsOfFile:htmlPath encoding:NSUTF8StringEncoding error:nil];
-    [self.webView loadHTMLString:html baseURL:nil];
     [self.view addSubview:self.webView];
+//    [self.view addSubview:self.sizeBtn];
     
-    self.sizeBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, 100)];
-    self.sizeBtn.backgroundColor = [UIColor greenColor];
-    [self.sizeBtn addTarget:self action:@selector(changeFont:) forControlEvents:UIControlEventTouchUpInside];
-    [self.sizeBtn setTitle:@"change font size" forState:UIControlStateNormal];
-    [self.view addSubview:self.sizeBtn];
-    
-//    [WebViewJavascriptBridge enableLogging];  //调试
-//    self.bridge = [WebViewJavascriptBridge bridgeForWebView:self.webView];
-//    [self.bridge setWebViewDelegate:self];
+    [WebViewJavascriptBridge enableLogging];  //调试
+    self.bridge = [WebViewJavascriptBridge bridgeForWebView:self.webView];
+    [self.bridge setWebViewDelegate:self];
+    [self.bridge registerHandler:@"imageClickHandler" handler:^(id data, WVJBResponseCallback responseCallback) {
+        NSLog(@"点击图片");
+    }];
     
     
 //    [WKWebViewJavascriptBridge enableLogging];
 //    self.bridge = [WKWebViewJavascriptBridge bridgeForWebView:self.webView];
 //    [self.bridge setWebViewDelegate:self];
-    
-//    id data = @{};
-//    [self.bridge callHandler:@"showYwDomainLogin" data:data responseCallback:^(id responseData) {
-//        NSLog(@"OC invoke Js succeed!");
-//    }];
-//    
-//    [self.bridge registerHandler:@"stopLocalMedia()" handler:^(id data, WVJBResponseCallback responseCallback) {
-//        NSLog(@"Js invoke OC succeed!");
-//    }];
 }
 
 
@@ -79,25 +57,31 @@
 }
 
 #pragma mark - UIWebViewDelegate
-//- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
-//    
-//    NSLog(@"%s", __func__);
-//    return YES;
-//}
-//
-//- (void)webViewDidStartLoad:(UIWebView *)webView {
-//    NSLog(@"%s", __func__);
-//}
-//
-//- (void)webViewDidFinishLoad:(UIWebView *)webView {
-//    NSLog(@"%s", __func__);
-////    [self injectJs];  //注入js
-////    [self interceptJs];
-//}
-//
-//- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
-//    NSLog(@"%s", __func__);
-//}
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    
+    NSLog(@"%s", __func__);
+    return YES;
+}
+
+- (void)webViewDidStartLoad:(UIWebView *)webView {
+    NSLog(@"%s", __func__);
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    NSLog(@"%s", __func__);
+    
+    [self injectJs:@"imageClick" type:@"js" webView:webView];
+    [self.bridge callHandler:@"bindImages" data:nil responseCallback:^(id responseData) {
+        NSLog(@"绑定图片");
+    }];
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+    NSLog(@"%s", __func__);
+}
+
+
+
 
 #pragma mark - WKUIDelegate
 - (BOOL)webView:(WKWebView *)webView shouldPreviewElement:(WKPreviewElementInfo *)elementInfo {
@@ -144,25 +128,22 @@
 }
 
 #pragma mark - event response
+//改变字体大小
 - (void)changeFont:(UIButton *)sender {
     self.index ++;
     CGFloat scale = [self.scaleArr[self.index] floatValue];
     
-    
-    CGFloat scrollheight0 = [[self.webView stringByEvaluatingJavaScriptFromString:@"document.body.scrollHeight"] floatValue];
-    NSLog(@"%@=======%f", NSStringFromCGSize(self.webView.scrollView.contentSize), scrollheight0);
     [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '%f%@'", scale*100, @"%"]];
 
     CGFloat scrollheight = [[self.webView stringByEvaluatingJavaScriptFromString:@"document.body.scrollHeight"] floatValue];
-//    CGFloat scrollheight = 0;
-    NSLog(@"%@========%f", NSStringFromCGSize(self.webView.scrollView.contentSize), scrollheight);
-//    self.webView.scrollView.contentSize = CGSizeMake(SCREENWIDTH, scrollheight);
-//    CGRect newFrame = self.webView.frame;
-//    newFrame.size.height = scrollheight;
-//    self.webView.frame = newFrame;
+    
+    self.webView.scrollView.contentSize = CGSizeMake(SCREENWIDTH, scrollheight);
+    CGRect newFrame = self.webView.frame;
+    newFrame.size.height = scrollheight;
+    self.webView.frame = newFrame;
 }
 
-
+//web调起原生页面
 - (void)showSFELoginPage {
     
     NSLog(@"%s", __func__);
@@ -170,16 +151,8 @@
 
 
 #pragma mark - private method
-//js注入
-- (void)injectJs {
-    //UIWebView
-//    NSString* path = [[NSBundle mainBundle] pathForResource:@"WebViewDemo" ofType:@"js"];
-//    [self.webView stringByEvaluatingJavaScriptFromString:
-//     [NSString stringWithFormat:@"var script = document.createElement('script');"
-//      "script.type = 'text/javascript';"
-//      "script.src = '%@';"
-//      "document.getElementsByTagName('head')[0].appendChild(script);",path]];
-    
+//WKWebView注入js
+- (void)wkInjectJs {
     //WKWebView
 //    NSString *path = [[NSBundle mainBundle] pathForResource:@"WebViewDemo" ofType:@"js"];
 //    NSString *js = [NSString stringWithFormat:@"var script = document.createElement('script');""script.type = 'text/javascript';""script.src = '%@';""document.getElementsByTagName('head')[0].appendChild(script);", path];
@@ -188,11 +161,44 @@
 //    }];
 }
 
+//注入js
+- (void)injectJs:(NSString *)fileName type:(NSString *)fileType webView:(UIWebView *)webView {
+    NSString *path = [[NSBundle mainBundle] pathForResource:fileName ofType:fileType];
+    NSString *appendJs = [NSString stringWithFormat:@"var script = document.createElement('script');"
+                          "script.type = 'text/javascript';"
+                          "script.src = '%@';"
+                          "document.getElementsByTagName('head')[0].appendChild(script);", path];
+    [webView stringByEvaluatingJavaScriptFromString:appendJs];
+}
+
 //拦截js
 - (void)interceptJs {
     JSContext *context = [self.webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
     context[@"showYwDomainLogin"] = ^() {
         NSLog(@"拦截js");
     };
+}
+
+#pragma mark - setter&getter
+- (UIButton *)sizeBtn {
+    if (!_sizeBtn) {
+        _sizeBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, 100)];
+        _sizeBtn.backgroundColor = [UIColor greenColor];
+        [_sizeBtn addTarget:self action:@selector(changeFont:) forControlEvents:UIControlEventTouchUpInside];
+        [_sizeBtn setTitle:@"change font size" forState:UIControlStateNormal];
+    }
+    return _sizeBtn;
+}
+
+- (UIWebView *)webView {
+    if (!_webView) {
+        _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, SCREENTHEIGHT)];
+        _webView.delegate =self;
+//        [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://zhuanlan.zhihu.com/p/23922445"]]];
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"WebViewDemo" ofType:@"html"];
+        NSString *html = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+        [_webView loadHTMLString:html baseURL:nil];
+    }
+    return _webView;
 }
 @end
