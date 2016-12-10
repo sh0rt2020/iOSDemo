@@ -44,11 +44,6 @@
         NSLog(@"点击图片");
     }];
     
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"WebViewDemo" ofType:@"html"];
-    NSString *html = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
-//    NSString *html = @"<html><head><title>WebViewDemo</title></head><body><p>this is a demo</p><img src=\"https://pic3.zhimg.com/912c5fca777f12ab58fc54521ceb0d9e_xl.jpg\"></body></html>>";
-    [self.webView loadHTMLString:html baseURL:nil];
-    
 //    [WKWebViewJavascriptBridge enableLogging];
 //    self.bridge = [WKWebViewJavascriptBridge bridgeForWebView:self.webView];
 //    [self.bridge setWebViewDelegate:self];
@@ -74,7 +69,7 @@
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     NSLog(@"%s", __func__);
     
-//    [self injectJs:@"debuggap" type:@"js" webView:webView];
+    [self injectJs:@"debuggap" type:@"js" webView:webView];
     [self injectJs:@"imageClick" type:@"js" webView:webView];
     [self.bridge callHandler:@"bindImages" data:nil responseCallback:^(id responseData) {
         NSLog(@"绑定图片");
@@ -89,42 +84,42 @@
 
 
 #pragma mark - WKUIDelegate
-//- (BOOL)webView:(WKWebView *)webView shouldPreviewElement:(WKPreviewElementInfo *)elementInfo {
-//    return YES;
-//}
-//
-//- (void)webViewDidClose:(WKWebView *)webView {
-//    NSLog(@"%s", __func__);
-//}
+- (BOOL)webView:(WKWebView *)webView shouldPreviewElement:(WKPreviewElementInfo *)elementInfo {
+    return YES;
+}
+
+- (void)webViewDidClose:(WKWebView *)webView {
+    NSLog(@"%s", __func__);
+}
 
 
 #pragma mark - WKNavigationDelegate
-//- (void)webView:(WKWebView *)webView didCommitNavigation:(WKNavigation *)navigation {
-//    NSLog(@"%s", __func__);
-//}
-//
-//- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
-//    NSLog(@"%s", __func__);
-//}
-//
-//- (void)webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error {
-//    NSLog(@"%s", __func__);
-//}
-//
-//- (void)webView:(WKWebView *)webView didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))completionHandler {
-//    
-//    //针对https支持  ios8.0不支持 apple的bug
-//    if ([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust]) {
-//        if ([challenge previousFailureCount] == 0) {
-//            NSURLCredential *credential = [NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust];
-//            completionHandler(NSURLSessionAuthChallengeUseCredential, credential);
-//        } else {
-//            completionHandler(NSURLSessionAuthChallengeCancelAuthenticationChallenge, nil);
-//        }
-//    } else {
-//        completionHandler(NSURLSessionAuthChallengeCancelAuthenticationChallenge, nil);
-//    }
-//}
+- (void)webView:(WKWebView *)webView didCommitNavigation:(WKNavigation *)navigation {
+    NSLog(@"%s", __func__);
+}
+
+- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
+    NSLog(@"%s", __func__);
+}
+
+- (void)webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error {
+    NSLog(@"%s", __func__);
+}
+
+- (void)webView:(WKWebView *)webView didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))completionHandler {
+    
+    //针对https支持  ios8.0不支持 apple的bug
+    if ([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust]) {
+        if ([challenge previousFailureCount] == 0) {
+            NSURLCredential *credential = [NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust];
+            completionHandler(NSURLSessionAuthChallengeUseCredential, credential);
+        } else {
+            completionHandler(NSURLSessionAuthChallengeCancelAuthenticationChallenge, nil);
+        }
+    } else {
+        completionHandler(NSURLSessionAuthChallengeCancelAuthenticationChallenge, nil);
+    }
+}
 
 
 #pragma mark - WKScriptMessageHandler
@@ -199,6 +194,11 @@
     if (!_webView) {
         _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, SCREENTHEIGHT)];
         _webView.delegate =self;
+        
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"WebViewDemo" ofType:@"html"];
+        NSString *html = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+        [self.webView loadHTMLString:html baseURL:[NSURL URLWithString:path]];
+        
 //        [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://zhuanlan.zhihu.com/p/23922445"]]];
     }
     return _webView;
