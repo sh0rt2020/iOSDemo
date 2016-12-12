@@ -41,12 +41,12 @@
             NSArray *cellArr = dataArr[i];
             
             UIColor *bgColor = [UIColor whiteColor];
-            UIColor *textColor = [UIColor lightGrayColor];
+            UIColor *textColor = [UIColor redColor];
             UIFont *textFont = [UIFont systemFontOfSize:14.0];
             if (i == 0) {
                 //表头
                 bgColor = [UIColor lightGrayColor];
-                textColor = [UIColor darkTextColor];
+                textColor = [UIColor greenColor];
                 textFont = [UIFont boldSystemFontOfSize:14.0];
             }
             
@@ -65,31 +65,68 @@
                     lab.text = item;
                     [self.contentView addSubview:lab];
                 } else if ([item isKindOfClass:[NSDictionary class]]) {
-                    //字典元素 key和value之间用“————”分割  value之间用“|”分割
-                    NSString *title = [item key];
-                    UILabel *titleLab = [[UILabel alloc] initWithFrame:CGRectMake(originX, originY, width, height/2)];
-                    titleLab.backgroundColor = bgColor;
-                    titleLab.textColor = textColor;
-                    titleLab.font = textFont;
-                    titleLab.textAlignment = NSTextAlignmentCenter;
-                    titleLab.text = title;
-                    [self.contentView addSubview:titleLab];
+                    //字典元素 表头value之间用“——”分割  内容value之间用“|”分割
                     
-                    originY += height/2;
-                    
-                    NSArray *allValues = [item allValues];
-                    width = width/allValues.count;
-                    for (int k = 0; k < allValues.count; k++) {
-                        textFont = [UIFont systemFontOfSize:14.0];
-                        textColor = [UIColor lightGrayColor];
-                        originX += width*k;
-                        UILabel *valueLab = [[UILabel alloc] initWithFrame:CGRectMake(originX, originY, width, height/2)];
-                        valueLab.backgroundColor = bgColor;
-                        valueLab.textColor = textColor;
-                        valueLab.font = textFont;
-                        valueLab.textAlignment = NSTextAlignmentCenter;
-                        valueLab.text = allValues[k];
-                        [self.contentView addSubview:valueLab];
+                    if (i == 0) {
+                        //表头数据
+                        if([cellArr lastObject] == item&&cellArr.count < _widthArr.count) {
+                            for (int k=j+1; k < _widthArr.count; k++) {
+                                width += [self.widthArr[k] floatValue];
+                            }
+                        }
+                        
+                        NSString *title = [[item allKeys] firstObject];
+                        UILabel *titleLab = [[UILabel alloc] initWithFrame:CGRectMake(originX, originY, width, height/2)];
+                        titleLab.backgroundColor = bgColor;
+                        titleLab.textColor = textColor;
+                        titleLab.font = textFont;
+                        titleLab.textAlignment = NSTextAlignmentCenter;
+                        titleLab.text = title;
+                        [self.contentView addSubview:titleLab];
+                        
+                        originY += height/2;
+                        
+                        NSArray *allValues = [[item allValues] firstObject];
+                        width = width/allValues.count;
+                        for (int k = 0; k < allValues.count; k++) {
+                            textFont = [UIFont systemFontOfSize:14.0];
+                            textColor = [UIColor lightGrayColor];
+                            originX += width*k;
+                            UILabel *valueLab = [[UILabel alloc] initWithFrame:CGRectMake(originX, originY, width, height/2)];
+                            valueLab.backgroundColor = bgColor;
+                            valueLab.textColor = textColor;
+                            valueLab.font = textFont;
+                            valueLab.textAlignment = NSTextAlignmentCenter;
+                            valueLab.text = allValues[k];
+                            [self.contentView addSubview:valueLab];
+                        }
+                    } else {
+                        //表内容数据
+                        NSString *title = [[item allKeys] firstObject];
+                        UILabel *titleLab = [[UILabel alloc] initWithFrame:CGRectMake(originX, originY, width/2, height)];
+                        titleLab.backgroundColor = bgColor;
+                        titleLab.textColor = textColor;
+                        titleLab.font = textFont;
+                        titleLab.textAlignment = NSTextAlignmentCenter;
+                        titleLab.text = title;
+                        [self.contentView addSubview:titleLab];
+                        
+                        originX += width/2;
+                        
+                        NSArray *allValues = [[item allValues] firstObject];
+                        height = height/allValues.count;
+                        for (int k = 0; k < allValues.count; k++) {
+                            textFont = [UIFont systemFontOfSize:14.0];
+                            textColor = [UIColor lightGrayColor];
+                            originY += height*k;
+                            UILabel *valueLab = [[UILabel alloc] initWithFrame:CGRectMake(originX, originY, width/2, height)];
+                            valueLab.backgroundColor = bgColor;
+                            valueLab.textColor = textColor;
+                            valueLab.font = textFont;
+                            valueLab.textAlignment = NSTextAlignmentCenter;
+                            valueLab.text = allValues[k];
+                            [self.contentView addSubview:valueLab];
+                        }
                     }
                 } else if ([item isKindOfClass:[NSArray class]]) {
                     //数组元素 元素之间用“————”分割

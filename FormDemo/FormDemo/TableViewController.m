@@ -35,18 +35,22 @@
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return 1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 100;
+    return 160;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    FormTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FormTableViewCell" forIndexPath:indexPath];
-    cell.contentArr = @[@[@"早期死亡风险", @{@"风险分层指标及评分":@[@"休克或低血压", @"简化PESI>1", @"右心室功能不全/标志物"]}], @[@"高危>15%", @"+", @"(+)", @"+/(+)"], @[]];
-    cell.heightArr = @[];
-    cell.widthArr = @[];
+    FormTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FormTableViewCell"];
+    if (!cell) {
+        cell = [[FormTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FormTableViewCell"];
+    }
+    
+    cell.heightArr = @[@60, @30, @70];
+    cell.widthArr = @[@100, @50, @50, @70];
+    cell.contentArr = @[@[@"早期死亡风险", @{@"风险分层指标及评分":@[@"休克或低血压", @"简化PESI>1", @"右心室功能不全/标志物"]}], @[@"高危>15%", @"+", @"(+)", @"+/(+)"], @[@{@"中危3%-15%":@[@"中高危", @"中低危"]}, @[@"-", @"-"], @[@"+", @"+"], @[@"+/+", @"-/-,或+/-,或-/+,或-/-"]]];
     return cell;
 }
 
