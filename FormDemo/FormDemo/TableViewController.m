@@ -39,7 +39,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 160;
+    return 240;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -48,8 +48,8 @@
         cell = [[FormTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FormTableViewCell"];
     }
     
-    cell.heightArr = @[@60, @30, @70];
-    cell.widthArr = @[@100, @50, @50, @70];
+    cell.heightArr = @[@100, @40, @100];
+    cell.widthArr = @[@140, @60, @60, @140];
     cell.contentArr = @[@[@"早期死亡风险", @{@"风险分层指标及评分":@[@"休克或低血压", @"简化PESI>1", @"右心室功能不全/标志物"]}], @[@"高危>15%", @"+", @"(+)", @"+/(+)"], @[@{@"中危3%-15%":@[@"中高危", @"中低危"]}, @[@"-", @"-"], @[@"+", @"+"], @[@"+/+", @"-/-,或+/-,或-/+,或-/-"]]];
     return cell;
 }
