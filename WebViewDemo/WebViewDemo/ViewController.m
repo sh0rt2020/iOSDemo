@@ -123,9 +123,9 @@
 
 
 #pragma mark - WKScriptMessageHandler
-//- (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message {
-//    //实现js交互
-//}
+- (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message {
+    //实现js交互
+}
 
 #pragma mark - event response
 //改变字体大小
