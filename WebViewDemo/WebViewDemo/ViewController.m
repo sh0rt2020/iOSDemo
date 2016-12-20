@@ -12,16 +12,13 @@
 #import "ViewController.h"
 #import <WebKit/WebKit.h>
 #import <WebViewJavascriptBridge.h>
-#import <WKWebViewJavascriptBridge.h>
 #import <JavaScriptCore/JavaScriptCore.h>
 
-@interface ViewController () <WKUIDelegate, WKNavigationDelegate, WKScriptMessageHandler, UIWebViewDelegate>
+@interface ViewController () <UIWebViewDelegate>
 
 @property (nonatomic, nonnull) UIWebView *webView;
-//@property (nonatomic, nonnull) WKWebView *webView;
 @property (nonatomic, nonnull) UIButton *sizeBtn;  //改变大小的按钮
 @property (nonatomic)   WebViewJavascriptBridge *bridge;  //原生代码和js代码交互的桥接
-//@property (nonatomic)   WKWebViewJavascriptBridge *bridge;  //针对wkwebview
 
 @property (nonatomic) NSArray *scaleArr;
 @property (nonatomic) NSInteger index;
@@ -43,10 +40,6 @@
     [self.bridge registerHandler:@"imageClickHandler" handler:^(id data, WVJBResponseCallback responseCallback) {
         NSLog(@"点击图片");
     }];
-    
-//    [WKWebViewJavascriptBridge enableLogging];
-//    self.bridge = [WKWebViewJavascriptBridge bridgeForWebView:self.webView];
-//    [self.bridge setWebViewDelegate:self];
 }
 
 
@@ -80,52 +73,6 @@
     NSLog(@"%s", __func__);
 }
 
-
-
-
-#pragma mark - WKUIDelegate
-- (BOOL)webView:(WKWebView *)webView shouldPreviewElement:(WKPreviewElementInfo *)elementInfo {
-    return YES;
-}
-
-- (void)webViewDidClose:(WKWebView *)webView {
-    NSLog(@"%s", __func__);
-}
-
-
-#pragma mark - WKNavigationDelegate
-- (void)webView:(WKWebView *)webView didCommitNavigation:(WKNavigation *)navigation {
-    NSLog(@"%s", __func__);
-}
-
-- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
-    NSLog(@"%s", __func__);
-}
-
-- (void)webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error {
-    NSLog(@"%s", __func__);
-}
-
-- (void)webView:(WKWebView *)webView didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))completionHandler {
-    
-    //针对https支持  ios8.0不支持 apple的bug
-    if ([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust]) {
-        if ([challenge previousFailureCount] == 0) {
-            NSURLCredential *credential = [NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust];
-            completionHandler(NSURLSessionAuthChallengeUseCredential, credential);
-        } else {
-            completionHandler(NSURLSessionAuthChallengeCancelAuthenticationChallenge, nil);
-        }
-    } else {
-        completionHandler(NSURLSessionAuthChallengeCancelAuthenticationChallenge, nil);
-    }
-}
-
-
-#pragma mark - WKScriptMessageHandler
-- (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message {
-    //实现js交互
-}
 
 #pragma mark - event response
 //改变字体大小

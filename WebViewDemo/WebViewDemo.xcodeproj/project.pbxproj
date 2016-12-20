@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		032146D31E08F8F0008FDBAE /* WKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 032146D21E08F8F0008FDBAE /* WKViewController.m */; };
+		032146D61E08FC2D008FDBAE /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 032146D51E08FC2D008FDBAE /* TabBarViewController.m */; };
 		033CE7BD1DDE97C800744A39 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 033CE7BC1DDE97C800744A39 /* main.m */; };
 		033CE7C01DDE97C900744A39 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 033CE7BF1DDE97C900744A39 /* AppDelegate.m */; };
 		033CE7C31DDE97C900744A39 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 033CE7C21DDE97C900744A39 /* ViewController.m */; };
@@ -24,6 +26,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		032146D11E08F8F0008FDBAE /* WKViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKViewController.h; sourceTree = "<group>"; };
+		032146D21E08F8F0008FDBAE /* WKViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKViewController.m; sourceTree = "<group>"; };
+		032146D41E08FC2D008FDBAE /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
+		032146D51E08FC2D008FDBAE /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
 		033CE7B81DDE97C800744A39 /* WebViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		033CE7BC1DDE97C800744A39 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		033CE7BE1DDE97C800744A39 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -84,7 +90,11 @@
 				033CE7BF1DDE97C900744A39 /* AppDelegate.m */,
 				033CE7C11DDE97C900744A39 /* ViewController.h */,
 				033CE7C21DDE97C900744A39 /* ViewController.m */,
+				032146D11E08F8F0008FDBAE /* WKViewController.h */,
+				032146D21E08F8F0008FDBAE /* WKViewController.m */,
 				033CE7C41DDE97C900744A39 /* Main.storyboard */,
+				032146D41E08FC2D008FDBAE /* TabBarViewController.h */,
+				032146D51E08FC2D008FDBAE /* TabBarViewController.m */,
 				033CE7C71DDE97C900744A39 /* Assets.xcassets */,
 				033CE7C91DDE97C900744A39 /* LaunchScreen.storyboard */,
 				033CE7CC1DDE97C900744A39 /* Info.plist */,
@@ -262,8 +272,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				032146D61E08FC2D008FDBAE /* TabBarViewController.m in Sources */,
 				033CE7C31DDE97C900744A39 /* ViewController.m in Sources */,
 				033CE7C01DDE97C900744A39 /* AppDelegate.m in Sources */,
+				032146D31E08F8F0008FDBAE /* WKViewController.m in Sources */,
 				033CE7BD1DDE97C800744A39 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
