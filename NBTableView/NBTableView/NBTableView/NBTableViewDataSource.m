@@ -15,29 +15,25 @@
 
 DEFINE_PROPERTY_STRONG(NSArray *, items);
 DEFINE_PROPERTY_STRONG_NSSTRING(identifier);
-@property (nonatomic, copy) NBTableViewCellConfigureBlock block;
+@property (nonatomic, copy) NBTableViewDataSourceConfigureBlock dataSourceBlock;
 
 @end
 
 @implementation NBTableViewDataSource
-
+#pragma mark - self def method
 //只允许调用自定义的初始化方法
 - (id)init {
     return nil;
 }
 
-- (id)initWithItems:(NSArray *)itemArray cellIdentifier:(NSString *)identifier configureBlock:(NBTableViewCellConfigureBlock)block {
+- (id)initWithItems:(NSArray *)itemArray cellIdentifier:(NSString *)identifier configureBlock:(NBTableViewDataSourceConfigureBlock)block {
     self = [super init];
-    if (itemArray) {
-        _items = itemArray;
-    }
-    
-    if (identifier) {
-        _identifier = identifier;
-    }
-    
-    if (block) {
-        _block = block;
+    if (self) {
+        self.items = itemArray;
+        
+        self.dataSourceBlock = block;
+        
+        self.identifier = identifier;
     }
     
     return self;
@@ -58,7 +54,7 @@ DEFINE_PROPERTY_STRONG_NSSTRING(identifier);
         cell = [[NBTableViewCell alloc] initWithIdentifiy:self.identifier];
     }
     id item = self.items[row];
-    self.block(cell, item);
+    self.dataSourceBlock(cell, item);
     return cell;
 }
 @end

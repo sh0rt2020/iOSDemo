@@ -10,7 +10,7 @@
 #import <UIKit/UIKit.h>
 #import "NBTableView.h"
 
-typedef void(^NBTableViewCellConfigureBlock)(id cell, id item);
+typedef void(^NBTableViewDataSourceConfigureBlock)(id cell, id item);
 
 @interface NBTableViewDataSource : NSObject <NBTableViewSourceDelegate>
 
@@ -18,5 +18,5 @@ DEFINE_PROPERTY_ASSIGN_FLOAT(height);
 
 - (id)initWithItems:(NSArray *)itemArray
        cellIdentifier:(NSString *)identifier
-       configureBlock:(NBTableViewCellConfigureBlock)block;
+       configureBlock:(NBTableViewDataSourceConfigureBlock)block;
 @end

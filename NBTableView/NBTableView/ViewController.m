@@ -17,6 +17,7 @@
 DEFINE_PROPERTY_STRONG(NBTableView *, tableView);
 DEFINE_PROPERTY_STRONG(NSArray *, data);
 DEFINE_PROPERTY_STRONG(NBTableViewDataSource *, dataSource);
+DEFINE_PROPERTY_STRONG(NBTableViewDelegate *, delegate);
 @end
 
 @implementation ViewController
@@ -38,6 +39,13 @@ DEFINE_PROPERTY_STRONG(NBTableViewDataSource *, dataSource);
     }];
     self.dataSource.height = 44;
     self.tableView.dataSource = self.dataSource;
+    
+    self.delegate = [[NBTableViewDelegate alloc] initWithItems:self.data configureBlock:^(NSInteger row, id item) {
+        NSLog(@"%ld-----------%@", row, item);
+    }];
+    
+    self.tableView.delegate = self.delegate;
+    
     [self.tableView reloadData];
 }
 

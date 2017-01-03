@@ -10,7 +10,10 @@
 #import <UIKit/UIKit.h>
 #import "NBTableView.h"
 
+typedef void(^NBTableViewDelegateConfigureBlock)(NSInteger row, id item);
+
 @interface NBTableViewDelegate : NSObject <NBTableViewActionDelegate>
 
+- (instancetype)initWithItems:(NSArray *)items configureBlock:(NBTableViewDelegateConfigureBlock)block;
 
 @end
