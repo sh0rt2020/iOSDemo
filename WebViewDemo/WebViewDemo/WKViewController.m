@@ -20,7 +20,7 @@
 @end
 
 @implementation WKViewController
-
+#pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -82,6 +82,19 @@
     //实现js交互
 }
 
+#pragma mark - event response
+
+#pragma mark - public method
+
+#pragma mark - private method
+//WKWebView注入js
+- (void)wkInjectJs {
+    //WKWebView
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"WebViewDemo" ofType:@"js"];
+    NSString *js = [NSString stringWithFormat:@"var script = document.createElement('script');""script.type = 'text/javascript';""script.src = '%@';""document.getElementsByTagName('head')[0].appendChild(script);", path];
+    [self.webView evaluateJavaScript:js completionHandler:^(id _Nullable result, NSError * _Nullable error) {
+    }];
+}
 
 #pragma getter&setter
 - (WKWebView *)webView {
@@ -94,7 +107,7 @@
 //        NSString *html = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
 //        [self.webView loadHTMLString:html baseURL:[NSURL URLWithString:path]];
         
-                [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.baidu.com"]]];
+        [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.baidu.com"]]];
     }
     return _webView;
 }

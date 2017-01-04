@@ -39,7 +39,7 @@ setupWebViewJavascriptBridge(function(bridge) {
 	    var imgLen=images.length;
 	    for(var i=0;i<imgLen;i++){
 		    var index = images[i].getAttribute("data-index");
-		    var src = images[i].getAttribute("src");
+		    var src = images[i].getAttribute("sbsrc");
 		    var value = {"src":src,"index":index};
 		    values.push(value);
 		}

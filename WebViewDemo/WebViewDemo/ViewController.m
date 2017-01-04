@@ -22,24 +22,24 @@
 
 @property (nonatomic) NSArray *scaleArr;
 @property (nonatomic) NSInteger index;
+
+@property (nonatomic, nonnull) UIButton *refreshBtn;
+@property (nonatomic, nonnull, copy) NSArray *imgArr;
 @end
 
 @implementation ViewController
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self initNav];
     
-//    self.scaleArr = @[@1.2, @1.6, @0.7, @0.4, @2.0];
-    
+    [self.view addSubview:self.refreshBtn];
     [self.view addSubview:self.webView];
 //    [self.view addSubview:self.sizeBtn];
     
     [WebViewJavascriptBridge enableLogging];  //调试
     self.bridge = [WebViewJavascriptBridge bridgeForWebView:self.webView];
     [self.bridge setWebViewDelegate:self];
-    [self.bridge registerHandler:@"imageClickHandler" handler:^(id data, WVJBResponseCallback responseCallback) {
-        NSLog(@"点击图片");
-    }];
 }
 
 
@@ -62,10 +62,12 @@
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     NSLog(@"%s", __func__);
     
+    
     [self injectJs:@"debuggap" type:@"js" webView:webView];
     [self injectJs:@"imageClick" type:@"js" webView:webView];
     [self.bridge callHandler:@"bindImages" data:nil responseCallback:^(id responseData) {
-        NSLog(@"绑定图片");
+        self.imgArr = [responseData copy];
+        [self ]
     }];
 }
 
@@ -75,6 +77,15 @@
 
 
 #pragma mark - event response
+//刷新
+- (void)handleRefresh:(UIButton *)sender {
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"WebViewDemo" ofType:@"html"];
+    NSString *html = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+    
+    html = [self dealWithLocalHtml:html];
+    [self.webView loadHTMLString:html baseURL:[NSURL URLWithString:path]];
+}
+
 //改变字体大小
 - (void)changeFont:(UIButton *)sender {
     self.index ++;
@@ -90,22 +101,9 @@
     self.webView.frame = newFrame;
 }
 
-//web调起原生页面
-- (void)showSFELoginPage {
-    
-    NSLog(@"%s", __func__);
-}
-
-
 #pragma mark - private method
-//WKWebView注入js
-- (void)wkInjectJs {
-    //WKWebView
-//    NSString *path = [[NSBundle mainBundle] pathForResource:@"WebViewDemo" ofType:@"js"];
-//    NSString *js = [NSString stringWithFormat:@"var script = document.createElement('script');""script.type = 'text/javascript';""script.src = '%@';""document.getElementsByTagName('head')[0].appendChild(script);", path];
-//    [self.webView evaluateJavaScript:js completionHandler:^(id _Nullable result, NSError * _Nullable error) {
-//        
-//    }];
+- (void)initNav {
+    self.navigationItem.title = @"WebViewDemo";
 }
 
 //注入js
@@ -126,6 +124,21 @@
     };
 }
 
+//处理本地html 替换img标签中的src属性
+- (NSString *)dealWithLocalHtml:(NSString *)html {
+    
+    NSString *updatedHtml = [html stringByReplacingOccurrencesOfString:@"src" withString:@"sbsrc"];
+    return updatedHtml;
+}
+
+//在本地下载网页中的图片
+- (void)downAllImgs {
+    for (NSDictionary *each in self.imgArr) {
+        NSString *imgSrc = each[@"src"];
+        
+    }
+}
+
 #pragma mark - setter&getter
 - (UIButton *)sizeBtn {
     if (!_sizeBtn) {
@@ -139,15 +152,29 @@
 
 - (UIWebView *)webView {
     if (!_webView) {
-        _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, SCREENTHEIGHT)];
+        _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 64+44, SCREENWIDTH, SCREENTHEIGHT-64-44)];
         _webView.delegate =self;
         
         NSString *path = [[NSBundle mainBundle] pathForResource:@"WebViewDemo" ofType:@"html"];
         NSString *html = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+        
+        html = [self dealWithLocalHtml:html];
         [self.webView loadHTMLString:html baseURL:[NSURL URLWithString:path]];
         
 //        [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://zhuanlan.zhihu.com/p/23922445"]]];
     }
     return _webView;
 }
+
+- (UIButton *)refreshBtn {
+    if (!_refreshBtn) {
+        _refreshBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 64, SCREENWIDTH, 44)];
+        [_refreshBtn setTitle:@"refresh" forState:UIControlStateNormal];
+        [_refreshBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+        
+        [_refreshBtn addTarget:self action:@selector(handleRefresh:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _refreshBtn;
+}
+
 @end
