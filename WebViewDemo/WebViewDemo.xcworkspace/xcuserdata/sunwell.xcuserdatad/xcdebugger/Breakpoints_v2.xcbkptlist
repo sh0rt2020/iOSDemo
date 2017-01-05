@@ -54,7 +54,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "153"
             endingLineNumber = "153"
-            landmarkName = "-webView"
+            landmarkName = "-downAllImgs"
             landmarkType = "7">
             <Actions>
                <BreakpointActionProxy
@@ -64,6 +64,38 @@
                   </ActionContent>
                </BreakpointActionProxy>
             </Actions>
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__29-[ViewController downAllImgs]_block_invoke_2"
+                  moduleName = "WebViewDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sunwell/Documents/iosDemo/WebViewDemo/WebViewDemo/ViewController.m"
+                  timestampString = "505314996.149174"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "153"
+                  endingLineNumber = "153"
+                  offsetFromSymbolStart = "340">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__29-[ViewController downAllImgs]_block_invoke_3"
+                  moduleName = "WebViewDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sunwell/Documents/iosDemo/WebViewDemo/WebViewDemo/ViewController.m"
+                  timestampString = "505314996.151066"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "154"
+                  endingLineNumber = "154"
+                  offsetFromSymbolStart = "48">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
