@@ -14,6 +14,8 @@
 #import <WebViewJavascriptBridge.h>
 #import <JavaScriptCore/JavaScriptCore.h>
 
+#import <SDWebImageManager.h>
+
 @interface ViewController () <UIWebViewDelegate>
 
 @property (nonatomic, nonnull) UIWebView *webView;
@@ -40,6 +42,10 @@
     [WebViewJavascriptBridge enableLogging];  //调试
     self.bridge = [WebViewJavascriptBridge bridgeForWebView:self.webView];
     [self.bridge setWebViewDelegate:self];
+    [self.bridge callHandler:@"bindImages" data:nil responseCallback:^(id responseData) {
+        self.imgArr = [responseData[@"data"] copy];
+        [self downAllImgs];
+    }];
 }
 
 
@@ -65,10 +71,8 @@
     
     [self injectJs:@"debuggap" type:@"js" webView:webView];
     [self injectJs:@"imageClick" type:@"js" webView:webView];
-    [self.bridge callHandler:@"bindImages" data:nil responseCallback:^(id responseData) {
-        self.imgArr = [responseData copy];
-        [self ]
-    }];
+    [self injectJs:@"lazyLoad" type:@"js" webView:webView];
+    
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
@@ -135,7 +139,23 @@
 - (void)downAllImgs {
     for (NSDictionary *each in self.imgArr) {
         NSString *imgSrc = each[@"src"];
+        SDWebImageManager *imgManager = [SDWebImageManager sharedManager];
         
+        [imgManager downloadImageWithURL:[NSURL URLWithString:imgSrc] options:SDWebImageHighPriority progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+            if (image) {
+                
+                //后台线程异步从缓存里面获取图片
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                    NSString *img64 = [UIImageJPEGRepresentation(image, 1.0) base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+                    NSString *key = [imgManager cacheKeyForURL:[NSURL URLWithString:imgSrc]];
+                    NSString *source = [NSString stringWithFormat:@"data:image/png;base64,%@", img64];
+                    
+                    [_bridge callHandler:@"finishDownloadImgs" data:@[key, source] responseCallback:^(id responseData) {
+                        NSLog(@"加载本地图片完成");
+                    }];
+                });
+            }
+        }];
     }
 }
 
