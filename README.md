@@ -53,7 +53,10 @@ a set of iOS demo, all third-party libraries are managed by CocoaPods.
     		context[@"js func name"] = ^() {}
 	加载速度优化参考[STMURLCache](https://github.com/ming1016/STMURLCache)这个第三方类库的优化思路；
 	在调试的过程中发现UIWebView对于内存的占用爆炸式增长，而且在iOS8.0之后官方推出WKWebView代替UIWebView，优化了内存爆炸的问题;
-	关于WKWebView的使用可以参考[这篇文章](http://ios.jobbole.com/90729/)
+	关于WKWebView的使用可以参考[这篇文章](http://ios.jobbole.com/90729/)；
+	2017/1/5
+	想把这个模块写成一个开源的类库，目前，加载本地的html资源没有太大问题了，但是加载服务端html资源还是有问题，用浏览器自带的控制台又有盲点，用第三方的调试工具遇到了问题。
+	打算先把这个第三方工具的问题解决了，再往下走！祝自己顺利！
 
 6、关于animation
 
