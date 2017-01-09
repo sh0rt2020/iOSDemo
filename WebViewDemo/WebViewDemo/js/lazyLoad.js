@@ -12,6 +12,7 @@ function setupWebViewJavascriptBridge(callback) {
 setupWebViewJavascriptBridge(function(bridge) {
     
     function replaceServerImageWithLocalImage(pOldUrl, pNewUrl) {
+    	// alert(pOldUrl+"+++++++"+pNewUrl);
     	var images=document.getElementsByTagName("img");
 		for(var i=0;i<images.length;i++){
 			var image = images[i]
@@ -29,7 +30,7 @@ setupWebViewJavascriptBridge(function(bridge) {
     }
                              
     bridge.registerHandler('finishDownloadImgs', function(data, responseCallback) {
-        console.log("加载本地图片");
-        replaceServerImageWithLocalImage();
+        // alert("开始加载本地图片 oldUrl="+data[0]+"   "+"newUrl="+data[1]);
+	    replaceServerImageWithLocalImage(data[0], data[1]);
     })
 })
