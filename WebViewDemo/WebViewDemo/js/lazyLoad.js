@@ -29,6 +29,7 @@ setupWebViewJavascriptBridge(function(bridge) {
     }
                              
     bridge.registerHandler('finishDownloadImgs', function(data, responseCallback) {
+        console.log("加载本地图片");
         replaceServerImageWithLocalImage();
     })
 })
