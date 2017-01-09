@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0300ECDA1E238A14005936CE /* SWWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 0300ECD91E238A14005936CE /* SWWebCache.m */; };
+		0300ECDD1E238BEB005936CE /* SWWebCacheModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0300ECDC1E238BEB005936CE /* SWWebCacheModel.m */; };
 		032146D31E08F8F0008FDBAE /* WKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 032146D21E08F8F0008FDBAE /* WKViewController.m */; };
 		032146D61E08FC2D008FDBAE /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 032146D51E08FC2D008FDBAE /* TabBarViewController.m */; };
 		033CE7BD1DDE97C800744A39 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 033CE7BC1DDE97C800744A39 /* main.m */; };
@@ -26,6 +28,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0300ECD81E238A14005936CE /* SWWebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWWebCache.h; sourceTree = "<group>"; };
+		0300ECD91E238A14005936CE /* SWWebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWWebCache.m; sourceTree = "<group>"; };
+		0300ECDB1E238BEB005936CE /* SWWebCacheModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWWebCacheModel.h; sourceTree = "<group>"; };
+		0300ECDC1E238BEB005936CE /* SWWebCacheModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWWebCacheModel.m; sourceTree = "<group>"; };
 		032146D11E08F8F0008FDBAE /* WKViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKViewController.h; sourceTree = "<group>"; };
 		032146D21E08F8F0008FDBAE /* WKViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKViewController.m; sourceTree = "<group>"; };
 		032146D41E08FC2D008FDBAE /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
@@ -64,6 +70,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0300ECD71E2389E3005936CE /* cache */ = {
+			isa = PBXGroup;
+			children = (
+				0300ECD81E238A14005936CE /* SWWebCache.h */,
+				0300ECD91E238A14005936CE /* SWWebCache.m */,
+				0300ECDB1E238BEB005936CE /* SWWebCacheModel.h */,
+				0300ECDC1E238BEB005936CE /* SWWebCacheModel.m */,
+			);
+			path = cache;
+			sourceTree = "<group>";
+		};
 		033CE7AF1DDE97C800744A39 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +102,7 @@
 		033CE7BA1DDE97C800744A39 /* WebViewDemo */ = {
 			isa = PBXGroup;
 			children = (
+				0300ECD71E2389E3005936CE /* cache */,
 				3BCA31851DF5A23100385988 /* js */,
 				033CE7BE1DDE97C800744A39 /* AppDelegate.h */,
 				033CE7BF1DDE97C900744A39 /* AppDelegate.m */,
@@ -273,6 +291,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				032146D61E08FC2D008FDBAE /* TabBarViewController.m in Sources */,
+				0300ECDD1E238BEB005936CE /* SWWebCacheModel.m in Sources */,
+				0300ECDA1E238A14005936CE /* SWWebCache.m in Sources */,
 				033CE7C31DDE97C900744A39 /* ViewController.m in Sources */,
 				033CE7C01DDE97C900744A39 /* AppDelegate.m in Sources */,
 				032146D31E08F8F0008FDBAE /* WKViewController.m in Sources */,
