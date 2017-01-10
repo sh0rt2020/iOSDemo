@@ -175,13 +175,13 @@
         _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 64+44, SCREENWIDTH, SCREENTHEIGHT-64-44)];
         _webView.delegate =self;
         
-//        NSString *path = [[NSBundle mainBundle] pathForResource:@"WebViewDemo" ofType:@"html"];
-//        NSString *html = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"WebViewDemo" ofType:@"html"];
+        NSString *html = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
         
-//        html = [self dealWithLocalHtml:html];
-//        [self.webView loadHTMLString:html baseURL:[NSURL URLWithString:path]];
+        html = [self dealWithLocalHtml:html];
+        [self.webView loadHTMLString:html baseURL:[NSURL URLWithString:path]];
         
-        [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://zhuanlan.zhihu.com/p/23922445"]]];
+//        [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://zhuanlan.zhihu.com/p/23922445"]]];
     }
     return _webView;
 }
