@@ -159,6 +159,13 @@
     }
 }
 
+//尝试获取缓存在本地的页面
+- (void)fetchPageFromLocal {
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *cacheDir = [paths firstObject];
+}
+
 #pragma mark - setter&getter
 - (UIButton *)sizeBtn {
     if (!_sizeBtn) {
