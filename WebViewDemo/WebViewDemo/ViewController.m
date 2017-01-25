@@ -164,6 +164,7 @@
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
     NSString *cacheDir = [paths firstObject];
+    
 }
 
 #pragma mark - setter&getter
