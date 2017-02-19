@@ -53,4 +53,9 @@ static void runLoopObserverCallBack(CFRunLoopObserverRef observer, CFRunLoopActi
     });
 }
 
+- (void)dumpHeap {
+    //dump内存信息（二进制）
+    
+}
+
 @end
