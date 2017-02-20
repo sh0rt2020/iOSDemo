@@ -162,14 +162,8 @@
 //尝试获取缓存在本地的页面
 - (void)fetchPageFromLocal {
     
-<<<<<<< HEAD
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-    NSString *cacheDir = [paths firstObject];
-    
-=======
 //    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
 //    NSString *cacheDir = [paths firstObject];
->>>>>>> 8312e20c621a7c3600b5984082d4d94f54b08fbb
 }
 
 #pragma mark - setter&getter

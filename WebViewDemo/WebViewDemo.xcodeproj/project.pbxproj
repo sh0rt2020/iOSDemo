@@ -410,6 +410,7 @@
 				DEVELOPMENT_TEAM = KGVT6QT22A;
 				INFOPLIST_FILE = WebViewDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_GENERATE_MAP_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yigemed.WebViewDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -424,6 +425,7 @@
 				DEVELOPMENT_TEAM = KGVT6QT22A;
 				INFOPLIST_FILE = WebViewDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_GENERATE_MAP_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yigemed.WebViewDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
