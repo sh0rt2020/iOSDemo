@@ -47,6 +47,7 @@ static BOOL MTLValidateAndSetValue(id obj, NSString *key, id value, BOOL forceUp
 	@try {
 		if (![obj validateValue:&validatedValue forKey:key error:error]) return NO;
 
+        //value != validatedValue是什么意思？？
 		if (forceUpdate || value != validatedValue) {
 			[obj setValue:validatedValue forKey:key];
 		}
@@ -99,6 +100,7 @@ static BOOL MTLValidateAndSetValue(id obj, NSString *key, id value, BOOL forceUp
 	NSMutableSet *transitoryKeys = [NSMutableSet set];
 	NSMutableSet *permanentKeys = [NSMutableSet set];
 
+    //根据属性的相关信息，分别存储属性名（根据storageBehaviorForPropertyWithKey:的实现，应该所有属性都是存在permanentKeys中）
 	for (NSString *propertyKey in self.propertyKeys) {
 		switch ([self storageBehaviorForPropertyWithKey:propertyKey]) {
 			case MTLPropertyStorageNone:
@@ -120,6 +122,7 @@ static BOOL MTLValidateAndSetValue(id obj, NSString *key, id value, BOOL forceUp
 	objc_setAssociatedObject(self, MTLModelCachedPermanentPropertyKeysKey, permanentKeys, OBJC_ASSOCIATION_COPY);
 }
 
+//在adapter中调用
 + (instancetype)modelWithDictionary:(NSDictionary *)dictionary error:(NSError **)error {
 	return [[self alloc] initWithDictionary:dictionary error:error];
 }
@@ -129,6 +132,7 @@ static BOOL MTLValidateAndSetValue(id obj, NSString *key, id value, BOOL forceUp
 	return [super init];
 }
 
+//同上类初始化方法，在adapter
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary error:(NSError **)error {
 	self = [self init];
 	if (self == nil) return nil;
@@ -141,6 +145,7 @@ static BOOL MTLValidateAndSetValue(id obj, NSString *key, id value, BOOL forceUp
 
 		if ([value isEqual:NSNull.null]) value = nil;
 
+        //通过MTLValidateAndSetValue做key、value验证，验证成功则通过kvc赋值给对应属性
 		BOOL success = MTLValidateAndSetValue(self, key, value, YES, error);
 		if (!success) return nil;
 	}
@@ -172,7 +177,9 @@ static BOOL MTLValidateAndSetValue(id obj, NSString *key, id value, BOOL forceUp
 	}
 }
 
+//获取对象的属性集合
 + (NSSet *)propertyKeys {
+    //通过关联对象取出key集合（第一次获取属性集合的时候会存到关联对象中）
 	NSSet *cachedKeys = objc_getAssociatedObject(self, MTLModelCachedPropertyKeysKey);
 	if (cachedKeys != nil) return cachedKeys;
 
@@ -194,6 +201,7 @@ static BOOL MTLValidateAndSetValue(id obj, NSString *key, id value, BOOL forceUp
 }
 
 + (NSSet *)transitoryPropertyKeys {
+    //从关联对象中取出临时的key集合
 	NSSet *transitoryPropertyKeys = objc_getAssociatedObject(self, MTLModelCachedTransitoryPropertyKeysKey);
 
 	if (transitoryPropertyKeys == nil) {
@@ -205,6 +213,7 @@ static BOOL MTLValidateAndSetValue(id obj, NSString *key, id value, BOOL forceUp
 }
 
 + (NSSet *)permanentPropertyKeys {
+    //从关联对象中取出永久的key集合
 	NSSet *permanentPropertyKeys = objc_getAssociatedObject(self, MTLModelCachedPermanentPropertyKeysKey);
 
 	if (permanentPropertyKeys == nil) {
@@ -216,16 +225,21 @@ static BOOL MTLValidateAndSetValue(id obj, NSString *key, id value, BOOL forceUp
 }
 
 - (NSDictionary *)dictionaryValue {
+    //通过permanentPropertyKeys(永久的键集合)给transitoryPropertyKeys(暂时的键集合)赋值，此处为什么没有直接赋值？？而是通过方法来赋值？？
 	NSSet *keys = [self.class.transitoryPropertyKeys setByAddingObjectsFromSet:self.class.permanentPropertyKeys];
 
+    //利用kvc,通过传进去的keys.allObjects数组，获取NSDictionary<NSString *, id>类型的字典，key对应的value此时应该为NSNull
 	return [self dictionaryWithValuesForKeys:keys.allObjects];
 }
 
+//根据属性相关信息决定存储类型
 + (MTLPropertyStorage)storageBehaviorForPropertyWithKey:(NSString *)propertyKey {
+    
 	objc_property_t property = class_getProperty(self.class, propertyKey.UTF8String);
 
 	if (property == NULL) return MTLPropertyStorageNone;
-
+    
+    //获取属性相关信息，比如类型、修饰符等
 	mtl_propertyAttributes *attributes = mtl_copyPropertyAttributes(property);
 	@onExit {
 		free(attributes);
@@ -293,6 +307,7 @@ static BOOL MTLValidateAndSetValue(id obj, NSString *key, id value, BOOL forceUp
 #pragma mark NSCopying
 
 - (instancetype)copyWithZone:(NSZone *)zone {
+    //重写copyWithZone方法
 	MTLModel *copy = [[self.class allocWithZone:zone] init];
 	[copy setValuesForKeysWithDictionary:self.dictionaryValue];
 	return copy;
@@ -306,16 +321,44 @@ static BOOL MTLValidateAndSetValue(id obj, NSString *key, id value, BOOL forceUp
 	return [NSString stringWithFormat:@"<%@: %p> %@", self.class, self, permanentProperties];
 }
 
+//重写了NSObject的hash方法，为了提高性能
 - (NSUInteger)hash {
 	NSUInteger value = 0;
 
 	for (NSString *key in self.class.permanentPropertyKeys) {
+        //此处取出key，hash之后再按位异或操作？？（根据Effective OC描述，这种算法提升了hash性能，但是会有一定冲突的概率）
 		value ^= [[self valueForKey:key] hash];
 	}
 
 	return value;
 }
 
+//重写了NSObject的isEqual方法
+//但是在此方法中做了对应的类型比较，这样会耗费多余性能（解决方案是通过定义一个容易识别的方法名来规范传入的参数，比如NSString类的isEqualToString方法，可以定义为isEqualToMTLModel）
+- (BOOL)isEqual:(id)object {
+    if ([object isMemberOfClass:[self class]]) {
+        return [self isEqualToMTLModel:object];
+    } else {
+        return [super isEqual:object];
+    }
+}
+
+- (BOOL)isEqualToMTLModel:(MTLModel *)model {
+    if (self == model) {
+        return YES;
+    }
+    
+    for (NSString *key in self.class.permanentPropertyKeys) {
+        id selfValue = [self valueForKey:key];
+        id modelValue = [model valueForKey:key];
+        
+        BOOL valuesEqual = ((selfValue == nil && modelValue == nil) || [selfValue isEqual:modelValue]);
+        if (!valuesEqual) return NO;
+    }
+    
+    return YES;
+}
+/*
 - (BOOL)isEqual:(MTLModel *)model {
 	if (self == model) return YES;
 	if (![model isMemberOfClass:self.class]) return NO;
@@ -330,5 +373,6 @@ static BOOL MTLValidateAndSetValue(id obj, NSString *key, id value, BOOL forceUp
 
 	return YES;
 }
+ */
 
 @end

@@ -73,12 +73,14 @@ NSString * const MTLJSONAdapterThrownExceptionErrorKey = @"MTLJSONAdapterThrownE
 
 #pragma mark Convenience methods
 
+//便利方法，由modelclass、json字典得到对象
 + (id)modelOfClass:(Class)modelClass fromJSONDictionary:(NSDictionary *)JSONDictionary error:(NSError **)error {
 	MTLJSONAdapter *adapter = [[self alloc] initWithModelClass:modelClass];
 
 	return [adapter modelFromJSONDictionary:JSONDictionary error:error];
 }
 
+//便利方法，由modelclass、json数组得到对象数组
 + (NSArray *)modelsOfClass:(Class)modelClass fromJSONArray:(NSArray *)JSONArray error:(NSError **)error {
 	if (JSONArray == nil || ![JSONArray isKindOfClass:NSArray.class]) {
 		if (error != NULL) {
@@ -103,12 +105,14 @@ NSString * const MTLJSONAdapterThrownExceptionErrorKey = @"MTLJSONAdapterThrownE
 	return models;
 }
 
+//便利方法，由model得到字典
 + (NSDictionary *)JSONDictionaryFromModel:(id<MTLJSONSerializing>)model error:(NSError **)error {
 	MTLJSONAdapter *adapter = [[self alloc] initWithModelClass:model.class];
 
 	return [adapter JSONDictionaryFromModel:model error:error];
 }
 
+//便利方法，由model数组得到字典数组
 + (NSArray *)JSONArrayFromModels:(NSArray *)models error:(NSError **)error {
 	NSParameterAssert(models != nil);
 	NSParameterAssert([models isKindOfClass:NSArray.class]);
@@ -131,6 +135,8 @@ NSString * const MTLJSONAdapterThrownExceptionErrorKey = @"MTLJSONAdapterThrownE
 	return nil;
 }
 
+
+
 - (id)initWithModelClass:(Class)modelClass {
 	NSParameterAssert(modelClass != nil);
 	NSParameterAssert([modelClass conformsToProtocol:@protocol(MTLJSONSerializing)]);
@@ -140,8 +146,10 @@ NSString * const MTLJSONAdapterThrownExceptionErrorKey = @"MTLJSONAdapterThrownE
 
 	_modelClass = modelClass;
 
+    //JSONKeyPathsByPropertyKey方法由具体子类来实现，返回一个映射字典（key是属性名，value是json字段）
 	_JSONKeyPathsByPropertyKey = [modelClass JSONKeyPathsByPropertyKey];
 
+    //获取model类所有的属性名集合
 	NSSet *propertyKeys = [self.modelClass propertyKeys];
 
 	for (NSString *mappedPropertyKey in _JSONKeyPathsByPropertyKey) {
@@ -152,6 +160,7 @@ NSString * const MTLJSONAdapterThrownExceptionErrorKey = @"MTLJSONAdapterThrownE
 
 		id value = _JSONKeyPathsByPropertyKey[mappedPropertyKey];
 
+        //生成adapter的时候会判断value（json字段）是不是纯NSString或者只包含NSString类型的NSArray类型，如果是才能正确的生成adapter
 		if ([value isKindOfClass:NSArray.class]) {
 			for (NSString *keyPath in value) {
 				if ([keyPath isKindOfClass:NSString.class]) continue;
@@ -165,8 +174,9 @@ NSString * const MTLJSONAdapterThrownExceptionErrorKey = @"MTLJSONAdapterThrownE
 		}
 	}
 
+    //获取一个字典，key是属性名，value是transformer
 	_valueTransformersByPropertyKey = [self.class valueTransformersForModelClass:modelClass];
-
+    //
 	_JSONAdaptersByModelClass = [NSMapTable strongToStrongObjectsMapTable];
 
 	return self;
