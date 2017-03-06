@@ -267,6 +267,7 @@ NSString * const MTLJSONAdapterThrownExceptionErrorKey = @"MTLJSONAdapterThrownE
 }
 
 - (id)modelFromJSONDictionary:(NSDictionary *)JSONDictionary error:(NSError **)error {
+    //需要手动实现classForParsingJSONDictionary方法
 	if ([self.modelClass respondsToSelector:@selector(classForParsingJSONDictionary:)]) {
 		Class class = [self.modelClass classForParsingJSONDictionary:JSONDictionary];
 		if (class == nil) {
@@ -293,7 +294,10 @@ NSString * const MTLJSONAdapterThrownExceptionErrorKey = @"MTLJSONAdapterThrownE
 
 	NSMutableDictionary *dictionaryValue = [[NSMutableDictionary alloc] initWithCapacity:JSONDictionary.count];
 
+    //此处取propertyKeys的过程使用了关联对象做缓存
 	for (NSString *propertyKey in [self.modelClass propertyKeys]) {
+        
+        /*从jsonDictionary中拿到jsonKeyPaths对应的value*/
 		id JSONKeyPaths = self.JSONKeyPathsByPropertyKey[propertyKey];
 
 		if (JSONKeyPaths == nil) continue;
@@ -314,6 +318,7 @@ NSString * const MTLJSONAdapterThrownExceptionErrorKey = @"MTLJSONAdapterThrownE
 
 			value = dictionary;
 		} else {
+            //jsonkeypath不是NSArray
 			BOOL success = NO;
 			value = [JSONDictionary mtl_valueForJSONKeyPath:JSONKeyPaths success:&success error:error];
 
@@ -322,13 +327,16 @@ NSString * const MTLJSONAdapterThrownExceptionErrorKey = @"MTLJSONAdapterThrownE
 
 		if (value == nil) continue;
 
+        /*将value转化为对应的OC类型*/
 		@try {
+            //初始化adapter的时候，初始化了_valueTransformersByPropertyKey
 			NSValueTransformer *transformer = self.valueTransformersByPropertyKey[propertyKey];
 			if (transformer != nil) {
 				// Map NSNull -> nil for the transformer, and then back for the
 				// dictionary we're going to insert into.
 				if ([value isEqual:NSNull.null]) value = nil;
 
+                //transformedValue:success:error:这个方法的作用？？
 				if ([transformer respondsToSelector:@selector(transformedValue:success:error:)]) {
 					id<MTLTransformerErrorHandling> errorHandlingTransformer = (id)transformer;
 
@@ -367,6 +375,7 @@ NSString * const MTLJSONAdapterThrownExceptionErrorKey = @"MTLJSONAdapterThrownE
 		}
 	}
 
+    //得到dictionaryValue，key是属性名，value是属性值
 	id model = [self.modelClass modelWithDictionary:dictionaryValue error:error];
 
 	return [model validate:error] ? model : nil;
@@ -378,6 +387,7 @@ NSString * const MTLJSONAdapterThrownExceptionErrorKey = @"MTLJSONAdapterThrownE
 
 	NSMutableDictionary *result = [NSMutableDictionary dictionary];
 
+    //此处又获取了一遍对象属性列表propertyKeys，已经用关联对象做缓存
 	for (NSString *key in [modelClass propertyKeys]) {
 		SEL selector = MTLSelectorWithKeyPattern(key, "JSONTransformer");
 		if ([modelClass respondsToSelector:selector]) {

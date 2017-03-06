@@ -49,6 +49,7 @@ static BOOL MTLValidateAndSetValue(id obj, NSString *key, id value, BOOL forceUp
 
         //value != validatedValue是什么意思？？
 		if (forceUpdate || value != validatedValue) {
+            //setValue:forKey:方法的执行过程比较慢？？所以Mantle的整体性能较低？？
 			[obj setValue:validatedValue forKey:key];
 		}
 
@@ -77,6 +78,7 @@ static BOOL MTLValidateAndSetValue(id obj, NSString *key, id value, BOOL forceUp
 
 // Returns a set of all property keys for which
 // +storageBehaviorForPropertyWithKey returned MTLPropertyStorageTransitory.
+//NSSet：1、不重复；2、无序；3、判断是否包含的时候比NSArray要快。
 + (NSSet *)transitoryPropertyKeys;
 
 // Returns a set of all property keys for which
@@ -132,7 +134,7 @@ static BOOL MTLValidateAndSetValue(id obj, NSString *key, id value, BOOL forceUp
 	return [super init];
 }
 
-//同上类初始化方法，在adapter
+//
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary error:(NSError **)error {
 	self = [self init];
 	if (self == nil) return nil;
@@ -224,11 +226,13 @@ static BOOL MTLValidateAndSetValue(id obj, NSString *key, id value, BOOL forceUp
 	return permanentPropertyKeys;
 }
 
+//将json转model的过程并没有调用这个方法
 - (NSDictionary *)dictionaryValue {
-    //通过permanentPropertyKeys(永久的键集合)给transitoryPropertyKeys(暂时的键集合)赋值，此处为什么没有直接赋值？？而是通过方法来赋值？？
+    //将permanentPropertyKeys(永久的键集合)给追加到transitoryPropertyKeys(暂时的键集合)
+    //permanentPropertyKeys和transitoryPropertyKeys中存的是什么？？？
 	NSSet *keys = [self.class.transitoryPropertyKeys setByAddingObjectsFromSet:self.class.permanentPropertyKeys];
 
-    //利用kvc,通过传进去的keys.allObjects数组，获取NSDictionary<NSString *, id>类型的字典，key对应的value此时应该为NSNull
+    //利用kvc,通过传进去的keys.allObjects数组，获取NSDictionary<NSString *, id>类型的字典
 	return [self dictionaryWithValuesForKeys:keys.allObjects];
 }
 
@@ -305,10 +309,10 @@ static BOOL MTLValidateAndSetValue(id obj, NSString *key, id value, BOOL forceUp
 }
 
 #pragma mark NSCopying
-
+//重写copyWithZone方法，将json转model的过程并没有调用这个方法
 - (instancetype)copyWithZone:(NSZone *)zone {
-    //重写copyWithZone方法
 	MTLModel *copy = [[self.class allocWithZone:zone] init];
+    //获取到NSDictionary<NSString *, id>类型的字典，并给copy对应的属性赋值
 	[copy setValuesForKeysWithDictionary:self.dictionaryValue];
 	return copy;
 }
