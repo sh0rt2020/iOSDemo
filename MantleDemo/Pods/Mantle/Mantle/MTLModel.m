@@ -42,7 +42,7 @@ static BOOL MTLValidateAndSetValue(id obj, NSString *key, id value, BOOL forceUp
 	// Mark this as being autoreleased, because validateValue may return
 	// a new object to be stored in this variable (and we don't want ARC to
 	// double-free or leak the old or new values).
-	__autoreleasing id validatedValue = value;
+	__autoreleasing id validatedValue = value;  //这时候为什么要用__autoreleasing修饰？？
 
 	@try {
 		if (![obj validateValue:&validatedValue forKey:key error:error]) return NO;

@@ -400,6 +400,7 @@ NSString * const MTLJSONAdapterThrownExceptionErrorKey = @"MTLJSONAdapterThrownE
 			continue;
 		}
 
+        //如果已经实现了JSONTransformerForKey方法，则调用存储自定义的NSValueTransformer
 		if ([modelClass respondsToSelector:@selector(JSONTransformerForKey:)]) {
 			NSValueTransformer *transformer = [modelClass JSONTransformerForKey:key];
 
@@ -412,7 +413,7 @@ NSString * const MTLJSONAdapterThrownExceptionErrorKey = @"MTLJSONAdapterThrownE
 		objc_property_t property = class_getProperty(modelClass, key.UTF8String);
 
 		if (property == NULL) continue;
-
+        //获取属性对应的属性
 		mtl_propertyAttributes *attributes = mtl_copyPropertyAttributes(property);
 		@onExit {
 			free(attributes);
