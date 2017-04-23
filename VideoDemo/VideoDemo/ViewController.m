@@ -46,16 +46,16 @@ static NSString * const cell_identifier = @"video_cell";
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cell_identifier];
     }
     
-    if (indexPath.row == 0) {
-        cell.textLabel.text = @"";
-        
+//    if (indexPath.row == 0) {
+//        cell.textLabel.text = @"";
+//        
         if (![cell.contentView viewWithTag:99]) {
             [cell.contentView addSubview:self.playerView];
             [self play];
         }
-    } else {
-        cell.textLabel.text = [NSString stringWithFormat:@"index : %ld", indexPath.row];
-    }
+//    } else {
+//        cell.textLabel.text = [NSString stringWithFormat:@"index : %ld", indexPath.row];
+//    }
     
     return cell;
 }
