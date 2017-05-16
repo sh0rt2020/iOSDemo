@@ -14,7 +14,7 @@ static NSString * const cell_identifier = @"video_cell";
 
 @interface ViewController () <UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, strong) GSVideoPlayerView *playerView;
+//@property (nonatomic, strong) GSVideoPlayerView *playerView;
 @property (nonatomic, strong) UITableView *tableView;
 @end
 
@@ -46,41 +46,39 @@ static NSString * const cell_identifier = @"video_cell";
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cell_identifier];
     }
     
-//    if (indexPath.row == 0) {
-//        cell.textLabel.text = @"";
-//        
-        if (![cell.contentView viewWithTag:99]) {
-            [cell.contentView addSubview:self.playerView];
-            [self play];
-        }
-//    } else {
-//        cell.textLabel.text = [NSString stringWithFormat:@"index : %ld", indexPath.row];
-//    }
+    GSVideoPlayerView *playerView = nil;
+    if (![cell.contentView viewWithTag:99]) {
+        playerView = [[GSVideoPlayerView alloc] initWithFrame:CGRectMake(10, 2, 30, tableView.rowHeight-4)];
+        playerView.tag = 99;
+        [cell.contentView addSubview:playerView];
+    } else {
+        playerView = [cell.contentView viewWithTag:99];
+    }
+    
+    [playerView setVideoUrl:video_url play:YES];
     
     return cell;
 }
 
 #pragma mark - private method
-- (void)play {
-    [self.playerView setVideoUrl:video_url play:YES];
-}
+
 
 #pragma mark - getter & setter
-- (GSVideoPlayerView *)playerView {
-    if (!_playerView) {
-        _playerView = [GSVideoPlayerView new];
-        _playerView.tag = 99;
-        _playerView.frame = CGRectMake(8, 2, 40, 40);
-    }
-    return _playerView;
-}
+//- (GSVideoPlayerView *)playerView {
+//    if (!_playerView) {
+//        _playerView = [GSVideoPlayerView new];
+//        _playerView.tag = 99;
+//        _playerView.frame = CGRectMake(8, 2, 40, 40);
+//    }
+//    return _playerView;
+//}
 
 - (UITableView *)tableView {
     if (!_tableView) {
         _tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        _tableView.rowHeight = 44;
+        _tableView.rowHeight = 30;
     }
     return _tableView;
 }
