@@ -9,7 +9,11 @@
 #import "ViewController.h"
 #import "GSVideoPlayerView.h"
 
-static NSString * const video_url = @"http://gifs.51gif.com/20170405/video/8464480.mp4";
+//http://gifs.51gif.com/20161213/video/2786942.mp4
+//http://gifs.51gif.com/20161202/video/2531892.mp4
+static NSString * const video_url = @"http://gifs.51gif.com/20161202/video/2531892.mp4";
+//static NSString * const video_url = @"http://gifs.51gif.com/20161213/video/2786942.mp4";
+//static NSString * const video_url = @"http://gifs.51gif.com/20170405/video/8464480.mp4";
 static NSString * const cell_identifier = @"video_cell";
 
 @interface ViewController () <UITableViewDelegate, UITableViewDataSource>
@@ -48,7 +52,7 @@ static NSString * const cell_identifier = @"video_cell";
     
     GSVideoPlayerView *playerView = nil;
     if (![cell.contentView viewWithTag:99]) {
-        playerView = [[GSVideoPlayerView alloc] initWithFrame:CGRectMake(10, 2, 30, tableView.rowHeight-4)];
+        playerView = [[GSVideoPlayerView alloc] initWithFrame:CGRectMake(10, 2, 60, tableView.rowHeight-4)];
         playerView.tag = 99;
         [cell.contentView addSubview:playerView];
     } else {
@@ -78,7 +82,7 @@ static NSString * const cell_identifier = @"video_cell";
         _tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        _tableView.rowHeight = 30;
+        _tableView.rowHeight = 60;
     }
     return _tableView;
 }
