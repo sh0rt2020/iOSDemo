@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B293BFE1ED09BE900408001 /* 2531892.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3B293BFD1ED09BE900408001 /* 2531892.mp4 */; };
 		3B4C581F1EAC8401001EC18B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C581E1EAC8401001EC18B /* main.m */; };
 		3B4C58221EAC8401001EC18B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C58211EAC8401001EC18B /* AppDelegate.m */; };
 		3B4C58251EAC8401001EC18B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C58241EAC8401001EC18B /* ViewController.m */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3B293BFD1ED09BE900408001 /* 2531892.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2531892.mp4; sourceTree = "<group>"; };
 		3B4C581A1EAC8401001EC18B /* VideoDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B4C581E1EAC8401001EC18B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3B4C58201EAC8401001EC18B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 		3B4C581C1EAC8401001EC18B /* VideoDemo */ = {
 			isa = PBXGroup;
 			children = (
+				3B293BFD1ED09BE900408001 /* 2531892.mp4 */,
 				3B4C58201EAC8401001EC18B /* AppDelegate.h */,
 				3B4C58211EAC8401001EC18B /* AppDelegate.m */,
 				3B4C58231EAC8401001EC18B /* ViewController.h */,
@@ -143,6 +146,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B293BFE1ED09BE900408001 /* 2531892.mp4 in Resources */,
 				3B4C582D1EAC8401001EC18B /* LaunchScreen.storyboard in Resources */,
 				3B4C582A1EAC8401001EC18B /* Assets.xcassets in Resources */,
 				3B4C58281EAC8401001EC18B /* Main.storyboard in Resources */,

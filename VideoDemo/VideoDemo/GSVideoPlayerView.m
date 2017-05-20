@@ -33,17 +33,27 @@
 
 #pragma mark - public method
 - (void)setVideoUrl:(NSString *)url play:(BOOL)isPlay {
-    if (!self.player && url) {
-        self.player = [AVPlayer playerWithURL:[NSURL URLWithString:url]];
-        self.player.automaticallyWaitsToMinimizeStalling = NO;
+    if (!self.player) {
+        //self.player = [AVPlayer playerWithURL:[NSURL URLWithString:url]];
+        
+        AVAsset *asset = [AVAsset assetWithURL:[NSURL URLWithString:url]];
+        AVPlayerItem *item = [AVPlayerItem playerItemWithAsset:asset];
+        self.player = [AVPlayer playerWithPlayerItem:item];
+        //self.player.automaticallyWaitsToMinimizeStalling = NO;
         self.player.actionAtItemEnd = AVPlayerActionAtItemEndNone;
         
-//        [[NSNotificationCenter defaultCenter] addObserver:self
-//                                                 selector:@selector(videoFinished:)
-//                                                     name:AVPlayerItemDidPlayToEndTimeNotification
-//                                                   object:self.player.currentItem];
+        [self addNotification];
+        [self addObserver];
+    } else {
+        [[NSNotificationCenter defaultCenter] removeObserver:self];
+        [self removeObserver];
         
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(videoStalled:) name:AVPlayerItemPlaybackStalledNotification object:nil];
+        AVAsset *asset = [AVAsset assetWithURL:[NSURL URLWithString:url]];
+        AVPlayerItem *item = [AVPlayerItem playerItemWithAsset:asset];
+        [self.player replaceCurrentItemWithPlayerItem:item];
+        
+        [self addNotification];
+        [self addObserver];
     }
     
     if (!self.playerLayer && self.player) {
@@ -51,9 +61,6 @@
         self.playerLayer.frame = self.bounds;
         [self.layer addSublayer:self.playerLayer];
     }
-    [self.player.currentItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
-    [self.player.currentItem addObserver:self forKeyPath:@"loadedTimeRanges" options:NSKeyValueObservingOptionNew context:nil];
-    
     
     
     if (self.playerLayer && isPlay) {
@@ -62,12 +69,21 @@
     }
 }
 
+#pragma mark - notification&observer handler
+- (void)videoFinished:(NSNotification *)notification {
+    AVPlayerItem *playItem = notification.object;
+    [playItem seekToTime:kCMTimeZero];
+}
+
+- (void)videoStalled:(NSNotification *)notification {
+    NSLog(@"video stalled");
+}
 
 - (void)observeValueForKeyPath:(NSString *)keyPath
                       ofObject:(id)object
                         change:(NSDictionary<NSString *,id> *)change
-                       context:(void *)context
-{
+                       context:(void *)context {
+    
     AVPlayerItem *playerItem = (AVPlayerItem *)object;
     if ([keyPath isEqualToString:@"status"]) {//状态发生改变
         AVPlayerStatus status = [[change objectForKey:@"new"] integerValue];
@@ -84,33 +100,32 @@
     }
 }
 
-#pragma mark - notification
-- (void)videoFinished:(NSNotification *)notification {
-    AVPlayerItem *playItem = notification.object;
-    [playItem seekToTime:kCMTimeZero];
+
+#pragma mark - notification&observer
+- (void)addNotification {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(videoFinished:)
+                                                 name:AVPlayerItemDidPlayToEndTimeNotification
+                                               object:self.player.currentItem];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(videoStalled:) name:AVPlayerItemPlaybackStalledNotification object:nil];
 }
 
-- (void)videoStalled:(NSNotification *)notification {
-    NSLog(@"video stalled");
+- (void)addObserver {
+    [self.player.currentItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
+    [self.player.currentItem addObserver:self forKeyPath:@"loadedTimeRanges" options:NSKeyValueObservingOptionNew context:nil];
 }
 
+- (void)removeObserver {
+    [self.player pause];
+    
+    [self.player.currentItem removeObserver:self forKeyPath:@"status"];
+    [self.player.currentItem removeObserver:self forKeyPath:@"loadedTimeRanges"];
+}
 
-#pragma mark - getter & setter 
-//- (AVPlayer *)player {
-//    return self.playerLayer.player;
-//}
-//
-//- (void)setPlayer:(AVPlayer *)player {
-//    self.playerLayer.player = player;
-//}
-//
-//- (AVPlayerLayer *)playerLayer {
-//    return (AVPlayerLayer *)self.playerLayer;
-//}
+#pragma mark - getter & setter
+
 
 #pragma mark - over ride uiview method
-//+ (Class)layerClass {
-//    return [AVPlayerLayer class];
-//}
 
 @end

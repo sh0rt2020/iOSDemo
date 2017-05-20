@@ -9,17 +9,17 @@
 #import "ViewController.h"
 #import "GSVideoPlayerView.h"
 
-//http://gifs.51gif.com/20161213/video/2786942.mp4
-//http://gifs.51gif.com/20161202/video/2531892.mp4
-static NSString * const video_url = @"http://gifs.51gif.com/20161202/video/2531892.mp4";
+//static NSString * const video_url = @"2531892.mp4";
+//static NSString * const video_url = @"http://gifs.51gif.com/20161202/video/2531892.mp4";
 //static NSString * const video_url = @"http://gifs.51gif.com/20161213/video/2786942.mp4";
-//static NSString * const video_url = @"http://gifs.51gif.com/20170405/video/8464480.mp4";
+static NSString * const video_url = @"http://gifs.51gif.com/20170405/video/8464480.mp4";
 static NSString * const cell_identifier = @"video_cell";
 
 @interface ViewController () <UITableViewDelegate, UITableViewDataSource>
 
 //@property (nonatomic, strong) GSVideoPlayerView *playerView;
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, copy) NSString *videoUrl;
 @end
 
 @implementation ViewController
@@ -29,6 +29,7 @@ static NSString * const cell_identifier = @"video_cell";
     // Do any additional setup after loading the view, typically from a nib.
     
     [self.view addSubview:self.tableView];
+    self.videoUrl = [[NSBundle mainBundle] pathForResource:@"8464480" ofType:@"mp4"];
     
     [self.tableView reloadData];
 }

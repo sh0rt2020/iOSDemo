@@ -6,16 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VideoDemo/GSVideoPlayerView.m"
-            timestampString = "514631816.571526"
+            timestampString = "516989509.281304"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "-setVideoUrl:play:"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "-videoFinished:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
