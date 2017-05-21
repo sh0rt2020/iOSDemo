@@ -17,9 +17,8 @@ static NSString * const cell_identifier = @"video_cell";
 
 @interface ViewController () <UITableViewDelegate, UITableViewDataSource>
 
-//@property (nonatomic, strong) GSVideoPlayerView *playerView;
-@property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, copy) NSURL *videoUrl;
+//@property (nonatomic, strong) UITableView *tableView;
+//@property (nonatomic, copy) NSURL *videoUrl;
 
 @property (nonatomic, strong) AVPlayer *player;
 @property (nonatomic, strong) AVPlayerLayer *playerLayer;
@@ -30,16 +29,13 @@ static NSString * const cell_identifier = @"video_cell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
-    //[self.view addSubview:self.tableView];
-    self.videoUrl = [[NSBundle mainBundle] URLForResource:@"2531892" withExtension:@"mp4"];
-    //[self.tableView reloadData];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    self.player = [[AVPlayer alloc] initWithURL:self.videoUrl];
+    self.player = [[AVPlayer alloc] initWithURL:[NSURL URLWithString:video_url]];
+//    self.player.automaticallyWaitsToMinimizeStalling = NO;
     self.playerLayer = [AVPlayerLayer playerLayerWithPlayer:self.player];
     UIView *playView = [[UIView alloc] initWithFrame:CGRectMake(20, 20, 100, 100)];
     self.playerLayer.frame = playView.bounds;
@@ -48,6 +44,8 @@ static NSString * const cell_identifier = @"video_cell";
     
     [self.player.currentItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
     [self.player.currentItem addObserver:self forKeyPath:@"loadedTimeRanges" options:NSKeyValueObservingOptionNew context:nil];
+    [self.player addObserver:self forKeyPath:@"timeControlStatus" options:NSKeyValueObservingOptionNew context:nil];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(videoFinished:) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(videoStalled:) name:AVPlayerItemPlaybackStalledNotification object:nil];
     [self.player seekToTime:kCMTimeZero toleranceBefore:kCMTimeZero toleranceAfter:kCMTimeZero];
@@ -64,21 +62,52 @@ static NSString * const cell_identifier = @"video_cell";
                         change:(NSDictionary<NSString *,id> *)change
                        context:(void *)context {
     
-    AVPlayerItem *player = (AVPlayerItem *)object;
+    AVPlayerItem *playerItem = (AVPlayerItem *)object;
     if ([keyPath isEqualToString:@"status"]) {
         AVPlayerStatus status = [[change objectForKey:@"new"] integerValue];
         if (status == AVPlayerStatusReadyToPlay) {
             
             [self.player play];
-            NSLog(@"正在播放..，视频总长度为:%.2f",CMTimeGetSeconds(player.duration));
+            BOOL isLikelyToKeepUp = playerItem.isPlaybackLikelyToKeepUp;
+            BOOL isBufferEmpty = playerItem.isPlaybackBufferEmpty;
+            BOOL isBufferFull = playerItem.isPlaybackBufferFull;
+            NSLog(@"正在播放..，视频总长度为:%.2f\n    isLikelyToKeepUp==%@\n    isBufferEmpty==%@\n    isBufferFull==%@", CMTimeGetSeconds(playerItem.duration) , [[NSNumber numberWithBool:isLikelyToKeepUp] stringValue], [[NSNumber numberWithBool:isBufferEmpty] stringValue], [[NSNumber numberWithBool:isBufferFull] stringValue]);
         }
-    }else if ( [keyPath isEqualToString:@"loadedTimeRanges"] ) {
-        NSArray *array = player.loadedTimeRanges;
+    } else if ( [keyPath isEqualToString:@"loadedTimeRanges"] ) {
+        NSArray *array = playerItem.loadedTimeRanges;
         CMTimeRange timeRange = [array.firstObject CMTimeRangeValue];
         float startSeconds = CMTimeGetSeconds(timeRange.start);
         float durationSeconds = CMTimeGetSeconds(timeRange.duration);
         NSTimeInterval totalBuffer = startSeconds + durationSeconds;
-        NSLog(@"共缓冲：%.2f",totalBuffer);
+        
+        BOOL isLikelyToKeepUp = playerItem.isPlaybackLikelyToKeepUp;
+        BOOL isBufferEmpty = playerItem.isPlaybackBufferEmpty;
+        BOOL isBufferFull = playerItem.isPlaybackBufferFull;
+        NSLog(@"共缓冲：%.2f\n    isLikelyToKeepUp==%@\n    isBufferEmpty==%@\n    isBufferFull==%@",totalBuffer,[[NSNumber numberWithBool:isLikelyToKeepUp] stringValue], [[NSNumber numberWithBool:isBufferEmpty] stringValue], [[NSNumber numberWithBool:isBufferFull] stringValue]);
+    } else if ([keyPath isEqualToString:@"timeControlStatus"]) {
+        AVPlayer *player = (AVPlayer *)object;
+        NSString *status = @"";
+        BOOL isLikelyToKeepUp = player.currentItem.isPlaybackLikelyToKeepUp;
+        BOOL isBufferEmpty = player.currentItem.isPlaybackBufferEmpty;
+        BOOL isBufferFull = player.currentItem.isPlaybackBufferFull;
+        NSString *reson = player.reasonForWaitingToPlay;
+        switch (player.timeControlStatus) {
+            case AVPlayerTimeControlStatusPaused: {
+                status = @"AVPlayerTimeControlStatusPaused";
+            }
+                break;
+            case AVPlayerTimeControlStatusPlaying: {
+                status = @"AVPlayerTimeControlStatusPlaying";
+            }
+                break;
+            case AVPlayerTimeControlStatusWaitingToPlayAtSpecifiedRate: {
+                status = @"AVPlayerTimeControlStatusWaitingToPlayAtSpecifiedRate";
+            }
+                break;
+            default:
+                break;
+        }
+        NSLog(@"timeControlStatus==%@\n    reson==%@\n    isLikelyToKeepUp==%@\n    isBufferEmpty==%@\n    isBufferFull==%@", status, reson, [[NSNumber numberWithBool:isLikelyToKeepUp] stringValue], [[NSNumber numberWithBool:isBufferEmpty] stringValue], [[NSNumber numberWithBool:isBufferFull] stringValue]);
     }
 }
 
@@ -119,13 +148,13 @@ static NSString * const cell_identifier = @"video_cell";
 
 
 #pragma mark - getter & setter
-- (UITableView *)tableView {
-    if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
-        _tableView.delegate = self;
-        _tableView.dataSource = self;
-        _tableView.rowHeight = 60;
-    }
-    return _tableView;
-}
+//- (UITableView *)tableView {
+//    if (!_tableView) {
+//        _tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+//        _tableView.delegate = self;
+//        _tableView.dataSource = self;
+//        _tableView.rowHeight = 60;
+//    }
+//    return _tableView;
+//}
 @end
