@@ -64,15 +64,17 @@
     
     
     if (self.playerLayer && isPlay) {
-        [self.player seekToTime:kCMTimeZero];
-        [self.player play];
+        //[self.player seekToTime:kCMTimeZero];
+        [self.player seekToTime:kCMTimeZero toleranceBefore:kCMTimeZero toleranceAfter:kCMTimeZero];
+        //[self.player play];
     }
 }
 
 #pragma mark - notification&observer handler
 - (void)videoFinished:(NSNotification *)notification {
     AVPlayerItem *playItem = notification.object;
-    [playItem seekToTime:kCMTimeZero];
+    //[playItem seekToTime:kCMTimeZero];
+    [playItem seekToTime:kCMTimeZero toleranceBefore:kCMTimeZero toleranceAfter:kCMTimeZero];
 }
 
 - (void)videoStalled:(NSNotification *)notification {
@@ -85,17 +87,19 @@
                        context:(void *)context {
     
     AVPlayerItem *playerItem = (AVPlayerItem *)object;
-    if ([keyPath isEqualToString:@"status"]) {//状态发生改变
+    if ([keyPath isEqualToString:@"status"]) {
         AVPlayerStatus status = [[change objectForKey:@"new"] integerValue];
         if (status == AVPlayerStatusReadyToPlay) {
+            
+            [self.player play];
             NSLog(@"正在播放..，视频总长度为:%.2f",CMTimeGetSeconds(playerItem.duration));
         }
-    } else if ( [keyPath isEqualToString:@"loadedTimeRanges"] ) {//缓冲区域变化
+    } else if ( [keyPath isEqualToString:@"loadedTimeRanges"] ) {
         NSArray *array = playerItem.loadedTimeRanges;
-        CMTimeRange timeRange = [array.firstObject CMTimeRangeValue];//已缓冲范围
+        CMTimeRange timeRange = [array.firstObject CMTimeRangeValue];
         float startSeconds = CMTimeGetSeconds(timeRange.start);
         float durationSeconds = CMTimeGetSeconds(timeRange.duration);
-        NSTimeInterval totalBuffer = startSeconds + durationSeconds;//缓冲总长度
+        NSTimeInterval totalBuffer = startSeconds + durationSeconds;
         NSLog(@"共缓冲：%.2f",totalBuffer);
     }
 }

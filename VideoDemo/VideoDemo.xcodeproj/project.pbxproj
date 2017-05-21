@@ -15,6 +15,8 @@
 		3B4C582A1EAC8401001EC18B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B4C58291EAC8401001EC18B /* Assets.xcassets */; };
 		3B4C582D1EAC8401001EC18B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B4C582B1EAC8401001EC18B /* LaunchScreen.storyboard */; };
 		3B4C58361EAC9CE5001EC18B /* GSVideoPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C58351EAC9CE5001EC18B /* GSVideoPlayerView.m */; };
+		3BE18F201ED182FE00DEF4C5 /* GSVideoPlayerCopy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE18F1F1ED182FE00DEF4C5 /* GSVideoPlayerCopy.m */; };
+		3BE18F221ED191FB00DEF4C5 /* 8464480.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3BE18F211ED191FB00DEF4C5 /* 8464480.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,9 @@
 		3B4C582E1EAC8401001EC18B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B4C58341EAC9CE5001EC18B /* GSVideoPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSVideoPlayerView.h; sourceTree = "<group>"; };
 		3B4C58351EAC9CE5001EC18B /* GSVideoPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSVideoPlayerView.m; sourceTree = "<group>"; };
+		3BE18F1E1ED182FE00DEF4C5 /* GSVideoPlayerCopy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSVideoPlayerCopy.h; sourceTree = "<group>"; };
+		3BE18F1F1ED182FE00DEF4C5 /* GSVideoPlayerCopy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSVideoPlayerCopy.m; sourceTree = "<group>"; };
+		3BE18F211ED191FB00DEF4C5 /* 8464480.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 8464480.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +68,7 @@
 		3B4C581C1EAC8401001EC18B /* VideoDemo */ = {
 			isa = PBXGroup;
 			children = (
+				3BE18F211ED191FB00DEF4C5 /* 8464480.mp4 */,
 				3B293BFD1ED09BE900408001 /* 2531892.mp4 */,
 				3B4C58201EAC8401001EC18B /* AppDelegate.h */,
 				3B4C58211EAC8401001EC18B /* AppDelegate.m */,
@@ -75,6 +81,8 @@
 				3B4C582B1EAC8401001EC18B /* LaunchScreen.storyboard */,
 				3B4C582E1EAC8401001EC18B /* Info.plist */,
 				3B4C581D1EAC8401001EC18B /* Supporting Files */,
+				3BE18F1E1ED182FE00DEF4C5 /* GSVideoPlayerCopy.h */,
+				3BE18F1F1ED182FE00DEF4C5 /* GSVideoPlayerCopy.m */,
 			);
 			path = VideoDemo;
 			sourceTree = "<group>";
@@ -149,6 +157,7 @@
 				3B293BFE1ED09BE900408001 /* 2531892.mp4 in Resources */,
 				3B4C582D1EAC8401001EC18B /* LaunchScreen.storyboard in Resources */,
 				3B4C582A1EAC8401001EC18B /* Assets.xcassets in Resources */,
+				3BE18F221ED191FB00DEF4C5 /* 8464480.mp4 in Resources */,
 				3B4C58281EAC8401001EC18B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -160,6 +169,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BE18F201ED182FE00DEF4C5 /* GSVideoPlayerCopy.m in Sources */,
 				3B4C58251EAC8401001EC18B /* ViewController.m in Sources */,
 				3B4C58221EAC8401001EC18B /* AppDelegate.m in Sources */,
 				3B4C581F1EAC8401001EC18B /* main.m in Sources */,
