@@ -18,7 +18,7 @@ static NSString * const cell_identifier = @"video_cell";
 @interface ViewController () <UITableViewDelegate, UITableViewDataSource>
 
 //@property (nonatomic, strong) UITableView *tableView;
-//@property (nonatomic, copy) NSURL *videoUrl;
+@property (nonatomic, copy) NSURL *videoUrl;
 
 @property (nonatomic, strong) AVPlayer *player;
 @property (nonatomic, strong) AVPlayerLayer *playerLayer;
@@ -29,12 +29,15 @@ static NSString * const cell_identifier = @"video_cell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    self.videoUrl = [[NSBundle mainBundle] URLForResource:@"new_2531892" withExtension:@"mp4"];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    self.player = [[AVPlayer alloc] initWithURL:[NSURL URLWithString:video_url]];
+//    self.player = [[AVPlayer alloc] initWithURL:[NSURL URLWithString:video_url]];
+    self.player = [[AVPlayer alloc] initWithURL:self.videoUrl];
 //    self.player.automaticallyWaitsToMinimizeStalling = NO;
     self.playerLayer = [AVPlayerLayer playerLayerWithPlayer:self.player];
     UIView *playView = [[UIView alloc] initWithFrame:CGRectMake(20, 20, 100, 100)];
