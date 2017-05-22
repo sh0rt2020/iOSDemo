@@ -22,7 +22,7 @@
     self = [super init];
     if (self) {
         //属性初始化
-//        NSLog(@"不为空");
+        NSLog(@"不为空");
     }
     return self;
 }
