@@ -12,6 +12,9 @@
 		3B3505CE1ED5DE8C00C7D1B1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B3505CD1ED5DE8C00C7D1B1 /* ViewController.m */; };
 		3B3505D31ED5DE8C00C7D1B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B3505D21ED5DE8C00C7D1B1 /* Assets.xcassets */; };
 		3B3505D61ED5DE8C00C7D1B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B3505D41ED5DE8C00C7D1B1 /* LaunchScreen.storyboard */; };
+		3B3505DF1ED5F1C500C7D1B1 /* UCRedPocketView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B3505DE1ED5F1C500C7D1B1 /* UCRedPocketView.m */; };
+		3B3505E21ED5F1FF00C7D1B1 /* UCRedPocketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B3505E11ED5F1FF00C7D1B1 /* UCRedPocketViewController.m */; };
+		3B3505E51ED5F22600C7D1B1 /* RPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B3505E41ED5F22600C7D1B1 /* RPViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,12 @@
 		3B3505D21ED5DE8C00C7D1B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B3505D51ED5DE8C00C7D1B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B3505D71ED5DE8C00C7D1B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B3505DD1ED5F1C500C7D1B1 /* UCRedPocketView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UCRedPocketView.h; sourceTree = "<group>"; };
+		3B3505DE1ED5F1C500C7D1B1 /* UCRedPocketView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UCRedPocketView.m; sourceTree = "<group>"; };
+		3B3505E01ED5F1FF00C7D1B1 /* UCRedPocketViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UCRedPocketViewController.h; sourceTree = "<group>"; };
+		3B3505E11ED5F1FF00C7D1B1 /* UCRedPocketViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UCRedPocketViewController.m; sourceTree = "<group>"; };
+		3B3505E31ED5F22600C7D1B1 /* RPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RPViewController.h; sourceTree = "<group>"; };
+		3B3505E41ED5F22600C7D1B1 /* RPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +73,12 @@
 				3B3505D41ED5DE8C00C7D1B1 /* LaunchScreen.storyboard */,
 				3B3505D71ED5DE8C00C7D1B1 /* Info.plist */,
 				3B3505C61ED5DE8C00C7D1B1 /* Supporting Files */,
+				3B3505DD1ED5F1C500C7D1B1 /* UCRedPocketView.h */,
+				3B3505DE1ED5F1C500C7D1B1 /* UCRedPocketView.m */,
+				3B3505E31ED5F22600C7D1B1 /* RPViewController.h */,
+				3B3505E41ED5F22600C7D1B1 /* RPViewController.m */,
+				3B3505E01ED5F1FF00C7D1B1 /* UCRedPocketViewController.h */,
+				3B3505E11ED5F1FF00C7D1B1 /* UCRedPocketViewController.m */,
 			);
 			path = CoreAnimationDemo;
 			sourceTree = "<group>";
@@ -147,6 +162,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B3505E21ED5F1FF00C7D1B1 /* UCRedPocketViewController.m in Sources */,
+				3B3505DF1ED5F1C500C7D1B1 /* UCRedPocketView.m in Sources */,
+				3B3505E51ED5F22600C7D1B1 /* RPViewController.m in Sources */,
 				3B3505CE1ED5DE8C00C7D1B1 /* ViewController.m in Sources */,
 				3B3505CB1ED5DE8C00C7D1B1 /* AppDelegate.m in Sources */,
 				3B3505C81ED5DE8C00C7D1B1 /* main.m in Sources */,
