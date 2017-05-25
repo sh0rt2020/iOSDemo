@@ -15,6 +15,7 @@
 		3B3505DF1ED5F1C500C7D1B1 /* UCRedPocketView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B3505DE1ED5F1C500C7D1B1 /* UCRedPocketView.m */; };
 		3B3505E21ED5F1FF00C7D1B1 /* UCRedPocketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B3505E11ED5F1FF00C7D1B1 /* UCRedPocketViewController.m */; };
 		3B3505E51ED5F22600C7D1B1 /* RPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B3505E41ED5F22600C7D1B1 /* RPViewController.m */; };
+		57B3AB881ED6F117006A04F3 /* CoreAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57B3AB871ED6F117006A04F3 /* CoreAnimationViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,8 @@
 		3B3505E11ED5F1FF00C7D1B1 /* UCRedPocketViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UCRedPocketViewController.m; sourceTree = "<group>"; };
 		3B3505E31ED5F22600C7D1B1 /* RPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RPViewController.h; sourceTree = "<group>"; };
 		3B3505E41ED5F22600C7D1B1 /* RPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPViewController.m; sourceTree = "<group>"; };
+		57B3AB861ED6F117006A04F3 /* CoreAnimationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreAnimationViewController.h; sourceTree = "<group>"; };
+		57B3AB871ED6F117006A04F3 /* CoreAnimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreAnimationViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +72,8 @@
 				3B3505CA1ED5DE8C00C7D1B1 /* AppDelegate.m */,
 				3B3505CC1ED5DE8C00C7D1B1 /* ViewController.h */,
 				3B3505CD1ED5DE8C00C7D1B1 /* ViewController.m */,
+				57B3AB861ED6F117006A04F3 /* CoreAnimationViewController.h */,
+				57B3AB871ED6F117006A04F3 /* CoreAnimationViewController.m */,
 				3B3505D21ED5DE8C00C7D1B1 /* Assets.xcassets */,
 				3B3505D41ED5DE8C00C7D1B1 /* LaunchScreen.storyboard */,
 				3B3505D71ED5DE8C00C7D1B1 /* Info.plist */,
@@ -168,6 +173,7 @@
 				3B3505CE1ED5DE8C00C7D1B1 /* ViewController.m in Sources */,
 				3B3505CB1ED5DE8C00C7D1B1 /* AppDelegate.m in Sources */,
 				3B3505C81ED5DE8C00C7D1B1 /* main.m in Sources */,
+				57B3AB881ED6F117006A04F3 /* CoreAnimationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
