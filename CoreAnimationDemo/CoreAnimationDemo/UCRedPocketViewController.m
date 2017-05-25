@@ -7,16 +7,25 @@
 //
 
 #import "UCRedPocketViewController.h"
+#import "RPViewController.h"
 
 @interface UCRedPocketViewController ()
 
 @end
 
 @implementation UCRedPocketViewController
-
+#pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.view.backgroundColor = [UIColor whiteColor];
+    
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(10, 100, 300, 44)];
+    [button addTarget:self action:@selector(handleAnimationStart:) forControlEvents:UIControlEventTouchUpInside];
+    [button setTitle:@"startAnimate" forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+    [self.view addSubview:button];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,14 +33,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - 
+- (void)handleAnimationStart:(UIButton *)sender {
+    RPViewController *vc = [[RPViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
-*/
-
 @end
