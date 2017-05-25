@@ -10,7 +10,8 @@
 #import "GSVideoPlayerView.h"
 #import <AVFoundation/AVFoundation.h>
 
-static NSString * const video_url = @"http://gifs.51gif.com/20161202/video/2531892.mp4";
+static NSString * const video_url = @"http://gifs.51gif.com/20170524/video/9062711.mp4";
+//static NSString * const video_url = @"http://gifs.51gif.com/20161202/video/2531892.mp4";
 //static NSString * const video_url = @"http://gifs.51gif.com/20161213/video/2786942.mp4";
 //static NSString * const video_url = @"http://gifs.51gif.com/20170405/video/8464480.mp4";
 static NSString * const cell_identifier = @"video_cell";
@@ -30,7 +31,7 @@ static NSString * const cell_identifier = @"video_cell";
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    self.videoUrl = [[NSBundle mainBundle] URLForResource:@"new_2531892" withExtension:@"mp4"];
+    self.videoUrl = [[NSBundle mainBundle] URLForResource:@"9062709_mpeg4" withExtension:@"mp4"];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -40,7 +41,7 @@ static NSString * const cell_identifier = @"video_cell";
     self.player = [[AVPlayer alloc] initWithURL:self.videoUrl];
 //    self.player.automaticallyWaitsToMinimizeStalling = NO;
     self.playerLayer = [AVPlayerLayer playerLayerWithPlayer:self.player];
-    UIView *playView = [[UIView alloc] initWithFrame:CGRectMake(20, 20, 100, 100)];
+    UIView *playView = [[UIView alloc] initWithFrame:CGRectMake(20, 84, 300, 300)];
     self.playerLayer.frame = playView.bounds;
     [playView.layer addSublayer:self.playerLayer];
     [self.view addSubview:playView];
@@ -71,10 +72,10 @@ static NSString * const cell_identifier = @"video_cell";
         if (status == AVPlayerStatusReadyToPlay) {
             
             [self.player play];
-            BOOL isLikelyToKeepUp = playerItem.isPlaybackLikelyToKeepUp;
-            BOOL isBufferEmpty = playerItem.isPlaybackBufferEmpty;
-            BOOL isBufferFull = playerItem.isPlaybackBufferFull;
-            NSLog(@"正在播放..，视频总长度为:%.2f\n    isLikelyToKeepUp==%@\n    isBufferEmpty==%@\n    isBufferFull==%@", CMTimeGetSeconds(playerItem.duration) , [[NSNumber numberWithBool:isLikelyToKeepUp] stringValue], [[NSNumber numberWithBool:isBufferEmpty] stringValue], [[NSNumber numberWithBool:isBufferFull] stringValue]);
+//            BOOL isLikelyToKeepUp = playerItem.isPlaybackLikelyToKeepUp;
+//            BOOL isBufferEmpty = playerItem.isPlaybackBufferEmpty;
+//            BOOL isBufferFull = playerItem.isPlaybackBufferFull;
+//            NSLog(@"正在播放..，视频总长度为:%.2f\n    isLikelyToKeepUp==%@\n    isBufferEmpty==%@\n    isBufferFull==%@", CMTimeGetSeconds(playerItem.duration) , [[NSNumber numberWithBool:isLikelyToKeepUp] stringValue], [[NSNumber numberWithBool:isBufferEmpty] stringValue], [[NSNumber numberWithBool:isBufferFull] stringValue]);
         }
     } else if ( [keyPath isEqualToString:@"loadedTimeRanges"] ) {
         NSArray *array = playerItem.loadedTimeRanges;
@@ -83,17 +84,17 @@ static NSString * const cell_identifier = @"video_cell";
         float durationSeconds = CMTimeGetSeconds(timeRange.duration);
         NSTimeInterval totalBuffer = startSeconds + durationSeconds;
         
-        BOOL isLikelyToKeepUp = playerItem.isPlaybackLikelyToKeepUp;
-        BOOL isBufferEmpty = playerItem.isPlaybackBufferEmpty;
-        BOOL isBufferFull = playerItem.isPlaybackBufferFull;
-        NSLog(@"共缓冲：%.2f\n    isLikelyToKeepUp==%@\n    isBufferEmpty==%@\n    isBufferFull==%@",totalBuffer,[[NSNumber numberWithBool:isLikelyToKeepUp] stringValue], [[NSNumber numberWithBool:isBufferEmpty] stringValue], [[NSNumber numberWithBool:isBufferFull] stringValue]);
+//        BOOL isLikelyToKeepUp = playerItem.isPlaybackLikelyToKeepUp;
+//        BOOL isBufferEmpty = playerItem.isPlaybackBufferEmpty;
+//        BOOL isBufferFull = playerItem.isPlaybackBufferFull;
+//        NSLog(@"共缓冲：%.2f\n    isLikelyToKeepUp==%@\n    isBufferEmpty==%@\n    isBufferFull==%@",totalBuffer,[[NSNumber numberWithBool:isLikelyToKeepUp] stringValue], [[NSNumber numberWithBool:isBufferEmpty] stringValue], [[NSNumber numberWithBool:isBufferFull] stringValue]);
     } else if ([keyPath isEqualToString:@"timeControlStatus"]) {
         AVPlayer *player = (AVPlayer *)object;
         NSString *status = @"";
-        BOOL isLikelyToKeepUp = player.currentItem.isPlaybackLikelyToKeepUp;
-        BOOL isBufferEmpty = player.currentItem.isPlaybackBufferEmpty;
-        BOOL isBufferFull = player.currentItem.isPlaybackBufferFull;
-        NSString *reson = player.reasonForWaitingToPlay;
+//        BOOL isLikelyToKeepUp = player.currentItem.isPlaybackLikelyToKeepUp;
+//        BOOL isBufferEmpty = player.currentItem.isPlaybackBufferEmpty;
+//        BOOL isBufferFull = player.currentItem.isPlaybackBufferFull;
+//        NSString *reson = player.reasonForWaitingToPlay;
         switch (player.timeControlStatus) {
             case AVPlayerTimeControlStatusPaused: {
                 status = @"AVPlayerTimeControlStatusPaused";
@@ -110,7 +111,7 @@ static NSString * const cell_identifier = @"video_cell";
             default:
                 break;
         }
-        NSLog(@"timeControlStatus==%@\n    reson==%@\n    isLikelyToKeepUp==%@\n    isBufferEmpty==%@\n    isBufferFull==%@", status, reson, [[NSNumber numberWithBool:isLikelyToKeepUp] stringValue], [[NSNumber numberWithBool:isBufferEmpty] stringValue], [[NSNumber numberWithBool:isBufferFull] stringValue]);
+//        NSLog(@"timeControlStatus==%@\n    reson==%@\n    isLikelyToKeepUp==%@\n    isBufferEmpty==%@\n    isBufferFull==%@", status, reson, [[NSNumber numberWithBool:isLikelyToKeepUp] stringValue], [[NSNumber numberWithBool:isBufferEmpty] stringValue], [[NSNumber numberWithBool:isBufferFull] stringValue]);
     }
 }
 
@@ -120,6 +121,9 @@ static NSString * const cell_identifier = @"video_cell";
 
 - (void)videoFinished:(NSNotification *)notification {
     NSLog(@"video finished");
+//    [self.player.currentItem seekToTime:kCMTimeZero toleranceBefore:kCMTimeZero toleranceAfter:kCMTimeZero];
+//    [self.player pause];
+//    [self.player play];
 }
 
 #pragma mark - delegate method

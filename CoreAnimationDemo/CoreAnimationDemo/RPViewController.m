@@ -44,8 +44,6 @@
 //    UICollisionBehavior *collision = [[UICollisionBehavior alloc] initWithItems:@[rpView.pocketView]];
 //    [collision setTranslatesReferenceBoundsIntoBoundaryWithInsets:UIEdgeInsetsMake(0, 0, 100, 0)];
 //    [self.animator addBehavior:collision];
-//    
-    
 }
 
 - (void)didReceiveMemoryWarning {
