@@ -10,12 +10,9 @@
 
 @interface CoreAnimationViewController ()
 @property (nonatomic, strong) UIView *smallView;
-@property (nonatomic, assign) CGPoint originalPoint;
-@property (nonatomic, assign) BOOL isFirstTime;
 @property (nonatomic, strong) UIButton *animateButton;
 @property (nonatomic, strong) NSMutableDictionary *pointsDic;
-//@property (nonatomic, assign) CGPoint topLeftPoint;
-@property (nonatomic, assign) CGRect fatherFrame;
+//@property (nonatomic, assign) CGRect fatherFrame;
 @end
 
 @implementation CoreAnimationViewController
@@ -26,17 +23,13 @@
     // Do any additional setup after loading the view, typically from a nib.
     self.view.backgroundColor = [UIColor whiteColor];
     
-    self.fatherFrame = CGRectMake(10, 64+10, [UIScreen mainScreen].bounds.size.width-20, [UIScreen mainScreen].bounds.size.height-64-20);
-    UIView *subView = [[UIView alloc] initWithFrame:self.fatherFrame];
-    subView.backgroundColor = [UIColor orangeColor];
-    [self.view addSubview:subView];
+//    self.fatherFrame = CGRectMake(10, 64+10, [UIScreen mainScreen].bounds.size.width-20, [UIScreen mainScreen].bounds.size.height-64-20);
     
     self.smallView = [[UIView alloc] initWithFrame:CGRectMake(10, 100, 200, 44)];
     self.smallView.backgroundColor = [UIColor greenColor];
     [self.view addSubview:self.smallView];
-    self.originalPoint = self.smallView.frame.origin;
     
-    [self checkView:self.smallView transform:self.smallView.transform isFirstTime:YES];
+//    [self checkView:self.smallView transform:self.smallView.transform isFirstTime:YES];
     
     UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
     [self.smallView addGestureRecognizer:pan];
@@ -51,9 +44,6 @@
     self.animateButton.backgroundColor = [UIColor redColor];
     [self.animateButton addTarget:self action:@selector(handleAnimate:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.animateButton];
-    
-    
-    self.isFirstTime = YES;
 }
 
 
@@ -63,39 +53,43 @@
 }
 
 #pragma mark - handle PanGestureRecognizer
+
+/**
+ 移动处理函数
+
+ @param pan 移动手势
+ */
 - (void)handlePanGesture:(UIPanGestureRecognizer *)pan {
     
     CGPoint touch = [pan translationInView:self.view];
-    if (self.isFirstTime) {
-        self.isFirstTime = NO;
-        self.originalPoint = touch;
-    }
     
-    if (pan.state == UIGestureRecognizerStateEnded) {
-        self.isFirstTime = YES;
-    }
+    self.smallView.transform = CGAffineTransformTranslate(self.smallView.transform, touch.x, touch.y);
     
+    [pan setTranslation:CGPointZero inView:self.smallView];
     
-    self.smallView.transform = CGAffineTransformTranslate(self.smallView.transform, touch.x-self.originalPoint.x, touch.y-self.originalPoint.y);
-    self.originalPoint = touch;
-    
-    [self checkView:self.smallView transform:self.smallView.transform isFirstTime:NO];
+//    [self checkView:self.smallView transform:self.smallView.transform isFirstTime:NO];
 }
 
 
+/**
+ 缩放处理函数
+
+ @param pinch 缩放手势
+ */
 - (void)handlePinchGesture:(UIPinchGestureRecognizer *)pinch {
     
     if (pinch.state == UIGestureRecognizerStateBegan || pinch.state == UIGestureRecognizerStateChanged) {
         self.smallView.transform = CGAffineTransformScale(self.smallView.transform, pinch.scale, pinch.scale);
         pinch.scale = 1;
-        
-        if (self.smallView.frame.size.width < 10) {
-            self.smallView.frame = CGRectMake(self.smallView.frame.origin.x, self.smallView.frame.origin.y, 10, self.smallView.frame.size.height);
-        }
     }
 }
 
 
+/**
+ 旋转处理函数
+
+ @param rotate 旋转手势
+ */
 - (void)handleRotateGesture:(UIRotationGestureRecognizer *)rotate {
     if (rotate.state == UIGestureRecognizerStateBegan || rotate.state == UIGestureRecognizerStateChanged) {
         self.smallView.transform = CGAffineTransformRotate(self.smallView.transform, rotate.rotation);

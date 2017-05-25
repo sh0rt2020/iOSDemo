@@ -19,12 +19,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-<<<<<<< HEAD
-    UIButton *startAnimate = [[UIButton alloc] initWithFrame:CGRectMake(10, 100, 300, 44)];
-    [startAnimate setTitle:@"startAnimate" forState:UIControlStateNormal];
-    [startAnimate addTarget:self action:@selector(handleAnimateStart:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:startAnimate];
-=======
     self.view.backgroundColor = [UIColor whiteColor];
     
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(10, 100, 300, 44)];
@@ -32,7 +26,6 @@
     [button setTitle:@"startAnimate" forState:UIControlStateNormal];
     [button setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
     [self.view addSubview:button];
->>>>>>> refs/remotes/origin/master
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,12 +33,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-<<<<<<< HEAD
-- (void)handleAnimateStart:(UIButton *)sender {
-=======
 #pragma mark - 
 - (void)handleAnimationStart:(UIButton *)sender {
->>>>>>> refs/remotes/origin/master
     RPViewController *vc = [[RPViewController alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
 }
