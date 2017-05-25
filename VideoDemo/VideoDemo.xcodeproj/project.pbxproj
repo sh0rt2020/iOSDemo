@@ -16,6 +16,9 @@
 		3B4C582D1EAC8401001EC18B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B4C582B1EAC8401001EC18B /* LaunchScreen.storyboard */; };
 		3B4C58361EAC9CE5001EC18B /* GSVideoPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C58351EAC9CE5001EC18B /* GSVideoPlayerView.m */; };
 		3BE18F221ED191FB00DEF4C5 /* 8464480.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3BE18F211ED191FB00DEF4C5 /* 8464480.mp4 */; };
+		5726A03D1ED5A376005F097E /* 9062711.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 5726A03C1ED5A376005F097E /* 9062711.mp4 */; };
+		5726A03F1ED5A44F005F097E /* 9062709_mpeg4.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 5726A03E1ED5A44F005F097E /* 9062709_mpeg4.mp4 */; };
+		5726A0411ED5A8C1005F097E /* 9062709_h264.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 5726A0401ED5A8C1005F097E /* 9062709_h264.mp4 */; };
 		57A7604C1ED4363D00CE72BC /* GSNewPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57A7604B1ED4363D00CE72BC /* GSNewPlayerViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +37,9 @@
 		3B4C58341EAC9CE5001EC18B /* GSVideoPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSVideoPlayerView.h; sourceTree = "<group>"; };
 		3B4C58351EAC9CE5001EC18B /* GSVideoPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSVideoPlayerView.m; sourceTree = "<group>"; };
 		3BE18F211ED191FB00DEF4C5 /* 8464480.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 8464480.mp4; sourceTree = "<group>"; };
+		5726A03C1ED5A376005F097E /* 9062711.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 9062711.mp4; sourceTree = "<group>"; };
+		5726A03E1ED5A44F005F097E /* 9062709_mpeg4.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 9062709_mpeg4.mp4; sourceTree = "<group>"; };
+		5726A0401ED5A8C1005F097E /* 9062709_h264.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 9062709_h264.mp4; sourceTree = "<group>"; };
 		57A7604A1ED4363D00CE72BC /* GSNewPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSNewPlayerViewController.h; sourceTree = "<group>"; };
 		57A7604B1ED4363D00CE72BC /* GSNewPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSNewPlayerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -71,6 +77,9 @@
 				3BE18F211ED191FB00DEF4C5 /* 8464480.mp4 */,
 				3B293BFD1ED09BE900408001 /* 2531892.mp4 */,
 				3B3505B81ED1F29600C7D1B1 /* new_2531892.mp4 */,
+				5726A03C1ED5A376005F097E /* 9062711.mp4 */,
+				5726A03E1ED5A44F005F097E /* 9062709_mpeg4.mp4 */,
+				5726A0401ED5A8C1005F097E /* 9062709_h264.mp4 */,
 				3B4C58201EAC8401001EC18B /* AppDelegate.h */,
 				3B4C58211EAC8401001EC18B /* AppDelegate.m */,
 				3B4C58231EAC8401001EC18B /* ViewController.h */,
@@ -157,8 +166,11 @@
 				3B293BFE1ED09BE900408001 /* 2531892.mp4 in Resources */,
 				3B4C582D1EAC8401001EC18B /* LaunchScreen.storyboard in Resources */,
 				3B4C582A1EAC8401001EC18B /* Assets.xcassets in Resources */,
+				5726A0411ED5A8C1005F097E /* 9062709_h264.mp4 in Resources */,
 				3BE18F221ED191FB00DEF4C5 /* 8464480.mp4 in Resources */,
+				5726A03D1ED5A376005F097E /* 9062711.mp4 in Resources */,
 				3B3505B91ED1F29600C7D1B1 /* new_2531892.mp4 in Resources */,
+				5726A03F1ED5A44F005F097E /* 9062709_mpeg4.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
