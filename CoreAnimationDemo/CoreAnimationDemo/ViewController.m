@@ -21,7 +21,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     UIButton *moveToCoreAnimationPage = [[UIButton alloc] initWithFrame:CGRectMake(10, 100, [UIScreen mainScreen].bounds.size.width-20, 44)];
-    [moveToCoreAnimationPage setTitle:@"moveToCoreAnimationPage" forState:UIControlStateNormal];
+    [moveToCoreAnimationPage setTitle:@"MoveToCoreAnimationPage" forState:UIControlStateNormal];
     [moveToCoreAnimationPage setBackgroundColor:[UIColor greenColor]];
     [moveToCoreAnimationPage addTarget:self action:@selector(moveToCoreAnimationPage:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:moveToCoreAnimationPage];

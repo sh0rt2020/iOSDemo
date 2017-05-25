@@ -14,7 +14,7 @@
 @property (nonatomic, assign) BOOL isFirstTime;
 @property (nonatomic, strong) UIButton *animateButton;
 @property (nonatomic, strong) NSMutableDictionary *pointsDic;
-@property (nonatomic, assign) CGPoint topLeftPoint;
+//@property (nonatomic, assign) CGPoint topLeftPoint;
 @property (nonatomic, assign) CGRect fatherFrame;
 @end
 
@@ -149,57 +149,49 @@
     
     
     if (topleft.x < 10) {
-        topleft.x = 10;
-        self.topLeftPoint = topleft;
-        self.smallView.frame = CGRectMake(self.topLeftPoint.x, self.topLeftPoint.y, view.bounds.size.width, view.bounds.size.height);
+        topleft.x = 11;
+        self.smallView.frame = CGRectMake(topleft.x, topleft.y, view.bounds.size.width, view.bounds.size.height);
         return ;
     }
     
     if (topleft.y < 10+64) {
-        topleft.y = 10+64;
-        self.topLeftPoint = topleft;
-        self.smallView.frame = CGRectMake(self.topLeftPoint.x, self.topLeftPoint.y, view.bounds.size.width, view.bounds.size.height);
+        topleft.y = 11+64;
+        self.smallView.frame = CGRectMake(topleft.x, topleft.y, view.bounds.size.width, view.bounds.size.height);
         return ;
     }
     
     if (topright.x > [view superview].bounds.size.width-10) {
         topright.x = [view superview].bounds.size.width-10;
-        self.topLeftPoint = topleft;
-        self.smallView.frame = CGRectMake(self.topLeftPoint.x, self.topLeftPoint.y, view.bounds.size.width, view.bounds.size.height);
+        self.smallView.frame = CGRectMake(topright.x, topright.y, view.bounds.size.width, view.bounds.size.height);
         return ;
     }
     
     if (topright.y < 10) {
         topright.y = 10;
-        self.topLeftPoint = topleft;
-        self.smallView.frame = CGRectMake(self.topLeftPoint.x, self.topLeftPoint.y, view.bounds.size.width, view.bounds.size.height);
+        self.smallView.frame = CGRectMake(topright.x, topright.y, view.bounds.size.width, view.bounds.size.height);
         return ;
     }
     
     if (bottomleft.x < 10) {
         bottomleft.x = 10;
-        self.topLeftPoint = topleft;
-        self.smallView.frame = CGRectMake(self.topLeftPoint.x, self.topLeftPoint.y, view.bounds.size.width, view.bounds.size.height);
+        self.smallView.frame = CGRectMake(bottomleft.x, bottomleft.y, view.bounds.size.width, view.bounds.size.height);
         return ;
     }
     
     if (bottomleft.y > [view superview].bounds.size.height-10) {
-        self.topLeftPoint = topleft;
-        self.smallView.frame = CGRectMake(self.topLeftPoint.x, self.topLeftPoint.y, view.bounds.size.width, view.bounds.size.height);
+        self.smallView.frame = CGRectMake(bottomleft.x, bottomleft.y, view.bounds.size.width, view.bounds.size.height);
         bottomleft.y = [view superview].bounds.size.height-10;
         return ;
     }
     
     if (bottomright.x > [view superview].bounds.size.width-10) {
-        self.topLeftPoint = topleft;
-        self.smallView.frame = CGRectMake(self.topLeftPoint.x, self.topLeftPoint.y, view.bounds.size.width, view.bounds.size.height);
+        self.smallView.frame = CGRectMake(bottomright.x, bottomright.y, view.bounds.size.width, view.bounds.size.height);
         bottomright.x = [view superview].bounds.size.width-10;
         return ;
     }
     
     if (bottomright.y > [view superview].bounds.size.height-10) {
-        self.topLeftPoint = topleft;
-        self.smallView.frame = CGRectMake(self.topLeftPoint.x, self.topLeftPoint.y, view.bounds.size.width, view.bounds.size.height);
+        self.smallView.frame = CGRectMake(bottomright.x, bottomright.y, view.bounds.size.width, view.bounds.size.height);
         bottomright.y = [view superview].bounds.size.height-10;
         return ;
     }
