@@ -7,6 +7,7 @@
 //
 
 #import "UCRedPocketViewController.h"
+#import "RPViewController.h"
 
 @interface UCRedPocketViewController ()
 
@@ -17,6 +18,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    UIButton *startAnimate = [[UIButton alloc] initWithFrame:CGRectMake(10, 100, 300, 44)];
+    [startAnimate setTitle:@"startAnimate" forState:UIControlStateNormal];
+    [startAnimate addTarget:self action:@selector(handleAnimateStart:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:startAnimate];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,14 +30,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)handleAnimateStart:(UIButton *)sender {
+    RPViewController *vc = [[RPViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
-*/
-
 @end
