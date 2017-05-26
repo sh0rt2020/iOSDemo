@@ -29,7 +29,7 @@
     self.smallView.backgroundColor = [UIColor greenColor];
     [self.view addSubview:self.smallView];
     
-//    [self checkView:self.smallView transform:self.smallView.transform isFirstTime:YES];
+    [self checkView:self.smallView transform:self.smallView.transform isFirstTime:YES];
     
     UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
     [self.smallView addGestureRecognizer:pan];
@@ -52,7 +52,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - handle PanGestureRecognizer
+#pragma mark - handle GestureRecognizer
 
 /**
  移动处理函数
@@ -61,13 +61,12 @@
  */
 - (void)handlePanGesture:(UIPanGestureRecognizer *)pan {
     
-    CGPoint touch = [pan translationInView:self.view];
-    
-    self.smallView.transform = CGAffineTransformTranslate(self.smallView.transform, touch.x, touch.y);
-    
-    [pan setTranslation:CGPointZero inView:self.smallView];
-    
-//    [self checkView:self.smallView transform:self.smallView.transform isFirstTime:NO];
+    if (pan.state == UIGestureRecognizerStateBegan || pan.state == UIGestureRecognizerStateChanged) {
+        CGPoint touch = [pan translationInView:self.view];
+        
+        self.smallView.transform = CGAffineTransformTranslate(self.smallView.transform, touch.x, touch.y);
+        [pan setTranslation:CGPointZero inView:self.smallView];
+    }
 }
 
 
