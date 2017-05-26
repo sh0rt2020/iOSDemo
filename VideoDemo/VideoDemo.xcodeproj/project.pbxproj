@@ -13,7 +13,6 @@
 		3B4C582A1EAC8401001EC18B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B4C58291EAC8401001EC18B /* Assets.xcassets */; };
 		3B4C582D1EAC8401001EC18B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B4C582B1EAC8401001EC18B /* LaunchScreen.storyboard */; };
 		3B4C58361EAC9CE5001EC18B /* GSVideoPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C58351EAC9CE5001EC18B /* GSVideoPlayerView.m */; };
-		47EB40ADB140278AF3EC7FC9 /* libPods-VideoDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3768289B428268F547B236F /* libPods-VideoDemo.a */; };
 		57A7604C1ED4363D00CE72BC /* GSNewPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57A7604B1ED4363D00CE72BC /* GSNewPlayerViewController.m */; };
 		57B3AB8C1ED7CD4A006A04F3 /* GSAVPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57B3AB8B1ED7CD4A006A04F3 /* GSAVPlayerViewController.m */; };
 		57B3AB931ED808D8006A04F3 /* GSMpegVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57B3AB921ED808D8006A04F3 /* GSMpegVideoViewController.m */; };
@@ -38,6 +37,7 @@
 		57C0B4941ED843860020392D /* libz.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 57B3AC3A1ED8235F006A04F3 /* libz.1.tbd */; };
 		57C0B4951ED843970020392D /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 57B3AC411ED823CA006A04F3 /* libbz2.tbd */; };
 		57C0B4961ED8439D0020392D /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 57B3AC431ED8243C006A04F3 /* libiconv.tbd */; };
+		FC83555E09190182490F9D2D /* libPods-VideoDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3768289B428268F547B236F /* libPods-VideoDemo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +52,7 @@
 		3B4C582E1EAC8401001EC18B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B4C58341EAC9CE5001EC18B /* GSVideoPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSVideoPlayerView.h; sourceTree = "<group>"; };
 		3B4C58351EAC9CE5001EC18B /* GSVideoPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSVideoPlayerView.m; sourceTree = "<group>"; };
+		54E4936EB9415A766BC8CFAF /* Pods-VideoDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VideoDemo/Pods-VideoDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		57A7604A1ED4363D00CE72BC /* GSNewPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSNewPlayerViewController.h; sourceTree = "<group>"; };
 		57A7604B1ED4363D00CE72BC /* GSNewPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSNewPlayerViewController.m; sourceTree = "<group>"; };
 		57B3AB8A1ED7CD4A006A04F3 /* GSAVPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSAVPlayerViewController.h; sourceTree = "<group>"; };
@@ -217,8 +218,7 @@
 		57C0B4A61ED846CB0020392D /* timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = timer.h; sourceTree = "<group>"; };
 		57C0B4A71ED847060020392D /* mathops.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mathops.h; sourceTree = "<group>"; };
 		57C0B4A81ED847430020392D /* reverse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = reverse.h; sourceTree = "<group>"; };
-		7D8457B18FA6C50F33F33039 /* Pods-VideoDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VideoDemo/Pods-VideoDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		D125B5F222E1E452C685D04E /* Pods-VideoDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-VideoDemo/Pods-VideoDemo.release.xcconfig"; sourceTree = "<group>"; };
+		6DCCB3C545ED678A5102CF40 /* Pods-VideoDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-VideoDemo/Pods-VideoDemo.release.xcconfig"; sourceTree = "<group>"; };
 		E3768289B428268F547B236F /* libPods-VideoDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VideoDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -232,34 +232,25 @@
 				57C0B4941ED843860020392D /* libz.1.tbd in Frameworks */,
 				57C0B4821ED843120020392D /* libavutil.a in Frameworks */,
 				57C0B4801ED843120020392D /* libavfilter.a in Frameworks */,
-				47EB40ADB140278AF3EC7FC9 /* libPods-VideoDemo.a in Frameworks */,
 				57C0B47F1ED843120020392D /* libavdevice.a in Frameworks */,
 				57C0B4841ED843120020392D /* libswscale.a in Frameworks */,
 				57C0B4811ED843120020392D /* libavformat.a in Frameworks */,
 				57C0B4831ED843120020392D /* libswresample.a in Frameworks */,
 				57C0B47E1ED843120020392D /* libavcodec.a in Frameworks */,
+				FC83555E09190182490F9D2D /* libPods-VideoDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3239968EEC925A0E424439BD /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				7D8457B18FA6C50F33F33039 /* Pods-VideoDemo.debug.xcconfig */,
-				D125B5F222E1E452C685D04E /* Pods-VideoDemo.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		3B4C58111EAC8401001EC18B = {
 			isa = PBXGroup;
 			children = (
 				3B4C581C1EAC8401001EC18B /* VideoDemo */,
 				3B4C581B1EAC8401001EC18B /* Products */,
-				3239968EEC925A0E424439BD /* Pods */,
 				E31CAC43BF0C5D75D6EE5A28 /* Frameworks */,
+				8117BB94B16CA944DC5CDC03 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -572,6 +563,15 @@
 			path = aarch64;
 			sourceTree = "<group>";
 		};
+		8117BB94B16CA944DC5CDC03 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				54E4936EB9415A766BC8CFAF /* Pods-VideoDemo.debug.xcconfig */,
+				6DCCB3C545ED678A5102CF40 /* Pods-VideoDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		E31CAC43BF0C5D75D6EE5A28 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -715,7 +715,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -846,7 +846,7 @@
 		};
 		3B4C58321EAC8401001EC18B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7D8457B18FA6C50F33F33039 /* Pods-VideoDemo.debug.xcconfig */;
+			baseConfigurationReference = 54E4936EB9415A766BC8CFAF /* Pods-VideoDemo.debug.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -855,8 +855,6 @@
 				FRAMEWORK_SEARCH_PATHS = "";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"${PODS_ROOT}/Headers/Public\"",
-					"\"${PODS_ROOT}/Headers/Public/CocoaAsyncSocket\"",
 					"$(PROJECT_DIR)/VideoDemo/FFmpeg-iOS/include",
 				);
 				INFOPLIST_FILE = VideoDemo/Info.plist;
@@ -865,7 +863,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/VideoDemo",
-					"$(PROJECT_DIR)/build/Debug-iphoneos/CocoaAsyncSocket",
 					"$(PROJECT_DIR)/VideoDemo/FFmpeg-iOS/lib",
 				);
 				ONLY_ACTIVE_ARCH = YES;
@@ -876,7 +873,7 @@
 		};
 		3B4C58331EAC8401001EC18B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D125B5F222E1E452C685D04E /* Pods-VideoDemo.release.xcconfig */;
+			baseConfigurationReference = 6DCCB3C545ED678A5102CF40 /* Pods-VideoDemo.release.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -885,8 +882,6 @@
 				FRAMEWORK_SEARCH_PATHS = "";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"${PODS_ROOT}/Headers/Public\"",
-					"\"${PODS_ROOT}/Headers/Public/CocoaAsyncSocket\"",
 					"$(PROJECT_DIR)/VideoDemo/FFmpeg-iOS/include",
 				);
 				INFOPLIST_FILE = VideoDemo/Info.plist;
@@ -895,7 +890,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/VideoDemo",
-					"$(PROJECT_DIR)/build/Debug-iphoneos/CocoaAsyncSocket",
 					"$(PROJECT_DIR)/VideoDemo/FFmpeg-iOS/lib",
 				);
 				ONLY_ACTIVE_ARCH = YES;
