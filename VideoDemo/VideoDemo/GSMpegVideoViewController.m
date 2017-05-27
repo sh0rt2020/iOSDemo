@@ -8,7 +8,6 @@
 
 #import "GSMpegVideoViewController.h"
 
-
 @interface GSMpegVideoViewController ()
 
 @end

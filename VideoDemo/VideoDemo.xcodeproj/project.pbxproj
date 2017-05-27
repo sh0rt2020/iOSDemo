@@ -37,6 +37,7 @@
 		57C0B4941ED843860020392D /* libz.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 57B3AC3A1ED8235F006A04F3 /* libz.1.tbd */; };
 		57C0B4951ED843970020392D /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 57B3AC411ED823CA006A04F3 /* libbz2.tbd */; };
 		57C0B4961ED8439D0020392D /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 57B3AC431ED8243C006A04F3 /* libiconv.tbd */; };
+		57E6D0901ED92EB90004EC49 /* GSMpegPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 57E6D08F1ED92EB90004EC49 /* GSMpegPlayer.m */; };
 		FC83555E09190182490F9D2D /* libPods-VideoDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3768289B428268F547B236F /* libPods-VideoDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -218,6 +219,8 @@
 		57C0B4A61ED846CB0020392D /* timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = timer.h; sourceTree = "<group>"; };
 		57C0B4A71ED847060020392D /* mathops.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mathops.h; sourceTree = "<group>"; };
 		57C0B4A81ED847430020392D /* reverse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = reverse.h; sourceTree = "<group>"; };
+		57E6D08E1ED92EB90004EC49 /* GSMpegPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSMpegPlayer.h; sourceTree = "<group>"; };
+		57E6D08F1ED92EB90004EC49 /* GSMpegPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSMpegPlayer.m; sourceTree = "<group>"; };
 		6DCCB3C545ED678A5102CF40 /* Pods-VideoDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-VideoDemo/Pods-VideoDemo.release.xcconfig"; sourceTree = "<group>"; };
 		E3768289B428268F547B236F /* libPods-VideoDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VideoDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -272,6 +275,8 @@
 				3B4C58211EAC8401001EC18B /* AppDelegate.m */,
 				3B4C58231EAC8401001EC18B /* ViewController.h */,
 				3B4C58241EAC8401001EC18B /* ViewController.m */,
+				57E6D08E1ED92EB90004EC49 /* GSMpegPlayer.h */,
+				57E6D08F1ED92EB90004EC49 /* GSMpegPlayer.m */,
 				57B3AB911ED808D8006A04F3 /* GSMpegVideoViewController.h */,
 				57B3AB921ED808D8006A04F3 /* GSMpegVideoViewController.m */,
 				57A7604A1ED4363D00CE72BC /* GSNewPlayerViewController.h */,
@@ -715,7 +720,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -728,6 +733,7 @@
 				57C0B48F1ED843700020392D /* cmdutils.c in Sources */,
 				3B4C58251EAC8401001EC18B /* ViewController.m in Sources */,
 				3B4C58221EAC8401001EC18B /* AppDelegate.m in Sources */,
+				57E6D0901ED92EB90004EC49 /* GSMpegPlayer.m in Sources */,
 				57B3AB8C1ED7CD4A006A04F3 /* GSAVPlayerViewController.m in Sources */,
 				57C0B4931ED843700020392D /* ffmpeg_videotoolbox.c in Sources */,
 				57B3AB931ED808D8006A04F3 /* GSMpegVideoViewController.m in Sources */,
