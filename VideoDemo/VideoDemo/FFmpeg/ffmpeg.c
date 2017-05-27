@@ -4715,7 +4715,7 @@ static void log_callback_null(void *ptr, int level, const char *fmt, va_list vl)
 {
 }
 
-int main(int argc, char **argv)
+int ffmpeg_main(int argc, char **argv)
 {
     int i, ret;
     int64_t ti;
