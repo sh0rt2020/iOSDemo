@@ -31,6 +31,8 @@ const int Data = 102;
     
     int outputWidth;
     int outputHeight;
+    
+    EAGLContext *glContext;
 }
 
 @end
@@ -57,6 +59,8 @@ const int Data = 102;
         
         unsigned char startcode[] = {0, 0, 1};
         startcodeData = [NSData dataWithBytes:startcode length:3];
+        
+        glContext = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
     }
     
     return self;
@@ -92,11 +96,13 @@ const int Data = 102;
     if (tag == Data) {
         int type = [self typeOfNalu:data];
         
+        //5:IDR帧 6: 7:SPS 8:PPS
         if (type == 5||type == 6||type == 7||type == 8) {
             [keyFrame appendData:lastStartCode];
             [keyFrame appendBytes:[data bytes] length:[data length]-[self startCodeLenth:data]];
         }
         
+        //收到IDR帧表示NALU结束
         if (type == 5||type == 1) {
             //IDR P frame
             int nalLen = (int)[keyFrame length];
@@ -125,7 +131,7 @@ const int Data = 102;
             return ;
         }
         
-        static int sws_flags = SWS_FAST_BILINEAR;
+        static int sws_flags = SWS_FAST_BILINEAR; //解压算法
         if (!img_convert_ctx) {
             img_convert_ctx = sws_getContext(codecCtx->width, codecCtx->height, codecCtx->pix_fmt, outputWidth, outputHeight, AV_PIX_FMT_YUV420P, sws_flags, NULL, NULL, NULL);
             
@@ -134,7 +140,8 @@ const int Data = 102;
             
             [self display];
             avpicture_free(&picture);
-            av_free_packet(&packet);
+//            av_free_packet(&packet);
+            av_packet_unref(&packet);
         }
     }
     
@@ -143,6 +150,7 @@ const int Data = 102;
 
 #pragma mark
 - (void)display {
+    
     
 }
 

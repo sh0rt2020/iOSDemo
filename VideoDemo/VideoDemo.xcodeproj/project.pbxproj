@@ -13,6 +13,7 @@
 		3B4C582A1EAC8401001EC18B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B4C58291EAC8401001EC18B /* Assets.xcassets */; };
 		3B4C582D1EAC8401001EC18B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B4C582B1EAC8401001EC18B /* LaunchScreen.storyboard */; };
 		3B4C58361EAC9CE5001EC18B /* GSVideoPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C58351EAC9CE5001EC18B /* GSVideoPlayerView.m */; };
+		57821BEE1EE014B500654898 /* GSGLPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57821BED1EE014B500654898 /* GSGLPlayerView.m */; };
 		57A7604C1ED4363D00CE72BC /* GSNewPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57A7604B1ED4363D00CE72BC /* GSNewPlayerViewController.m */; };
 		57B3AB8C1ED7CD4A006A04F3 /* GSAVPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57B3AB8B1ED7CD4A006A04F3 /* GSAVPlayerViewController.m */; };
 		57B3AB931ED808D8006A04F3 /* GSMpegVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57B3AB921ED808D8006A04F3 /* GSMpegVideoViewController.m */; };
@@ -54,6 +55,8 @@
 		3B4C58341EAC9CE5001EC18B /* GSVideoPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSVideoPlayerView.h; sourceTree = "<group>"; };
 		3B4C58351EAC9CE5001EC18B /* GSVideoPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSVideoPlayerView.m; sourceTree = "<group>"; };
 		54E4936EB9415A766BC8CFAF /* Pods-VideoDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VideoDemo/Pods-VideoDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		57821BEC1EE014B500654898 /* GSGLPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSGLPlayerView.h; sourceTree = "<group>"; };
+		57821BED1EE014B500654898 /* GSGLPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSGLPlayerView.m; sourceTree = "<group>"; };
 		57A7604A1ED4363D00CE72BC /* GSNewPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSNewPlayerViewController.h; sourceTree = "<group>"; };
 		57A7604B1ED4363D00CE72BC /* GSNewPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSNewPlayerViewController.m; sourceTree = "<group>"; };
 		57B3AB8A1ED7CD4A006A04F3 /* GSAVPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSAVPlayerViewController.h; sourceTree = "<group>"; };
@@ -277,6 +280,8 @@
 				3B4C58241EAC8401001EC18B /* ViewController.m */,
 				57E6D08E1ED92EB90004EC49 /* GSMpegPlayer.h */,
 				57E6D08F1ED92EB90004EC49 /* GSMpegPlayer.m */,
+				57821BEC1EE014B500654898 /* GSGLPlayerView.h */,
+				57821BED1EE014B500654898 /* GSGLPlayerView.m */,
 				57B3AB911ED808D8006A04F3 /* GSMpegVideoViewController.h */,
 				57B3AB921ED808D8006A04F3 /* GSMpegVideoViewController.m */,
 				57A7604A1ED4363D00CE72BC /* GSNewPlayerViewController.h */,
@@ -732,6 +737,7 @@
 			files = (
 				57C0B48F1ED843700020392D /* cmdutils.c in Sources */,
 				3B4C58251EAC8401001EC18B /* ViewController.m in Sources */,
+				57821BEE1EE014B500654898 /* GSGLPlayerView.m in Sources */,
 				3B4C58221EAC8401001EC18B /* AppDelegate.m in Sources */,
 				57E6D0901ED92EB90004EC49 /* GSMpegPlayer.m in Sources */,
 				57B3AB8C1ED7CD4A006A04F3 /* GSAVPlayerViewController.m in Sources */,

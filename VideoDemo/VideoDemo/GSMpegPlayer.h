@@ -11,4 +11,5 @@
 
 @interface GSMpegPlayer : NSObject
 
+- (void)start;
 @end
