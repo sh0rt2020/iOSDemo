@@ -11,6 +11,10 @@
 #import <libavcodec/avcodec.h>
 #import <libswscale/swscale.h>
 
+#import <OpenGLES/EAGL.h>
+#import <OpenGLES/ES2/glext.h>
+#import <OpenGLES/ES2/gl.h>
+
 const int Header = 101;
 const int Data = 102;
 
@@ -32,7 +36,12 @@ const int Data = 102;
     int outputWidth;
     int outputHeight;
     
+    //opengles
     EAGLContext *glContext;
+    GLuint frameBuf;
+    GLuint renderBuf;
+    GLuint program;
+    GLuint textureYUV[3];
 }
 
 @end
@@ -59,11 +68,31 @@ const int Data = 102;
         
         unsigned char startcode[] = {0, 0, 1};
         startcodeData = [NSData dataWithBytes:startcode length:3];
-        
-        glContext = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
     }
     
     return self;
+}
+
+- (void)openglesInit {
+    CAEAGLLayer *eagLayer = [CAEAGLLayer layer];
+    eagLayer.opaque = YES;
+    eagLayer.drawableProperties = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:NO], kEAGLDrawablePropertyRetainedBacking, kEAGLColorFormatRGBA8, kEAGLDrawablePropertyColorFormat, nil];
+    
+    glContext = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES3];
+    if (!glContext) {
+        glContext = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
+        if (!glContext) {
+            glContext = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES1];
+        }
+    }
+    
+    if (!glContext || [EAGLContext setCurrentContext:glContext]) {
+        NSLog(@"EAGLContext init failed");
+        return ;
+    }
+    
+    [self setupYUVTexture];
+    
 }
 
 - (void)dealloc {
@@ -150,6 +179,7 @@ const int Data = 102;
 
 #pragma mark
 - (void)display {
+    NSLog(@"%s", __func__);
     
     
 }
@@ -173,5 +203,10 @@ const int Data = 102;
 
 - (void)shutdown {
     if(socket)[socket disconnect];
+}
+
+- (void)setupYUVTexture {
+    
+    
 }
 @end
