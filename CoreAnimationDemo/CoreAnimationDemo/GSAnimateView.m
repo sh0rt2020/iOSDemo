@@ -146,29 +146,29 @@
     }
     
 
-    if (topleft.x < 10 || topleft.y < 10+64 || topright.x > [UIScreen mainScreen].bounds.size.width-10 || topright.y < 64+10) {
-        NSLog(@"************顶部超出边界************");
-        return ;
-    }
-    
-    if (bottomleft.x < 10 || bottomleft.y > [UIScreen mainScreen].bounds.size.height-10 || bottomright.x > [UIScreen mainScreen].bounds.size.width - 10 || bottomright.y > [UIScreen mainScreen].bounds.size.height-10) {
-        NSLog(@"&&&&&&&&&&&&&&底部超出边界&&&&&&&&&&&&&&&");
-        return ;
-    }
-    
-    
-//    if (topleft.x < 10) {
-//        topleft.x = 11;
-//        self.frame = CGRectMake(topleft.x, topleft.y, view.bounds.size.width, view.bounds.size.height);
+//    if (topleft.x < 10 || topleft.y < 10+64 || topright.x > [UIScreen mainScreen].bounds.size.width-10 || topright.y < 64+10) {
+//        NSLog(@"************顶部超出边界************");
 //        return ;
 //    }
 //    
-//    if (topleft.y < 10+64) {
-//        topleft.y = 11+64;
-//        self.frame = CGRectMake(topleft.x, topleft.y, view.bounds.size.width, view.bounds.size.height);
+//    if (bottomleft.x < 10 || bottomleft.y > [UIScreen mainScreen].bounds.size.height-10 || bottomright.x > [UIScreen mainScreen].bounds.size.width - 10 || bottomright.y > [UIScreen mainScreen].bounds.size.height-10) {
+//        NSLog(@"&&&&&&&&&&&&&&底部超出边界&&&&&&&&&&&&&&&");
 //        return ;
 //    }
-//    
+    
+    
+    if (topleft.x < 10) {
+        topleft.x = 11;
+        self.frame = CGRectMake(topleft.x, topleft.y, view.bounds.size.width, view.bounds.size.height);
+        return ;
+    }
+
+    if (topleft.y < 10+64) {
+        topleft.y = 11+64;
+        self.frame = CGRectMake(topleft.x, topleft.y, view.bounds.size.width, view.bounds.size.height);
+        return ;
+    }
+    
 //    if (topright.x > [UIScreen mainScreen].bounds.size.width-10) {
 //        topright.x = [UIScreen mainScreen].bounds.size.width-10;
 //        self.frame = CGRectMake(topright.x, topright.y, view.bounds.size.width, view.bounds.size.height);
@@ -180,7 +180,7 @@
 //        self.frame = CGRectMake(topright.x, topright.y, view.bounds.size.width, view.bounds.size.height);
 //        return ;
 //    }
-//    
+
 //    if (bottomleft.x < 10) {
 //        bottomleft.x = 10;
 //        self.frame = CGRectMake(bottomleft.x, bottomleft.y, view.bounds.size.width, view.bounds.size.height);
