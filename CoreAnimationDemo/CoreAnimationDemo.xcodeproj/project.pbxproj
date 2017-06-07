@@ -17,6 +17,7 @@
 		3B3505E51ED5F22600C7D1B1 /* RPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B3505E41ED5F22600C7D1B1 /* RPViewController.m */; };
 		57B3AB881ED6F117006A04F3 /* CoreAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57B3AB871ED6F117006A04F3 /* CoreAnimationViewController.m */; };
 		57DBFB601EE6BC1D00ACBB01 /* GS_RotationGuestreRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DBFB5F1EE6BC1D00ACBB01 /* GS_RotationGuestreRecognizer.m */; };
+		57DBFB631EE7A48D00ACBB01 /* GSAnimateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DBFB621EE7A48D00ACBB01 /* GSAnimateView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,8 @@
 		57B3AB871ED6F117006A04F3 /* CoreAnimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreAnimationViewController.m; sourceTree = "<group>"; };
 		57DBFB5E1EE6BC1D00ACBB01 /* GS_RotationGuestreRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GS_RotationGuestreRecognizer.h; sourceTree = "<group>"; };
 		57DBFB5F1EE6BC1D00ACBB01 /* GS_RotationGuestreRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GS_RotationGuestreRecognizer.m; sourceTree = "<group>"; };
+		57DBFB611EE7A48D00ACBB01 /* GSAnimateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSAnimateView.h; sourceTree = "<group>"; };
+		57DBFB621EE7A48D00ACBB01 /* GSAnimateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSAnimateView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +78,8 @@
 				3B3505CA1ED5DE8C00C7D1B1 /* AppDelegate.m */,
 				3B3505CC1ED5DE8C00C7D1B1 /* ViewController.h */,
 				3B3505CD1ED5DE8C00C7D1B1 /* ViewController.m */,
+				57DBFB611EE7A48D00ACBB01 /* GSAnimateView.h */,
+				57DBFB621EE7A48D00ACBB01 /* GSAnimateView.m */,
 				57B3AB861ED6F117006A04F3 /* CoreAnimationViewController.h */,
 				57B3AB871ED6F117006A04F3 /* CoreAnimationViewController.m */,
 				57DBFB5E1EE6BC1D00ACBB01 /* GS_RotationGuestreRecognizer.h */,
@@ -179,6 +184,7 @@
 				3B3505CE1ED5DE8C00C7D1B1 /* ViewController.m in Sources */,
 				3B3505CB1ED5DE8C00C7D1B1 /* AppDelegate.m in Sources */,
 				3B3505C81ED5DE8C00C7D1B1 /* main.m in Sources */,
+				57DBFB631EE7A48D00ACBB01 /* GSAnimateView.m in Sources */,
 				57B3AB881ED6F117006A04F3 /* CoreAnimationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
