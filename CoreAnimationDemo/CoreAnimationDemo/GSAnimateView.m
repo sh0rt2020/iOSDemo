@@ -16,6 +16,7 @@
 @property (nonatomic, strong) UIButton *rotaButton;
 
 @property (nonatomic, assign) BOOL isRotateZoom;
+@property (nonatomic, strong) NSMutableDictionary *pointsDic;
 @end
 
 @implementation GSAnimateView
@@ -40,6 +41,8 @@
         rotateGesture.effectView = self;
         rotateGesture.isZoom = NO;
         [self.rotaButton addGestureRecognizer:rotateGesture];
+        
+        [self checkView:self transform:self.transform isFirstTime:YES];
         
         return self;
     }
@@ -83,6 +86,8 @@
         
         self.transform = CGAffineTransformTranslate(self.transform, touch.x, touch.y);
         [pan setTranslation:CGPointZero inView:self];
+        
+        [self checkView:self transform:self.transform isFirstTime:NO];
     }
 }
 
@@ -90,18 +95,115 @@
     
     
     if (_isRotateZoom) {
-        recognizer.effectView.transform = CGAffineTransformRotate(recognizer.effectView.transform, recognizer.rotation);
+        
+        self.transform = CGAffineTransformRotate(self.transform, recognizer.rotation);
         recognizer.rotation = 0;
         //设置缩放为yes后可以缩放这个视图
         if (recognizer.isZoom) {
-            recognizer.effectView.transform = CGAffineTransformScale(recognizer.effectView.transform, recognizer.scale, recognizer.scale);
+            self.transform = CGAffineTransformScale(self.transform, recognizer.scale, recognizer.scale);
         }
+        
+        [self checkView:self transform:self.transform isFirstTime:NO];
     }
 }
 
 #pragma mark - event response
 - (void)handleDelAction:(UIButton *)sender {
     
+}
+
+#pragma mark - private method
+- (void)checkView:(UIView *)view
+        transform:(CGAffineTransform)trans
+      isFirstTime:(BOOL)isFirstTime {
+    
+    if (!self.pointsDic) {
+        self.pointsDic = [NSMutableDictionary dictionary];
+    }
+    
+    
+    CGPoint topleft = CGPointZero;
+    CGPoint topright = CGPointZero;
+    CGPoint bottomleft = CGPointZero;
+    CGPoint bottomright = CGPointZero;
+    if (isFirstTime) {
+        
+        topleft = view.frame.origin;
+        topright = CGPointMake(view.frame.origin.x+view.frame.size.width, view.frame.origin.y);
+        bottomleft = CGPointMake(view.frame.origin.x, view.frame.origin.y+view.frame.size.height);
+        bottomright = CGPointMake(view.frame.origin.x+view.frame.size.width, view.frame.origin.y+view.frame.size.height);
+        
+        [self.pointsDic setValue:NSStringFromCGPoint(topleft) forKey:@"topleft"];
+        [self.pointsDic setValue:NSStringFromCGPoint(topright) forKey:@"topright"];
+        [self.pointsDic setValue:NSStringFromCGPoint(bottomleft) forKey:@"bottomleft"];
+        [self.pointsDic setValue:NSStringFromCGPoint(bottomright) forKey:@"bottomright"];
+    } else {
+        
+        topleft = view.frame.origin;
+        topright = CGPointApplyAffineTransform(CGPointFromString([self.pointsDic valueForKey:@"topright"]), trans);
+        bottomleft = CGPointApplyAffineTransform(CGPointFromString([self.pointsDic valueForKey:@"bottomleft"]), trans);
+        bottomright = CGPointApplyAffineTransform(CGPointFromString([self.pointsDic valueForKey:@"bottomright"]), trans);
+    }
+    
+
+    if (topleft.x < 10 || topleft.y < 10+64 || topright.x > [UIScreen mainScreen].bounds.size.width-10 || topright.y < 64+10) {
+        NSLog(@"************顶部超出边界************");
+        return ;
+    }
+    
+    if (bottomleft.x < 10 || bottomleft.y > [UIScreen mainScreen].bounds.size.height-10 || bottomright.x > [UIScreen mainScreen].bounds.size.width - 10 || bottomright.y > [UIScreen mainScreen].bounds.size.height-10) {
+        NSLog(@"&&&&&&&&&&&&&&底部超出边界&&&&&&&&&&&&&&&");
+        return ;
+    }
+    
+    
+//    if (topleft.x < 10) {
+//        topleft.x = 11;
+//        self.frame = CGRectMake(topleft.x, topleft.y, view.bounds.size.width, view.bounds.size.height);
+//        return ;
+//    }
+//    
+//    if (topleft.y < 10+64) {
+//        topleft.y = 11+64;
+//        self.frame = CGRectMake(topleft.x, topleft.y, view.bounds.size.width, view.bounds.size.height);
+//        return ;
+//    }
+//    
+//    if (topright.x > [UIScreen mainScreen].bounds.size.width-10) {
+//        topright.x = [UIScreen mainScreen].bounds.size.width-10;
+//        self.frame = CGRectMake(topright.x, topright.y, view.bounds.size.width, view.bounds.size.height);
+//        return ;
+//    }
+//    
+//    if (topright.y < 10+64) {
+//        topright.y = 10+64;
+//        self.frame = CGRectMake(topright.x, topright.y, view.bounds.size.width, view.bounds.size.height);
+//        return ;
+//    }
+//    
+//    if (bottomleft.x < 10) {
+//        bottomleft.x = 10;
+//        self.frame = CGRectMake(bottomleft.x, bottomleft.y, view.bounds.size.width, view.bounds.size.height);
+//        return ;
+//    }
+//    
+//    if (bottomleft.y > [UIScreen mainScreen].bounds.size.height-10) {
+//        self.frame = CGRectMake(bottomleft.x, bottomleft.y, view.bounds.size.width, view.bounds.size.height);
+//        bottomleft.y = [UIScreen mainScreen].bounds.size.height-10;
+//        return ;
+//    }
+//    
+//    if (bottomright.x > [UIScreen mainScreen].bounds.size.width-10) {
+//        self.frame = CGRectMake(bottomright.x, bottomright.y, view.bounds.size.width, view.bounds.size.height);
+//        bottomright.x = [UIScreen mainScreen].bounds.size.width-10;
+//        return ;
+//    }
+//    
+//    if (bottomright.y > [UIScreen mainScreen].bounds.size.height-10) {
+//        self.frame = CGRectMake(bottomright.x, bottomright.y, view.bounds.size.width, view.bounds.size.height);
+//        bottomright.y = [UIScreen mainScreen].bounds.size.height-10;
+//        return ;
+//    }
 }
 
 #pragma mark - getter & setter
