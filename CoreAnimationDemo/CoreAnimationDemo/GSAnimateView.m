@@ -85,7 +85,7 @@
     
     if (pan.state == UIGestureRecognizerStateEnded || pan.state == UIGestureRecognizerStateFailed || pan.state == UIGestureRecognizerStateCancelled) {
         self.isGestureEnded = YES;
-        [self checkView:self transform:self.transform isFirstTime:NO];
+//        [self checkView:self transform:self.transform isFirstTime:NO];
         return ;
     }
     
@@ -102,23 +102,20 @@
     
     if (recognizer.state == UIGestureRecognizerStateCancelled || recognizer.state == UIGestureRecognizerStateEnded || recognizer.state == UIGestureRecognizerStateFailed) {
         self.isGestureEnded = YES;
-        [self checkView:self transform:self.transform isFirstTime:NO];
+//        [self checkView:self transform:self.transform isFirstTime:NO];
         return ;
     }
     
-    if (_isRotateZoom) {
-//        CGAffineTransform rotation = CGAffineTransformMakeRotation(recognizer.rotation);
-//        CGAffineTransform trans = CGAffineTransformConcat(self.transform, rotation);
-//        self.transform = trans;
+    
+    if (recognizer.isZoom) {
+        //缩放
+        self.transform = CGAffineTransformScale(self.transform, recognizer.scale, recognizer.scale);
+    } else {
+        //旋转
         self.transform = CGAffineTransformRotate(self.transform, recognizer.rotation);
-        recognizer.rotation = 0;
-        //设置缩放为yes后可以缩放这个视图
-        if (recognizer.isZoom) {
-            self.transform = CGAffineTransformScale(self.transform, recognizer.scale, recognizer.scale);
-        }
-        
-        [self checkView:self transform:self.transform isFirstTime:NO];
     }
+        
+    [self checkView:self transform:self.transform isFirstTime:NO];
 }
 
 #pragma mark - event response
@@ -176,7 +173,7 @@
 #pragma mark - getter & setter
 - (UIButton *)delButton {
     if (!_delButton) {
-        _delButton = [[UIButton alloc] initWithFrame:CGRectMake(-10, -10, 20, 20)];
+        _delButton = [[UIButton alloc] initWithFrame:CGRectMake(-20, -20, 40, 40)];
         [_delButton setImage:[UIImage imageNamed:@"edit_delete"] forState:UIControlStateNormal];
         [_delButton addTarget:self action:@selector(handleDelAction:) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -185,7 +182,7 @@
 
 - (UIButton *)scaleButton {
     if (!_scaleButton) {
-        _scaleButton = [[UIButton alloc] initWithFrame:CGRectMake(self.bounds.size.width-10, -10, 20, 20)];
+        _scaleButton = [[UIButton alloc] initWithFrame:CGRectMake(self.bounds.size.width-20, -20, 40, 40)];
         [_scaleButton setImage:[UIImage imageNamed:@"scale"] forState:UIControlStateNormal];
     }
     return _scaleButton;
@@ -193,7 +190,7 @@
 
 - (UIButton *)rotaButton {
     if (!_rotaButton) {
-        _rotaButton = [[UIButton alloc] initWithFrame:CGRectMake(self.bounds.size.width-10, self.bounds.size.height-10, 20, 20)];
+        _rotaButton = [[UIButton alloc] initWithFrame:CGRectMake(self.bounds.size.width-20, self.bounds.size.height-20, 40, 40)];
         [_rotaButton setImage:[UIImage imageNamed:@"edit_rotateZoom"] forState:UIControlStateNormal];
     }
     return _rotaButton;

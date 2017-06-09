@@ -14,7 +14,7 @@
 
 @interface UCRedPocketView : UIView
 
-@property (nonatomic, weak) id<UCRedPocketViewDelegate> delegate;
+@property (nonatomic, weak, nullable) id <UCRedPocketViewDelegate> delegate;
 @property (nonatomic, copy) NSString * _Nonnull count;  //总数量
 @property (nonatomic, nonnull) UIImageView *pocketView;  //红包
 @property (nonatomic, nonnull) UIDynamicAnimator *animator;  //负责控制动画
