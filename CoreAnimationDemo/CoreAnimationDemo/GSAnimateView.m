@@ -36,6 +36,14 @@
         UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
         [self addGestureRecognizer:panGesture];
         
+//#warning 测试自定义手势的问题
+//        UIPinchGestureRecognizer *pinchGesture = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchGesture:)];
+//        [self addGestureRecognizer:pinchGesture];
+//        
+//        UIRotationGestureRecognizer *rotationGesture = [[UIRotationGestureRecognizer alloc] initWithTarget:self action:@selector(handleRotationGesture:)];
+//        [self addGestureRecognizer:rotationGesture];
+        
+        
         GS_RotationGuestreRecognizer *scaleGesture = [[GS_RotationGuestreRecognizer alloc] initWithTarget:self action:@selector(xsHandle:)];
         scaleGesture.effectView = self;
         scaleGesture.isZoom = YES;
@@ -86,11 +94,11 @@
 #pragma mark - handle gesture
 - (void)handlePanGesture:(UIPanGestureRecognizer *)pan {
     
-    if (pan.state == UIGestureRecognizerStateEnded || pan.state == UIGestureRecognizerStateFailed || pan.state == UIGestureRecognizerStateCancelled) {
-        self.isGestureEnded = YES;
-        [self checkView:self transform:self.transform isFirstTime:NO];
-        return ;
-    }
+//    if (pan.state == UIGestureRecognizerStateEnded || pan.state == UIGestureRecognizerStateFailed || pan.state == UIGestureRecognizerStateCancelled) {
+//        self.isGestureEnded = YES;
+//        [self checkView:self transform:self.transform isFirstTime:NO];
+//        return ;
+//    }
     
     if (pan.state == UIGestureRecognizerStateBegan || pan.state == UIGestureRecognizerStateChanged) {
         CGPoint touch = [pan translationInView:self];
@@ -100,30 +108,38 @@
     }
 }
 
+//- (void)handlePinchGesture:(UIPinchGestureRecognizer *)pinch {
+//    if (pinch.state == UIGestureRecognizerStateBegan || pinch.state == UIGestureRecognizerStateChanged) {
+//        self.transform = CGAffineTransformScale(self.transform, pinch.scale, pinch.scale);
+//        [self checkView:self transform:self.transform isFirstTime:NO];
+//    }
+//}
+//
+//- (void)handleRotationGesture:(UIRotationGestureRecognizer *)rotation {
+//    if (rotation.state == UIGestureRecognizerStateBegan || rotation.state == UIGestureRecognizerStateChanged) {
+//        self.transform = CGAffineTransformRotate(self.transform, rotation.rotation);
+//        [self checkView:self transform:self.transform isFirstTime:NO];
+//    }
+//}
+
 -(void)xsHandle:(GS_RotationGuestreRecognizer *)recognizer {
     
     
-    if (recognizer.state == UIGestureRecognizerStateCancelled || recognizer.state == UIGestureRecognizerStateEnded || recognizer.state == UIGestureRecognizerStateFailed) {
-        self.isGestureEnded = YES;
-        [self checkView:self transform:self.transform isFirstTime:NO];
-        return ;
-    }
+//    if (recognizer.state == UIGestureRecognizerStateCancelled || recognizer.state == UIGestureRecognizerStateEnded || recognizer.state == UIGestureRecognizerStateFailed) {
+//        self.isGestureEnded = YES;
+//        [self checkView:self transform:self.transform isFirstTime:NO];
+//        return ;
+//    }
     
     
     if (recognizer.isZoom) {
         //缩放
-        self.scaleTransform = CGAffineTransformMakeScale(recognizer.scale, recognizer.scale);
         self.transform = CGAffineTransformScale(self.transform, recognizer.scale, recognizer.scale);
-        [self checkView:self transform:self.transform isFirstTime:NO];
     } else {
         //旋转
-        
-        self.rotateTransform = CGAffineTransformMakeRotation(recognizer.rotation);
-        self.rotateTransform = CGAffineTransformConcat(self.rotateTransform, self.transform);
-//        self.rotateTransform = CGAffineTransformRotate(CGAffineTransformIdentity, recognizer.rotation);
         self.transform = CGAffineTransformRotate(self.transform, recognizer.rotation);
-        [self checkView:self transform:self.transform isFirstTime:NO];
     }
+    [self checkView:self transform:self.transform isFirstTime:NO];
 }
 
 #pragma mark - event response
