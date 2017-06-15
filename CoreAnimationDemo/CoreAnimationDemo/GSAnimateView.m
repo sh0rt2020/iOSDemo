@@ -83,11 +83,11 @@
 #pragma mark - handle gesture
 - (void)handlePanGesture:(UIPanGestureRecognizer *)pan {
     
-    if (pan.state == UIGestureRecognizerStateEnded || pan.state == UIGestureRecognizerStateFailed || pan.state == UIGestureRecognizerStateCancelled) {
-        self.isGestureEnded = YES;
+//    if (pan.state == UIGestureRecognizerStateEnded || pan.state == UIGestureRecognizerStateFailed || pan.state == UIGestureRecognizerStateCancelled) {
+//        self.isGestureEnded = YES;
 //        [self checkView:self transform:self.transform isFirstTime:NO];
-        return ;
-    }
+//        return ;
+//    }
     
     if (pan.state == UIGestureRecognizerStateBegan || pan.state == UIGestureRecognizerStateChanged) {
         CGPoint touch = [pan translationInView:self];
@@ -100,12 +100,12 @@
 -(void)xsHandle:(GS_RotationGuestreRecognizer *)recognizer {
     
     
-    if (recognizer.state == UIGestureRecognizerStateCancelled || recognizer.state == UIGestureRecognizerStateEnded || recognizer.state == UIGestureRecognizerStateFailed) {
-        self.isGestureEnded = YES;
+//    if (recognizer.state == UIGestureRecognizerStateCancelled || recognizer.state == UIGestureRecognizerStateEnded || recognizer.state == UIGestureRecognizerStateFailed) {
+//        self.isGestureEnded = YES;
 //        [self checkView:self transform:self.transform isFirstTime:NO];
-        return ;
-    }
-    
+//        return ;
+//    }
+//
     
     if (recognizer.isZoom) {
         //缩放
@@ -154,15 +154,67 @@
         topright = CGPointApplyAffineTransform(CGPointFromString([self.pointsDic valueForKey:@"topright"]), trans);
         bottomleft = CGPointApplyAffineTransform(CGPointFromString([self.pointsDic valueForKey:@"bottomleft"]), trans);
         bottomright = CGPointApplyAffineTransform(CGPointFromString([self.pointsDic valueForKey:@"bottomright"]), trans);
+        
+#warning 观察矩形四个角坐标的变化
+        UIView *topleftPoint = nil;
+        if (!(topleftPoint = [self.superview viewWithTag:1111])) {
+            topleftPoint = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 2, 2)];
+            topleftPoint.tag = 1111;
+            topleftPoint.backgroundColor = [UIColor redColor];
+            [self.superview addSubview:topleftPoint];
+        }
+        topleftPoint.center = topleft;
+        
+        UIView *toprightPoint = nil;
+        if (!(toprightPoint = [self.superview viewWithTag:2222])) {
+            toprightPoint = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 2, 2)];
+            toprightPoint.tag = 2222;
+            toprightPoint.backgroundColor = [UIColor redColor];
+            [self.superview addSubview:toprightPoint];
+        }
+        toprightPoint.center = topright;
+        
+        UIView *bottomleftPoint = nil;
+        if (!(bottomleftPoint = [self.superview viewWithTag:3333])) {
+            bottomleftPoint = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 2, 2)];
+            bottomleftPoint.tag = 3333;
+            bottomleftPoint.backgroundColor = [UIColor redColor];
+            [self.superview addSubview:bottomleftPoint];
+        }
+        bottomleftPoint.center = bottomleft;
+        
+        UIView *bottomrightPoint = nil;
+        if (!(bottomrightPoint = [self.superview viewWithTag:4444])) {
+            bottomrightPoint = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 2, 2)];
+            bottomrightPoint.tag = 4444;
+            bottomrightPoint.backgroundColor = [UIColor redColor];
+            [self.superview addSubview:bottomrightPoint];
+        }
+        bottomrightPoint.center = bottomright;
+        
+        
+        
+        if (self.isGestureEnded) {
+            self.isGestureEnded = NO;
+            
+//            [self.pointsDic setValue:NSStringFromCGPoint(topleft) forKey:@"topleft"];
+//            [self.pointsDic setValue:NSStringFromCGPoint(topright) forKey:@"topright"];
+//            [self.pointsDic setValue:NSStringFromCGPoint(bottomleft) forKey:@"bottomleft"];
+//            [self.pointsDic setValue:NSStringFromCGPoint(bottomright) forKey:@"bottomright"];
+        }
     }
     
 
-    if (topleft.x < 10 || topleft.y < 10+64 || topright.x > [UIScreen mainScreen].bounds.size.width-10 || topright.y < 10+64) {
+    if (topleft.x < 10 || topleft.y < 10+64) {
         self.transform = self.lastTransform;
         return ;
-    }
-    
-    if (bottomleft.x < 10 || bottomleft.y > [UIScreen mainScreen].bounds.size.height-10 || bottomright.x > [UIScreen mainScreen].bounds.size.width - 10 || bottomright.y > [UIScreen mainScreen].bounds.size.height-10) {
+    } else if (topright.x > [UIScreen mainScreen].bounds.size.width-10 || topright.y < 10+64) {
+        self.transform = self.lastTransform;
+        return ;
+    } else if (bottomleft.x < 10 || bottomleft.y > [UIScreen mainScreen].bounds.size.height-10) {
+        self.transform = self.lastTransform;
+        return ;
+    } else if (bottomright.x > [UIScreen mainScreen].bounds.size.width - 10 || bottomright.y > [UIScreen mainScreen].bounds.size.height-10) {
         self.transform = self.lastTransform;
         return ;
     }

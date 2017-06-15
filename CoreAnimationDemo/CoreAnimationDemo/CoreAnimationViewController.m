@@ -23,7 +23,9 @@
     // Do any additional setup after loading the view, typically from a nib.
     self.view.backgroundColor = [UIColor whiteColor];
     
-    self.smallView = [[GSAnimateView alloc] initWithFrame:CGRectMake(10, 100, 300, 88)];
+    [self addBorderLine];
+    
+    self.smallView = [[GSAnimateView alloc] initWithFrame:CGRectMake(50, 300, 200, 88)];
     self.smallView.backgroundColor = [UIColor greenColor];
     [self.view addSubview:self.smallView];
     
@@ -51,6 +53,23 @@
 }
 
 #pragma mark - private method
+- (void)addBorderLine {
+    UIView *topLine = [[UIView alloc] initWithFrame:CGRectMake(10, 64+10, [UIScreen mainScreen].bounds.size.width-20, 1)];
+    topLine.backgroundColor = [UIColor redColor];
+    [self.view addSubview:topLine];
+    
+    UIView *leftLine = [[UIView alloc] initWithFrame:CGRectMake(10, 64+10, 1, [UIScreen mainScreen].bounds.size.height-64-20)];
+    leftLine.backgroundColor = [UIColor redColor];
+    [self.view addSubview:leftLine];
+    
+    UIView *rightLine = [[UIView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width-10, 64+10, 1, [UIScreen mainScreen].bounds.size.height-64-20)];
+    rightLine.backgroundColor = [UIColor redColor];
+    [self.view addSubview:rightLine];
+    
+    UIView *bottomLine = [[UIView alloc] initWithFrame:CGRectMake(10, [UIScreen mainScreen].bounds.size.height-10, [UIScreen mainScreen].bounds.size.width-20, 1)];
+    bottomLine.backgroundColor = [UIColor redColor];
+    [self.view addSubview:bottomLine];
+}
 
 #pragma mark - getter & setter
 
