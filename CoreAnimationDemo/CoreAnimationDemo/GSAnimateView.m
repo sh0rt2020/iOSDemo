@@ -18,7 +18,6 @@
 @property (nonatomic, assign) BOOL isRotateZoom;
 @property (nonatomic, strong) NSMutableDictionary *pointsDic;
 @property (nonatomic, assign) CGAffineTransform lastTransform;  //上一次的形变量
-@property (nonatomic, assign) BOOL isGestureEnded;  //手势结束
 @property (nonatomic, assign) CGAffineTransform initTransform;  //初始的位移变化
 @end
 
@@ -40,13 +39,6 @@
         
         UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
         [self addGestureRecognizer:panGesture];
-        
-//#warning 测试自定义手势的问题
-//        UIPinchGestureRecognizer *pinchGesture = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchGesture:)];
-//        [self addGestureRecognizer:pinchGesture];
-//        
-//        UIRotationGestureRecognizer *rotationGesture = [[UIRotationGestureRecognizer alloc] initWithTarget:self action:@selector(handleRotationGesture:)];
-//        [self addGestureRecognizer:rotationGesture];
         
         
         GS_RotationGuestreRecognizer *scaleGesture = [[GS_RotationGuestreRecognizer alloc] initWithTarget:self action:@selector(xsHandle:)];
@@ -99,12 +91,6 @@
 #pragma mark - handle gesture
 - (void)handlePanGesture:(UIPanGestureRecognizer *)pan {
     
-//    if (pan.state == UIGestureRecognizerStateEnded || pan.state == UIGestureRecognizerStateFailed || pan.state == UIGestureRecognizerStateCancelled) {
-//        self.isGestureEnded = YES;
-//        [self checkView:self transform:self.transform isFirstTime:NO];
-//        return ;
-//    }
-    
     if (pan.state == UIGestureRecognizerStateBegan || pan.state == UIGestureRecognizerStateChanged) {
         CGPoint touch = [pan translationInView:self];
         self.transform = CGAffineTransformTranslate(self.transform, touch.x, touch.y);
@@ -113,29 +99,7 @@
     }
 }
 
-//- (void)handlePinchGesture:(UIPinchGestureRecognizer *)pinch {
-//    if (pinch.state == UIGestureRecognizerStateBegan || pinch.state == UIGestureRecognizerStateChanged) {
-//        self.transform = CGAffineTransformScale(self.transform, pinch.scale, pinch.scale);
-//        [self checkView:self transform:self.transform isFirstTime:NO];
-//    }
-//}
-//
-//- (void)handleRotationGesture:(UIRotationGestureRecognizer *)rotation {
-//    if (rotation.state == UIGestureRecognizerStateBegan || rotation.state == UIGestureRecognizerStateChanged) {
-//        self.transform = CGAffineTransformRotate(self.transform, rotation.rotation);
-//        [self checkView:self transform:self.transform isFirstTime:NO];
-//    }
-//}
-
 -(void)xsHandle:(GS_RotationGuestreRecognizer *)recognizer {
-    
-    
-//    if (recognizer.state == UIGestureRecognizerStateCancelled || recognizer.state == UIGestureRecognizerStateEnded || recognizer.state == UIGestureRecognizerStateFailed) {
-//        self.isGestureEnded = YES;
-//        [self checkView:self transform:self.transform isFirstTime:NO];
-//        return ;
-//    }
-    
     
     if (recognizer.isZoom) {
         //缩放
@@ -178,22 +142,17 @@
         [self.pointsDic setValue:NSStringFromCGPoint(bottomright) forKey:@"bottomright"];
     } else {
         
-        topleft = view.bounds.origin;
+        topleft = CGPointApplyAffineTransform(CGPointFromString([self.pointsDic valueForKey:@"topleft"]), trans);
+//        topleft = CGPointApplyAffineTransform(topleft, self.initTransform);
+//        CGPoint leftCorner = self.frame.origin;
+//        CGAffineTransform moveTrans = CGAffineTransformMakeTranslation(leftCorner.x-topleft.x, leftCorner.y-topleft.y);
+//        topleft = CGPointApplyAffineTransform(topleft, moveTrans);
         topright = CGPointApplyAffineTransform(CGPointFromString([self.pointsDic valueForKey:@"topright"]), trans);
         topright = CGPointApplyAffineTransform(topright, self.initTransform);
-        
         bottomleft = CGPointApplyAffineTransform(CGPointFromString([self.pointsDic valueForKey:@"bottomleft"]), trans);
+        bottomleft = CGPointApplyAffineTransform(bottomleft, self.initTransform);
         bottomright = CGPointApplyAffineTransform(CGPointFromString([self.pointsDic valueForKey:@"bottomright"]), trans);
-        
-        if (self.isGestureEnded) {
-            //更新字典中的坐标
-            self.isGestureEnded = NO;
-            
-//            [self.pointsDic setValue:NSStringFromCGPoint(topleft) forKey:@"topleft"];
-//            [self.pointsDic setValue:NSStringFromCGPoint(topright) forKey:@"topright"];
-//            [self.pointsDic setValue:NSStringFromCGPoint(bottomleft) forKey:@"bottomleft"];
-//            [self.pointsDic setValue:NSStringFromCGPoint(bottomright) forKey:@"bottomright"];
-        }
+        bottomright = CGPointApplyAffineTransform(bottomright, self.initTransform);
         
 #warning 观察矩形四个角坐标的变化
         UIView *topleftPoint = nil;
@@ -202,8 +161,11 @@
             topleftPoint.tag = 1111;
             topleftPoint.backgroundColor = [UIColor redColor];
             [self.superview addSubview:topleftPoint];
+            topleftPoint.center = CGPointApplyAffineTransform(CGPointFromString([self.pointsDic valueForKey:@"topleft"]), trans);
+            
+        } else {
+            topleftPoint.center = topleft;
         }
-        topleftPoint.center = topleft;
         
         UIView *toprightPoint = nil;
         if (!(toprightPoint = [self.superview viewWithTag:2222])) {
@@ -211,7 +173,6 @@
             toprightPoint.tag = 2222;
             toprightPoint.backgroundColor = [UIColor redColor];
             [self.superview addSubview:toprightPoint];
-//            topright = CGPointApplyAffineTransform(topright, self.initTransform);
         }
         toprightPoint.center = topright;
         
