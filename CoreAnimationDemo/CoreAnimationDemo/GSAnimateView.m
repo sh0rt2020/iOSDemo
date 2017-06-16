@@ -19,9 +19,7 @@
 @property (nonatomic, strong) NSMutableDictionary *pointsDic;
 @property (nonatomic, assign) CGAffineTransform lastTransform;  //上一次的形变量
 @property (nonatomic, assign) BOOL isGestureEnded;  //手势结束
-@property (nonatomic, assign) CGAffineTransform scaleTransform;  //缩放的形变量
-@property (nonatomic, assign) CGAffineTransform rotateTransform;  //旋转的形变量
-@property (nonatomic, assign) CGAffineTransform moveTransform;  //移动的形变量
+@property (nonatomic, assign) CGAffineTransform initTransform;  //初始的位移变化
 @end
 
 @implementation GSAnimateView
@@ -32,6 +30,13 @@
         [self addSubview:self.delButton];
         [self addSubview:self.scaleButton];
         [self addSubview:self.rotaButton];
+        
+//        CGRect rect = self.bounds;
+//        CGPoint center = self.center;
+//        CGAffineTransform transf = CGAffineTransformMakeTranslation(-rect.size.width/2, -rect.size.height/2);
+//        transf = CGAffineTransformConcat(transf, self.transform);
+//        transf = CGAffineTransformTranslate(transf, center.x, center.y);
+        self.initTransform = CGAffineTransformMakeTranslation(self.frame.origin.x, self.frame.origin.y);
         
         UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
         [self addGestureRecognizer:panGesture];
@@ -112,18 +117,13 @@
     
     if (recognizer.isZoom) {
         //缩放
-        self.scaleTransform = CGAffineTransformMakeScale(recognizer.scale, recognizer.scale);
         self.transform = CGAffineTransformScale(self.transform, recognizer.scale, recognizer.scale);
-        [self checkView:self transform:self.transform isFirstTime:NO];
     } else {
         //旋转
-        
-        self.rotateTransform = CGAffineTransformMakeRotation(recognizer.rotation);
-        self.rotateTransform = CGAffineTransformConcat(self.rotateTransform, self.transform);
-//        self.rotateTransform = CGAffineTransformRotate(CGAffineTransformIdentity, recognizer.rotation);
         self.transform = CGAffineTransformRotate(self.transform, recognizer.rotation);
-        [self checkView:self transform:self.transform isFirstTime:NO];
     }
+    
+    [self checkView:self transform:self.transform isFirstTime:NO];
 }
 
 #pragma mark - event response
@@ -140,17 +140,16 @@
         self.pointsDic = [NSMutableDictionary dictionary];
     }
     
-    
     CGPoint topleft = CGPointZero;
     CGPoint topright = CGPointZero;
     CGPoint bottomleft = CGPointZero;
     CGPoint bottomright = CGPointZero;
     if (isFirstTime) {
         
-        topleft = view.frame.origin;
-        topright = CGPointMake(view.frame.origin.x+view.frame.size.width, view.frame.origin.y);
-        bottomleft = CGPointMake(view.frame.origin.x, view.frame.origin.y+view.frame.size.height);
-        bottomright = CGPointMake(view.frame.origin.x+view.frame.size.width, view.frame.origin.y+view.frame.size.height);
+        topleft = view.bounds.origin;
+        topright = CGPointMake(view.bounds.origin.x+view.bounds.size.width, view.bounds.origin.y);
+        bottomleft = CGPointMake(view.bounds.origin.x, view.bounds.origin.y+view.bounds.size.height);
+        bottomright = CGPointMake(view.bounds.origin.x+view.bounds.size.width, view.bounds.origin.y+view.bounds.size.height);
         
         [self.pointsDic setValue:NSStringFromCGPoint(topleft) forKey:@"topleft"];
         [self.pointsDic setValue:NSStringFromCGPoint(topright) forKey:@"topright"];
@@ -158,9 +157,10 @@
         [self.pointsDic setValue:NSStringFromCGPoint(bottomright) forKey:@"bottomright"];
     } else {
         
-        topleft = view.frame.origin;
-//        topleft = [self convertPoint:topleft toView:self.superview];
+        topleft = view.bounds.origin;
         topright = CGPointApplyAffineTransform(CGPointFromString([self.pointsDic valueForKey:@"topright"]), trans);
+        topright = CGPointApplyAffineTransform(topright, self.initTransform);
+        
         bottomleft = CGPointApplyAffineTransform(CGPointFromString([self.pointsDic valueForKey:@"bottomleft"]), trans);
         bottomright = CGPointApplyAffineTransform(CGPointFromString([self.pointsDic valueForKey:@"bottomright"]), trans);
         
@@ -190,6 +190,7 @@
             toprightPoint.tag = 2222;
             toprightPoint.backgroundColor = [UIColor redColor];
             [self.superview addSubview:toprightPoint];
+//            topright = CGPointApplyAffineTransform(topright, self.initTransform);
         }
         toprightPoint.center = topright;
         

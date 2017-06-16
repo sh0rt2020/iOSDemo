@@ -15,7 +15,6 @@
 		3B3505DF1ED5F1C500C7D1B1 /* UCRedPocketView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B3505DE1ED5F1C500C7D1B1 /* UCRedPocketView.m */; };
 		3B3505E21ED5F1FF00C7D1B1 /* UCRedPocketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B3505E11ED5F1FF00C7D1B1 /* UCRedPocketViewController.m */; };
 		3B3505E51ED5F22600C7D1B1 /* RPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B3505E41ED5F22600C7D1B1 /* RPViewController.m */; };
-		57647EE81EF2964A0044847E /* test.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 57647EE71EF2964A0044847E /* test.mp4 */; };
 		57B3AB881ED6F117006A04F3 /* CoreAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57B3AB871ED6F117006A04F3 /* CoreAnimationViewController.m */; };
 		57DBFB601EE6BC1D00ACBB01 /* GS_RotationGuestreRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DBFB5F1EE6BC1D00ACBB01 /* GS_RotationGuestreRecognizer.m */; };
 		57DBFB631EE7A48D00ACBB01 /* GSAnimateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DBFB621EE7A48D00ACBB01 /* GSAnimateView.m */; };
@@ -37,7 +36,7 @@
 		3B3505E11ED5F1FF00C7D1B1 /* UCRedPocketViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UCRedPocketViewController.m; sourceTree = "<group>"; };
 		3B3505E31ED5F22600C7D1B1 /* RPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RPViewController.h; sourceTree = "<group>"; };
 		3B3505E41ED5F22600C7D1B1 /* RPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPViewController.m; sourceTree = "<group>"; };
-		57647EE71EF2964A0044847E /* test.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = test.mp4; path = ../../../../Desktop/test.mp4; sourceTree = "<group>"; };
+		57647EE91EF2971B0044847E /* test.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.mp4; sourceTree = "<group>"; };
 		57B3AB861ED6F117006A04F3 /* CoreAnimationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreAnimationViewController.h; sourceTree = "<group>"; };
 		57B3AB871ED6F117006A04F3 /* CoreAnimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreAnimationViewController.m; sourceTree = "<group>"; };
 		57DBFB5E1EE6BC1D00ACBB01 /* GS_RotationGuestreRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GS_RotationGuestreRecognizer.h; sourceTree = "<group>"; };
@@ -76,7 +75,7 @@
 		3B3505C51ED5DE8C00C7D1B1 /* CoreAnimationDemo */ = {
 			isa = PBXGroup;
 			children = (
-				57647EE71EF2964A0044847E /* test.mp4 */,
+				57647EE91EF2971B0044847E /* test.mp4 */,
 				3B3505C91ED5DE8C00C7D1B1 /* AppDelegate.h */,
 				3B3505CA1ED5DE8C00C7D1B1 /* AppDelegate.m */,
 				3B3505CC1ED5DE8C00C7D1B1 /* ViewController.h */,
@@ -169,7 +168,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B3505D61ED5DE8C00C7D1B1 /* LaunchScreen.storyboard in Resources */,
-				57647EE81EF2964A0044847E /* test.mp4 in Resources */,
 				3B3505D31ED5DE8C00C7D1B1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
