@@ -15,6 +15,7 @@
 		3B3505DF1ED5F1C500C7D1B1 /* UCRedPocketView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B3505DE1ED5F1C500C7D1B1 /* UCRedPocketView.m */; };
 		3B3505E21ED5F1FF00C7D1B1 /* UCRedPocketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B3505E11ED5F1FF00C7D1B1 /* UCRedPocketViewController.m */; };
 		3B3505E51ED5F22600C7D1B1 /* RPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B3505E41ED5F22600C7D1B1 /* RPViewController.m */; };
+		3B3C0AC41EF2D6CB00C9D85A /* test.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3B3C0AC31EF2D6CB00C9D85A /* test.mp4 */; };
 		57B3AB881ED6F117006A04F3 /* CoreAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57B3AB871ED6F117006A04F3 /* CoreAnimationViewController.m */; };
 		57DBFB601EE6BC1D00ACBB01 /* GS_RotationGuestreRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DBFB5F1EE6BC1D00ACBB01 /* GS_RotationGuestreRecognizer.m */; };
 		57DBFB631EE7A48D00ACBB01 /* GSAnimateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DBFB621EE7A48D00ACBB01 /* GSAnimateView.m */; };
@@ -169,6 +170,7 @@
 			files = (
 				3B3505D61ED5DE8C00C7D1B1 /* LaunchScreen.storyboard in Resources */,
 				3B3505D31ED5DE8C00C7D1B1 /* Assets.xcassets in Resources */,
+				3B3C0AC41EF2D6CB00C9D85A /* test.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
