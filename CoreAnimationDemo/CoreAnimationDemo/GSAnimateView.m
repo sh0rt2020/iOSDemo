@@ -18,7 +18,7 @@
 @property (nonatomic, assign) BOOL isRotateZoom;
 @property (nonatomic, strong) NSMutableDictionary *pointsDic;
 @property (nonatomic, assign) CGAffineTransform lastTransform;  //上一次的形变量
-@property (nonatomic, assign) CGAffineTransform initTransform;  //初始的位移变化
+//@property (nonatomic, assign) CGAffineTransform initTransform;  //初始的位移变化
 @end
 
 @implementation GSAnimateView
@@ -30,12 +30,7 @@
         [self addSubview:self.scaleButton];
         [self addSubview:self.rotaButton];
         
-//        CGRect rect = self.bounds;
-//        CGPoint center = self.center;
-//        CGAffineTransform transf = CGAffineTransformMakeTranslation(-rect.size.width/2, -rect.size.height/2);
-//        transf = CGAffineTransformConcat(transf, self.transform);
-//        transf = CGAffineTransformTranslate(transf, center.x, center.y);
-        self.initTransform = CGAffineTransformMakeTranslation(self.frame.origin.x, self.frame.origin.y);
+//        self.initTransform = CGAffineTransformMakeTranslation(self.frame.origin.x, self.frame.origin.y);
         
         UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
         [self addGestureRecognizer:panGesture];
@@ -129,30 +124,29 @@
     CGPoint topright = CGPointZero;
     CGPoint bottomleft = CGPointZero;
     CGPoint bottomright = CGPointZero;
-    if (isFirstTime) {
+//    if (isFirstTime) {
+//        
+//        topleft = view.bounds.origin;
+//        topright = CGPointMake(view.bounds.origin.x+view.bounds.size.width, view.bounds.origin.y);
+//        bottomleft = CGPointMake(view.bounds.origin.x, view.bounds.origin.y+view.bounds.size.height);
+//        bottomright = CGPointMake(view.bounds.origin.x+view.bounds.size.width, view.bounds.origin.y+view.bounds.size.height);
+//        
+//        [self.pointsDic setValue:NSStringFromCGPoint(topleft) forKey:@"topleft"];
+//        [self.pointsDic setValue:NSStringFromCGPoint(topright) forKey:@"topright"];
+//        [self.pointsDic setValue:NSStringFromCGPoint(bottomleft) forKey:@"bottomleft"];
+//        [self.pointsDic setValue:NSStringFromCGPoint(bottomright) forKey:@"bottomright"];
+//    } else {
+    
+//        topleft = CGPointApplyAffineTransform(CGPointFromString([self.pointsDic valueForKey:@"topleft"]), trans);
+//        topright = CGPointApplyAffineTransform(CGPointFromString([self.pointsDic valueForKey:@"topright"]), trans);
+//        bottomleft = CGPointApplyAffineTransform(CGPointFromString([self.pointsDic valueForKey:@"bottomleft"]), trans);
+//        bottomright = CGPointApplyAffineTransform(CGPointFromString([self.pointsDic valueForKey:@"bottomright"]), trans);
+
         
-        topleft = view.bounds.origin;
-        topright = CGPointMake(view.bounds.origin.x+view.bounds.size.width, view.bounds.origin.y);
-        bottomleft = CGPointMake(view.bounds.origin.x, view.bounds.origin.y+view.bounds.size.height);
-        bottomright = CGPointMake(view.bounds.origin.x+view.bounds.size.width, view.bounds.origin.y+view.bounds.size.height);
-        
-        [self.pointsDic setValue:NSStringFromCGPoint(topleft) forKey:@"topleft"];
-        [self.pointsDic setValue:NSStringFromCGPoint(topright) forKey:@"topright"];
-        [self.pointsDic setValue:NSStringFromCGPoint(bottomleft) forKey:@"bottomleft"];
-        [self.pointsDic setValue:NSStringFromCGPoint(bottomright) forKey:@"bottomright"];
-    } else {
-        
-        topleft = CGPointApplyAffineTransform(CGPointFromString([self.pointsDic valueForKey:@"topleft"]), trans);
-//        topleft = CGPointApplyAffineTransform(topleft, self.initTransform);
-//        CGPoint leftCorner = self.frame.origin;
-//        CGAffineTransform moveTrans = CGAffineTransformMakeTranslation(leftCorner.x-topleft.x, leftCorner.y-topleft.y);
-//        topleft = CGPointApplyAffineTransform(topleft, moveTrans);
-        topright = CGPointApplyAffineTransform(CGPointFromString([self.pointsDic valueForKey:@"topright"]), trans);
-        topright = CGPointApplyAffineTransform(topright, self.initTransform);
-        bottomleft = CGPointApplyAffineTransform(CGPointFromString([self.pointsDic valueForKey:@"bottomleft"]), trans);
-        bottomleft = CGPointApplyAffineTransform(bottomleft, self.initTransform);
-        bottomright = CGPointApplyAffineTransform(CGPointFromString([self.pointsDic valueForKey:@"bottomright"]), trans);
-        bottomright = CGPointApplyAffineTransform(bottomright, self.initTransform);
+        topleft = [self newTopLeft];
+        topright = [self newTopRight];
+        bottomleft = [self newBottomLeft];
+        bottomright = [self newBottomRight];
         
 #warning 观察矩形四个角坐标的变化
         UIView *topleftPoint = nil;
@@ -193,25 +187,80 @@
             [self.superview addSubview:bottomrightPoint];
         }
         bottomrightPoint.center = bottomright;
-    }
+//    }
     
 
     if (topleft.x < 10 || topleft.y < 10+64) {
-//        self.transform = self.lastTransform;
+        self.transform = self.lastTransform;
         return ;
     } else if (topright.x > [UIScreen mainScreen].bounds.size.width-10 || topright.y < 10+64) {
-//        self.transform = self.lastTransform;
+        self.transform = self.lastTransform;
         return ;
     } else if (bottomleft.x < 10 || bottomleft.y > [UIScreen mainScreen].bounds.size.height-10) {
-//        self.transform = self.lastTransform;
+        self.transform = self.lastTransform;
         return ;
     } else if (bottomright.x > [UIScreen mainScreen].bounds.size.width - 10 || bottomright.y > [UIScreen mainScreen].bounds.size.height-10) {
-//        self.transform = self.lastTransform;
+        self.transform = self.lastTransform;
         return ;
     }
     
     self.lastTransform = trans;
 }
+
+
+// helper to get pre transform frame
+-(CGRect)originalFrame {
+    CGAffineTransform currentTransform = self.transform;
+    self.transform = CGAffineTransformIdentity;
+    CGRect originalFrame = self.frame;
+    self.transform = currentTransform;
+    
+    return originalFrame;
+}
+
+// helper to get point offset from center
+-(CGPoint)centerOffset:(CGPoint)thePoint {
+    return CGPointMake(thePoint.x - self.center.x, thePoint.y - self.center.y);
+}
+// helper to get point back relative to center
+-(CGPoint)pointRelativeToCenter:(CGPoint)thePoint {
+    return CGPointMake(thePoint.x + self.center.x, thePoint.y + self.center.y);
+}
+// helper to get point relative to transformed coords
+-(CGPoint)newPointInView:(CGPoint)thePoint {
+    // get offset from center
+    CGPoint offset = [self centerOffset:thePoint];
+    // get transformed point
+    CGPoint transformedPoint = CGPointApplyAffineTransform(offset, self.transform);
+    // make relative to center
+    return [self pointRelativeToCenter:transformedPoint];
+}
+
+// now get your corners
+-(CGPoint)newTopLeft {
+    CGRect frame = [self originalFrame];
+    return [self newPointInView:frame.origin];
+}
+-(CGPoint)newTopRight {
+    CGRect frame = [self originalFrame];
+    CGPoint point = frame.origin;
+    point.x += frame.size.width;
+    return [self newPointInView:point];
+}
+-(CGPoint)newBottomLeft {
+    CGRect frame = [self originalFrame];
+    CGPoint point = frame.origin;
+    point.y += frame.size.height;
+    return [self newPointInView:point];
+}
+-(CGPoint)newBottomRight {
+    CGRect frame = [self originalFrame];
+    CGPoint point = frame.origin;
+    point.x += frame.size.width;
+    point.y += frame.size.height;
+    return [self newPointInView:point];
+}
+
 
 #pragma mark - getter & setter
 - (UIButton *)delButton {
