@@ -116,9 +116,9 @@
         transform:(CGAffineTransform)trans
       isFirstTime:(BOOL)isFirstTime {
     
-    if (!self.pointsDic) {
-        self.pointsDic = [NSMutableDictionary dictionary];
-    }
+//    if (!self.pointsDic) {
+//        self.pointsDic = [NSMutableDictionary dictionary];
+//    }
     
     CGPoint topleft = CGPointZero;
     CGPoint topright = CGPointZero;
