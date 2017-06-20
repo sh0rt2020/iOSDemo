@@ -156,7 +156,7 @@ const GLubyte Indices[] = {
     glEnableVertexAttribArray(_colorSlot);
     
     _projectionUniform = glGetUniformLocation(programHandle, "Projection");
-    _modelViewUniform = glGetUniformLocation(programHandle, @"ModelView");
+    _modelViewUniform = glGetUniformLocation(programHandle, "ModelView");
 }
 
 - (void)setupVBOs {
@@ -250,11 +250,13 @@ const GLubyte Indices[] = {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glEnable(GL_DEPTH_TEST);
     
+    //projection
     CC3GLMatrix *projection = [CC3GLMatrix matrix];
     float h = 4.0f * self.frame.size.height / self.frame.size.width;
     [projection populateFromFrustumLeft:-2 andRight:2 andBottom:-h/2 andTop:h/2 andNear:4 andFar:10];
     glUniformMatrix4fv(_projectionUniform, 1, 0, projection.glMatrix);
     
+    //3d cube
     CC3GLMatrix *modelView = [CC3GLMatrix matrix];
     [modelView populateFromTranslation:CC3VectorMake(sin(CACurrentMediaTime()), 0, -7)];
     _currentRotation += displayLink.duration * 90;
