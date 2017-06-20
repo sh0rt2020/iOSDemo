@@ -8,9 +8,10 @@
 
 #import "ViewController.h"
 #import "OpenGLView.h"
+#import "OpenGLCopy.h"
 
 @interface ViewController ()
-@property (nonatomic, strong) OpenGLView *bgView;
+@property (nonatomic, strong) OpenGLCopy *bgView;
 @end
 
 @implementation ViewController
@@ -19,7 +20,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor orangeColor];
-    self.bgView = [[OpenGLView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.bgView = [[OpenGLCopy alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.bgView.alpha = 1.0;
     [self.view addSubview:self.bgView];
 }

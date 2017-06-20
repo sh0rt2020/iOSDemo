@@ -18,6 +18,7 @@
 		57BF83C31EF8CA2E009F7B4A /* CC3GLMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = 57BF83BB1EF8CA2E009F7B4A /* CC3GLMatrix.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		57BF83C41EF8CA2E009F7B4A /* CC3Kazmath.c in Sources */ = {isa = PBXBuildFile; fileRef = 57BF83BC1EF8CA2E009F7B4A /* CC3Kazmath.c */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		57BF83C51EF8CA2E009F7B4A /* CC3Math.m in Sources */ = {isa = PBXBuildFile; fileRef = 57BF83C01EF8CA2E009F7B4A /* CC3Math.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		57BF83D51EF949EC009F7B4A /* OpenGLCopy.m in Sources */ = {isa = PBXBuildFile; fileRef = 57BF83D41EF949EC009F7B4A /* OpenGLCopy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,8 @@
 		57BF83C01EF8CA2E009F7B4A /* CC3Math.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CC3Math.m; sourceTree = "<group>"; };
 		57BF83C11EF8CA2E009F7B4A /* ccTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccTypes.h; sourceTree = "<group>"; };
 		57BF83C61EF8CA4B009F7B4A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		57BF83D31EF949EC009F7B4A /* OpenGLCopy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenGLCopy.h; sourceTree = "<group>"; };
+		57BF83D41EF949EC009F7B4A /* OpenGLCopy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpenGLCopy.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +95,8 @@
 				57BF83A91EF7C828009F7B4A /* OpenGLView.m */,
 				57BF83AE1EF7E22D009F7B4A /* SimpleVertex.glsl */,
 				57BF83B01EF7E6E2009F7B4A /* SimpleFragment.glsl */,
+				57BF83D31EF949EC009F7B4A /* OpenGLCopy.h */,
+				57BF83D41EF949EC009F7B4A /* OpenGLCopy.m */,
 			);
 			path = OpenGLDemo;
 			sourceTree = "<group>";
@@ -197,6 +202,7 @@
 				57BF83A21EF7C6F3009F7B4A /* main.m in Sources */,
 				57BF83941EF7C6F3009F7B4A /* AppDelegate.m in Sources */,
 				57BF83B41EF8C09F009F7B4A /* ViewController.m in Sources */,
+				57BF83D51EF949EC009F7B4A /* OpenGLCopy.m in Sources */,
 				57BF83C21EF8CA2E009F7B4A /* CC3Foundation.m in Sources */,
 				57BF83AA1EF7C828009F7B4A /* OpenGLView.m in Sources */,
 				57BF83C31EF8CA2E009F7B4A /* CC3GLMatrix.m in Sources */,
