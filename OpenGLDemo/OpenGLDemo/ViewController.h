@@ -2,7 +2,7 @@
 //  ViewController.h
 //  OpenGLDemo
 //
-//  Created by iosdevlope on 2017/6/19.
+//  Created by iosdevlope on 2017/6/20.
 //  Copyright © 2017年 iosdevlope. All rights reserved.
 //
 
@@ -10,6 +10,4 @@
 
 @interface ViewController : UIViewController
 
-
 @end
-
