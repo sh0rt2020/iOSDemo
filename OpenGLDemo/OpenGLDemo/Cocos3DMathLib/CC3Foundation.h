@@ -54,6 +54,8 @@
 #import "CC3Logging.h"
 //#import "CCDirector.h"
 
+#import <UIKit/UIKit.h>
+
 #pragma mark -
 #pragma mark 3D cartesian vector structure and functions
 

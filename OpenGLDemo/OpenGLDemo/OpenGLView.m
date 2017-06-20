@@ -80,22 +80,6 @@ const GLubyte Indices[] = {
     0, 7, 4
 };
 
-typedef struct {
-    float Position[3];
-    float Color[4];
-} Vertex;
-
-const Vertex Vertices[] = {
-    {{1, -1, 0}, {1, 0, 0, 1}},
-    {{1, 1, 0}, {0, 1, 0, 1}},
-    {{-1, 1, 0}, {0, 0, 1, 1}},
-    {{-1, -1, 0}, {0, 0, 0, 1}}
-};
-
-const GLubyte Indices[] = {
-    0, 1, 2,
-    2, 3, 0
-};
 
 @interface OpenGLView () {
     CAEAGLLayer *_eaglLayer;
