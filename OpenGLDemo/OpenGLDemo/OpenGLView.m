@@ -12,6 +12,23 @@
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
 
+typedef struct {
+    float Position[3];
+    float Color[4];
+} Vertex;
+
+const Vertex Vertices[] = {
+    {{1, -1, 0}, {1, 0, 0, 1}},
+    {{1, 1, 0}, {0, 1, 0, 1}},
+    {{-1, 1, 0}, {0, 0, 1, 1}},
+    {{-1, -1, 0}, {0, 0, 0, 1}}
+};
+
+const GLubyte Indices[] = {
+    0, 1, 2,
+    2, 3, 0
+};
+
 @interface OpenGLView () {
     CAEAGLLayer *_eaglLayer;
     EAGLContext *_context;
