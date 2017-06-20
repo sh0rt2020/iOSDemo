@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  OpenGLCopy.h
 //  OpenGLDemo
 //
 //  Created by iosdevlope on 2017/6/20.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface OpenGLCopy : UIView
 
 @end
