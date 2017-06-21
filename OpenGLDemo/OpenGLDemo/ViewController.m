@@ -11,6 +11,7 @@
 #import "OpenGLCopy.h"
 
 @interface ViewController ()
+//@property (nonatomic, strong) OpenGLView *bgView;
 @property (nonatomic, strong) OpenGLCopy *bgView;
 @end
 

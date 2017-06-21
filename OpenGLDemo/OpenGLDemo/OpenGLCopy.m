@@ -24,6 +24,9 @@
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
+        self.opaque = YES;
+        self.backgroundColor = [UIColor whiteColor];
+        
         [self setupLayer];
         [self setupContext];
         [self setupRenderBuffer];
@@ -44,6 +47,11 @@
 - (void)setupLayer {
     _eaglLayer = (CAEAGLLayer *)self.layer;
     _eaglLayer.opaque = YES;
+    
+    CGColorSpaceRef rgb = CGColorSpaceCreateDeviceRGB();
+    const CGFloat myColor[] = {0.0, 0.0, 0.0, 0.0};
+    _eaglLayer.backgroundColor = CGColorCreate(rgb, myColor);
+    CGColorSpaceRelease(rgb);
 }
 
 - (void)setupContext {
