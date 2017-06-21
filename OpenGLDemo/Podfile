@@ -1,4 +1,4 @@
 platform:ios,'8.0'
 target 'OpenGLDemo' do
-pod 'GPUImage'
+#pod 'GPUImage'
 end

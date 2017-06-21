@@ -4,18 +4,18 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>OpenGLDemo.xcscheme</key>
+		<key>Pods-OpenGLDemo.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>0</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>57BF838E1EF7C6F3009F7B4A</key>
+		<key>BB5E30208A907F97CEC246E861155A76</key>
 		<dict>
 			<key>primary</key>
-			<true />
+			<true/>
 		</dict>
 	</dict>
 </dict>
