@@ -40,6 +40,9 @@
 @property (nonatomic, strong) UIButton *confirmAlbumPhotoButton;
 @property (nonatomic, unsafe_unretained) BOOL isInVideoRecorderMode;
 @property (nonatomic, unsafe_unretained) BOOL isHighQualityVideo;
+
+@property (nonatomic, strong) NSArray *filtersArr;
+
 - (void)backButtonPressed:(id)sender;
 - (void)toggleFiltersButtonPressed:(id)sender;
 - (void)photoAlbumButtonPressed:(id)sender;
@@ -302,104 +305,8 @@
         filterImageView = (UIImageView *)[cell.contentView viewWithTag:kFilterImageViewTag];
     }
     
-    switch ([indexPath row]) {
-        case 0: {
-            filterImageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"DSFilterTileNormal" ofType:@"png"]];
-
-            break;
-        }
-        case 1: {
-            filterImageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"DSFilterTileAmaro" ofType:@"png"]];
-            
-            break;
-        }
-        case 2: {
-            filterImageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"DSFilterTileRise" ofType:@"png"]];
-            
-            break;
-        }
-        case 3: {
-            filterImageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"DSFilterTileHudson" ofType:@"png"]];
-            
-            break;
-        }
-        case 4: {
-            filterImageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"DSFilterTileXpro2" ofType:@"png"]];
-            
-            break;
-        }
-        case 5: {
-            filterImageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"DSFilterTileSierra" ofType:@"png"]];
-            
-            break;
-        }
-        case 6: {
-            filterImageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"DSFilterTileLomoFi" ofType:@"png"]];
-            
-            break;
-        }
-        case 7: {
-            filterImageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"DSFilterTileEarlybird" ofType:@"png"]];
-            
-            break;
-        }
-        case 8: {
-            filterImageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"DSFilterTileSutro" ofType:@"png"]];
-            
-            break;
-        }
-        case 9: {
-            filterImageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"DSFilterTileToaster" ofType:@"png"]];
-            
-            break;
-        }
-        case 10: {
-            filterImageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"DSFilterTileBrannan" ofType:@"png"]];
-            
-            break;
-        }
-        case 11: {
-            filterImageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"DSFilterTileInkwell" ofType:@"png"]];
-            
-            break;
-        }
-        case 12: {
-            filterImageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"DSFilterTileWalden" ofType:@"png"]];
-            
-            break;
-        }
-        case 13: {
-            filterImageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"DSFilterTileHefe" ofType:@"png"]];
-            
-            break;
-        }
-        case 14: {
-            filterImageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"DSFilterTileValencia" ofType:@"png"]];
-            
-            break;
-        }
-        case 15: {
-            filterImageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"DSFilterTileNashville" ofType:@"png"]];
-            
-            break;
-        }
-        case 16: {
-            filterImageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"DSFilterTile1977" ofType:@"png"]];
-            
-            break;
-        }
-        case 17: {
-            filterImageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"DSFilterTileLordKelvin" ofType:@"png"]];
-            break;
-        }
-            
-        default: {
-            filterImageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"DSFilterTileNormal" ofType:@"png"]];
-
-            break;
-        }
-    }
-    
+    NSString *filterName = [[self.filtersArr objectAtIndex:indexPath.row] objectForKey:@"name"];
+    filterImageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@_thumb", filterName] ofType:@"png"]];
     
     return cell;
 }
@@ -485,7 +392,7 @@
     
     self.cancelAlbumPhotoButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.cancelAlbumPhotoButton.frame = CGRectMake(115, FM_SCREEN_HEIGHT-47, 40, 40);
-    [self.cancelAlbumPhotoButton setImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"glCameraReject" ofType:@"png"]] forState:UIControlStateNormal];
+//    [self.cancelAlbumPhotoButton setImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"glCameraReject" ofType:@"png"]] forState:UIControlStateNormal];
     self.cancelAlbumPhotoButton.adjustsImageWhenHighlighted = NO;
     self.cancelAlbumPhotoButton.showsTouchWhenHighlighted = YES;
     self.cancelAlbumPhotoButton.hidden = YES;
@@ -493,7 +400,7 @@
 
     self.confirmAlbumPhotoButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.confirmAlbumPhotoButton.frame = CGRectMake(170, FM_SCREEN_HEIGHT-47, 40, 40);
-    [self.confirmAlbumPhotoButton setImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"glCameraAccept" ofType:@"png"]] forState:UIControlStateNormal];
+//    [self.confirmAlbumPhotoButton setImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"glCameraAccept" ofType:@"png"]] forState:UIControlStateNormal];
     self.confirmAlbumPhotoButton.adjustsImageWhenHighlighted = NO;
     self.confirmAlbumPhotoButton.showsTouchWhenHighlighted = YES;
     self.confirmAlbumPhotoButton.hidden = YES;
@@ -544,6 +451,12 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     [self.videoCamera startCameraCapture];
+    
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"plsfilters" ofType:@"json"];
+    NSData *jsonData = [NSData dataWithContentsOfFile:filePath];
+    NSError *error = nil;
+    id json = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
+    self.filtersArr = [NSArray arrayWithArray:[json objectForKey:@"filters"]];
 }
 
 - (void)viewDidUnload {

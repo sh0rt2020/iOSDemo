@@ -46,6 +46,9 @@
 #pragma mark - event response
 - (void)handlePush:(UIButton *)sender {
     IFFiltersViewController *filter = [IFFiltersViewController new];
-    [self.navigationController pushViewController:filter animated:YES];
+//    [self.navigationController pushViewController:filter animated:YES];
+    [self presentViewController:filter animated:YES completion:^{
+        
+    }];
 }
 @end
