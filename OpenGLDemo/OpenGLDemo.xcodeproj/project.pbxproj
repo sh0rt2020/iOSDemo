@@ -529,10 +529,10 @@
 			children = (
 				3B8EC7071EFAD9EC007C7FF8 /* GPUImage */,
 				57BF84491EFA816C009F7B4A /* colorFilter */,
+				57BF84B71EFA816C009F7B4A /* Resources_for_IF_Filters */,
 				57BF85101EFA816C009F7B4A /* FiltersViewController */,
 				57BF84E91EFA816C009F7B4A /* IFFilters */,
 				57BF84E21EFA816C009F7B4A /* IFImage */,
-				57BF84B71EFA816C009F7B4A /* Resources_for_IF_Filters */,
 				57BF84B31EFA816C009F7B4A /* UIImage_Category */,
 				57BF84AF1EFA816C009F7B4A /* lookup_amatorka.png */,
 				57BF84B61EFA816C009F7B4A /* lookup_miss_etikate.png */,
