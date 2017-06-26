@@ -8,13 +8,11 @@
 
 #import "ViewController.h"
 #import "OpenGLView.h"
-#import "OpenGLCopy.h"
 
 #import "IFFiltersViewController.h"
 
 @interface ViewController ()
-//@property (nonatomic, strong) OpenGLView *bgView;
-//@property (nonatomic, strong) OpenGLCopy *bgView;
+@property (nonatomic, strong) OpenGLView *bgView;
 @end
 
 @implementation ViewController
@@ -23,15 +21,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor orangeColor];
-//    self.bgView = [[OpenGLCopy alloc] initWithFrame:[UIScreen mainScreen].bounds];
-//    self.bgView.alpha = 1.0;
-//    [self.view addSubview:self.bgView];
+    self.bgView = [[OpenGLView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    [self.view addSubview:self.bgView];
     
-    UIButton *push = [[UIButton alloc] initWithFrame:CGRectMake(20, 100, [UIScreen mainScreen].bounds.size.width-40, 44)];
-    [push setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    [push setTitle:@"PushToFilterView" forState:UIControlStateNormal];
-    [push addTarget:self action:@selector(handlePush:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:push];
+//    UIButton *push = [[UIButton alloc] initWithFrame:CGRectMake(20, 100, [UIScreen mainScreen].bounds.size.width-40, 44)];
+//    [push setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+//    [push setTitle:@"PushToFilterView" forState:UIControlStateNormal];
+//    [push addTarget:self action:@selector(handlePush:) forControlEvents:UIControlEventTouchUpInside];
+//    [self.view addSubview:push];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
