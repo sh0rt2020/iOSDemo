@@ -11,8 +11,6 @@
 		3B8EC6591EF977B6007C7FF8 /* CC3GLMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8EC6511EF977B6007C7FF8 /* CC3GLMatrix.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3B8EC65A1EF977B6007C7FF8 /* CC3Kazmath.c in Sources */ = {isa = PBXBuildFile; fileRef = 3B8EC6521EF977B6007C7FF8 /* CC3Kazmath.c */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3B8EC65B1EF977B6007C7FF8 /* CC3Math.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8EC6561EF977B6007C7FF8 /* CC3Math.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3B8EC65C1EFAD4D9007C7FF8 /* OpenGLCopy.h in Sources */ = {isa = PBXBuildFile; fileRef = 57BF84421EFA7E60009F7B4A /* OpenGLCopy.h */; };
-		3B8EC65D1EFAD4D9007C7FF8 /* OpenGLCopy.m in Sources */ = {isa = PBXBuildFile; fileRef = 57BF84431EFA7E60009F7B4A /* OpenGLCopy.m */; };
 		3B8EC65E1EFAD4D9007C7FF8 /* OpenGLView.h in Sources */ = {isa = PBXBuildFile; fileRef = 57BF84441EFA7E60009F7B4A /* OpenGLView.h */; };
 		3B8EC65F1EFAD4D9007C7FF8 /* OpenGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57BF84451EFA7E60009F7B4A /* OpenGLView.m */; };
 		3B8EC6601EFAD4D9007C7FF8 /* SimpleFragment.glsl in Sources */ = {isa = PBXBuildFile; fileRef = 57BF84461EFA7E60009F7B4A /* SimpleFragment.glsl */; };
@@ -196,6 +194,8 @@
 		57BF839C1EF7C6F3009F7B4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57BF839B1EF7C6F3009F7B4A /* Assets.xcassets */; };
 		57BF83A21EF7C6F3009F7B4A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 57BF83A11EF7C6F3009F7B4A /* main.m */; };
 		57BF83B41EF8C09F009F7B4A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57BF83B31EF8C09F009F7B4A /* ViewController.m */; };
+		57F4591C1F00B8DB00B5263E /* SimpleFragment.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 57BF84461EFA7E60009F7B4A /* SimpleFragment.glsl */; };
+		57F4591D1F00B8DB00B5263E /* SimpleVertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 57BF84471EFA7E60009F7B4A /* SimpleVertex.glsl */; };
 		6817F0D602569D5B37C181DF /* libPods-OpenGLDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52248567CBC768B78861CF1A /* libPods-OpenGLDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -311,8 +311,6 @@
 		57BF83B21EF8C09F009F7B4A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		57BF83B31EF8C09F009F7B4A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		57BF83C61EF8CA4B009F7B4A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		57BF84421EFA7E60009F7B4A /* OpenGLCopy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenGLCopy.h; sourceTree = "<group>"; };
-		57BF84431EFA7E60009F7B4A /* OpenGLCopy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpenGLCopy.m; sourceTree = "<group>"; };
 		57BF84441EFA7E60009F7B4A /* OpenGLView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenGLView.h; sourceTree = "<group>"; };
 		57BF84451EFA7E60009F7B4A /* OpenGLView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpenGLView.m; sourceTree = "<group>"; };
 		57BF84461EFA7E60009F7B4A /* SimpleFragment.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = SimpleFragment.glsl; sourceTree = "<group>"; };
@@ -529,10 +527,10 @@
 			children = (
 				3B8EC7071EFAD9EC007C7FF8 /* GPUImage */,
 				57BF84491EFA816C009F7B4A /* colorFilter */,
+				57BF84B71EFA816C009F7B4A /* Resources_for_IF_Filters */,
 				57BF85101EFA816C009F7B4A /* FiltersViewController */,
 				57BF84E91EFA816C009F7B4A /* IFFilters */,
 				57BF84E21EFA816C009F7B4A /* IFImage */,
-				57BF84B71EFA816C009F7B4A /* Resources_for_IF_Filters */,
 				57BF84B31EFA816C009F7B4A /* UIImage_Category */,
 				57BF84AF1EFA816C009F7B4A /* lookup_amatorka.png */,
 				57BF84B61EFA816C009F7B4A /* lookup_miss_etikate.png */,
@@ -549,8 +547,6 @@
 		57BF84411EFA7E60009F7B4A /* opengl */ = {
 			isa = PBXGroup;
 			children = (
-				57BF84421EFA7E60009F7B4A /* OpenGLCopy.h */,
-				57BF84431EFA7E60009F7B4A /* OpenGLCopy.m */,
 				57BF84441EFA7E60009F7B4A /* OpenGLView.h */,
 				57BF84451EFA7E60009F7B4A /* OpenGLView.m */,
 				57BF84461EFA7E60009F7B4A /* SimpleFragment.glsl */,
@@ -826,6 +822,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57F4591C1F00B8DB00B5263E /* SimpleFragment.glsl in Resources */,
+				57F4591D1F00B8DB00B5263E /* SimpleVertex.glsl in Resources */,
 				576195171EFB77B6002C4DE2 /* dreamy_filter.png in Resources */,
 				576195181EFB77B6002C4DE2 /* dreamy_thumb.png in Resources */,
 				576195191EFB77B6002C4DE2 /* elegance_filter.png in Resources */,
@@ -1060,8 +1058,6 @@
 				3B8EC6901EFAD7C6007C7FF8 /* UIImage+IF.m in Sources */,
 				3B8EC6621EFAD4FB007C7FF8 /* IFFiltersViewController.h in Sources */,
 				3B8EC6631EFAD4FB007C7FF8 /* IFFiltersViewController.m in Sources */,
-				3B8EC65C1EFAD4D9007C7FF8 /* OpenGLCopy.h in Sources */,
-				3B8EC65D1EFAD4D9007C7FF8 /* OpenGLCopy.m in Sources */,
 				3B8EC65E1EFAD4D9007C7FF8 /* OpenGLView.h in Sources */,
 				3B8EC65F1EFAD4D9007C7FF8 /* OpenGLView.m in Sources */,
 				3B8EC6601EFAD4D9007C7FF8 /* SimpleFragment.glsl in Sources */,

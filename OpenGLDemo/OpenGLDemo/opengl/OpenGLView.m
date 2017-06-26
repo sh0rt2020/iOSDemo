@@ -185,6 +185,8 @@ const GLubyte Indices[] = {
         [self setupDepthBuffer];
         [self setupFrameBuffer];
         
+//        GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
+        
         [self compileShaders];
         [self setupVBOs];
 //        [self render];
@@ -218,14 +220,9 @@ const GLubyte Indices[] = {
     }
 }
 
-- (void)setupDisplayLink {
-    CADisplayLink *displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(render:)];
-    [displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-}
-
 - (void)setupRenderBuffer {
     glGenRenderbuffers(1, &_colorRenderBuffer);
-    glBindBuffer(GL_RENDERBUFFER, _colorRenderBuffer);
+    glBindRenderbuffer(GL_RENDERBUFFER, _colorRenderBuffer);
     [_context renderbufferStorage:GL_RENDERBUFFER fromDrawable:_eaglLayer];
 }
 
@@ -234,6 +231,7 @@ const GLubyte Indices[] = {
     glBindRenderbuffer(GL_RENDERBUFFER, _depthRenderBuffer);
     glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT16, self.frame.size.width, self.frame.size.height);
 }
+
 
 - (void)setupFrameBuffer {
     GLuint frameBuffer;
@@ -246,7 +244,6 @@ const GLubyte Indices[] = {
 
 - (void)render:(CADisplayLink *)displayLink {
     glClearColor(0, 104.0/255.0, 55.0/255.0, 1.0);
-//    glClearColor(1, 1, 1, 1);
 //    glClear(GL_COLOR_BUFFER_BIT);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glEnable(GL_DEPTH_TEST);
@@ -274,5 +271,9 @@ const GLubyte Indices[] = {
     [_context presentRenderbuffer:GL_RENDERBUFFER];
 }
 
+- (void)setupDisplayLink {
+    CADisplayLink *displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(render:)];
+    [displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+}
 
 @end
