@@ -181,8 +181,8 @@ const GLubyte Indices[] = {
     if (self) {
         [self setupLayer];
         [self setupContext];
-        [self setupRenderBuffer];
         [self setupDepthBuffer];
+        [self setupRenderBuffer];
         [self setupFrameBuffer];
         
 //        GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
@@ -220,18 +220,17 @@ const GLubyte Indices[] = {
     }
 }
 
-- (void)setupRenderBuffer {
-    glGenRenderbuffers(1, &_colorRenderBuffer);
-    glBindRenderbuffer(GL_RENDERBUFFER, _colorRenderBuffer);
-    [_context renderbufferStorage:GL_RENDERBUFFER fromDrawable:_eaglLayer];
-}
-
 - (void)setupDepthBuffer {
     glGenRenderbuffers(1, &_depthRenderBuffer);
     glBindRenderbuffer(GL_RENDERBUFFER, _depthRenderBuffer);
     glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT16, self.frame.size.width, self.frame.size.height);
 }
 
+- (void)setupRenderBuffer {
+    glGenRenderbuffers(1, &_colorRenderBuffer);
+    glBindRenderbuffer(GL_RENDERBUFFER, _colorRenderBuffer);
+    [_context renderbufferStorage:GL_RENDERBUFFER fromDrawable:_eaglLayer];
+}
 
 - (void)setupFrameBuffer {
     GLuint frameBuffer;
