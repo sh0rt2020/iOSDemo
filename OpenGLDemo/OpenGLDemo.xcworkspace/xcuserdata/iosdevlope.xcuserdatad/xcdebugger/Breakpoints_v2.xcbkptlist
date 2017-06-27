@@ -41,13 +41,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "OpenGLDemo/opengl/OpenGLView.m"
-            timestampString = "520163316.000646"
+            filePath = "OpenGLDemo/opengl/OpenGLTextureView.m"
+            timestampString = "520230554.54602"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "190"
-            endingLineNumber = "190"
-            landmarkName = "-initWithFrame:"
+            startingLineNumber = "229"
+            endingLineNumber = "229"
+            landmarkName = "-setupTexture:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

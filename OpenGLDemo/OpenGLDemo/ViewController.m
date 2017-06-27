@@ -8,11 +8,14 @@
 
 #import "ViewController.h"
 #import "OpenGLView.h"
+#import "OpenGLTextureView.h"
 
 #import "IFFiltersViewController.h"
 
 @interface ViewController ()
-@property (nonatomic, strong) OpenGLView *bgView;
+//@property (nonatomic, strong) OpenGLView *bgView;
+@property (nonatomic, strong) OpenGLTextureView *bgView;
+
 @end
 
 @implementation ViewController
@@ -21,7 +24,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor orangeColor];
-    self.bgView = [[OpenGLView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.bgView = [[OpenGLTextureView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.view addSubview:self.bgView];
     
 //    UIButton *push = [[UIButton alloc] initWithFrame:CGRectMake(20, 100, [UIScreen mainScreen].bounds.size.width-40, 44)];
