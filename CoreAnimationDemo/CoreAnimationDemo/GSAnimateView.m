@@ -116,78 +116,48 @@
         transform:(CGAffineTransform)trans
       isFirstTime:(BOOL)isFirstTime {
     
-//    if (!self.pointsDic) {
-//        self.pointsDic = [NSMutableDictionary dictionary];
-//    }
+        
+    CGPoint topleft = [self newTopLeft];
+    CGPoint topright = [self newTopRight];
+    CGPoint bottomleft = [self newBottomLeft];
+    CGPoint bottomright = [self newBottomRight];
     
-    CGPoint topleft = CGPointZero;
-    CGPoint topright = CGPointZero;
-    CGPoint bottomleft = CGPointZero;
-    CGPoint bottomright = CGPointZero;
-//    if (isFirstTime) {
-//        
-//        topleft = view.bounds.origin;
-//        topright = CGPointMake(view.bounds.origin.x+view.bounds.size.width, view.bounds.origin.y);
-//        bottomleft = CGPointMake(view.bounds.origin.x, view.bounds.origin.y+view.bounds.size.height);
-//        bottomright = CGPointMake(view.bounds.origin.x+view.bounds.size.width, view.bounds.origin.y+view.bounds.size.height);
-//        
-//        [self.pointsDic setValue:NSStringFromCGPoint(topleft) forKey:@"topleft"];
-//        [self.pointsDic setValue:NSStringFromCGPoint(topright) forKey:@"topright"];
-//        [self.pointsDic setValue:NSStringFromCGPoint(bottomleft) forKey:@"bottomleft"];
-//        [self.pointsDic setValue:NSStringFromCGPoint(bottomright) forKey:@"bottomright"];
-//    } else {
-    
-//        topleft = CGPointApplyAffineTransform(CGPointFromString([self.pointsDic valueForKey:@"topleft"]), trans);
-//        topright = CGPointApplyAffineTransform(CGPointFromString([self.pointsDic valueForKey:@"topright"]), trans);
-//        bottomleft = CGPointApplyAffineTransform(CGPointFromString([self.pointsDic valueForKey:@"bottomleft"]), trans);
-//        bottomright = CGPointApplyAffineTransform(CGPointFromString([self.pointsDic valueForKey:@"bottomright"]), trans);
-
-        
-        topleft = [self newTopLeft];
-        topright = [self newTopRight];
-        bottomleft = [self newBottomLeft];
-        bottomright = [self newBottomRight];
-        
-#warning 观察矩形四个角坐标的变化
-        UIView *topleftPoint = nil;
-        if (!(topleftPoint = [self.superview viewWithTag:1111])) {
-            topleftPoint = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 2, 2)];
-            topleftPoint.tag = 1111;
-            topleftPoint.backgroundColor = [UIColor redColor];
-            [self.superview addSubview:topleftPoint];
-            topleftPoint.center = CGPointApplyAffineTransform(CGPointFromString([self.pointsDic valueForKey:@"topleft"]), trans);
-            
-        } else {
-            topleftPoint.center = topleft;
-        }
-        
-        UIView *toprightPoint = nil;
-        if (!(toprightPoint = [self.superview viewWithTag:2222])) {
-            toprightPoint = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 2, 2)];
-            toprightPoint.tag = 2222;
-            toprightPoint.backgroundColor = [UIColor redColor];
-            [self.superview addSubview:toprightPoint];
-        }
-        toprightPoint.center = topright;
-        
-        UIView *bottomleftPoint = nil;
-        if (!(bottomleftPoint = [self.superview viewWithTag:3333])) {
-            bottomleftPoint = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 2, 2)];
-            bottomleftPoint.tag = 3333;
-            bottomleftPoint.backgroundColor = [UIColor redColor];
-            [self.superview addSubview:bottomleftPoint];
-        }
-        bottomleftPoint.center = bottomleft;
-        
-        UIView *bottomrightPoint = nil;
-        if (!(bottomrightPoint = [self.superview viewWithTag:4444])) {
-            bottomrightPoint = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 2, 2)];
-            bottomrightPoint.tag = 4444;
-            bottomrightPoint.backgroundColor = [UIColor redColor];
-            [self.superview addSubview:bottomrightPoint];
-        }
-        bottomrightPoint.center = bottomright;
+//#warning 观察矩形四个角坐标的变化
+//    UIView *topleftPoint = nil;
+//    if (!(topleftPoint = [self.superview viewWithTag:1111])) {
+//        topleftPoint = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 2, 2)];
+//        topleftPoint.tag = 1111;
+//        topleftPoint.backgroundColor = [UIColor redColor];
+//        [self.superview addSubview:topleftPoint];
 //    }
+//    topleftPoint.center = topleft;
+//
+//    UIView *toprightPoint = nil;
+//    if (!(toprightPoint = [self.superview viewWithTag:2222])) {
+//        toprightPoint = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 2, 2)];
+//        toprightPoint.tag = 2222;
+//        toprightPoint.backgroundColor = [UIColor redColor];
+//        [self.superview addSubview:toprightPoint];
+//    }
+//    toprightPoint.center = topright;
+//
+//    UIView *bottomleftPoint = nil;
+//    if (!(bottomleftPoint = [self.superview viewWithTag:3333])) {
+//        bottomleftPoint = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 2, 2)];
+//        bottomleftPoint.tag = 3333;
+//        bottomleftPoint.backgroundColor = [UIColor redColor];
+//        [self.superview addSubview:bottomleftPoint];
+//    }
+//    bottomleftPoint.center = bottomleft;
+//
+//    UIView *bottomrightPoint = nil;
+//    if (!(bottomrightPoint = [self.superview viewWithTag:4444])) {
+//        bottomrightPoint = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 2, 2)];
+//        bottomrightPoint.tag = 4444;
+//        bottomrightPoint.backgroundColor = [UIColor redColor];
+//        [self.superview addSubview:bottomrightPoint];
+//    }
+//    bottomrightPoint.center = bottomright;
     
 
     if (topleft.x < 10 || topleft.y < 10+64) {
