@@ -81,6 +81,7 @@
 		5713CA211F0E44B500CA2EE5 /* west_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = 5713C9DE1F0E44B500CA2EE5 /* west_thumb.png */; };
 		5713CA241F0E45F200CA2EE5 /* CIFilter+ColorLUT.m in Sources */ = {isa = PBXBuildFile; fileRef = 5713CA221F0E45F200CA2EE5 /* CIFilter+ColorLUT.m */; };
 		5713CA271F0E516A00CA2EE5 /* FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5713CA261F0E516A00CA2EE5 /* FilterViewController.m */; };
+		5713CA2F1F0F5C3400CA2EE5 /* FilterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5713CA2E1F0F5C3400CA2EE5 /* FilterCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -168,6 +169,8 @@
 		5713CA2A1F0F1F7500CA2EE5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		5713CA2B1F0F1FB000CA2EE5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5713CA2C1F0F28CF00CA2EE5 /* GlobalDefs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalDefs.h; sourceTree = "<group>"; };
+		5713CA2D1F0F5C3400CA2EE5 /* FilterCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FilterCell.h; sourceTree = "<group>"; };
+		5713CA2E1F0F5C3400CA2EE5 /* FilterCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FilterCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +209,8 @@
 				5713CA221F0E45F200CA2EE5 /* CIFilter+ColorLUT.m */,
 				5713CA251F0E516A00CA2EE5 /* FilterViewController.h */,
 				5713CA261F0E516A00CA2EE5 /* FilterViewController.m */,
+				5713CA2D1F0F5C3400CA2EE5 /* FilterCell.h */,
+				5713CA2E1F0F5C3400CA2EE5 /* FilterCell.m */,
 				5713C9851F0E383200CA2EE5 /* AppDelegate.h */,
 				5713C9861F0E383200CA2EE5 /* AppDelegate.m */,
 				5713C9881F0E383200CA2EE5 /* ViewController.h */,
@@ -441,6 +446,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5713C98A1F0E383200CA2EE5 /* ViewController.m in Sources */,
+				5713CA2F1F0F5C3400CA2EE5 /* FilterCell.m in Sources */,
 				5713C9951F0E383200CA2EE5 /* main.m in Sources */,
 				5713CA271F0E516A00CA2EE5 /* FilterViewController.m in Sources */,
 				5713C9871F0E383200CA2EE5 /* AppDelegate.m in Sources */,
