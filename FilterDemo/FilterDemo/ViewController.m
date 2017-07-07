@@ -6,10 +6,9 @@
 //  Copyright © 2017年 iosdevlope. All rights reserved.
 //
 
-#define SCREENW [UIScreen mainScreen].bounds.size.width
-#define SCREENH [UIScreen mainScreen].bounds.size.height
-
 #import "ViewController.h"
+#import "GlobalDefs.h"
+#import "FilterViewController.h"
 
 @interface ViewController ()
 
@@ -20,9 +19,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    self.view.backgroundColor = [UIColor whiteColor];
     
     UIButton *pushButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 100, SCREENW-40, 44)];
     [pushButton setTitle:@"Push" forState:UIControlStateNormal];
+    pushButton.backgroundColor = [UIColor orangeColor];
     [pushButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [pushButton addTarget:self action:@selector(handlePush:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:pushButton];
@@ -36,7 +37,8 @@
 
 #pragma mark - event response
 - (void)handlePush:(UIButton *)sender {
-    
+    FilterViewController *filterVC = [FilterViewController new];
+    [self.navigationController pushViewController:filterVC animated:YES];
 }
 
 @end
