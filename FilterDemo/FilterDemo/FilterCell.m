@@ -28,7 +28,7 @@
 #pragma mark - getter & setter
 - (UIImageView *)imgView {
     if (!_imgView) {
-        _imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 68, 68)];
+        _imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 68, 88)];
     }
     return _imgView;
 }

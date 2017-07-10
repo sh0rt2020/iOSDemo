@@ -9,14 +9,13 @@
 #import "CIFilter+ColorLUT.h"
 #import <CoreImage/CoreImage.h>
 #import <OpenGLES/EAGL.h>
-#import <UIKit/UIKit.h>
 
 @implementation CIFilter (ColorLUT)
 
 + (CIFilter *)colorCubeWithColrLUTImageNamed:(NSString *)imageName dimension:(NSInteger)n
 {
     UIImage *image = [UIImage imageNamed:imageName];
-
+    
     int width = CGImageGetWidth(image.CGImage);
     int height = CGImageGetHeight(image.CGImage);
     int rowNum = height / n;
