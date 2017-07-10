@@ -69,9 +69,12 @@ NSString * const CellIdentifier = @"CollectionViewCellIdentifier";
         lab.text = @"original";
         lab.textAlignment = NSTextAlignmentCenter;
         lab.textColor = [UIColor brownColor];
+        lab.tag = 11111;
         [cell.contentView addSubview:lab];
         cell.imgView.hidden = YES;
     } else {
+        [[cell viewWithTag:11111] removeFromSuperview];
+        cell.imgView.hidden = NO;
         NSString *imgName = [self.filterArr[indexPath.row-1] objectForKey:@"name"];
         cell.imgView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@_thumb", imgName]];
     }
@@ -86,7 +89,7 @@ NSString * const CellIdentifier = @"CollectionViewCellIdentifier";
     } else {
         //滤镜处理
         NSString *filterName = [self.filterArr[indexPath.row-1] objectForKey:@"name"];
-        filterName = [filterName stringByAppendingString:@"_filter"];
+        filterName = [filterName stringByAppendingString:@"_filter.png"];
         
         if (self.originalImg) {
             CIFilter *colorCube = [CIFilter colorCubeWithColrLUTImageNamed:filterName dimension:64];
@@ -94,10 +97,12 @@ NSString * const CellIdentifier = @"CollectionViewCellIdentifier";
             [colorCube setValue:inputImg forKey:@"inputImage"];
             CIImage *outputImg = [colorCube outputImage];
             
-            CIContext *context = [CIContext contextWithOptions:[NSDictionary dictionaryWithObject:(__bridge id)(CGColorSpaceCreateDeviceRGB()) forKey:kCIContextWorkingColorSpace]];
-            UIImage *newImg = [UIImage imageWithCGImage:[context createCGImage:outputImg fromRect:outputImg.extent]];
             
-            [self.imgView setImage:newImg];
+            CIContext *context = [CIContext contextWithOptions:[NSDictionary dictionaryWithObject:(__bridge id)(CGColorSpaceCreateDeviceRGB()) forKey:kCIContextWorkingColorSpace]];
+//            CIContext * context = [CIContext contextWithOptions: nil];
+            CGImageRef newImgRef = [context createCGImage:outputImg fromRect:outputImg.extent];
+            UIImage *newImg = [UIImage imageWithCGImage:newImgRef];
+            self.imgView.image = newImg;
         }
     }
 }
