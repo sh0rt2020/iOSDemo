@@ -82,6 +82,7 @@
 		5713CA271F0E516A00CA2EE5 /* FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5713CA261F0E516A00CA2EE5 /* FilterViewController.m */; };
 		5713CA2F1F0F5C3400CA2EE5 /* FilterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5713CA2E1F0F5C3400CA2EE5 /* FilterCell.m */; };
 		5731D54E1F138AE3004B5056 /* CIFilter+ColorLUT.m in Sources */ = {isa = PBXBuildFile; fileRef = 5731D54C1F137639004B5056 /* CIFilter+ColorLUT.m */; };
+		5731D5511F14A0A8004B5056 /* FilterCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5731D5501F14A0A8004B5056 /* FilterCollectionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -171,6 +172,8 @@
 		5713CA2E1F0F5C3400CA2EE5 /* FilterCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FilterCell.m; sourceTree = "<group>"; };
 		5731D54C1F137639004B5056 /* CIFilter+ColorLUT.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CIFilter+ColorLUT.m"; sourceTree = "<group>"; };
 		5731D54D1F137639004B5056 /* CIFilter+ColorLUT.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CIFilter+ColorLUT.h"; sourceTree = "<group>"; };
+		5731D54F1F14A0A8004B5056 /* FilterCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FilterCollectionViewController.h; sourceTree = "<group>"; };
+		5731D5501F14A0A8004B5056 /* FilterCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FilterCollectionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +218,8 @@
 				5713C9861F0E383200CA2EE5 /* AppDelegate.m */,
 				5713C9881F0E383200CA2EE5 /* ViewController.h */,
 				5713C9891F0E383200CA2EE5 /* ViewController.m */,
+				5731D54F1F14A0A8004B5056 /* FilterCollectionViewController.h */,
+				5731D5501F14A0A8004B5056 /* FilterCollectionViewController.m */,
 				5713C98E1F0E383200CA2EE5 /* Assets.xcassets */,
 				5713C9901F0E383200CA2EE5 /* LaunchScreen.storyboard */,
 				5713C9931F0E383200CA2EE5 /* Info.plist */,
@@ -445,6 +450,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5731D5511F14A0A8004B5056 /* FilterCollectionViewController.m in Sources */,
 				5731D54E1F138AE3004B5056 /* CIFilter+ColorLUT.m in Sources */,
 				5713C98A1F0E383200CA2EE5 /* ViewController.m in Sources */,
 				5713CA2F1F0F5C3400CA2EE5 /* FilterCell.m in Sources */,

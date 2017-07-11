@@ -27,13 +27,14 @@ NSString * const CellIdentifier = @"CollectionViewCellIdentifier";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    self.view.backgroundColor = [UIColor whiteColor];
+//    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
     //导航栏
     UIButton *rightButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 44, 44)];
     [rightButton setTitle:@"相册" forState:UIControlStateNormal];
-    [rightButton setTitleColor:[UIColor yellowColor] forState:UIControlStateNormal];
+    [rightButton setTitleColor:[UIColor colorWithRed:25.0/255.0 green:145.0/255.0 blue:1.0 alpha:1.0] forState:UIControlStateNormal];
     [rightButton addTarget:self action:@selector(handleAlbumAction:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
     self.navigationItem.rightBarButtonItem = rightItem;
@@ -45,7 +46,6 @@ NSString * const CellIdentifier = @"CollectionViewCellIdentifier";
     
     [self.view addSubview:self.filterList];
     [self.filterList reloadData];
-    self.view.backgroundColor = [UIColor greenColor];
     
     [self.view addSubview:self.imgView];
 }
@@ -76,7 +76,7 @@ NSString * const CellIdentifier = @"CollectionViewCellIdentifier";
         [[cell viewWithTag:11111] removeFromSuperview];
         cell.imgView.hidden = NO;
         NSString *imgName = [self.filterArr[indexPath.row-1] objectForKey:@"name"];
-        cell.imgView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@_thumb", imgName]];
+        cell.imgView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@_thumb.png", imgName]];
     }
     cell.backgroundColor = [UIColor whiteColor];
     return cell;
@@ -99,9 +99,9 @@ NSString * const CellIdentifier = @"CollectionViewCellIdentifier";
             
             
             CIContext *context = [CIContext contextWithOptions:[NSDictionary dictionaryWithObject:(__bridge id)(CGColorSpaceCreateDeviceRGB()) forKey:kCIContextWorkingColorSpace]];
-//            CIContext * context = [CIContext contextWithOptions: nil];
+//            CIContext *context = [CIContext contextWithOptions: nil];
             CGImageRef newImgRef = [context createCGImage:outputImg fromRect:outputImg.extent];
-            UIImage *newImg = [UIImage imageWithCGImage:newImgRef];
+            UIImage *newImg = [UIImage imageWithCGImage:newImgRef scale:1.0 orientation:UIImageOrientationDown];
             self.imgView.image = newImg;
         }
     }
@@ -164,8 +164,6 @@ NSString * const CellIdentifier = @"CollectionViewCellIdentifier";
         _filterList.dataSource = self;
         _filterList.showsVerticalScrollIndicator = NO;
         _filterList.showsHorizontalScrollIndicator = NO;
-        _filterList.contentSize = CGSizeMake(self.filterArr.count*68+(self.filterArr.count - 1)*10, 88);
-//        _filterList.contentOffset = CGPointMake(0, 64);
         _filterList.backgroundColor = [UIColor orangeColor];
     }
     return _filterList;
@@ -176,7 +174,7 @@ NSString * const CellIdentifier = @"CollectionViewCellIdentifier";
         _flowLayout = [[UICollectionViewFlowLayout alloc] init];
         _flowLayout.minimumLineSpacing = 10;
         _flowLayout.minimumInteritemSpacing = 2;
-        _flowLayout.itemSize = CGSizeMake(68, 84);
+        _flowLayout.itemSize = CGSizeMake(66, 66);
         _flowLayout.sectionInset = UIEdgeInsetsZero;
         _flowLayout.footerReferenceSize = CGSizeZero;
         _flowLayout.headerReferenceSize = CGSizeZero;
