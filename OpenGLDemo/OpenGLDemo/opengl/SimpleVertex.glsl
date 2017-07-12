@@ -1,4 +1,5 @@
 
+//第一阶段：旋转的方块
 //attribute vec4 Position; // 1
 //attribute vec4 SourceColor; // 2
 //
@@ -14,6 +15,7 @@
 //    gl_Position = Projection * ModelView * Position; // 6
 //}
 
+//第二阶段：带纹理的方块
 attribute vec4 Position;
 attribute vec4 SourceColor;
 
@@ -30,3 +32,4 @@ void main(void) {
     gl_Position = Projection * Modelview * Position;
     TexCoordOut = TexCoordIn; // New
 }
+

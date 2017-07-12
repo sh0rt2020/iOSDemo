@@ -8,10 +8,6 @@
 
 #import "FilterCell.h"
 
-@interface FilterCell ()
-
-@end
-
 @implementation FilterCell
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -28,7 +24,7 @@
 #pragma mark - getter & setter
 - (UIImageView *)imgView {
     if (!_imgView) {
-        _imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 68, 68)];
+        _imgView = [[UIImageView alloc] initWithFrame:self.bounds];
     }
     return _imgView;
 }

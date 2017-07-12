@@ -79,9 +79,10 @@
 		5713CA1F1F0E44B500CA2EE5 /* waltz_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = 5713C9DC1F0E44B500CA2EE5 /* waltz_thumb.png */; };
 		5713CA201F0E44B500CA2EE5 /* west_filter.png in Resources */ = {isa = PBXBuildFile; fileRef = 5713C9DD1F0E44B500CA2EE5 /* west_filter.png */; };
 		5713CA211F0E44B500CA2EE5 /* west_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = 5713C9DE1F0E44B500CA2EE5 /* west_thumb.png */; };
-		5713CA241F0E45F200CA2EE5 /* CIFilter+ColorLUT.m in Sources */ = {isa = PBXBuildFile; fileRef = 5713CA221F0E45F200CA2EE5 /* CIFilter+ColorLUT.m */; };
 		5713CA271F0E516A00CA2EE5 /* FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5713CA261F0E516A00CA2EE5 /* FilterViewController.m */; };
 		5713CA2F1F0F5C3400CA2EE5 /* FilterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5713CA2E1F0F5C3400CA2EE5 /* FilterCell.m */; };
+		5731D54E1F138AE3004B5056 /* CIFilter+ColorLUT.m in Sources */ = {isa = PBXBuildFile; fileRef = 5731D54C1F137639004B5056 /* CIFilter+ColorLUT.m */; };
+		5731D5511F14A0A8004B5056 /* FilterCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5731D5501F14A0A8004B5056 /* FilterCollectionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -161,8 +162,6 @@
 		5713C9DC1F0E44B500CA2EE5 /* waltz_thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = waltz_thumb.png; sourceTree = "<group>"; };
 		5713C9DD1F0E44B500CA2EE5 /* west_filter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = west_filter.png; sourceTree = "<group>"; };
 		5713C9DE1F0E44B500CA2EE5 /* west_thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = west_thumb.png; sourceTree = "<group>"; };
-		5713CA221F0E45F200CA2EE5 /* CIFilter+ColorLUT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CIFilter+ColorLUT.m"; path = "../../../../Downloads/Filter/ColorLUT/ColorLUT/CIFilter+ColorLUT.m"; sourceTree = "<group>"; };
-		5713CA231F0E45F200CA2EE5 /* CIFilter+ColorLUT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CIFilter+ColorLUT.h"; path = "../../../../Downloads/Filter/ColorLUT/ColorLUT/CIFilter+ColorLUT.h"; sourceTree = "<group>"; };
 		5713CA251F0E516A00CA2EE5 /* FilterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FilterViewController.h; sourceTree = "<group>"; };
 		5713CA261F0E516A00CA2EE5 /* FilterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FilterViewController.m; sourceTree = "<group>"; };
 		5713CA291F0F1F5500CA2EE5 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -171,6 +170,10 @@
 		5713CA2C1F0F28CF00CA2EE5 /* GlobalDefs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalDefs.h; sourceTree = "<group>"; };
 		5713CA2D1F0F5C3400CA2EE5 /* FilterCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FilterCell.h; sourceTree = "<group>"; };
 		5713CA2E1F0F5C3400CA2EE5 /* FilterCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FilterCell.m; sourceTree = "<group>"; };
+		5731D54C1F137639004B5056 /* CIFilter+ColorLUT.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CIFilter+ColorLUT.m"; sourceTree = "<group>"; };
+		5731D54D1F137639004B5056 /* CIFilter+ColorLUT.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CIFilter+ColorLUT.h"; sourceTree = "<group>"; };
+		5731D54F1F14A0A8004B5056 /* FilterCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FilterCollectionViewController.h; sourceTree = "<group>"; };
+		5731D5501F14A0A8004B5056 /* FilterCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FilterCollectionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,8 +208,8 @@
 			isa = PBXGroup;
 			children = (
 				5713C99B1F0E44B500CA2EE5 /* colorFilter */,
-				5713CA231F0E45F200CA2EE5 /* CIFilter+ColorLUT.h */,
-				5713CA221F0E45F200CA2EE5 /* CIFilter+ColorLUT.m */,
+				5731D54D1F137639004B5056 /* CIFilter+ColorLUT.h */,
+				5731D54C1F137639004B5056 /* CIFilter+ColorLUT.m */,
 				5713CA251F0E516A00CA2EE5 /* FilterViewController.h */,
 				5713CA261F0E516A00CA2EE5 /* FilterViewController.m */,
 				5713CA2D1F0F5C3400CA2EE5 /* FilterCell.h */,
@@ -215,6 +218,8 @@
 				5713C9861F0E383200CA2EE5 /* AppDelegate.m */,
 				5713C9881F0E383200CA2EE5 /* ViewController.h */,
 				5713C9891F0E383200CA2EE5 /* ViewController.m */,
+				5731D54F1F14A0A8004B5056 /* FilterCollectionViewController.h */,
+				5731D5501F14A0A8004B5056 /* FilterCollectionViewController.m */,
 				5713C98E1F0E383200CA2EE5 /* Assets.xcassets */,
 				5713C9901F0E383200CA2EE5 /* LaunchScreen.storyboard */,
 				5713C9931F0E383200CA2EE5 /* Info.plist */,
@@ -445,12 +450,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5731D5511F14A0A8004B5056 /* FilterCollectionViewController.m in Sources */,
+				5731D54E1F138AE3004B5056 /* CIFilter+ColorLUT.m in Sources */,
 				5713C98A1F0E383200CA2EE5 /* ViewController.m in Sources */,
 				5713CA2F1F0F5C3400CA2EE5 /* FilterCell.m in Sources */,
 				5713C9951F0E383200CA2EE5 /* main.m in Sources */,
 				5713CA271F0E516A00CA2EE5 /* FilterViewController.m in Sources */,
 				5713C9871F0E383200CA2EE5 /* AppDelegate.m in Sources */,
-				5713CA241F0E45F200CA2EE5 /* CIFilter+ColorLUT.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

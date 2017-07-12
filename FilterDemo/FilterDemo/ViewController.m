@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "GlobalDefs.h"
 #import "FilterViewController.h"
+#import "FilterCollectionViewController.h"
 
 @interface ViewController ()
 
@@ -38,6 +39,7 @@
 #pragma mark - event response
 - (void)handlePush:(UIButton *)sender {
     FilterViewController *filterVC = [FilterViewController new];
+//    FilterCollectionViewController *filterVC = [FilterCollectionViewController new];
     [self.navigationController pushViewController:filterVC animated:YES];
 }
 
