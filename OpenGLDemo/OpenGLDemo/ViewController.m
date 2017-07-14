@@ -31,7 +31,7 @@
 //    [push setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
 //    [push setTitle:@"PushToFilterView" forState:UIControlStateNormal];
 //    [push addTarget:self action:@selector(handlePush:) forControlEvents:UIControlEventTouchUpInside];
-//    [self.view addSubview:push];t
+//    [self.view addSubview:push];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

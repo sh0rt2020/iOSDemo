@@ -268,7 +268,7 @@ const GLubyte Indices1[] = {
     [modelView rotateBy:CC3VectorMake(_currentRotation, _currentRotation, 0)];
     glUniformMatrix4fv(_modelViewUniform, 1, 0, modelView.glMatrix);
     
-    glViewport(0, 0, self.frame.size.width, self.frame.size.height);
+    glViewport(0, 0, self.frame.size.width, self.frame.size.height);  //表示渲染的区域
     
 //    glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer);
 //    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _indexBuffer);
@@ -290,26 +290,36 @@ const GLubyte Indices1[] = {
 
 #pragma mark - private helper
 - (void)compileShaders {
-    GLuint vertexShader = [self compileShader:@"SimpleVertex" withType:GL_VERTEX_SHADER];
-    GLuint fragmentShader = [self compileShader:@"SimpleFragment" withType:GL_FRAGMENT_SHADER];
+    GLuint vertexShader = [self compileShader:@"SimpleVertex2" withType:GL_VERTEX_SHADER];
+    GLuint fragmentShader = [self compileShader:@"SimpleFragment2" withType:GL_FRAGMENT_SHADER];
     
-    GLuint programHandle = glCreateProgram();
+    GLuint programHandle = glCreateProgram();  //创建program并添加着色器
     glAttachShader(programHandle, vertexShader);
     glAttachShader(programHandle, fragmentShader);
-    glLinkProgram(programHandle);
     
+    glLinkProgram(programHandle); //链接program
+    
+    //检查链接状态
     GLint linkSuccess;
     glGetProgramiv(programHandle, GL_LINK_STATUS, &linkSuccess);
     if (linkSuccess == GL_FALSE) {
-        GLchar messages[256];
-        glGetProgramInfoLog(programHandle, sizeof(messages), 0, &messages[0]);
-        NSString *messageString = [NSString stringWithUTF8String:messages];
         
-        NSLog(@"%@", messageString);
-        exit(1);
+        GLint infoLength = 0;
+        glGetProgramiv(programHandle, GL_INFO_LOG_LENGTH, &infoLength);
+        
+        if (infoLength > 1) {
+            char *infoLog = malloc(sizeof(char)*infoLength);
+            glGetProgramInfoLog(programHandle, infoLength, NULL, infoLog);
+            
+            NSLog(@"Error linking program:\n%s\n", infoLog);
+            free(infoLog);
+        }
+        
+        glDeleteProgram(programHandle);
+        return ;
     }
     
-    glUseProgram(programHandle);
+    glUseProgram(programHandle); //激活program对象从而在render中使用它
     
     _positionSlot = glGetAttribLocation(programHandle, "Position");
     _colorSlot = glGetAttribLocation(programHandle, "SourceColor");
@@ -329,28 +339,38 @@ const GLubyte Indices1[] = {
     NSError *error;
     NSString *shaderString = [NSString stringWithContentsOfFile:shaderPath encoding:NSUTF8StringEncoding error:&error];
     if (!shaderString) {
-        NSLog(@"Error loading shader: %@", error.localizedDescription);
+        NSLog(@"Error loading shader: %@\n%@", error.localizedDescription, shaderName);
         exit(1);
     }
     
+    //创建shader，shaderType：GL_VERTEX_SHADER 或 GL_FRAGMENT_SHADER
     GLuint shaderHandle = glCreateShader(shaderType);
     
     const char *shaderStringUTF8 = [shaderString UTF8String];
     int shaderStringLength = (int)[shaderString length];
-    glShaderSource(shaderHandle, 1, &shaderStringUTF8, &shaderStringLength);
+    glShaderSource(shaderHandle, 1, &shaderStringUTF8, &shaderStringLength);  //加载shaderSource
     
+    //编译shader
     glCompileShader(shaderHandle);
     
+    //检查编译状态
     GLint compileSuccess;
-    glGetShaderiv(shaderHandle, GL_COMPILE_STATUS, &compileSuccess);
+    glGetShaderiv(shaderHandle, GL_COMPILE_STATUS, &compileSuccess);//此外还可以查询 GL_DELETE_STATUS，GL_INFO_LOG_STATUS， GL_INFO_LOG_LENGTH，GL_SHADER_SOURCE_LENGTH 和 GL_SHADER_TYPE
     if (compileSuccess == GL_FALSE) {
-        GLchar messages[256];
-        glGetShaderInfoLog(shaderHandle, sizeof(messages), 0, &messages[0]);
-        NSString *messageString = [NSString stringWithUTF8String:messages];
+        GLint infoLength = 0;
+        glGetShaderiv(shaderHandle, GL_INFO_LOG_LENGTH, &infoLength);
+        if (infoLength > 1) {
+            char *infoLog = malloc(sizeof(char)*infoLength);
+            glGetShaderInfoLog(shaderHandle, infoLength, NULL, infoLog);
+            
+            NSLog(@"Error compiling shader:\n%@\n%s\n", shaderName, infoLog);
+            free(infoLog);
+        }
         
-        NSLog(@"%@", messageString);
-        exit(1);
+        glDeleteShader(shaderHandle);
+        return 0;
     }
+    
     return shaderHandle;
 }
 @end
