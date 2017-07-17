@@ -273,7 +273,7 @@ const GLubyte Indices1[] = {
 //    glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer);
 //    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _indexBuffer);
     
-    glVertexAttribPointer(_positionSlot, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex1), 0);
+    glVertexAttribPointer(_positionSlot, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex1), 0); //装载Vertex1到OpenGL ES中并与_positionSlot关联
     glVertexAttribPointer(_colorSlot, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex1), (GLvoid *)(sizeof(float)*3));
     
     //texture
@@ -283,7 +283,7 @@ const GLubyte Indices1[] = {
     glBindTexture(GL_TEXTURE_2D, _floorTexture);
     glUniform1i(_textureUniform, 0);
     
-    glDrawElements(GL_TRIANGLES, sizeof(Indices1)/sizeof(Indices1[0]), GL_UNSIGNED_BYTE, 0);
+    glDrawElements(GL_TRIANGLES, sizeof(Indices1)/sizeof(Indices1[0]), GL_UNSIGNED_BYTE, 0); //渲染图形
     
     [_context presentRenderbuffer:GL_RENDERBUFFER];
 }
