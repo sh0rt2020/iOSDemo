@@ -13,8 +13,6 @@
 		3B8EC65B1EF977B6007C7FF8 /* CC3Math.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8EC6561EF977B6007C7FF8 /* CC3Math.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3B8EC65E1EFAD4D9007C7FF8 /* OpenGLView.h in Sources */ = {isa = PBXBuildFile; fileRef = 57BF84441EFA7E60009F7B4A /* OpenGLView.h */; };
 		3B8EC65F1EFAD4D9007C7FF8 /* OpenGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57BF84451EFA7E60009F7B4A /* OpenGLView.m */; };
-		3B8EC6601EFAD4D9007C7FF8 /* SimpleFragment.glsl in Sources */ = {isa = PBXBuildFile; fileRef = 57BF84461EFA7E60009F7B4A /* SimpleFragment.glsl */; };
-		3B8EC6611EFAD4D9007C7FF8 /* SimpleVertex.glsl in Sources */ = {isa = PBXBuildFile; fileRef = 57BF84471EFA7E60009F7B4A /* SimpleVertex.glsl */; };
 		3B8EC6621EFAD4FB007C7FF8 /* IFFiltersViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 57BF85111EFA816C009F7B4A /* IFFiltersViewController.h */; };
 		3B8EC6631EFAD4FB007C7FF8 /* IFFiltersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57BF85121EFA816C009F7B4A /* IFFiltersViewController.m */; };
 		3B8EC6641EFAD7C6007C7FF8 /* IF1977Filter.h in Sources */ = {isa = PBXBuildFile; fileRef = 57BF84EA1EFA816C009F7B4A /* IF1977Filter.h */; };
@@ -126,8 +124,8 @@
 		57010AAA1F01FF4D003E690C /* OpenGLTextureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57010AA91F01FF4D003E690C /* OpenGLTextureView.m */; };
 		57010AB31F0210F2003E690C /* item_powerup_fish.png in Resources */ = {isa = PBXBuildFile; fileRef = 57010AB11F020B88003E690C /* item_powerup_fish.png */; };
 		57010AB41F0210F2003E690C /* tile_floor.png in Resources */ = {isa = PBXBuildFile; fileRef = 57010AB21F020B88003E690C /* tile_floor.png */; };
-		57324FB81F18B7A300BED563 /* SimpleFragment2.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 57324FB71F18B7A300BED563 /* SimpleFragment2.glsl */; };
-		57324FBA1F18B7BE00BED563 /* SimpleVertex2.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 57324FB91F18B7BE00BED563 /* SimpleVertex2.glsl */; };
+		57324FB81F18B7A300BED563 /* FragmentShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 57324FB71F18B7A300BED563 /* FragmentShader.glsl */; };
+		57324FBA1F18B7BE00BED563 /* VertexShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 57324FB91F18B7BE00BED563 /* VertexShader.glsl */; };
 		576195171EFB77B6002C4DE2 /* dreamy_filter.png in Resources */ = {isa = PBXBuildFile; fileRef = 576194EE1EFB7789002C4DE2 /* dreamy_filter.png */; };
 		576195181EFB77B6002C4DE2 /* dreamy_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = 576194E71EFB7789002C4DE2 /* dreamy_thumb.png */; };
 		576195191EFB77B6002C4DE2 /* elegance_filter.png in Resources */ = {isa = PBXBuildFile; fileRef = 576195121EFB778A002C4DE2 /* elegance_filter.png */; };
@@ -199,8 +197,6 @@
 		57BF839C1EF7C6F3009F7B4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57BF839B1EF7C6F3009F7B4A /* Assets.xcassets */; };
 		57BF83A21EF7C6F3009F7B4A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 57BF83A11EF7C6F3009F7B4A /* main.m */; };
 		57BF83B41EF8C09F009F7B4A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57BF83B31EF8C09F009F7B4A /* ViewController.m */; };
-		57F4591C1F00B8DB00B5263E /* SimpleFragment.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 57BF84461EFA7E60009F7B4A /* SimpleFragment.glsl */; };
-		57F4591D1F00B8DB00B5263E /* SimpleVertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 57BF84471EFA7E60009F7B4A /* SimpleVertex.glsl */; };
 		6817F0D602569D5B37C181DF /* libPods-OpenGLDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52248567CBC768B78861CF1A /* libPods-OpenGLDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -246,8 +242,8 @@
 		57228F121EFB770C00FAD027 /* camomile_thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camomile_thumb.png; sourceTree = "<group>"; };
 		57228F131EFB770C00FAD027 /* kc_filter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kc_filter.png; sourceTree = "<group>"; };
 		57228F141EFB770C00FAD027 /* railway_thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = railway_thumb.png; sourceTree = "<group>"; };
-		57324FB71F18B7A300BED563 /* SimpleFragment2.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = SimpleFragment2.glsl; sourceTree = "<group>"; };
-		57324FB91F18B7BE00BED563 /* SimpleVertex2.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = SimpleVertex2.glsl; sourceTree = "<group>"; };
+		57324FB71F18B7A300BED563 /* FragmentShader.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = FragmentShader.glsl; sourceTree = "<group>"; };
+		57324FB91F18B7BE00BED563 /* VertexShader.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = VertexShader.glsl; sourceTree = "<group>"; };
 		576194D81EFB7753002C4DE2 /* candy_thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = candy_thumb.png; sourceTree = "<group>"; };
 		576194D91EFB7753002C4DE2 /* cold_filter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cold_filter.png; sourceTree = "<group>"; };
 		576194DA1EFB7753002C4DE2 /* cold_thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cold_thumb.png; sourceTree = "<group>"; };
@@ -311,6 +307,8 @@
 		576195141EFB778A002C4DE2 /* sunny_filter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sunny_filter.png; sourceTree = "<group>"; };
 		576195151EFB778A002C4DE2 /* lyon_filter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lyon_filter.png; sourceTree = "<group>"; };
 		576195161EFB778A002C4DE2 /* pink_thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pink_thumb.png; sourceTree = "<group>"; };
+		57AA37691F1E11200065892C /* SimpleVertex.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = SimpleVertex.glsl; sourceTree = "<group>"; };
+		57AA376A1F1E11200065892C /* SimpleFragment.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = SimpleFragment.glsl; sourceTree = "<group>"; };
 		57BF838F1EF7C6F3009F7B4A /* OpenGLDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenGLDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57BF83921EF7C6F3009F7B4A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		57BF83931EF7C6F3009F7B4A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -324,8 +322,6 @@
 		57BF83C61EF8CA4B009F7B4A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		57BF84441EFA7E60009F7B4A /* OpenGLView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenGLView.h; sourceTree = "<group>"; };
 		57BF84451EFA7E60009F7B4A /* OpenGLView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpenGLView.m; sourceTree = "<group>"; };
-		57BF84461EFA7E60009F7B4A /* SimpleFragment.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = SimpleFragment.glsl; sourceTree = "<group>"; };
-		57BF84471EFA7E60009F7B4A /* SimpleVertex.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = SimpleVertex.glsl; sourceTree = "<group>"; };
 		57BF84481EFA816C009F7B4A /* vignetteMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vignetteMap.png; sourceTree = "<group>"; };
 		57BF84AE1EFA816C009F7B4A /* valenciaGradientMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = valenciaGradientMap.png; sourceTree = "<group>"; };
 		57BF84AF1EFA816C009F7B4A /* lookup_amatorka.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lookup_amatorka.png; sourceTree = "<group>"; };
@@ -568,14 +564,14 @@
 			isa = PBXGroup;
 			children = (
 				57010AB01F020B88003E690C /* Art */,
+				57AA376A1F1E11200065892C /* SimpleFragment.glsl */,
+				57AA37691F1E11200065892C /* SimpleVertex.glsl */,
 				57BF84441EFA7E60009F7B4A /* OpenGLView.h */,
 				57BF84451EFA7E60009F7B4A /* OpenGLView.m */,
-				57BF84461EFA7E60009F7B4A /* SimpleFragment.glsl */,
-				57BF84471EFA7E60009F7B4A /* SimpleVertex.glsl */,
 				57010AA81F01FF4D003E690C /* OpenGLTextureView.h */,
 				57010AA91F01FF4D003E690C /* OpenGLTextureView.m */,
-				57324FB71F18B7A300BED563 /* SimpleFragment2.glsl */,
-				57324FB91F18B7BE00BED563 /* SimpleVertex2.glsl */,
+				57324FB71F18B7A300BED563 /* FragmentShader.glsl */,
+				57324FB91F18B7BE00BED563 /* VertexShader.glsl */,
 			);
 			path = opengl;
 			sourceTree = "<group>";
@@ -849,8 +845,6 @@
 			files = (
 				57010AB31F0210F2003E690C /* item_powerup_fish.png in Resources */,
 				57010AB41F0210F2003E690C /* tile_floor.png in Resources */,
-				57F4591C1F00B8DB00B5263E /* SimpleFragment.glsl in Resources */,
-				57F4591D1F00B8DB00B5263E /* SimpleVertex.glsl in Resources */,
 				576195171EFB77B6002C4DE2 /* dreamy_filter.png in Resources */,
 				576195181EFB77B6002C4DE2 /* dreamy_thumb.png in Resources */,
 				576195191EFB77B6002C4DE2 /* elegance_filter.png in Resources */,
@@ -939,7 +933,7 @@
 				3B8EC6E71EFAD863007C7FF8 /* hudsonBackground.png in Resources */,
 				3B8EC6E81EFAD863007C7FF8 /* hudsonMap.png in Resources */,
 				3B8EC6E91EFAD863007C7FF8 /* inkwellMap.png in Resources */,
-				57324FBA1F18B7BE00BED563 /* SimpleVertex2.glsl in Resources */,
+				57324FBA1F18B7BE00BED563 /* VertexShader.glsl in Resources */,
 				3B8EC6EA1EFAD863007C7FF8 /* kelvinMap.png in Resources */,
 				3B8EC6EB1EFAD863007C7FF8 /* lomoMap.png in Resources */,
 				3B8EC6EC1EFAD863007C7FF8 /* nashvilleMap.png in Resources */,
@@ -968,7 +962,7 @@
 				3B8EC7031EFAD863007C7FF8 /* lookup.png in Resources */,
 				3B8EC7041EFAD863007C7FF8 /* valenciaGradientMap.png in Resources */,
 				3B8EC7051EFAD863007C7FF8 /* vignetteMap.png in Resources */,
-				57324FB81F18B7A300BED563 /* SimpleFragment2.glsl in Resources */,
+				57324FB81F18B7A300BED563 /* FragmentShader.glsl in Resources */,
 				3B8EC7061EFAD863007C7FF8 /* willowSoftLight100.png in Resources */,
 				57BF839C1EF7C6F3009F7B4A /* Assets.xcassets in Resources */,
 			);
@@ -1089,9 +1083,7 @@
 				3B8EC6631EFAD4FB007C7FF8 /* IFFiltersViewController.m in Sources */,
 				3B8EC65E1EFAD4D9007C7FF8 /* OpenGLView.h in Sources */,
 				3B8EC65F1EFAD4D9007C7FF8 /* OpenGLView.m in Sources */,
-				3B8EC6601EFAD4D9007C7FF8 /* SimpleFragment.glsl in Sources */,
 				57010AAA1F01FF4D003E690C /* OpenGLTextureView.m in Sources */,
-				3B8EC6611EFAD4D9007C7FF8 /* SimpleVertex.glsl in Sources */,
 				57BF83A21EF7C6F3009F7B4A /* main.m in Sources */,
 				57BF83941EF7C6F3009F7B4A /* AppDelegate.m in Sources */,
 				3B8EC6581EF977B6007C7FF8 /* CC3Foundation.m in Sources */,

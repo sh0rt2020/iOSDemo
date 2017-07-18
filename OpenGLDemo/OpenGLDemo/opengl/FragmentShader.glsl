@@ -1,4 +1,4 @@
-//第二阶段：带纹理的方块
+//step two:texture
 varying lowp vec4 DestinationColor;
 
 varying lowp vec2 TexCoordOut; // New

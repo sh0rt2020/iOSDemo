@@ -1,5 +1,5 @@
 
-//第一阶段：旋转的方块
+//step one:rotate cube
 varying lowp vec4 DestinationColor; // 1
 
 void main(void) { // 2

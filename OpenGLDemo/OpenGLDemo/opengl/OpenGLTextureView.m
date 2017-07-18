@@ -12,41 +12,12 @@
 #import <OpenGLES/ES2/gl.h>
 #import "CC3GLMatrix.h"
 
-//typedef struct {
-//    float Position[3];
-//    float Color[4];
-//} Vertex;
-//
-////3d cube
-//const Vertex Vertices[] = {
-//    {{1, -1, 0}, {1, 0, 0, 1}},
-//    {{1, 1, 0}, {1, 0, 0, 1}},
-//    {{-1, 1, 0}, {0, 1, 0, 1}},
-//    {{-1, -1, 0}, {0, 1, 0, 1}},
-//    {{1, -1, -1}, {1, 0, 0, 1}},
-//    {{1, 1, -1}, {1, 0, 0, 1}},
-//    {{-1, 1, -1}, {0, 1, 0, 1}},
-//    {{-1, -1, -1}, {0, 1, 0, 1}}
-//};
-
 // Add texture coordinates to Vertex structure as follows
 typedef struct {
     float Position[3];
     float Color[4];
     float TexCoord[2]; // New
 } Vertex1;
-
-// Add texture coordinates to Vertices as follows
-//const Vertex1 Vertices1[] = {
-//    {{1, -1, 0}, {1, 0, 0, 1}, {1, 0}},
-//    {{1, 1, 0}, {1, 0, 0, 1}, {1, 1}},
-//    {{-1, 1, 0}, {0, 1, 0, 1}, {0, 1}},
-//    {{-1, -1, 0}, {0, 1, 0, 1}, {0, 0}},
-//    {{1, -1, -1}, {1, 0, 0, 1}, {1, 0}},
-//    {{1, 1, -1}, {1, 0, 0, 1}, {1, 1}},
-//    {{-1, 1, -1}, {0, 1, 0, 1}, {0, 1}},
-//    {{-1, -1, -1}, {0, 1, 0, 1}, {0, 0}}
-//};
 
 #define TEX_COORD_MAX   4
 
@@ -89,20 +60,31 @@ const GLubyte Indices1[] = {
     0, 1, 2,
     2, 3, 0,
     // Back
-    4, 6, 5,
-    4, 7, 6,
+    4, 5, 6,
+    6, 7, 4,
     // Left
-    2, 7, 3,
-    7, 6, 2,
+    8, 9, 10,
+    10, 11, 8,
     // Right
-    0, 4, 1,
-    4, 1, 5,
+    12, 13, 14,
+    14, 15, 12,
     // Top
-    6, 2, 1,
-    1, 6, 5,
+    16, 17, 18,
+    18, 19, 16,
     // Bottom
-    0, 3, 7,
-    0, 7, 4
+    20, 21, 22,
+    22, 23, 20
+};
+
+const Vertex1 Vertices2[] = {
+    {{0.5, -0.5, 0.01}, {1, 1, 1, 1}, {1, 1}},
+    {{0.5, 0.5, 0.01}, {1, 1, 1, 1}, {1, 0}},
+    {{-0.5, 0.5, 0.01}, {1, 1, 1, 1}, {0, 0}},
+    {{-0.5, -0.5, 0.01}, {1, 1, 1, 1}, {0, 1}},
+};
+
+const GLubyte Indices2[] = {
+    1, 0, 2, 3
 };
 
 @interface OpenGLTextureView() {
@@ -124,6 +106,11 @@ const GLubyte Indices1[] = {
     GLuint _fishTexture;
     GLuint _texCoordSlot;
     GLuint _textureUniform;
+    
+    GLuint _vertexBuffer;
+    GLuint _indexBuffer;
+    GLuint _vertexBuffer2;
+    GLuint _indexBuffer2;
 }
 
 @end
@@ -140,8 +127,6 @@ const GLubyte Indices1[] = {
         [self setupDepthBuffer];
         [self setupRenderBuffer];
         [self setupFrameBuffer];
-        
-//        GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
         
         [self compileShaders];
         [self setupVBOs];
@@ -215,6 +200,16 @@ const GLubyte Indices1[] = {
     glGenBuffers(1, &indexBuffer);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Indices1), Indices1, GL_STATIC_DRAW);
+    
+    GLuint vertexBuffer2;
+    glGenBuffers(1, &vertexBuffer2);
+    glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer2);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(Vertices2), Vertices2, GL_STATIC_DRAW);
+    
+    GLuint indexBuffer2;
+    glGenBuffers(1, &indexBuffer2);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer2);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Indices2), Indices2, GL_STATIC_DRAW);
 }
 
 
@@ -250,6 +245,9 @@ const GLubyte Indices1[] = {
 }
 
 - (void)render:(CADisplayLink *)displayLink {
+    glBlendFunc(GL_NONE, GL_ONE_MINUS_SRC_ALPHA);
+    glEnable(GL_BLEND);
+    
     glClearColor(0, 104.0/255.0, 55.0/255.0, 1.0);
     //    glClear(GL_COLOR_BUFFER_BIT);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -268,11 +266,13 @@ const GLubyte Indices1[] = {
     [modelView rotateBy:CC3VectorMake(_currentRotation, _currentRotation, 0)];
     glUniformMatrix4fv(_modelViewUniform, 1, 0, modelView.glMatrix);
     
+    //1
     glViewport(0, 0, self.frame.size.width, self.frame.size.height);  //表示渲染的区域
     
-//    glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer);
-//    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _indexBuffer);
+    glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _indexBuffer);
     
+    //2
     glVertexAttribPointer(_positionSlot, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex1), 0); //装载Vertex1到OpenGL ES中并与_positionSlot关联
     glVertexAttribPointer(_colorSlot, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex1), (GLvoid *)(sizeof(float)*3));
     
@@ -283,15 +283,31 @@ const GLubyte Indices1[] = {
     glBindTexture(GL_TEXTURE_2D, _floorTexture);
     glUniform1i(_textureUniform, 0);
     
+    //3
     glDrawElements(GL_TRIANGLES, sizeof(Indices1)/sizeof(Indices1[0]), GL_UNSIGNED_BYTE, 0); //渲染图形
+    
+    glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer2);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _indexBuffer2);
+    
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, _fishTexture);
+    glUniform1i(_textureUniform, 0);
+    
+    glUniformMatrix4fv(_modelViewUniform, 1, 0, modelView.glMatrix);
+    
+    glVertexAttribPointer(_positionSlot, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex1), 0);
+    glVertexAttribPointer(_colorSlot, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex1), (GLvoid*)(sizeof(float)*3));
+    glVertexAttribPointer(_texCoordSlot, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex1), (GLvoid*)(sizeof(float)*7));
+    
+    glDrawElements(GL_TRIANGLE_STRIP, sizeof(Indices2)/sizeof(Indices2[0]), GL_UNSIGNED_BYTE, 0);
     
     [_context presentRenderbuffer:GL_RENDERBUFFER];
 }
 
 #pragma mark - private helper
 - (void)compileShaders {
-    GLuint vertexShader = [self compileShader:@"SimpleVertex2" withType:GL_VERTEX_SHADER];
-    GLuint fragmentShader = [self compileShader:@"SimpleFragment2" withType:GL_FRAGMENT_SHADER];
+    GLuint vertexShader = [self compileShader:@"VertexShader" withType:GL_VERTEX_SHADER];
+    GLuint fragmentShader = [self compileShader:@"FragmentShader" withType:GL_FRAGMENT_SHADER];
     
     GLuint programHandle = glCreateProgram();  //创建program并添加着色器
     glAttachShader(programHandle, vertexShader);

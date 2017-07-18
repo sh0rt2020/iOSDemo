@@ -1,5 +1,5 @@
 
-//第一阶段：旋转的方块
+//step one:rotate cube
 attribute vec4 Position; // 1
 attribute vec4 SourceColor; // 2
 
