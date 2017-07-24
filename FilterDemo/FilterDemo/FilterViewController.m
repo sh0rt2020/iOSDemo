@@ -101,7 +101,7 @@ NSString * const CellIdentifier = @"CollectionViewCellIdentifier";
             CIContext *context = [CIContext contextWithOptions:[NSDictionary dictionaryWithObject:(__bridge id)(CGColorSpaceCreateDeviceRGB()) forKey:kCIContextWorkingColorSpace]];
 //            CIContext *context = [CIContext contextWithOptions: nil];
             CGImageRef newImgRef = [context createCGImage:outputImg fromRect:outputImg.extent];
-            UIImage *newImg = [UIImage imageWithCGImage:newImgRef scale:1.0 orientation:UIImageOrientationDown];
+            UIImage *newImg = [UIImage imageWithCGImage:newImgRef scale:1.0 orientation:UIImageOrientationUp];
             self.imgView.image = newImg;
         }
     }
