@@ -6,10 +6,10 @@
 //  Copyright © 2017年 sunwell. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface GSMpegPlayer : NSObject
+@interface GSMpegPlayer : UIView
 
-- (void)start;
+- (void)displayYUV420PData:(void *)data width:(NSInteger)width height:(NSInteger)height;
+- (void)setVideoSize:(GLuint)width height:(GLuint)height;
 @end
