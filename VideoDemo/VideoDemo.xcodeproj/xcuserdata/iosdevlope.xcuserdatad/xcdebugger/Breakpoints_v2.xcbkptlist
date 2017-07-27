@@ -25,7 +25,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "158"
             endingLineNumber = "158"
-            landmarkName = "@implementation GSNewPlayerViewController"
+            landmarkName = "GSNewPlayerViewController"
             landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>

@@ -13,7 +13,7 @@
 @end
 
 @implementation GSMpegVideoViewController
-
+#pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -24,6 +24,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - delegate
+
+
+#pragma mark - event
+
+
+#pragma mark - private
 
 
 @end

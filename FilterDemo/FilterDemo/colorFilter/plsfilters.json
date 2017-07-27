@@ -165,5 +165,10 @@
       "dir": "west",
       "category": "default"
     },
+      {
+          "name": "test",
+          "dir": "test",
+          "category": "default"
+      }
   ]
 }

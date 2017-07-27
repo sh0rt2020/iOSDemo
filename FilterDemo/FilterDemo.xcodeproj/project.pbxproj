@@ -83,6 +83,8 @@
 		572A0A9B1F22020D00F7AC4A /* west_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = 572A0A581F2201F600F7AC4A /* west_thumb.png */; };
 		5731D54E1F138AE3004B5056 /* CIFilter+ColorLUT.m in Sources */ = {isa = PBXBuildFile; fileRef = 5731D54C1F137639004B5056 /* CIFilter+ColorLUT.m */; };
 		5731D5511F14A0A8004B5056 /* FilterCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5731D5501F14A0A8004B5056 /* FilterCollectionViewController.m */; };
+		57ED24171F271C5E00F0095B /* test_filter.png in Resources */ = {isa = PBXBuildFile; fileRef = 57ED24161F271C4400F0095B /* test_filter.png */; };
+		57ED24181F271C5E00F0095B /* test_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = 57ED24151F271C4400F0095B /* test_thumb.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -174,6 +176,8 @@
 		5731D54D1F137639004B5056 /* CIFilter+ColorLUT.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CIFilter+ColorLUT.h"; sourceTree = "<group>"; };
 		5731D54F1F14A0A8004B5056 /* FilterCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FilterCollectionViewController.h; sourceTree = "<group>"; };
 		5731D5501F14A0A8004B5056 /* FilterCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FilterCollectionViewController.m; sourceTree = "<group>"; };
+		57ED24151F271C4400F0095B /* test_thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test_thumb.png; sourceTree = "<group>"; };
+		57ED24161F271C4400F0095B /* test_filter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test_filter.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +211,8 @@
 		5713C9841F0E383200CA2EE5 /* FilterDemo */ = {
 			isa = PBXGroup;
 			children = (
+				57ED24161F271C4400F0095B /* test_filter.png */,
+				57ED24151F271C4400F0095B /* test_thumb.png */,
 				572A0A151F2201F600F7AC4A /* colorFilter */,
 				5731D54D1F137639004B5056 /* CIFilter+ColorLUT.h */,
 				5731D54C1F137639004B5056 /* CIFilter+ColorLUT.m */,
@@ -370,6 +376,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57ED24171F271C5E00F0095B /* test_filter.png in Resources */,
+				57ED24181F271C5E00F0095B /* test_thumb.png in Resources */,
 				572A0A591F22020D00F7AC4A /* 1960s_filter.png in Resources */,
 				572A0A5A1F22020D00F7AC4A /* 1960s_thumb.png in Resources */,
 				572A0A5B1F22020D00F7AC4A /* camomile_filter.png in Resources */,
