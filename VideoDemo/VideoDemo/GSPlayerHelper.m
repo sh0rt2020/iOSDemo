@@ -9,20 +9,37 @@
 #import "GSPlayerHelper.h"
 #import "GSMpegPlayer.h"
 
+#include <libswscale/swscale.h>
+#include <libavformat/avformat.h>
+#include <libavcodec/avcodec.h>
+
+#define ScreenW [UIScreen mainScreen].bounds.size.width
+#define ScreenH [UIScreen mainScreen].bounds.size.height
+
 @interface GSPlayerHelper () {
     AVFormatContext *pFormatCtx;
     int videoIndex;
     AVCodecContext *pCodecCtx;
     AVCodec *pCodec;
-    
-    GSMpegPlayer *player;
 }
-
 @end
 
 @implementation GSPlayerHelper
+
++ (instancetype)sharedPlayerHelper {
+    static GSPlayerHelper *helper;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        helper = [[GSPlayerHelper alloc] initWithFrame:CGRectMake(20, 100, ScreenW-40, 100)];
+        helper.playerView = [[GSMpegPlayer alloc] initWithFrame:helper.bounds];
+        [helper addSubview:helper.playerView];
+    });
+    return helper;
+}
+
 #pragma mark - public
 - (void)playWithFilePath:(NSString *)filePath {
+    
     const char *videoPath = [filePath UTF8String];
     
     av_register_all();
@@ -67,7 +84,7 @@
     pFrame = av_frame_alloc();
     pFrameYUV = av_frame_alloc();
     uint8_t *out_buffer;
-    out_buffer=new uint8_t[avpicture_get_size(AV_PIX_FMT_YUV420P, pCodecCtx->width, pCodecCtx->height)];
+    out_buffer = new uint8_t[avpicture_get_size(AV_PIX_FMT_YUV420P, pCodecCtx->width, pCodecCtx->height)];
     avpicture_fill((AVPicture *)pFrameYUV, out_buffer, AV_PIX_FMT_YUV420P, pCodecCtx->width, pCodecCtx->height);
     
     int ret, got_picture;
@@ -107,14 +124,15 @@
                 for (int i=0; i<h/2; i++)
                     memcpy(v + w / 2 * i, pict->data[2] + pict->linesize[2] * i, w / 2);
                 
-                [player setVideoSize:pFrame->width height:pFrame->height];
-                [player displayYUV420PData:buf width:pFrame->width height:pFrame->height];
+                [self.playerView setVideoSize:pFrame->width height:pFrame->height];
+                [self.playerView displayYUV420PData:buf width:pFrame->width height:pFrame->height];
                 free(buf);
             }
         }
         av_free_packet(packet);
     }
-    delete[] out_buffer;
+//    delete[] out_buffer;
+    
     av_free(pFrameYUV);
     avcodec_close(pCodecCtx);
     avformat_close_input(&pFormatCtx);

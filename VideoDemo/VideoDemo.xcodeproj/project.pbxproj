@@ -13,9 +13,12 @@
 		3B4C582A1EAC8401001EC18B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B4C58291EAC8401001EC18B /* Assets.xcassets */; };
 		3B4C582D1EAC8401001EC18B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B4C582B1EAC8401001EC18B /* LaunchScreen.storyboard */; };
 		3B4C58361EAC9CE5001EC18B /* GSVideoPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C58351EAC9CE5001EC18B /* GSVideoPlayerView.m */; };
+		570C678B1F29F53D006AFA25 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 57B3AC431ED8243C006A04F3 /* libiconv.tbd */; };
+		570C678C1F29F54E006AFA25 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 575638781F29C35900BCF02A /* libz.tbd */; };
+		570C678D1F29F564006AFA25 /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 57B3AC411ED823CA006A04F3 /* libbz2.tbd */; };
 		575638751F298B6100BCF02A /* VertexShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 575638741F298B6100BCF02A /* VertexShader.glsl */; };
 		575638771F298B7900BCF02A /* FragmentShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 575638761F298B7900BCF02A /* FragmentShader.glsl */; };
-		5756387B1F29C6DF00BCF02A /* GSPlayerHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5756387A1F29C6DF00BCF02A /* GSPlayerHelper.mm */; };
+		5756387B1F29C6DF00BCF02A /* GSPlayerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5756387A1F29C6DF00BCF02A /* GSPlayerHelper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		57A7604C1ED4363D00CE72BC /* GSNewPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57A7604B1ED4363D00CE72BC /* GSNewPlayerViewController.m */; };
 		57B3AB8C1ED7CD4A006A04F3 /* GSAVPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57B3AB8B1ED7CD4A006A04F3 /* GSAVPlayerViewController.m */; };
 		57B3AB931ED808D8006A04F3 /* GSMpegVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57B3AB921ED808D8006A04F3 /* GSMpegVideoViewController.m */; };
@@ -37,8 +40,6 @@
 		57C0B4911ED843700020392D /* ffmpeg_filter.c in Sources */ = {isa = PBXBuildFile; fileRef = 57C0B48C1ED843700020392D /* ffmpeg_filter.c */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		57C0B4921ED843700020392D /* ffmpeg_opt.c in Sources */ = {isa = PBXBuildFile; fileRef = 57C0B48D1ED843700020392D /* ffmpeg_opt.c */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		57C0B4931ED843700020392D /* ffmpeg_videotoolbox.c in Sources */ = {isa = PBXBuildFile; fileRef = 57C0B48E1ED843700020392D /* ffmpeg_videotoolbox.c */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		57C0B4951ED843970020392D /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 57B3AC411ED823CA006A04F3 /* libbz2.tbd */; };
-		57C0B4961ED8439D0020392D /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 57B3AC431ED8243C006A04F3 /* libiconv.tbd */; };
 		57E6D0901ED92EB90004EC49 /* GSMpegPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 57E6D08F1ED92EB90004EC49 /* GSMpegPlayer.m */; };
 		FC83555E09190182490F9D2D /* libPods-VideoDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3768289B428268F547B236F /* libPods-VideoDemo.a */; };
 /* End PBXBuildFile section */
@@ -60,7 +61,7 @@
 		575638761F298B7900BCF02A /* FragmentShader.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = FragmentShader.glsl; sourceTree = "<group>"; };
 		575638781F29C35900BCF02A /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		575638791F29C6DF00BCF02A /* GSPlayerHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GSPlayerHelper.h; sourceTree = "<group>"; };
-		5756387A1F29C6DF00BCF02A /* GSPlayerHelper.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = GSPlayerHelper.mm; sourceTree = "<group>"; };
+		5756387A1F29C6DF00BCF02A /* GSPlayerHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GSPlayerHelper.m; sourceTree = "<group>"; };
 		57A7604A1ED4363D00CE72BC /* GSNewPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSNewPlayerViewController.h; sourceTree = "<group>"; };
 		57A7604B1ED4363D00CE72BC /* GSNewPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSNewPlayerViewController.m; sourceTree = "<group>"; };
 		57B3AB8A1ED7CD4A006A04F3 /* GSAVPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSAVPlayerViewController.h; sourceTree = "<group>"; };
@@ -237,8 +238,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57C0B4961ED8439D0020392D /* libiconv.tbd in Frameworks */,
-				57C0B4951ED843970020392D /* libbz2.tbd in Frameworks */,
+				570C678D1F29F564006AFA25 /* libbz2.tbd in Frameworks */,
+				570C678C1F29F54E006AFA25 /* libz.tbd in Frameworks */,
+				570C678B1F29F53D006AFA25 /* libiconv.tbd in Frameworks */,
 				57C0B4821ED843120020392D /* libavutil.a in Frameworks */,
 				57C0B4801ED843120020392D /* libavfilter.a in Frameworks */,
 				57C0B47F1ED843120020392D /* libavdevice.a in Frameworks */,
@@ -284,7 +286,7 @@
 				57E6D08E1ED92EB90004EC49 /* GSMpegPlayer.h */,
 				57E6D08F1ED92EB90004EC49 /* GSMpegPlayer.m */,
 				575638791F29C6DF00BCF02A /* GSPlayerHelper.h */,
-				5756387A1F29C6DF00BCF02A /* GSPlayerHelper.mm */,
+				5756387A1F29C6DF00BCF02A /* GSPlayerHelper.m */,
 				575638741F298B6100BCF02A /* VertexShader.glsl */,
 				575638761F298B7900BCF02A /* FragmentShader.glsl */,
 				57B3AB911ED808D8006A04F3 /* GSMpegVideoViewController.h */,
@@ -755,7 +757,7 @@
 				57C0B4901ED843700020392D /* ffmpeg.c in Sources */,
 				3B4C581F1EAC8401001EC18B /* main.m in Sources */,
 				3B4C58361EAC9CE5001EC18B /* GSVideoPlayerView.m in Sources */,
-				5756387B1F29C6DF00BCF02A /* GSPlayerHelper.mm in Sources */,
+				5756387B1F29C6DF00BCF02A /* GSPlayerHelper.m in Sources */,
 				57C0B4921ED843700020392D /* ffmpeg_opt.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

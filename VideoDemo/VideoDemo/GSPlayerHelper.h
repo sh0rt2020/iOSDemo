@@ -7,14 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-extern "C" {
-#include <libswscale/swscale.h>
-#include <libavformat/avformat.h>
-#include <libavcodec/avcodec.h>
-}
+@class GSMpegPlayer;
 
-@interface GSPlayerHelper : NSObject
+@interface GSPlayerHelper : UIView
 
++ (instancetype)sharedPlayerHelper;
 - (void)playWithFilePath:(NSString *)filePath;
+
+@property (nonatomic, strong) GSMpegPlayer *playerView;
 @end
