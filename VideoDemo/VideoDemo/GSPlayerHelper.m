@@ -6,12 +6,17 @@
 //  Copyright © 2017年 sunwell. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
 #import "GSPlayerHelper.h"
 #import "GSMpegPlayer.h"
 
-#include <libswscale/swscale.h>
-#include <libavformat/avformat.h>
-#include <libavcodec/avcodec.h>
+#include "libswscale/swscale.h"
+#include "libavformat/avformat.h"
+#include "libavcodec/avcodec.h"
+
+//#include <libswscale/swscale.h>
+//#include <libavformat/avformat.h>
+//#include <libavcodec/avcodec.h>
 
 #define ScreenW [UIScreen mainScreen].bounds.size.width
 #define ScreenH [UIScreen mainScreen].bounds.size.height
@@ -84,7 +89,8 @@
     pFrame = av_frame_alloc();
     pFrameYUV = av_frame_alloc();
     uint8_t *out_buffer;
-    out_buffer = new uint8_t[avpicture_get_size(AV_PIX_FMT_YUV420P, pCodecCtx->width, pCodecCtx->height)];
+    
+//    out_buffer = new uint8_t[avpicture_get_size(AV_PIX_FMT_YUV420P, pCodecCtx->width, pCodecCtx->height)];
     avpicture_fill((AVPicture *)pFrameYUV, out_buffer, AV_PIX_FMT_YUV420P, pCodecCtx->width, pCodecCtx->height);
     
     int ret, got_picture;
