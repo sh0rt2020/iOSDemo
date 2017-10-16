@@ -7,19 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		578A915B1F94AC9900724D8D /* demo.gif in Resources */ = {isa = PBXBuildFile; fileRef = 578A915A1F94870F00724D8D /* demo.gif */; };
 		57B3DD8B1F906FA900F1D586 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 57B3DD8A1F906FA900F1D586 /* AppDelegate.m */; };
 		57B3DD8E1F906FA900F1D586 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57B3DD8D1F906FA900F1D586 /* ViewController.m */; };
 		57B3DD911F906FA900F1D586 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57B3DD8F1F906FA900F1D586 /* Main.storyboard */; };
 		57B3DD931F906FA900F1D586 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57B3DD921F906FA900F1D586 /* Assets.xcassets */; };
 		57B3DD961F906FA900F1D586 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57B3DD941F906FA900F1D586 /* LaunchScreen.storyboard */; };
 		57B3DD991F906FA900F1D586 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 57B3DD981F906FA900F1D586 /* main.m */; };
-		57B3DDA81F90C06D00F1D586 /* 五环之歌.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 57B3DDA71F90C06100F1D586 /* 五环之歌.mp3 */; };
-		57B3DDAA1F90C29500F1D586 /* 雪碧.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 57B3DDA91F90C28C00F1D586 /* 雪碧.mp4 */; };
+		57B3DDA81F90C06D00F1D586 /* demo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 57B3DDA71F90C06100F1D586 /* demo.mp3 */; };
+		57B3DDAA1F90C29500F1D586 /* demo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 57B3DDA91F90C28C00F1D586 /* demo.mp4 */; };
 		57B3DDB31F90C5C400F1D586 /* Gif2MP4Convertor.m in Sources */ = {isa = PBXBuildFile; fileRef = 57B3DDB21F90C5C400F1D586 /* Gif2MP4Convertor.m */; };
 		57B3DDB61F90C62300F1D586 /* VideoAndAudioMerger.m in Sources */ = {isa = PBXBuildFile; fileRef = 57B3DDB51F90C62300F1D586 /* VideoAndAudioMerger.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		578A915A1F94870F00724D8D /* demo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo.gif; sourceTree = "<group>"; };
 		57B3DD861F906FA900F1D586 /* GifToVideoDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GifToVideoDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57B3DD891F906FA900F1D586 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		57B3DD8A1F906FA900F1D586 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -30,8 +32,8 @@
 		57B3DD951F906FA900F1D586 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		57B3DD971F906FA900F1D586 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		57B3DD981F906FA900F1D586 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		57B3DDA71F90C06100F1D586 /* 五环之歌.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "五环之歌.mp3"; sourceTree = "<group>"; };
-		57B3DDA91F90C28C00F1D586 /* 雪碧.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "雪碧.mp4"; sourceTree = "<group>"; };
+		57B3DDA71F90C06100F1D586 /* demo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = demo.mp3; sourceTree = "<group>"; };
+		57B3DDA91F90C28C00F1D586 /* demo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = demo.mp4; sourceTree = "<group>"; };
 		57B3DDB11F90C5C400F1D586 /* Gif2MP4Convertor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Gif2MP4Convertor.h; sourceTree = "<group>"; };
 		57B3DDB21F90C5C400F1D586 /* Gif2MP4Convertor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Gif2MP4Convertor.m; sourceTree = "<group>"; };
 		57B3DDB41F90C62300F1D586 /* VideoAndAudioMerger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoAndAudioMerger.h; sourceTree = "<group>"; };
@@ -68,8 +70,9 @@
 		57B3DD881F906FA900F1D586 /* GifToVideoDemo */ = {
 			isa = PBXGroup;
 			children = (
-				57B3DDA91F90C28C00F1D586 /* 雪碧.mp4 */,
-				57B3DDA71F90C06100F1D586 /* 五环之歌.mp3 */,
+				578A915A1F94870F00724D8D /* demo.gif */,
+				57B3DDA91F90C28C00F1D586 /* demo.mp4 */,
+				57B3DDA71F90C06100F1D586 /* demo.mp3 */,
 				57B3DD891F906FA900F1D586 /* AppDelegate.h */,
 				57B3DD8A1F906FA900F1D586 /* AppDelegate.m */,
 				57B3DD8C1F906FA900F1D586 /* ViewController.h */,
@@ -145,8 +148,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57B3DDAA1F90C29500F1D586 /* 雪碧.mp4 in Resources */,
-				57B3DDA81F90C06D00F1D586 /* 五环之歌.mp3 in Resources */,
+				578A915B1F94AC9900724D8D /* demo.gif in Resources */,
+				57B3DDAA1F90C29500F1D586 /* demo.mp4 in Resources */,
+				57B3DDA81F90C06D00F1D586 /* demo.mp3 in Resources */,
 				57B3DD961F906FA900F1D586 /* LaunchScreen.storyboard in Resources */,
 				57B3DD931F906FA900F1D586 /* Assets.xcassets in Resources */,
 				57B3DD911F906FA900F1D586 /* Main.storyboard in Resources */,

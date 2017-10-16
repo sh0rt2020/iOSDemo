@@ -11,6 +11,8 @@
 #import <AVFoundation/AVFoundation.h>
 #import <MobileCoreServices/MobileCoreServices.h>
 
+#import <UIKit/UIKit.h>
+
 #define FPS 30
 
 NSString * const kGIF2MP4ConversionErrorDomain = @"GIF2MP4ConversionError";
@@ -22,7 +24,6 @@ NSString * const kGIF2MP4ConversionErrorDomain = @"GIF2MP4ConversionError";
     if( !requestQueue ) {
         requestQueue = [NSOperationQueue new];
         requestQueue.maxConcurrentOperationCount = 5;
-        
     }
     return requestQueue;
 }
@@ -82,15 +83,16 @@ static __strong NSMutableArray* requests = nil;
 #endif
         //NSURLResponse* response = nil;
         NSError* error = nil;
+        //从网络加载gif
         NSData* data = [NSURLConnection sendSynchronousRequest: request
                                              returningResponse: NULL
                                                          error: &error];
+
         
         if( error ) {
             [self queueContainsRequest: request];
             handler(filePath, error);
-        }
-        else {
+        } else {
             if( [[NSFileManager defaultManager] fileExistsAtPath: filePath] ) {
                 [[NSFileManager defaultManager] removeItemAtPath: filePath
                                                            error: &error];
@@ -107,7 +109,6 @@ static __strong NSMutableArray* requests = nil;
                 dispatch_async(dispatch_get_main_queue(), ^{
                     handler(path, error);
                 });
-                
             };
             
             [self processGIFData: data toFilePath: outFilePath thumbFilePath: thumbFilePath completed: completionHandler];
@@ -204,8 +205,7 @@ static __strong NSMutableArray* requests = nil;
                                  (NSString*)kCVPixelBufferCGBitmapContextCompatibilityKey : @YES
                                  };
     
-    AVAssetWriterInputPixelBufferAdaptor* adaptor = [AVAssetWriterInputPixelBufferAdaptor assetWriterInputPixelBufferAdaptorWithAssetWriterInput: videoWriterInput
-                                                                                                                     sourcePixelBufferAttributes: attributes];
+    AVAssetWriterInputPixelBufferAdaptor* adaptor = [AVAssetWriterInputPixelBufferAdaptor assetWriterInputPixelBufferAdaptorWithAssetWriterInput: videoWriterInput sourcePixelBufferAttributes: attributes];
     
     [videoWriter startWriting];
     [videoWriter startSessionAtSourceTime: CMTimeMakeWithSeconds(totalFrameDelay, FPS)];
@@ -241,7 +241,7 @@ static __strong NSMutableArray* requests = nil;
                         CMTime time = CMTimeMakeWithSeconds(totalFrameDelay, FPS);
                         
                         if( ![adaptor appendPixelBuffer: pxBuffer withPresentationTime: time] ) {
-                            TFLog(@"Could not save pixel buffer!: %@", videoWriter.error);
+//                            TFLog(@"Could not save pixel buffer!: %@", videoWriter.error);
                             CFRelease(properties);
                             CGImageRelease(imgRef);
                             CVBufferRelease(pxBuffer);

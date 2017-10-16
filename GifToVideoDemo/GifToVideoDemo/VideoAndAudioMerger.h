@@ -7,7 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface VideoAndAudioMerger : NSObject
+
+- (id)initWithVideoContainer:(UIImageView *)videoContainer;
+- (void)convertAndMerge;
 
 @end
