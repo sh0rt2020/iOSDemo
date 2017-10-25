@@ -71,6 +71,7 @@
 
 #pragma mark  UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"%s", __func__);
 }
 
 #pragma mark  SSScrollViewDelegate
